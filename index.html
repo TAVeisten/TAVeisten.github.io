@@ -69,5 +69,18 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
       <span class="icon">🔄</span><span class="txt"><span class="name">Daglige oppdateringer</span><br><span class="sub">Hva de to morgenoppgavene gjør</span></span><span class="arrow">›</span></a>
   </div>
 </div>
+<script>
+// På Mac: åpne Claude-lenker i Claude-appen (claude://) i stedet for i nettleseren.
+// iPad later som den er en Mac, men har berøringsskjerm – den får vanlige lenker.
+(function(){
+  var ua = navigator.userAgent || "";
+  var isMac = /Macintosh/.test(ua) && (navigator.maxTouchPoints || 0) < 2;
+  if (!isMac) return;
+  var links = document.querySelectorAll('a[href^="https://claude.ai/"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].href = links[i].getAttribute("href").replace("https://", "claude://");
+  }
+})();
+</script>
 </body>
 </html>
