@@ -77,18 +77,7 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
 // iPad later som den er en Mac, men har berøringsskjerm – den får vanlige lenker.
 (function(){
   var ua = navigator.userAgent || "";
-  var touch = (navigator.maxTouchPoints || 0) >= 2;
-  var isMac = /Macintosh/.test(ua) && !touch;
-  var isIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && touch);
-  if (isIOS) {
-    // iPhone/iPad: gå via go.html, så Claude-sidene åpnes i full størrelse i nettleseren
-    // i stedet for i det lille forhåndsvisningsvinduet i Claude-appen.
-    var a = document.querySelectorAll('a[href^="https://claude.ai/artifact/"]');
-    for (var j = 0; j < a.length; j++) {
-      a[j].href = "go.html?u=" + encodeURIComponent(a[j].getAttribute("href"));
-    }
-    return;
-  }
+  var isMac = /Macintosh/.test(ua) && (navigator.maxTouchPoints || 0) < 2;
   if (!isMac) return;
   // Bare «Ny chat»: Claude-appen på Mac kan ikke åpne artifact-sider via claude://
   var links = document.querySelectorAll('a[href="https://claude.ai/new"]');
