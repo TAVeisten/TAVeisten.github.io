@@ -76,7 +76,8 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
   var ua = navigator.userAgent || "";
   var isMac = /Macintosh/.test(ua) && (navigator.maxTouchPoints || 0) < 2;
   if (!isMac) return;
-  var links = document.querySelectorAll('a[href^="https://claude.ai/"]');
+  // Bare «Ny chat»: Claude-appen på Mac kan ikke åpne artifact-sider via claude://
+  var links = document.querySelectorAll('a[href="https://claude.ai/new"]');
   for (var i = 0; i < links.length; i++) {
     links[i].href = links[i].getAttribute("href").replace("https://", "claude://");
   }
