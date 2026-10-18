@@ -29,7 +29,8 @@ h2{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .heroes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .hero{background:var(--hero);color:var(--hero-ink);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;min-width:0}
 .hero .hicon{font-size:1.7rem;line-height:1}
-.hero .hname{font-weight:700;font-size:1.08rem;line-height:1.2}
+.hero .heyebrow{color:var(--hero-sub);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:-4px}
+.hero .hname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;font-size:1.08rem;line-height:1.2}
 .hero .hsub{color:var(--hero-sub);font-size:.78rem}
 .hero .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
 .hero .btn{background:var(--chip);color:var(--hero-ink);text-decoration:none;border-radius:8px;padding:7px 10px;font-weight:600;font-size:.85rem;flex:1 1 auto;text-align:center}
@@ -47,6 +48,7 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
 .quiet a.item{color:var(--muted)}
 .note{color:var(--muted);font-size:.72rem;margin:12px 4px 0}
 @media (max-width:520px){body{font-size:14.5px}.wrap{padding-top:8px}h1{font-size:1.2rem}}
+@media (max-width:380px){.wrap{padding-left:12px;padding-right:12px}.hero{padding:12px}.hero .hname{font-size:1rem}}
 @media (max-width:340px){.heroes{grid-template-columns:1fr}}
 </style>
 </head>
@@ -57,6 +59,7 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
   <div class="heroes">
     <div class="hero">
       <span class="hicon">💼</span>
+      <span class="heyebrow">Jobbsøk</span>
       <span class="hname">Jobbtavla</span>
       <span class="hsub">Stillinger og søknader, oppdateres hver morgen</span>
       <div class="btns">
@@ -66,7 +69,8 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
     </div>
     <div class="hero">
       <span class="hicon">🎸</span>
-      <span class="hname">Konsertkalender Norge</span>
+      <span class="heyebrow">Norge</span>
+      <span class="hname" title="Konsertkalender Norge">Konsertkalender</span>
       <span class="hsub">Konserter og festivaler, oppdateres hver morgen</span>
       <div class="btns">
         <a class="btn" href="https://claude.ai/artifact/XSLvj1PCYH71mErnbZsZp1" aria-label="Konsertkalender Norge – Claude-appen">Claude-appen</a>
