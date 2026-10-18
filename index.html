@@ -30,7 +30,7 @@ h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut
 .hero{background:var(--hero);color:var(--hero-ink);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;min-width:0}
 .hero .hicon{font-size:1.7rem;line-height:1}
 .hero .heyebrow{color:var(--hero-sub);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:-4px}
-.hero .hname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;font-size:1.08rem;line-height:1.2}
+.hero .hname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;font-size:clamp(1rem,calc((50vw - 42px) / 8.3),1.5rem);line-height:1.2}
 .hero .hsub{color:var(--hero-sub);font-size:.88rem}
 .hero .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
 .hero .btn{background:var(--chip);color:var(--hero-ink);text-decoration:none;border-radius:8px;padding:8px 10px;font-weight:600;font-size:.92rem;flex:1 1 auto;text-align:center}
@@ -48,9 +48,11 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
 .quiet a.item{color:var(--muted)}
 .note{color:var(--muted);font-size:.8rem;margin:12px 4px 0}
 @media (max-width:520px){body{font-size:14.5px}.wrap{padding-top:2px}h1{font-size:1.65rem}}
-@media (max-width:380px){.wrap{padding-left:12px;padding-right:12px}.hero{padding:12px}.hero .hname{font-size:1rem}}
+@media (max-width:520px){.wrap{padding-left:12px;padding-right:12px}.hero{padding:12px}.heroes{gap:8px}}
 @media (max-width:340px){.heroes{grid-template-columns:1fr}}
+html.top .wrap{padding-top:22px}
 </style>
+<script>try{if(window.self===window.top)document.documentElement.classList.add("top")}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
