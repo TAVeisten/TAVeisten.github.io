@@ -51,6 +51,8 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
 @media (max-width:520px){.wrap{padding-left:12px;padding-right:12px}.hero{padding:12px}.heroes{gap:8px}}
 @media (max-width:340px){.heroes{grid-template-columns:1fr}}
 html.top .wrap{padding-top:22px}
+/* I Claude-appen legger appen selv til luft for statuslinjen – ikke legg den til to ganger */
+html:not(.top) body{padding-top:0}
 </style>
 <script>try{if(window.self===window.top)document.documentElement.classList.add("top")}catch(e){}</script>
 </head>
