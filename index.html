@@ -24,7 +24,9 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15p
   padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
 .wrap{max-width:640px;margin:0 auto;padding:4px 16px 20px}
 h1{font-size:1.85rem;line-height:1.15;margin:0 0 8px;letter-spacing:-.01em}
-h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:12px 0 4px;font-weight:600}
+.wrap{container-type:inline-size}
+/* Seksjonsoverskrifter: samme størrelse og stil som titlene i de store kortene */
+h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) / 9.0),1.75rem);line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin:30px 0 8px}
 /* Dynamiske sider: store kort */
 .heroes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .hero{container-type:inline-size;background:var(--hero);border-top:4px solid var(--stripe,transparent);color:var(--hero-ink);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;min-width:0}
@@ -50,7 +52,7 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
 .sub{color:var(--muted);font-size:.75rem}
 .arrow{color:var(--accent);flex:none}
 .quiet a.item{color:var(--muted)}
-.note{color:var(--muted);font-size:.8rem;margin:12px 4px 0}
+.note{color:var(--muted);font-size:.8rem;margin:30px 4px 0}
 @media (max-width:520px){body{font-size:14.5px}.wrap{padding-top:2px}h1{font-size:1.65rem}}
 @media (max-width:520px){.wrap{padding-left:12px;padding-right:12px}.hero{padding:12px}.heroes{gap:8px}}
 @media (max-width:340px){.heroes{grid-template-columns:1fr}}
