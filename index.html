@@ -27,11 +27,15 @@ h1{font-size:1.85rem;line-height:1.15;margin:0 0 8px;letter-spacing:-.01em}
 h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:12px 0 4px;font-weight:600}
 /* Dynamiske sider: store kort */
 .heroes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.hero{container-type:inline-size;background:var(--hero);color:var(--hero-ink);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;min-width:0}
+.hero{container-type:inline-size;background:var(--hero);border-top:4px solid var(--stripe,transparent);color:var(--hero-ink);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;min-width:0}
 .hero .hicon{font-size:1.7rem;line-height:1}
-.hero .heyebrow{color:var(--hero-sub);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:-4px}
-.hero .hname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;font-size:1.08rem;font-size:clamp(.9rem,calc(100cqi / 8.8),1.35rem);line-height:1.2}
-.hero .hsub{color:var(--hero-sub);font-size:.88rem}
+/* Tydelig tittel: stor og fet, kan bryte over flere linjer (myk bindestrek i lange ord) */
+.hero .hname{font-weight:800;font-size:1.3rem;font-size:clamp(1.15rem,calc(100cqi / 7.4),1.75rem);line-height:1.1;letter-spacing:-.01em;hyphens:manual;overflow-wrap:break-word}
+.hero .hsub{color:var(--hero-sub);font-size:.85rem;line-height:1.25}
+/* Egen farge per kort */
+.hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6}
+.hero.gig{--hero:#4A2D6B;--hero-sub:#DCCDEE;--stripe:#B98AF0}
+@media (prefers-color-scheme: dark){.hero.job{--hero:#1F3550;--hero-sub:#B5C6DD;--stripe:#4F86C9}.hero.gig{--hero:#3A2652;--hero-sub:#CDBCE2;--stripe:#9A6FD1}}
 .hero .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
 .hero .btn{background:var(--chip);color:var(--hero-ink);text-decoration:none;border-radius:8px;padding:8px 10px;font-weight:600;font-size:.92rem;flex:1 1 auto;text-align:center}
 .hero .btn:hover,.hero .btn:focus-visible{background:rgba(255,255,255,.26);outline:none}
@@ -61,21 +65,19 @@ html:not(.top) body{padding-top:0}
   <h1>Mine sider</h1>
 
   <div class="heroes">
-    <div class="hero">
+    <div class="hero job">
       <span class="hicon">💼</span>
-      <span class="heyebrow">Jobbsøk</span>
       <span class="hname">Jobbtavla</span>
-      <span class="hsub">Oppdateres hver dag kl. 08:00</span>
+      <span class="hsub">Nye stillinger, oppdatert hver dag kl.&nbsp;08:00</span>
       <div class="btns">
         <a class="btn" href="https://claude.ai/artifact/WpXV8rLyjJ2ETAeoCHyABq" aria-label="Jobbtavla">Alle stillinger</a>
         <a class="btn" href="https://claude.ai/artifact/2MJ9FzedX5adCsTSyYe5vG" aria-label="Jobbtavla – KONGSBERG-oversikt">KONGSBERG</a>
       </div>
     </div>
-    <div class="hero">
+    <div class="hero gig">
       <span class="hicon">🎸</span>
-      <span class="heyebrow">Norge</span>
-      <span class="hname" title="Konsertkalender Norge">Konsertkalender</span>
-      <span class="hsub">Oppdateres hver dag kl. 08:00</span>
+      <span class="hname">Konsert&shy;kalender Norge</span>
+      <span class="hsub">Kommende konserter, oppdatert hver dag kl.&nbsp;08:00</span>
       <div class="btns">
         <a class="btn" href="https://claude.ai/artifact/XSLvj1PCYH71mErnbZsZp1" aria-label="Konsertkalender Norge – Claude-appen">Claude-appen</a>
         <a class="btn" href="https://taveisten.github.io/konsertkalender/" aria-label="Konsertkalender Norge – Nettsiden">Nettsiden</a>
