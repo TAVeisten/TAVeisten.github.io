@@ -52,6 +52,10 @@ a.item:hover,a.item:focus-visible{background:var(--hover);outline:none}
 .sub{color:var(--muted);font-size:.75rem}
 .arrow{color:var(--accent);flex:none}
 .quiet a.item{color:var(--muted)}
+/* Luft mellom lenkene: hver lenke som eget lite kort */
+.list{background:none;border:0;border-radius:0;overflow:visible;display:flex;flex-direction:column;gap:8px}
+a.item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+a.item:last-child{border-bottom:1px solid var(--line)}
 .note{color:var(--muted);font-size:.8rem;margin:30px 4px 0}
 @media (max-width:520px){body{font-size:14.5px}.wrap{padding-top:2px}h1{font-size:1.65rem}}
 @media (max-width:520px){.wrap{padding-left:12px;padding-right:12px}.hero{padding:12px}.heroes{gap:8px}}
