@@ -127,15 +127,20 @@ html:not(.top) body{padding-top:0}
 })();
 </script>
 <script>
-// Konsertkalender: «N nye fra favorittene» siden du sist åpnet kalenderen på nettsiden i denne nettleseren.
-// nytt.json skrives av morgenoppdateringen; kk-seenDay/kk-seenPrev er de samme som kalenderen selv bruker.
+// Konsertkalender: «N nye fra favorittene» som du ikke har sett ennå, på noen enhet.
+// nytt.json skrives av morgenoppdateringen. «Sett» er det siste oppdateringsdøgnet du har sett: felles for alle
+// enheter i favoritter.json (når GitHub-nøkkelen er lagt inn i kalenderen), og ellers det denne nettleseren husker.
 (function(){
   var box = document.getElementById("gigNew"); if (!box || !window.fetch) return;
-  function ld(k){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : ""; }catch(e){ return ""; } }
-  fetch("https://taveisten.github.io/konsertkalender/nytt.json", {cache:"no-store"}).then(function(r){ return r.ok ? r.json() : null; }).then(function(n){
-    if (!n || !n.day || !n.fav) return;
-    var sd = ld("kk-seenDay"), prev = sd !== n.day ? sd : ld("kk-seenPrev");
-    var c = n.fav.filter(function(x){ return prev ? x.d > prev : x.d >= n.day; }).length;
+  function ld(k){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : 0; }catch(e){ return 0; } }
+  function dayNo(iso){ return Math.round((Date.UTC(+iso.slice(0,4), +iso.slice(5,7)-1, +iso.slice(8,10)) - Date.UTC(2026,0,1)) / 864e5); }
+  var nytt = fetch("https://taveisten.github.io/konsertkalender/nytt.json", {cache:"no-store"}).then(function(r){ return r.ok ? r.json() : null; });
+  var fav = fetch("https://api.github.com/repos/TAVeisten/konsertkalender/contents/favoritter.json?ref=main", {cache:"no-store", headers:{"Accept":"application/vnd.github.raw+json"}})
+    .then(function(r){ return r.ok ? r.json() : {}; }).catch(function(){ return {}; });
+  Promise.all([nytt, fav]).then(function(v){
+    var n = v[0], f = v[1] || {}; if (!n || !n.day || !n.fav) return;
+    var seen = Math.max(+ld("kk-seenNo") || 0, +f.seen || 0) || (dayNo(n.day) - 1);
+    var c = n.fav.filter(function(x){ return dayNo(x.d) > seen; }).length;
     if (!c) return;
     box.textContent = c + (c === 1 ? " ny" : " nye") + " fra favorittene";
     box.title = n.fav.slice(0, 6).map(function(x){ return x.t; }).join("\n");
