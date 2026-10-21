@@ -41,6 +41,7 @@ h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) /
 /* Boble på konsertkortet: nye konserter fra favorittene siden sist (lyseblå, ikke rød) */
 .hero .hnew{align-self:flex-start;background:#e6eefc;color:#2a52b8;font-weight:700;font-size:.82rem;line-height:1.2;border-radius:999px;padding:4px 10px}
 .hero .hnew[hidden]{display:none}
+a.hnew{text-decoration:none;cursor:pointer}a.hnew::after{content:" ›"}a.hnew:hover{text-decoration:underline;text-underline-offset:3px}
 .hero .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
 .hero .btn{background:var(--chip);color:var(--hero-ink);text-decoration:none;border-radius:8px;padding:8px 10px;font-weight:600;font-size:.92rem;flex:1 1 auto;text-align:center}
 .hero .btn:hover,.hero .btn:focus-visible{background:rgba(255,255,255,.26);outline:none}
@@ -86,7 +87,7 @@ html:not(.top) body{padding-top:0}
       <span class="hicon">🎸</span>
       <span class="hname">Konsertkalender Norge</span>
       <span class="hsub">Kommende konserter, oppdatert daglig kl.&nbsp;08:00</span>
-      <span class="hnew" id="gigNew" hidden></span>
+      <a class="hnew" id="gigNew" href="https://taveisten.github.io/konsertkalender/?nye" hidden></a>
       <div class="btns">
         <a class="btn" href="https://claude.ai/artifact/XSLvj1PCYH71mErnbZsZp1" aria-label="Konsertkalender Norge – Claude-appen">Claude-appen</a>
         <a class="btn" href="https://taveisten.github.io/konsertkalender/" aria-label="Konsertkalender Norge – Nettsiden">Nettsiden</a>
