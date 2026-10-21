@@ -38,6 +38,9 @@ h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) /
 .hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6}
 .hero.gig{--hero:#4A2D6B;--hero-sub:#DCCDEE;--stripe:#B98AF0}
 @media (prefers-color-scheme: dark){.hero.job{--hero:#1F3550;--hero-sub:#B5C6DD;--stripe:#4F86C9}.hero.gig{--hero:#3A2652;--hero-sub:#CDBCE2;--stripe:#9A6FD1}}
+/* Boble på konsertkortet: nye konserter fra favorittene siden sist (lyseblå, ikke rød) */
+.hero .hnew{align-self:flex-start;background:#e6eefc;color:#2a52b8;font-weight:700;font-size:.82rem;line-height:1.2;border-radius:999px;padding:4px 10px}
+.hero .hnew[hidden]{display:none}
 .hero .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
 .hero .btn{background:var(--chip);color:var(--hero-ink);text-decoration:none;border-radius:8px;padding:8px 10px;font-weight:600;font-size:.92rem;flex:1 1 auto;text-align:center}
 .hero .btn:hover,.hero .btn:focus-visible{background:rgba(255,255,255,.26);outline:none}
@@ -83,6 +86,7 @@ html:not(.top) body{padding-top:0}
       <span class="hicon">🎸</span>
       <span class="hname">Konsertkalender Norge</span>
       <span class="hsub">Kommende konserter, oppdatert daglig kl.&nbsp;08:00</span>
+      <span class="hnew" id="gigNew" hidden></span>
       <div class="btns">
         <a class="btn" href="https://claude.ai/artifact/XSLvj1PCYH71mErnbZsZp1" aria-label="Konsertkalender Norge – Claude-appen">Claude-appen</a>
         <a class="btn" href="https://taveisten.github.io/konsertkalender/" aria-label="Konsertkalender Norge – Nettsiden">Nettsiden</a>
@@ -120,6 +124,23 @@ html:not(.top) body{padding-top:0}
   for (var i = 0; i < links.length; i++) {
     links[i].href = links[i].getAttribute("href").replace("https://", "claude://");
   }
+})();
+</script>
+<script>
+// Konsertkalender: «N nye fra favorittene» siden du sist åpnet kalenderen på nettsiden i denne nettleseren.
+// nytt.json skrives av morgenoppdateringen; kk-seenDay/kk-seenPrev er de samme som kalenderen selv bruker.
+(function(){
+  var box = document.getElementById("gigNew"); if (!box || !window.fetch) return;
+  function ld(k){ try{ var v = localStorage.getItem(k); return v ? JSON.parse(v) : ""; }catch(e){ return ""; } }
+  fetch("https://taveisten.github.io/konsertkalender/nytt.json", {cache:"no-store"}).then(function(r){ return r.ok ? r.json() : null; }).then(function(n){
+    if (!n || !n.day || !n.fav) return;
+    var sd = ld("kk-seenDay"), prev = sd !== n.day ? sd : ld("kk-seenPrev");
+    var c = n.fav.filter(function(x){ return prev ? x.d > prev : x.d >= n.day; }).length;
+    if (!c) return;
+    box.textContent = c + (c === 1 ? " ny" : " nye") + " fra favorittene";
+    box.title = n.fav.slice(0, 6).map(function(x){ return x.t; }).join("\n");
+    box.hidden = false;
+  }).catch(function(){});
 })();
 </script>
 </body>
