@@ -35,9 +35,12 @@ h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) /
 .hero .hname{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc(100cqi / 9.0),1.75rem);line-height:1.1;letter-spacing:-.01em;hyphens:manual;overflow-wrap:break-word}
 .hero .hsub{color:var(--hero-sub);font-size:.85rem;line-height:1.25}
 /* Egen farge per kort */
-.hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6}
-.hero.gig{--hero:#4A2D6B;--hero-sub:#DCCDEE;--stripe:#B98AF0;grid-column:1/-1}
-.hero.gig .hname{font-size:clamp(.95rem,calc(50cqi / 9.0),1.75rem)}
+.hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6;grid-column:1/-1}
+.hero.job .hname{font-size:clamp(.95rem,calc(50cqi / 9.0),1.75rem)}
+/* Jobbtavla: knappen får naturlig bredde og står midt i kortet */
+.hero.job .btns{justify-content:center}
+.hero.job .btn{flex:0 0 auto;padding:8px 32px}
+.hero.gig{--hero:#4A2D6B;--hero-sub:#DCCDEE;--stripe:#B98AF0}
 .hero.kino{--hero:#123B4A;--hero-sub:#BCD3DB;--stripe:#4FB3C7}
 @media (prefers-color-scheme: dark){.hero.job{--hero:#1F3550;--hero-sub:#B5C6DD;--stripe:#4F86C9}.hero.gig{--hero:#3A2652;--hero-sub:#CDBCE2;--stripe:#9A6FD1}.hero.kino{--hero:#163A47;--hero-sub:#A9C3CC;--stripe:#3E97AA}}
 /* Boble på konsertkortet: nye konserter fra favorittene siden sist (lyseblå, ikke rød) */
@@ -77,6 +80,14 @@ html:not(.top) body{padding-top:0}
   <h1>Mine sider</h1>
 
   <div class="heroes">
+    <div class="hero job">
+      <span class="hicon">💼</span>
+      <span class="hname">Jobbtavla</span>
+      <span class="hsub">Stillingsannonser fra FINN, NAV, LinkedIn, Indeed og firmaenes karrieresider, oppdatert daglig kl.&nbsp;08:00</span>
+      <div class="btns">
+        <a class="btn" href="https://claude.ai/artifact/WpXV8rLyjJ2ETAeoCHyABq" aria-label="Jobbtavla">Jobbtavla</a>
+      </div>
+    </div>
     <div class="hero gig">
       <span class="hicon">🎸</span>
       <span class="hname">Konsertkalender Norge</span>
@@ -85,14 +96,6 @@ html:not(.top) body{padding-top:0}
       <div class="btns">
         <a class="btn" href="https://claude.ai/artifact/XSLvj1PCYH71mErnbZsZp1" aria-label="Konsertkalender Norge – Claude-appen">Claude-appen</a>
         <a class="btn" href="https://taveisten.github.io/konsertkalender/" aria-label="Konsertkalender Norge – Nettsiden">Nettsiden</a>
-      </div>
-    </div>
-    <div class="hero job">
-      <span class="hicon">💼</span>
-      <span class="hname">Jobbtavla</span>
-      <span class="hsub">Stillingsannonser fra FINN, NAV, LinkedIn, Indeed og firmaenes karrieresider, oppdatert daglig kl.&nbsp;08:00</span>
-      <div class="btns">
-        <a class="btn" href="https://claude.ai/artifact/WpXV8rLyjJ2ETAeoCHyABq" aria-label="Jobbtavla">Jobbtavla</a>
       </div>
     </div>
     <div class="hero kino">
