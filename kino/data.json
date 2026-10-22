@@ -1,92 +1,104 @@
 {
- "updated": "2026-10-22T11:26+02:00",
+ "updated": "2026-10-22T11:30+02:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "films": [
   {
-   "id": "la-fjella-leve",
-   "title": "La fjella leve",
-   "url": "https://www.nfkino.no/film/la-fjella-leve?city=drammen",
-   "len": 100,
-   "age": "Alle",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001923-1000028765.jpg?itok=wneK72UC",
+   "id": "suser-avgarde",
+   "title": "Suser avgårde",
+   "url": "https://www.nfkino.no/film/suser-avgarde?city=drammen",
+   "len": 105,
+   "age": "9 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000645-1000034180.jpg?itok=w7YiyX9c",
    "shows": [
     {
      "d": "2026-10-22",
-     "t": "11:30",
-     "room": "Sal 5",
+     "t": "12:00",
+     "room": "Sal 3",
      "tags": [
       "Norsk tale",
       "Norsk tekst",
-      "Seniorkino"
+      "Babykino"
      ],
-     "url": "https://www.nfkino.no/screening/2605/25c52a28-2c7e-4638-9c57-6af9d980be6b",
+     "url": "https://www.nfkino.no/screening/2605/e235ccf1-8189-436c-923e-46a61d76963e",
+     "avail": "many"
+    },
+    {
+     "d": "2026-10-22",
+     "t": "16:10",
+     "room": "Sal 6",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/80417f3a-6fb0-4e61-902f-88f12904996c",
+     "avail": "many"
+    },
+    {
+     "d": "2026-10-23",
+     "t": "16:25",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/07605ed9-7cb0-4ee1-a6d2-5acdd5801f0b",
      "avail": "many"
     },
     {
      "d": "2026-10-24",
      "t": "11:30",
-     "room": "Sal 5",
+     "room": "Sal 6",
      "tags": [
       "Norsk tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/8f93aab7-80ee-46d6-8132-2e762a947750",
+     "url": "https://www.nfkino.no/screening/2605/ab449427-a8cb-477e-9224-07ce4216ec78",
      "avail": "many"
     },
     {
-     "d": "2026-10-28",
-     "t": "11:30",
+     "d": "2026-10-27",
+     "t": "20:30",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c001fe21-f508-4097-95d9-6edb652ae8cb",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-04",
+     "t": "18:00",
      "room": "Sal 3",
      "tags": [
       "Norsk tale",
       "Norsk tekst",
-      "Seniorkino"
+      "Event"
      ],
-     "url": "https://www.nfkino.no/screening/2605/965b44be-3916-4b13-b8fb-b597a88b02c8",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-29",
-     "t": "16:00",
-     "room": "Sal 5",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/8ff9e1e2-e2ff-4c43-9f34-d379ed6b9b5b",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-01",
-     "t": "11:45",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/cd924ee8-397e-481c-b389-e4afeffa7903",
+     "url": "https://www.nfkino.no/screening/2605/0987ea0b-b4c7-4742-9d7b-b133f789c96e",
      "avail": "many"
     }
    ],
    "genre": [
-    "Dokumentar"
+    "Musikkfilm",
+    "Drama"
    ],
-   "orig": "La fjella leve",
-   "director": "Håvard Bustnes",
+   "orig": "Suser avgårde",
+   "director": "Rikke Gregersen",
    "actors": [
-    "Elise Pavall Årbogen",
-    "Sissel Stormo Holtan",
-    "Terje Haugen",
-    "Ella Marie Hætta Isaksen"
+    "Ada Eide",
+    "Sarah Francesca Brænne",
+    "Fredrik Stenberg Ditlev-Simonsen",
+    "Steinar Klouman Hallert"
    ],
    "lang": "NO",
-   "about": "De vant i Høyesterett. Men kampen var ikke over. I La fjella leve retter en av Norges mest anerkjente dokumentarfilmskapere, Håvard Bustnes, blikket mot Fosen-saken og statens pågående brudd på menneskerettighetene. La fjella leve kommer på kino over hele landet 9. oktober.",
+   "about": "Ærlig, ekte og morsomt om å motvillig bli voksen og å finne sin plass",
    "premiere": "9 oktober",
    "imdb": {
-    "id": "tt40036377",
-    "rating": 7.5,
-    "votes": 26
+    "id": "tt39443962",
+    "rating": 7.1,
+    "votes": 75
    },
    "rt": null
   },
@@ -98,30 +110,6 @@
    "age": "9 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000896-1000030027.jpg?itok=mdBi1EnF",
    "shows": [
-    {
-     "d": "2026-10-22",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/afd65c1d-8cd1-4664-b216-3b859b21115d",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-22",
-     "t": "11:30",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/2e37d686-cf53-4dfb-9fe2-10e41d1d3078",
-     "avail": "many"
-    },
     {
      "d": "2026-10-22",
      "t": "15:30",
@@ -519,188 +507,6 @@
     "id": "tt39453840",
     "rating": 8.4,
     "votes": 32
-   },
-   "rt": null
-  },
-  {
-   "id": "rose-0",
-   "title": "Rose",
-   "url": "https://www.nfkino.no/film/rose-0?city=drammen",
-   "len": 93,
-   "age": "12 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002620-1000034616.jpg?itok=QbhAoYSM",
-   "shows": [
-    {
-     "d": "2026-10-22",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "Org. tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/dcd10026-b04b-48e0-8fbd-09d1b676f4c6",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-25",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "Org. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e0f25a1f-1a34-4ddc-8c53-3c1986fbea82",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-28",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "Org. tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/204adfbc-4aea-4573-8e01-beba564a29d9",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-29",
-     "t": "21:00",
-     "room": "Sal 5",
-     "tags": [
-      "Org. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/94e9f066-fe86-49b3-abc5-d2c47b596888",
-     "avail": "many"
-    }
-   ],
-   "genre": [
-    "Drama"
-   ],
-   "orig": "Rose",
-   "director": "Markus Schleinzer",
-   "actors": [
-    "Sandra Hüller",
-    "Godehard Giese",
-    "Robert Gwisdek",
-    "Caro Braun",
-    "Marisa Growaldt"
-   ],
-   "lang": "DE",
-   "about": "Vinner av Sølvbjørnen for Beste Skuespiller til Sandra Hüller, Berlinale 2026",
-   "premiere": "16 oktober",
-   "imdb": {
-    "id": "tt25399154",
-    "rating": 7.5,
-    "votes": 2881
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/rose_2026",
-    "critics": 97,
-    "criticsCount": 33,
-    "audience": null,
-    "audienceCount": "0 Verified Ratings"
-   }
-  },
-  {
-   "id": "suser-avgarde",
-   "title": "Suser avgårde",
-   "url": "https://www.nfkino.no/film/suser-avgarde?city=drammen",
-   "len": 105,
-   "age": "9 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000645-1000034180.jpg?itok=w7YiyX9c",
-   "shows": [
-    {
-     "d": "2026-10-22",
-     "t": "12:00",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Babykino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e235ccf1-8189-436c-923e-46a61d76963e",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-22",
-     "t": "16:10",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/80417f3a-6fb0-4e61-902f-88f12904996c",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-23",
-     "t": "16:25",
-     "room": "Sal 5",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/07605ed9-7cb0-4ee1-a6d2-5acdd5801f0b",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-24",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/ab449427-a8cb-477e-9224-07ce4216ec78",
-     "avail": "many"
-    },
-    {
-     "d": "2026-10-27",
-     "t": "20:30",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/c001fe21-f508-4097-95d9-6edb652ae8cb",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-04",
-     "t": "18:00",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Event"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/0987ea0b-b4c7-4742-9d7b-b133f789c96e",
-     "avail": "many"
-    }
-   ],
-   "genre": [
-    "Musikkfilm",
-    "Drama"
-   ],
-   "orig": "Suser avgårde",
-   "director": "Rikke Gregersen",
-   "actors": [
-    "Ada Eide",
-    "Sarah Francesca Brænne",
-    "Fredrik Stenberg Ditlev-Simonsen",
-    "Steinar Klouman Hallert"
-   ],
-   "lang": "NO",
-   "about": "Ærlig, ekte og morsomt om å motvillig bli voksen og å finne sin plass",
-   "premiere": "9 oktober",
-   "imdb": {
-    "id": "tt39443962",
-    "rating": 7.1,
-    "votes": 75
    },
    "rt": null
   },
@@ -3042,6 +2848,81 @@
    }
   },
   {
+   "id": "la-fjella-leve",
+   "title": "La fjella leve",
+   "url": "https://www.nfkino.no/film/la-fjella-leve?city=drammen",
+   "len": 100,
+   "age": "Alle",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001923-1000028765.jpg?itok=wneK72UC",
+   "shows": [
+    {
+     "d": "2026-10-24",
+     "t": "11:30",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/8f93aab7-80ee-46d6-8132-2e762a947750",
+     "avail": "many"
+    },
+    {
+     "d": "2026-10-28",
+     "t": "11:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/965b44be-3916-4b13-b8fb-b597a88b02c8",
+     "avail": "many"
+    },
+    {
+     "d": "2026-10-29",
+     "t": "16:00",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/8ff9e1e2-e2ff-4c43-9f34-d379ed6b9b5b",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-01",
+     "t": "11:45",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/cd924ee8-397e-481c-b389-e4afeffa7903",
+     "avail": "many"
+    }
+   ],
+   "genre": [
+    "Dokumentar"
+   ],
+   "orig": "La fjella leve",
+   "director": "Håvard Bustnes",
+   "actors": [
+    "Elise Pavall Årbogen",
+    "Sissel Stormo Holtan",
+    "Terje Haugen",
+    "Ella Marie Hætta Isaksen"
+   ],
+   "lang": "NO",
+   "about": "De vant i Høyesterett. Men kampen var ikke over. I La fjella leve retter en av Norges mest anerkjente dokumentarfilmskapere, Håvard Bustnes, blikket mot Fosen-saken og statens pågående brudd på menneskerettighetene. La fjella leve kommer på kino over hele landet 9. oktober.",
+   "premiere": "9 oktober",
+   "imdb": {
+    "id": "tt40036377",
+    "rating": 7.5,
+    "votes": 26
+   },
+   "rt": null
+  },
+  {
    "id": "paw-patrol-dinofilmen",
    "title": "Paw Patrol: Dinofilmen",
    "url": "https://www.nfkino.no/film/paw-patrol-dinofilmen?city=drammen",
@@ -3364,6 +3245,77 @@
     "votes": 481
    },
    "rt": null
+  },
+  {
+   "id": "rose-0",
+   "title": "Rose",
+   "url": "https://www.nfkino.no/film/rose-0?city=drammen",
+   "len": 93,
+   "age": "12 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002620-1000034616.jpg?itok=QbhAoYSM",
+   "shows": [
+    {
+     "d": "2026-10-25",
+     "t": "11:30",
+     "room": "Sal 6",
+     "tags": [
+      "Org. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e0f25a1f-1a34-4ddc-8c53-3c1986fbea82",
+     "avail": "many"
+    },
+    {
+     "d": "2026-10-28",
+     "t": "11:30",
+     "room": "Sal 6",
+     "tags": [
+      "Org. tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/204adfbc-4aea-4573-8e01-beba564a29d9",
+     "avail": "many"
+    },
+    {
+     "d": "2026-10-29",
+     "t": "21:00",
+     "room": "Sal 5",
+     "tags": [
+      "Org. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/94e9f066-fe86-49b3-abc5-d2c47b596888",
+     "avail": "many"
+    }
+   ],
+   "genre": [
+    "Drama"
+   ],
+   "orig": "Rose",
+   "director": "Markus Schleinzer",
+   "actors": [
+    "Sandra Hüller",
+    "Godehard Giese",
+    "Robert Gwisdek",
+    "Caro Braun",
+    "Marisa Growaldt"
+   ],
+   "lang": "DE",
+   "about": "Vinner av Sølvbjørnen for Beste Skuespiller til Sandra Hüller, Berlinale 2026",
+   "premiere": "16 oktober",
+   "imdb": {
+    "id": "tt25399154",
+    "rating": 7.5,
+    "votes": 2881
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/rose_2026",
+    "critics": 97,
+    "criticsCount": 33,
+    "audience": null,
+    "audienceCount": "0 Verified Ratings"
+   }
   },
   {
    "id": "odyssey",
