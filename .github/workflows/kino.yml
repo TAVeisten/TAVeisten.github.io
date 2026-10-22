@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4
-      - run: python kino/update.py
+      - run: python -u kino/update.py
       - name: Lagre data
         run: |
           git config user.name "kino-oppdatering"

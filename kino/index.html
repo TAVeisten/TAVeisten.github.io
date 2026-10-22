@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kinoprogram Drammen</title>
+<meta name="apple-mobile-web-app-title" content="Kino Drammen">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="robots" content="noindex">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" href="../apple-touch-icon.png">
+<style>
+:root{
+  --bg:#F3F5F8; --card:#FFFFFF; --ink:#1A1F2B; --muted:#5A6272; --faint:#8A92A0; --line:#DCE1E8;
+  --salong:#123B4A; --salong-ink:#FFFFFF; --salong-sub:#BCD3DB;
+  --chip:#E6EEFC; --chip-ink:#2A52B8; --chip-line:#C9D8F5;
+  --imdb:#8A5A00; --imdb-bg:#FBF1D9; --crit:#1F6B4F; --crit-bg:#E2F2EA; --aud:#2A52B8; --aud-bg:#E6EEFC;
+  --past:#EEF0F3;
+  --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0E1218; --card:#161B23; --ink:#E8ECF2; --muted:#9AA3B2; --faint:#6F7886; --line:#2A313C;
+  --salong:#163A47; --salong-ink:#F2F6FB; --salong-sub:#A9C3CC;
+  --chip:#1C2A44; --chip-ink:#A9C4F5; --chip-line:#2D3E5E;
+  --imdb:#F0C460; --imdb-bg:#2E2614; --crit:#7FD3AE; --crit-bg:#15291F; --aud:#A9C4F5; --aud-bg:#1C2A44;
+  --past:#1A2029; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.35;margin:0;
+  padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
+html:not(.top) body{padding-top:0}
+.wrap{max-width:980px;margin:0 auto;padding:16px 16px 32px}
+html.top .wrap{padding-top:22px}
+a{color:inherit}
+button,select,input{font:inherit;color:inherit}
+
+/* Toppen: lerretet */
+.screen{background:var(--salong);color:var(--salong-ink);border-radius:14px 14px 40% 40% / 14px 14px 18px 18px;padding:16px 16px 20px;margin-bottom:14px}
+.screen h1{font-size:1.65rem;line-height:1.15;margin:0;letter-spacing:-.01em;font-weight:800}
+.screen p{margin:4px 0 0;color:var(--salong-sub);font-size:.85rem}
+.screen .meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:10px}
+.refresh{background:rgba(255,255,255,.14);border:0;border-radius:8px;padding:7px 12px;font-weight:600;cursor:pointer;color:var(--salong-ink)}
+.refresh:hover,.refresh:focus-visible{background:rgba(255,255,255,.26);outline:none}
+.refresh[disabled]{opacity:.6;cursor:default}
+.status{color:var(--salong-sub);font-size:.82rem}
+
+/* Dager */
+.days{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.day{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:.9rem}
+.day b{font-weight:700}
+.day[aria-pressed="true"]{background:var(--salong);border-color:var(--salong);color:var(--salong-ink)}
+.day:focus-visible,.ctl:focus-visible,.stub:focus-visible{outline:2px solid var(--chip-ink);outline-offset:2px}
+
+/* Søk og filter */
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:8px}
+.controls .search{grid-column:1/-1}
+.ctl{width:100%;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 10px;min-width:0}
+input.ctl{-webkit-appearance:none;appearance:none}
+.checks{display:flex;flex-wrap:wrap;gap:6px 16px;margin:2px 2px 12px;font-size:.88rem;color:var(--muted)}
+.checks label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.count{color:var(--muted);font-size:.85rem;margin:0 2px 8px}
+
+/* Filmlisten: tabell på stor skjerm, kort på mobil */
+.thead,.row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.6fr) 64px 64px 64px;gap:12px;align-items:start}
+.thead{padding:0 14px 6px;color:var(--muted);font-size:.78rem;font-weight:600}
+.thead span:nth-child(n+3){text-align:center}
+.thead button{background:none;border:0;padding:0;font-weight:inherit;color:inherit;cursor:pointer;text-align:inherit}
+.thead button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.list{display:flex;flex-direction:column;gap:8px}
+.row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.film h3{font-size:1.02rem;margin:0;line-height:1.25}
+.film h3 a{text-decoration:none}
+.film h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.facts{color:var(--muted);font-size:.84rem;margin-top:3px}
+.facts span+span::before{content:", "}
+.orig{color:var(--faint);font-size:.8rem;margin-top:2px}
+.shows{display:flex;flex-wrap:wrap;gap:6px}
+/* Billett: tidspunkt med perforert kant */
+.stub{position:relative;display:inline-flex;flex-direction:column;align-items:flex-start;text-decoration:none;background:var(--chip);color:var(--chip-ink);border:1px solid var(--chip-line);border-radius:7px;padding:5px 10px 5px 12px;line-height:1.15}
+.stub::before{content:"";position:absolute;left:4px;top:5px;bottom:5px;border-left:2px dotted var(--chip-line)}
+.stub b{font-size:.98rem;font-variant-numeric:tabular-nums}
+.stub small{font-size:.7rem;opacity:.85}
+.stub:hover{border-color:var(--chip-ink)}
+.stub.past{background:var(--past);color:var(--faint);border-color:var(--line)}
+.stub.past b{text-decoration:line-through}
+.stub.few small::after{content:", få plasser"}
+.stub.sold{opacity:.55}.stub.sold small::after{content:", utsolgt"}
+.score{text-align:center;font-variant-numeric:tabular-nums}
+.score a,.score span.v{display:inline-block;min-width:52px;border-radius:8px;padding:5px 6px;font-weight:700;text-decoration:none;font-size:.95rem}
+.score a:hover{outline:1px solid currentColor}
+.score .lab{display:none}
+.score .n{display:block;font-weight:400;font-size:.66rem;opacity:.8;margin-top:1px}
+.s-imdb a,.s-imdb span.v{background:var(--imdb-bg);color:var(--imdb)}
+.s-crit a,.s-crit span.v{background:var(--crit-bg);color:var(--crit)}
+.s-aud a,.s-aud span.v{background:var(--aud-bg);color:var(--aud)}
+.score .none{color:var(--faint);font-weight:400;background:none}
+.score .weak{opacity:.7}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--muted)}
+.empty button{margin-top:8px;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:6px 12px;cursor:pointer}
+.foot{color:var(--muted);font-size:.8rem;margin:22px 4px 0}
+.foot p{margin:0 0 6px}
+
+/* Nøkkelpanel for «Oppdater nå» */
+.keybox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 14px;font-size:.9rem}
+.keybox[hidden]{display:none}
+.keybox p{margin:0 0 8px}
+.keybox .kr{display:flex;gap:6px;flex-wrap:wrap}
+.keybox input{flex:1 1 200px}
+.keybox button{border:0;background:var(--salong);color:var(--salong-ink);border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer}
+.keybox .err{color:var(--muted);margin-top:6px}
+
+@media (max-width:720px){
+  .thead{display:none}
+  .row{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 8px;padding:12px}
+  .film,.shows{grid-column:1/-1}
+  .shows{order:3;margin-top:2px}
+  .score{order:2;display:flex;align-items:center;gap:6px;text-align:left}
+  .score .lab{display:inline;font-size:.72rem;color:var(--muted);flex:none}
+  .score a,.score span.v{min-width:0;padding:3px 7px;font-size:.9rem}
+  .score .n{display:none}
+}
+@media (max-width:380px){.wrap{padding-left:12px;padding-right:12px}.screen h1{font-size:1.45rem}}
+@media (prefers-reduced-motion:no-preference){.screen.busy .refresh{animation:pulse 1.4s ease-in-out infinite}@keyframes pulse{50%{opacity:.55}}}
+</style>
+<script>try{if(window.self===window.top)document.documentElement.classList.add("top")}catch(e){}</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="screen" id="screen">
+    <h1>Kinoprogram Drammen</h1>
+    <p>Drammen kino, med score fra IMDb og Rotten Tomatoes</p>
+    <div class="meta">
+      <button class="refresh" id="refresh" type="button">Oppdater nå</button>
+      <span class="status" id="status" role="status">Henter programmet …</span>
+    </div>
+  </header>
+
+  <div class="keybox" id="keybox" hidden>
+    <p>«Oppdater nå» trenger en GitHub-nøkkel med tilgangen <b>Actions: Read and write</b> på repoet <b>TAVeisten.github.io</b>.
+      Enklest er å <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">redigere nøkkelen du bruker i konsertkalenderen</a>
+      og legge til dette repoet og tilgangen. Da virker den samme nøkkelen her, uten at du limer inn noe.</p>
+    <p>Eller lim inn en egen nøkkel:</p>
+    <div class="kr"><input class="ctl" id="keyIn" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…" aria-label="GitHub-nøkkel"><button type="button" id="keySave">Lagre og oppdater</button></div>
+    <p class="err" id="keyErr">Du kan også starte oppdateringen selv: <a href="https://github.com/TAVeisten/TAVeisten.github.io/actions/workflows/kino.yml" target="_blank" rel="noopener">åpne den på GitHub</a> og trykk «Run workflow».</p>
+  </div>
+
+  <nav class="days" id="days" aria-label="Velg dag"></nav>
+
+  <div class="controls">
+    <input class="ctl search" id="q" type="search" placeholder="Søk etter film, sjanger, regissør eller skuespiller" aria-label="Søk">
+    <select class="ctl" id="genre" aria-label="Sjanger"><option value="">Alle sjangre</option></select>
+    <select class="ctl" id="age" aria-label="Aldersgrense">
+      <option value="99">Alle aldersgrenser</option>
+      <option value="0">Tillatt for alle</option>
+      <option value="6">Til og med 6 år</option>
+      <option value="9">Til og med 9 år</option>
+      <option value="12">Til og med 12 år</option>
+      <option value="15">Til og med 15 år</option>
+    </select>
+    <select class="ctl" id="when" aria-label="Tidspunkt">
+      <option value="">Hele dagen</option>
+      <option value="before17">Før kl. 17</option>
+      <option value="after17">Fra kl. 17</option>
+      <option value="after20">Fra kl. 20</option>
+    </select>
+    <select class="ctl" id="sort" aria-label="Sorter">
+      <option value="time">Sorter: første visning</option>
+      <option value="imdb">Sorter: IMDb</option>
+      <option value="crit">Sorter: kritikere (RT)</option>
+      <option value="aud">Sorter: publikum (RT)</option>
+      <option value="title">Sorter: tittel</option>
+      <option value="len">Sorter: korteste først</option>
+    </select>
+  </div>
+  <div class="checks">
+    <label><input type="checkbox" id="hidePast" checked> Skjul visninger som har startet</label>
+    <label><input type="checkbox" id="hideSpecial"> Skjul seniorkino og babykino</label>
+    <label><input type="checkbox" id="scored"> Bare filmer med score</label>
+  </div>
+
+  <p class="count" id="count"></p>
+  <div class="thead" id="thead" aria-hidden="true">
+    <span>Film</span><span>Visninger</span>
+    <span><button type="button" data-sort="imdb">IMDb</button></span>
+    <span><button type="button" data-sort="crit">Kritikere</button></span>
+    <span><button type="button" data-sort="aud">Publikum</button></span>
+  </div>
+  <div class="list" id="list"></div>
+
+  <div class="foot">
+    <p>Kritikere og publikum er fra Rotten Tomatoes (Tomatometer og Popcornmeter). En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
+    <p>Programmet oppdateres automatisk morgen og midt på dagen. Kilder: <a href="https://www.nfkino.no/kino/drammen-kino?city=drammen" target="_blank" rel="noopener">NF Kino</a>, <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a> og <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+const REPO = "TAVeisten/TAVeisten.github.io", WF = "kino.yml", FILE = "kino/data.json";
+const $ = id => document.getElementById(id);
+const store = { get(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } },
+                set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} } };
+let data = null, day = null;
+const SPECIAL = /seniorkino|babykino/i;
+
+function osloNow(){
+  const p = new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Oslo",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());
+  return { date: p.slice(0,10), time: p.slice(11,16) };
+}
+function ageNum(a){ if(!a) return 99; if(/alle/i.test(a)) return 0; const m = a.match(/\d+/); return m ? +m[0] : 99; }
+function fmtLen(m){ if(!m) return ""; const h = Math.floor(m/60), r = m%60; return (h ? h+" t " : "") + (r ? r+" min" : "").trim(); }
+function dayLabel(iso, today){
+  const d = new Date(iso+"T12:00:00"), t = new Date(today+"T12:00:00");
+  const diff = Math.round((d - t)/864e5);
+  const wd = d.toLocaleDateString("nb-NO",{weekday:"long"}), dm = d.getDate()+"/"+(d.getMonth()+1);
+  if(diff === 0) return ["I dag", dm];
+  if(diff === 1) return ["I morgen", dm];
+  return [wd.charAt(0).toUpperCase()+wd.slice(1), dm];
+}
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]); }
+
+/* ---------- filtre som huskes ---------- */
+const CTL = ["q","genre","age","when","sort","hidePast","hideSpecial","scored"];
+function saveCtl(){ const o = {}; CTL.forEach(k => { const e = $(k); o[k] = e.type === "checkbox" ? e.checked : e.value; }); store.set("kino-filter", o); }
+function loadCtl(){ const o = store.get("kino-filter") || {}; CTL.forEach(k => { if(!(k in o) || k === "q") return; const e = $(k); if(e.type === "checkbox") e.checked = !!o[k]; else e.value = o[k]; }); }
+
+/* ---------- tegning ---------- */
+function renderDays(){
+  const today = osloNow().date, set = new Set();
+  data.films.forEach(f => f.shows.forEach(s => { if(s.d >= today) set.add(s.d); }));
+  const list = [...set].sort();
+  if(!day || !set.has(day)) day = list[0] || today;
+  $("days").innerHTML = list.map(d => { const [a,b] = dayLabel(d, today); return `<button type="button" class="day" data-d="${d}" aria-pressed="${d===day}"><b>${esc(a)}</b> ${esc(b)}</button>`; }).join("");
+}
+function renderGenres(){
+  const g = new Set(); data.films.forEach(f => (f.genre||[]).forEach(x => g.add(x)));
+  const cur = $("genre").value;
+  $("genre").innerHTML = '<option value="">Alle sjangre</option>' + [...g].sort((a,b)=>a.localeCompare(b,"nb")).map(x => `<option>${esc(x)}</option>`).join("");
+  if([...g].includes(cur)) $("genre").value = cur;
+}
+function scoreCell(cls, label, val, href, sub, weak, title){
+  let inner;
+  if(val == null) inner = `<span class="v none" title="Ingen score">–</span>`;
+  else if(href) inner = `<a href="${esc(href)}" target="_blank" rel="noopener" class="${weak?"weak":""}" title="${esc(title||"")}">${esc(val)}${sub?`<span class="n">${esc(sub)}</span>`:""}</a>`;
+  else inner = `<span class="v ${weak?"weak":""}">${esc(val)}</span>`;
+  return `<div class="score ${cls}"><span class="lab">${label}</span>${inner}</div>`;
+}
+function short(n){ if(n == null) return ""; if(typeof n === "string") return n.replace(/ Verified Ratings?/i,"").replace(/,/g," "); return n >= 1000 ? (n/1000).toFixed(n>=10000?0:1).replace(".",",")+"k" : String(n); }
+
+function render(){
+  if(!data) return;
+  const now = osloNow(), q = $("q").value.trim().toLowerCase(), genre = $("genre").value, maxAge = +$("age").value,
+        when = $("when").value, sort = $("sort").value, hidePast = $("hidePast").checked, hideSpecial = $("hideSpecial").checked, scored = $("scored").checked;
+  document.querySelectorAll(".day").forEach(b => b.setAttribute("aria-pressed", b.dataset.d === day));
+  document.querySelectorAll(".thead button").forEach(b => b.setAttribute("aria-pressed", b.dataset.sort === sort));
+  const rows = [];
+  for(const f of data.films){
+    let shows = f.shows.filter(s => s.d === day);
+    if(hideSpecial) shows = shows.filter(s => !s.tags.some(t => SPECIAL.test(t)));
+    if(when === "before17") shows = shows.filter(s => s.t < "17:00");
+    if(when === "after17") shows = shows.filter(s => s.t >= "17:00");
+    if(when === "after20") shows = shows.filter(s => s.t >= "20:00");
+    const isToday = day === now.date;
+    const upcoming = shows.filter(s => !isToday || s.t > now.time);
+    if(hidePast) shows = upcoming;
+    if(!shows.length) continue;
+    if(genre && !(f.genre||[]).includes(genre)) continue;
+    if(maxAge < 99 && ageNum(f.age) > maxAge) continue;
+    const imdb = f.imdb && f.imdb.rating != null ? +f.imdb.rating : null;
+    const crit = f.rt && f.rt.critics != null ? f.rt.critics : null, aud = f.rt && f.rt.audience != null ? f.rt.audience : null;
+    if(scored && imdb == null && crit == null) continue;
+    if(q){ const hay = [f.title, f.orig, (f.genre||[]).join(" "), f.director, (f.actors||[]).join(" "), f.lang].join(" ").toLowerCase(); if(!hay.includes(q)) continue; }
+    rows.push({f, shows, imdb, crit, aud, first: (upcoming[0]||shows[0]).t, isToday});
+  }
+  const num = v => v == null ? -1 : v;
+  rows.sort((a,b) => sort === "imdb" ? num(b.imdb)-num(a.imdb) : sort === "crit" ? num(b.crit)-num(a.crit) : sort === "aud" ? num(b.aud)-num(a.aud)
+    : sort === "title" ? a.f.title.localeCompare(b.f.title,"nb") : sort === "len" ? (a.f.len||999)-(b.f.len||999) : a.first.localeCompare(b.first) || a.f.title.localeCompare(b.f.title,"nb"));
+
+  $("count").textContent = rows.length ? `${rows.length} ${rows.length===1?"film":"filmer"}` : "";
+  if(!rows.length){
+    $("list").innerHTML = `<div class="empty">Ingen filmer passer med søket og filtrene for denne dagen.<br><button type="button" id="reset">Nullstill søk og filtre</button></div>`;
+    $("reset").onclick = () => { $("q").value=""; $("genre").value=""; $("age").value="99"; $("when").value=""; $("hideSpecial").checked=false; $("scored").checked=false; saveCtl(); render(); };
+    return;
+  }
+  $("list").innerHTML = rows.map(({f, shows, imdb, crit, aud, isToday}) => {
+    const facts = [(f.genre||[]).slice(0,3).join("/"), fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
+    const orig = f.orig && f.orig.toLowerCase() !== f.title.toLowerCase() ? `<div class="orig">${esc(f.orig)}</div>` : "";
+    const stubs = shows.map(s => {
+      const past = isToday && s.t <= now.time;
+      const tags = s.tags.filter(t => !/^(norsk tekst)$/i.test(t)).map(t => t.replace(/ tale$/i,"").replace(/^Eng\.$/,"Engelsk")).join(", ");
+      const cls = ["stub", past?"past":"", /few/.test(s.avail||"")?"few":"", /sold|full/.test(s.avail||"")?"sold":""].join(" ");
+      return `<a class="${cls}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.room+", "+s.tags.join(", "))}"><b>${esc(s.t.replace(":","."))}</b><small>${esc(s.room)}${tags?", "+esc(tags):""}</small></a>`;
+    }).join("");
+    const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
+    return `<div class="row">
+      <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div></div>
+      <div class="shows">${stubs}</div>
+      ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stemmer":"", weak, weak?"Under 400 stemmer":"")}
+      ${scoreCell("s-crit","Kritikere", crit==null?null:crit+"%", f.rt&&f.rt.url, f.rt&&f.rt.criticsCount?f.rt.criticsCount+" anm.":"", false, "Tomatometer")}
+      ${scoreCell("s-aud","Publikum", aud==null?null:aud+"%", f.rt&&f.rt.url, f.rt&&f.rt.audienceCount?short(f.rt.audienceCount):"", false, "Popcornmeter")}
+    </div>`;
+  }).join("");
+}
+
+function showUpdated(){
+  if(!data) return;
+  const d = new Date(data.updated), now = new Date();
+  const same = d.toDateString() === now.toDateString();
+  const t = d.toLocaleTimeString("nb-NO",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"});
+  $("status").textContent = "Oppdatert " + (same ? "i dag kl. " + t : d.toLocaleDateString("nb-NO",{day:"numeric",month:"short",timeZone:"Europe/Oslo"}) + " kl. " + t);
+}
+function use(j){ data = j; renderDays(); renderGenres(); showUpdated(); render(); }
+
+function load(){
+  return fetch("data.json?v=" + Date.now(), {cache:"no-store"}).then(r => { if(!r.ok) throw 0; return r.json(); })
+    .then(use).catch(() => { $("status").textContent = "Fant ikke programmet. Trykk «Oppdater nå» for å hente det."; });
+}
+
+/* ---------- Oppdater nå ---------- */
+function token(){ return store.get("kino-ghtoken") || store.get("kk-ghtoken") || ""; }
+function gh(path, opt){ return fetch("https://api.github.com/repos/" + REPO + path, Object.assign({cache:"no-store"}, opt, {headers:Object.assign({"Accept":"application/vnd.github+json","Authorization":"Bearer " + token()}, (opt&&opt.headers)||{})})); }
+async function refresh(){
+  const btn = $("refresh"), st = $("status"), scr = $("screen");
+  if(!token()){ $("keybox").hidden = false; $("keyIn").focus(); return; }
+  btn.disabled = true; scr.classList.add("busy"); st.textContent = "Starter oppdateringen …";
+  const before = data ? data.updated : "";
+  try{
+    const r = await gh(`/actions/workflows/${WF}/dispatches`, {method:"POST", body:JSON.stringify({ref:"main"})});
+    if(r.status === 401 || r.status === 403 || r.status === 404){ $("keybox").hidden = false; st.textContent = "Nøkkelen har ikke tilgang til å starte oppdateringen."; return; }
+    if(!r.ok) throw new Error(r.status);
+    const t0 = Date.now();
+    while(Date.now() - t0 < 6*60e3){
+      await new Promise(res => setTimeout(res, 8000));
+      const secs = Math.round((Date.now()-t0)/1000);
+      st.textContent = `Henter nytt program og score … (${secs} s, tar vanligvis 1–2 minutter)`;
+      const c = await gh(`/contents/${FILE}?ref=main`, {headers:{"Accept":"application/vnd.github.raw+json"}});
+      if(c.ok){ const j = await c.json().catch(()=>null); if(j && j.updated && j.updated !== before){ use(j); st.textContent += " Ferdig."; showUpdated(); return; } }
+      const runs = await gh(`/actions/workflows/${WF}/runs?per_page=1`).then(x=>x.json()).catch(()=>null);
+      const run = runs && runs.workflow_runs && runs.workflow_runs[0];
+      if(run && run.status === "completed" && Date.parse(run.created_at) >= t0 - 60e3 && run.conclusion !== "success"){
+        st.textContent = "Oppdateringen feilet. Programmet under er fra forrige gang."; return; }
+    }
+    st.textContent = "Oppdateringen tar lengre tid enn vanlig. Last siden på nytt om litt.";
+  }catch(e){ st.textContent = "Fikk ikke kontakt med GitHub. Prøv igjen."; }
+  finally{ btn.disabled = false; scr.classList.remove("busy"); }
+}
+$("refresh").addEventListener("click", refresh);
+$("keySave").addEventListener("click", () => {
+  const tk = $("keyIn").value.trim();
+  if(!/^(github_pat_|ghp_)[A-Za-z0-9_]{20,}$/.test(tk)){ $("keyErr").textContent = "Det ser ikke ut som en GitHub-nøkkel. Den begynner med github_pat_."; return; }
+  store.set("kino-ghtoken", tk); $("keyIn").value = ""; $("keybox").hidden = true; refresh();
+});
+
+/* ---------- hendelser ---------- */
+$("days").addEventListener("click", e => { const b = e.target.closest(".day"); if(!b) return; day = b.dataset.d; render(); });
+$("thead").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; $("sort").value = b.dataset.sort; saveCtl(); render(); });
+CTL.forEach(k => $(k).addEventListener(k === "q" ? "input" : "change", () => { saveCtl(); render(); }));
+loadCtl();
+load();
+// Hold «har startet» riktig hvis siden står åpen
+setInterval(render, 60e3);
+})();
+</script>
+</body>
+</html>

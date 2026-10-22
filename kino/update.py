@@ -35,19 +35,49 @@ def log(*a):
     print(*a, file=sys.stderr, flush=True)
 
 
-def get(url, **kw):
-    for attempt in range(3):
+START = time.monotonic()
+BUDGET = 9 * 60          # sekunder totalt; deretter brukes forrige score
+FAILS = {}               # vertsnavn -> antall feil på rad
+
+
+class Resp:
+    def __init__(self, status, text):
+        self.status_code, self.text = status, text
+
+    def json(self):
+        return json.loads(self.text)
+
+
+def get(url, total=40, tries=2):
+    host = requests.utils.urlparse(url).hostname
+    if FAILS.get(host, 0) >= 4:
+        return None
+    for attempt in range(tries):
+        t0 = time.monotonic()
         try:
-            r = S.get(url, timeout=30, **kw)
+            with S.get(url, timeout=(10, 15), stream=True) as r:
+                chunks = []
+                for c in r.iter_content(65536):
+                    chunks.append(c)
+                    if time.monotonic() - t0 > total:
+                        raise requests.Timeout(f"over {total}s")
+                body = b"".join(chunks).decode(r.encoding or "utf-8", "replace")
             if r.status_code == 200:
-                return r
+                FAILS[host] = 0
+                return Resp(200, body)
             log(f"  {r.status_code} {url}")
-            if r.status_code in (403, 404):
+            if r.status_code in (403, 404, 410):
+                FAILS[host] = FAILS.get(host, 0) + (1 if r.status_code == 403 else 0)
                 return None
-        except requests.RequestException as e:
+        except (requests.RequestException, ValueError) as e:
             log(f"  feil {url}: {e}")
-        time.sleep(2 + attempt * 3)
+        FAILS[host] = FAILS.get(host, 0) + 1
+        time.sleep(2)
     return None
+
+
+def time_left():
+    return BUDGET - (time.monotonic() - START)
 
 
 def norm(s):
@@ -292,7 +322,7 @@ def main():
         overrides = {}
 
     log("Henter program …")
-    r = get(PROGRAM)
+    r = get(PROGRAM, total=120, tries=3)
     if not r:
         log("Fikk ikke hentet programmet – beholder forrige data.")
         sys.exit(1)
@@ -303,8 +333,13 @@ def main():
         sys.exit(1)
 
     for f in films:
-        log("•", f["title"])
         prev = old.get(f["id"], {})
+        if time_left() < 0:
+            log("• (tid brukt opp – bruker forrige data)", f["title"])
+            for k in ("genre", "orig", "director", "actors", "lang", "about", "premiere", "imdb", "rt"):
+                f[k] = prev.get(k)
+            continue
+        log("•", f["title"], f"({int(time.monotonic() - START)} s)")
         film_details(f)
         for k in ("genre", "orig", "director", "actors", "lang", "about", "premiere"):
             if not f.get(k) and prev.get(k):
