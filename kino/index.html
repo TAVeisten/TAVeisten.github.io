@@ -92,6 +92,9 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .news-body.clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
 .news-body.clamp p{display:inline;margin:0}
 .news-body.clamp p::after{content:" "}
+.news-body .nw-title{font-weight:700}
+.news-body .nw-when{color:var(--muted);font-size:.8rem}
+.news-body.clamp .nw-when{display:none}
 .news-more{background:none;border:0;padding:4px 0 0;color:var(--chip-ink);font-weight:600;cursor:pointer;font-size:.86rem}
 .news-more[hidden]{display:none}
 .list{display:flex;flex-direction:column;gap:8px}
@@ -197,7 +200,6 @@ input.ctl{-webkit-appearance:none;appearance:none}
   </div>
 
   <section class="news" id="news" hidden aria-label="Nytt siden sist">
-    <div class="news-head"><b>Nytt siden sist</b><span id="newsWhen"></span></div>
     <div class="news-body clamp" id="newsBody"></div>
     <button type="button" class="news-more" id="newsMore" aria-expanded="false" hidden>Vis alt</button>
   </section>
@@ -413,10 +415,11 @@ function renderNews(){
   if(soon.length) sum.unshift(`${soon.length} går snart av`);
   const fmt = v => v == null ? "–" : typeof v === "number" && v % 1 ? String(v).replace(".",",") : String(v);
   const parts = [];
-  if(c.first) parts.push(`<p>Første oppdatering. Fra neste gang står det her hva som er nytt.</p>`);
-  else if(!sum.length) parts.push(`<p>Ingen endringer siden forrige oppdatering.</p>`);
+  const T = `<span class="nw-title">Nytt siden sist:</span> `;
+  if(c.first) parts.push(`<p>${T}Første oppdatering. Fra neste gang står det her hva som er nytt.</p>`);
+  else if(!sum.length) parts.push(`<p>${T}Ingen endringer siden forrige oppdatering.</p>`);
   if(!c.first && sum.length){
-    parts.push(`<p>${esc(sum.join(", ").replace(/^./, x => x.toUpperCase()))}.</p>`);
+    parts.push(`<p>${T}${esc(sum.join(", ").replace(/^./, x => x.toUpperCase()))}.</p>`);
     if(soon.length) parts.push(`<p><span class="lbl">Går snart av:</span> ${soon.map(f => `${esc(f.title)} (siste visning ${esc(dshort(f.endsSoon))} ${esc(f.shows.filter(x=>x.d===f.endsSoon).slice(-1).map(x=>x.t.replace(":",".")).join(""))})`).join(", ")}.</p>`);
     if(nf.length) parts.push(`<p><span class="lbl">Nye filmer:</span> ${nf.map(x => `${esc(x.title)} (fra ${esc(dshort(x.first.slice(0,10)))} ${esc(x.first.slice(11).replace(":","."))})`).join(", ")}.</p>`);
     if(ns.length) parts.push(`<p><span class="lbl">Nye visninger:</span> ${ns.map(x => `${esc(x.title)} (${x.n}, ${esc(x.days.length > 3 ? x.days.length+" dager" : x.days.map(dshort).join(", "))})`).join(", ")}.</p>`);
@@ -424,8 +427,8 @@ function renderNews(){
     if(gn.length) parts.push(`<p><span class="lbl">Tatt av programmet:</span> ${gn.map(x => esc(x.title)).join(", ")}.</p>`);
     if(en.length) parts.push(`<p><span class="lbl">Gått av programmet:</span> ${en.map(x => esc(x.title) + (x.last ? ` (siste visning ${esc(dshort(x.last))})` : "")).join(", ")}.</p>`);
   }
+  if(c.at) parts.push(`<p class="nw-when">Gjelder oppdateringen ${esc(when(c.at))}${c.quietSince ? esc(", ingen endringer " + when(c.quietSince)) : ""}.</p>`);
   body.innerHTML = parts.join("");
-  $("newsWhen").textContent = c.at ? "Oppdatering " + when(c.at) + (c.quietSince ? ", ingen endringer " + when(c.quietSince) : "") : "";
   box.hidden = false;
   const open = more.getAttribute("aria-expanded") === "true";
   body.classList.toggle("clamp", !open);
