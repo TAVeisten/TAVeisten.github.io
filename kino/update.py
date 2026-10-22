@@ -115,7 +115,7 @@ def parse_program(html, today):
             "id": slug, "title": title, "url": BASE + "/film/" + slug + "?city=drammen",
             "len": minutes(clean((art.select_one(".duration") or soup.new_tag("x")).get_text())),
             "age": clean((art.select_one(".censorship") or soup.new_tag("x")).get_text()).replace("Aldersgrense:", "").strip(),
-            "poster": None, "shows": [],
+            "poster": None, "shows": [], "lastAny": None,
         })
         img = art.select_one(".movie-poster img")
         if img and img.get("src") and not f["poster"]:
@@ -130,6 +130,8 @@ def parse_program(html, today):
                 day = datetime.strptime(d, "%Y-%m-%d").date()
             except ValueError:
                 continue
+            if slide.select("a.movies-screenings-button-link") and day >= today and (not f["lastAny"] or d > f["lastAny"]):
+                f["lastAny"] = d   # siste visning i hele programmet, også etter 14-dagersvinduet
             if day < today or day > last:
                 continue
             for link in slide.select("a.movies-screenings-button-link"):
@@ -335,6 +337,23 @@ def rt_scores(path):
             "audience": num(a.get("score")), "audienceCount": a.get("bandedRatingCount")}
 
 
+# ---------------------------------------------------------------- går snart av
+
+ENDING_DAYS = 3      # siste visning innen så mange dager …
+HORIZON_GAP = 4      # … mens programmet er lagt ut minst så mange dager lenger fram
+
+
+def mark_ending(films, today):
+    """Merker filmer som snart slutter: siste visning snart, mens kinoen har lagt ut program lenger fram.
+    Da vet vi at filmen faktisk går av, og ikke bare at resten av programmet ikke er publisert ennå."""
+    horizon = max((f["lastAny"] or f["shows"][-1]["d"] for f in films), default=today.isoformat())
+    for f in films:
+        last = f.get("lastAny") or f["shows"][-1]["d"]
+        ld = datetime.strptime(last, "%Y-%m-%d").date()
+        hz = datetime.strptime(horizon, "%Y-%m-%d").date()
+        f["endsSoon"] = last if (ld - today).days <= ENDING_DAYS and (hz - ld).days >= HORIZON_GAP else None
+
+
 # ---------------------------------------------------------------- endringer siden forrige kjøring
 
 def find_changes(old_data, films, today, now):
@@ -367,13 +386,19 @@ def find_changes(old_data, films, today, now):
         if diffs:
             scores.append({"title": f["title"], "diffs": diffs})
     ids = {f["id"] for f in films}
+    ended = []
     for fid, o in old_films.items():
-        if fid not in ids and any(s["d"] >= t0 for s in o.get("shows", [])):
-            gone.append({"title": o["title"]})
+        if fid in ids:
+            continue
+        last = o.get("lastAny") or max((s["d"] for s in o.get("shows", [])), default=None)
+        if last and last >= t0:
+            gone.append({"title": o["title"]})                 # tatt av før siste planlagte visning
+        else:
+            ended.append({"title": o["title"], "last": last})  # gikk sin siste visning
     ch = {"at": now.isoformat(timespec="minutes"), "since": old_data.get("updated"),
-          "newFilms": new_films, "newShows": new_shows, "scores": scores, "gone": gone}
-    if not (new_films or new_shows or scores or gone) and prev and not prev.get("first") and \
-            (prev.get("newFilms") or prev.get("newShows") or prev.get("scores") or prev.get("gone")):
+          "newFilms": new_films, "newShows": new_shows, "scores": scores, "gone": gone, "ended": ended}
+    keys = ("newFilms", "newShows", "scores", "gone", "ended")
+    if not any(ch[k] for k in keys) and prev and not prev.get("first") and any(prev.get(k) for k in keys):
         prev = dict(prev)
         prev["quietSince"] = now.isoformat(timespec="minutes")   # ingen endringer nå; viser forrige
         return prev
@@ -400,6 +425,7 @@ def main():
         log("Fikk ikke hentet programmet – beholder forrige data.")
         sys.exit(1)
     films = parse_program(r.text, today)
+    mark_ending(films, today)
     log(f"{len(films)} filmer med visninger de neste {DAYS_AHEAD} dagene")
     if not films:
         log("Ingen filmer funnet – sannsynligvis endret NF Kino siden. Beholder forrige data.")

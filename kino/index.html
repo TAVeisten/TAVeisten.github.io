@@ -99,6 +99,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .facts{color:var(--muted);font-size:.84rem;margin-top:3px}
 .facts span+span::before{content:", "}
 .orig{color:var(--faint);font-size:.8rem;margin-top:2px}
+.ends{display:inline-block;margin-top:5px;background:var(--chip);color:var(--chip-ink);border:1px solid var(--chip-line);border-radius:999px;padding:1px 9px;font-size:.78rem;font-weight:600}
 .shows{display:flex;flex-wrap:wrap;gap:6px}
 /* Billett: tidspunkt med perforert kant */
 .stub{position:relative;display:inline-flex;flex-direction:column;align-items:flex-start;text-decoration:none;background:var(--chip);color:var(--chip-ink);border:1px solid var(--chip-line);border-radius:7px;padding:5px 10px 5px 12px;line-height:1.15}
@@ -354,7 +355,7 @@ function render(){
     }).join("");
     const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
-      <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div></div>
+      <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
       <div class="shows">${stubs}</div>
       ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stemmer":"", weak, weak?"Under 400 stemmer":"")}
@@ -379,23 +380,32 @@ function when(iso){
   return (diff === 0 ? "i dag" : diff === 1 ? "i går" : d.toLocaleDateString("nb-NO",{day:"numeric",month:"numeric",timeZone:"Europe/Oslo"})) + " kl. " + t;
 }
 function dshort(iso){ const [a,b] = dayLabel(iso, osloNow().date); return a.toLowerCase() + (a === "I dag" || a === "I morgen" ? "" : " " + b); }
+function endsNote(f){
+  if(!f.endsSoon || f.endsSoon < osloNow().date) return "";
+  return `<span class="ends" title="Kinoen har ikke flere visninger av filmen etter dette">Siste visning ${esc(dshort(f.endsSoon))}</span>`;
+}
 function renderNews(){
   const c = data.changes, box = $("news"), body = $("newsBody"), more = $("newsMore");
   if(!c){ box.hidden = true; return; }
-  const nf = c.newFilms||[], ns = c.newShows||[], sc = c.scores||[], gn = c.gone||[];
+  const nf = c.newFilms||[], ns = c.newShows||[], sc = c.scores||[], gn = c.gone||[], en = c.ended||[];
+  const today = osloNow().date, soon = data.films.filter(f => f.endsSoon && f.endsSoon >= today).sort((a,b) => a.endsSoon.localeCompare(b.endsSoon));
   const nShows = ns.reduce((a,x)=>a+x.n,0);
   const sum = [nf.length && `${nf.length} ${nf.length===1?"ny film":"nye filmer"}`, nShows && `${nShows} ${nShows===1?"ny visning":"nye visninger"}`,
-    sc.length && `endret score på ${sc.length} ${sc.length===1?"film":"filmer"}`, gn.length && `${gn.length} tatt av programmet`].filter(Boolean);
+    sc.length && `endret score på ${sc.length} ${sc.length===1?"film":"filmer"}`, gn.length && `${gn.length} tatt av programmet`,
+    en.length && `${en.length} gått av programmet`].filter(Boolean);
+  if(soon.length) sum.unshift(`${soon.length} går snart av`);
   const fmt = v => v == null ? "–" : typeof v === "number" && v % 1 ? String(v).replace(".",",") : String(v);
   const parts = [];
   if(c.first) parts.push(`<p>Første oppdatering. Fra neste gang står det her hva som er nytt.</p>`);
   else if(!sum.length) parts.push(`<p>Ingen endringer siden forrige oppdatering.</p>`);
-  else {
+  if(!c.first && sum.length){
     parts.push(`<p>${esc(sum.join(", ").replace(/^./, x => x.toUpperCase()))}.</p>`);
+    if(soon.length) parts.push(`<p><span class="lbl">Går snart av:</span> ${soon.map(f => `${esc(f.title)} (siste visning ${esc(dshort(f.endsSoon))} ${esc(f.shows.filter(x=>x.d===f.endsSoon).slice(-1).map(x=>x.t.replace(":",".")).join(""))})`).join(", ")}.</p>`);
     if(nf.length) parts.push(`<p><span class="lbl">Nye filmer:</span> ${nf.map(x => `${esc(x.title)} (fra ${esc(dshort(x.first.slice(0,10)))} ${esc(x.first.slice(11).replace(":","."))})`).join(", ")}.</p>`);
     if(ns.length) parts.push(`<p><span class="lbl">Nye visninger:</span> ${ns.map(x => `${esc(x.title)} (${x.n}, ${esc(x.days.length > 3 ? x.days.length+" dager" : x.days.map(dshort).join(", "))})`).join(", ")}.</p>`);
     if(sc.length) parts.push(`<p><span class="lbl">Endret score:</span> ${sc.map(x => `${esc(x.title)} ${x.diffs.map(d => `${esc(d[0])} ${fmt(d[1])}${d[0]==="IMDb"?"":" %"} → ${fmt(d[2])}${d[0]==="IMDb"?"":" %"}`).join(", ")}`).join("; ")}.</p>`);
     if(gn.length) parts.push(`<p><span class="lbl">Tatt av programmet:</span> ${gn.map(x => esc(x.title)).join(", ")}.</p>`);
+    if(en.length) parts.push(`<p><span class="lbl">Gått av programmet:</span> ${en.map(x => esc(x.title) + (x.last ? ` (siste visning ${esc(dshort(x.last))})` : "")).join(", ")}.</p>`);
   }
   body.innerHTML = parts.join("");
   $("newsWhen").textContent = c.at ? "Oppdatering " + when(c.at) + (c.quietSince ? ", ingen endringer " + when(c.quietSince) : "") : "";
