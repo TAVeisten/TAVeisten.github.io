@@ -335,6 +335,51 @@ def rt_scores(path):
             "audience": num(a.get("score")), "audienceCount": a.get("bandedRatingCount")}
 
 
+# ---------------------------------------------------------------- endringer siden forrige kjøring
+
+def find_changes(old_data, films, today, now):
+    """Hva er nytt siden forrige oppdatering: nye filmer, nye visninger, endret score, filmer tatt av programmet.
+    Visninger som bare har vært, regnes ikke som endring. Er ingenting endret, beholdes forrige oppsummering."""
+    old_films = {f["id"]: f for f in old_data.get("films", [])}
+    prev = old_data.get("changes") or {}
+    if not old_films:
+        return {"at": now.isoformat(timespec="minutes"), "since": None, "first": True,
+                "newFilms": [], "newShows": [], "scores": [], "gone": []}
+    t0 = today.isoformat()
+    new_films, new_shows, scores, gone = [], [], [], []
+    for f in films:
+        o = old_films.get(f["id"])
+        if not o:
+            new_films.append({"title": f["title"], "first": f["shows"][0]["d"] + " " + f["shows"][0]["t"], "n": len(f["shows"])})
+            continue
+        old_urls = {s["url"] for s in o.get("shows", [])}
+        added = [s for s in f["shows"] if s["url"] not in old_urls]
+        if added:
+            new_shows.append({"title": f["title"], "n": len(added), "days": sorted({s["d"] for s in added})})
+        diffs = []
+        oi, ni = (o.get("imdb") or {}).get("rating"), (f.get("imdb") or {}).get("rating")
+        if ni is not None and oi != ni:
+            diffs.append(["IMDb", oi, ni])
+        for key, lab in (("critics", "Kritikere"), ("audience", "Publikum")):
+            ov, nv = (o.get("rt") or {}).get(key), (f.get("rt") or {}).get(key)
+            if nv is not None and ov != nv:
+                diffs.append([lab, ov, nv])
+        if diffs:
+            scores.append({"title": f["title"], "diffs": diffs})
+    ids = {f["id"] for f in films}
+    for fid, o in old_films.items():
+        if fid not in ids and any(s["d"] >= t0 for s in o.get("shows", [])):
+            gone.append({"title": o["title"]})
+    ch = {"at": now.isoformat(timespec="minutes"), "since": old_data.get("updated"),
+          "newFilms": new_films, "newShows": new_shows, "scores": scores, "gone": gone}
+    if not (new_films or new_shows or scores or gone) and prev and not prev.get("first") and \
+            (prev.get("newFilms") or prev.get("newShows") or prev.get("scores") or prev.get("gone")):
+        prev = dict(prev)
+        prev["quietSince"] = now.isoformat(timespec="minutes")   # ingen endringer nå; viser forrige
+        return prev
+    return ch
+
+
 # ---------------------------------------------------------------- main
 
 def main():
@@ -403,10 +448,16 @@ def main():
             f["imdb"] = {"id": tt, "rating": None, "votes": None}
 
     films.sort(key=lambda f: (f["shows"][0]["d"], f["shows"][0]["t"], f["title"]))
+    try:
+        old_data = json.load(open(OUT, encoding="utf-8"))
+    except Exception:
+        old_data = {}
+    changes = find_changes(old_data, films, today, now)
     data = {
         "updated": now.isoformat(timespec="minutes"),
         "cinema": "Drammen kino",
         "source": PROGRAM,
+        "changes": changes,
         "films": films,
     }
     with open(OUT, "w", encoding="utf-8") as fh:

@@ -63,11 +63,34 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .count{color:var(--muted);font-size:.85rem;margin:0 2px 8px}
 
 /* Filmlisten: tabell på stor skjerm, kort på mobil */
-.thead,.row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.6fr) 64px 64px 64px;gap:12px;align-items:start}
+.thead,.row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.7fr) minmax(0,1.5fr) 64px 64px 64px;gap:12px;align-items:start}
 .thead{padding:0 14px 6px;color:var(--muted);font-size:.78rem;font-weight:600}
-.thead span:nth-child(n+3){text-align:center}
+.thead span:nth-child(n+4){text-align:center}
 .thead button{background:none;border:0;padding:0;font-weight:inherit;color:inherit;cursor:pointer;text-align:inherit}
-.thead button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.thead button:hover{color:var(--ink)}
+.thead button[aria-sort]{color:var(--ink)}
+.thead button[aria-sort="ascending"]::after{content:" ▲";font-size:.7em}
+.thead button[aria-sort="descending"]::after{content:" ▼";font-size:.7em}
+.thead span:nth-child(n+4) button[aria-sort]::after{display:block;line-height:1;margin-top:1px}
+.genre{color:var(--muted);font-size:.88rem;padding-top:2px}
+.sortwrap{display:flex;gap:6px;min-width:0}
+.sortwrap select{flex:1;min-width:0}
+.dir{flex:none;width:44px;border:1px solid var(--line);background:var(--card);border-radius:10px;cursor:pointer;font-size:1rem}
+/* Nytt siden sist: maks to linjer, kan utvides */
+.news{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--chip-ink);border-radius:12px;padding:10px 14px;margin:0 0 14px}
+.news[hidden]{display:none}
+.news-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin-bottom:4px}
+.news-head b{font-size:.98rem}
+.news-head span{color:var(--muted);font-size:.8rem}
+.news-body{font-size:.9rem;line-height:1.45}
+.news-body p{margin:0 0 4px}
+.news-body p:last-child{margin-bottom:0}
+.news-body .lbl{font-weight:600}
+.news-body.clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.news-body.clamp p{display:inline;margin:0}
+.news-body.clamp p::after{content:" "}
+.news-more{background:none;border:0;padding:4px 0 0;color:var(--chip-ink);font-weight:600;cursor:pointer;font-size:.86rem}
+.news-more[hidden]{display:none}
 .list{display:flex;flex-direction:column;gap:8px}
 .row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .film h3{font-size:1.02rem;margin:0;line-height:1.25}
@@ -115,7 +138,8 @@ input.ctl{-webkit-appearance:none;appearance:none}
 @media (max-width:720px){
   .thead{display:none}
   .row{grid-template-columns:auto auto auto;justify-content:space-between;gap:8px 4px;padding:12px}
-  .film,.shows{grid-column:1/-1}
+  .film,.shows,.genre{grid-column:1/-1}
+  .genre{order:1;padding-top:0;margin-top:-6px;font-size:.84rem}
   .shows{order:3;margin-top:2px}
   .score{order:2;display:flex;align-items:center;gap:5px;text-align:left}
   .score .lab{display:inline-block;font-size:.7rem;color:var(--muted);flex:none;line-height:1.15}
@@ -156,6 +180,12 @@ input.ctl{-webkit-appearance:none;appearance:none}
     <p class="err" id="keyErr">Du kan også starte oppdateringen selv: <a href="https://github.com/TAVeisten/TAVeisten.github.io/actions/workflows/kino.yml" target="_blank" rel="noopener">åpne den på GitHub</a> og trykk «Run workflow».</p>
   </div>
 
+  <section class="news" id="news" hidden aria-label="Nytt siden sist">
+    <div class="news-head"><b>Nytt siden sist</b><span id="newsWhen"></span></div>
+    <div class="news-body clamp" id="newsBody"></div>
+    <button type="button" class="news-more" id="newsMore" aria-expanded="false" hidden>Vis alt</button>
+  </section>
+
   <nav class="days" id="days" aria-label="Velg dag"></nav>
 
   <div class="controls">
@@ -175,14 +205,18 @@ input.ctl{-webkit-appearance:none;appearance:none}
       <option value="after17">Fra kl. 17</option>
       <option value="after20">Fra kl. 20</option>
     </select>
-    <select class="ctl" id="sort" aria-label="Sorter">
-      <option value="time">Første visning først</option>
-      <option value="imdb">Best på IMDb</option>
-      <option value="crit">Best hos kritikerne</option>
-      <option value="aud">Best hos publikum</option>
-      <option value="title">Tittel A–Å</option>
-      <option value="len">Korteste først</option>
+    <div class="sortwrap">
+    <select class="ctl" id="sort" aria-label="Sorter etter">
+      <option value="time">Sorter: tidspunkt</option>
+      <option value="title">Sorter: tittel</option>
+      <option value="genre">Sorter: sjanger</option>
+      <option value="imdb">Sorter: IMDb</option>
+      <option value="crit">Sorter: kritikere</option>
+      <option value="aud">Sorter: publikum</option>
+      <option value="len">Sorter: lengde</option>
     </select>
+    <button type="button" class="dir" id="dir" aria-label="Snu rekkefølgen">↑</button>
+    </div>
   </div>
   <div class="checks">
     <label><input type="checkbox" id="hidePast" checked> Skjul visninger som har startet</label>
@@ -191,8 +225,10 @@ input.ctl{-webkit-appearance:none;appearance:none}
   </div>
 
   <p class="count" id="count"></p>
-  <div class="thead" id="thead" aria-hidden="true">
-    <span>Film</span><span>Visninger</span>
+  <div class="thead" id="thead">
+    <span><button type="button" data-sort="title">Film</button></span>
+    <span><button type="button" data-sort="genre">Sjanger</button></span>
+    <span><button type="button" data-sort="time">Visninger</button></span>
     <span><button type="button" data-sort="imdb">IMDb</button></span>
     <span><button type="button" data-sort="crit">Kritikere<small>Tomatometer</small></button></span>
     <span><button type="button" data-sort="aud">Publikum<small>Popcornmeter</small></button></span>
@@ -212,7 +248,8 @@ const REPO = "TAVeisten/TAVeisten.github.io", WF = "kino.yml", FILE = "kino/data
 const $ = id => document.getElementById(id);
 const store = { get(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } },
                 set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} } };
-let data = null, day = null;
+let data = null, day = null, dir = 1;
+const DEFDIR = {imdb:-1, crit:-1, aud:-1};
 const SPECIAL = /seniorkino|babykino/i;
 
 function osloNow(){
@@ -233,8 +270,8 @@ function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&"
 
 /* ---------- filtre som huskes ---------- */
 const CTL = ["q","genre","age","when","sort","hidePast","hideSpecial","scored"];
-function saveCtl(){ const o = {}; CTL.forEach(k => { const e = $(k); o[k] = e.type === "checkbox" ? e.checked : e.value; }); store.set("kino-filter", o); }
-function loadCtl(){ const o = store.get("kino-filter") || {}; CTL.forEach(k => { if(!(k in o) || k === "q") return; const e = $(k); if(e.type === "checkbox") e.checked = !!o[k]; else e.value = o[k]; }); }
+function saveCtl(){ const o = {dir}; CTL.forEach(k => { const e = $(k); o[k] = e.type === "checkbox" ? e.checked : e.value; }); store.set("kino-filter", o); }
+function loadCtl(){ const o = store.get("kino-filter") || {}; if(o.dir === 1 || o.dir === -1) dir = o.dir; CTL.forEach(k => { if(!(k in o) || k === "q") return; const e = $(k); if(e.type === "checkbox") e.checked = !!o[k]; else e.value = o[k]; }); }
 
 /* ---------- tegning ---------- */
 function renderDays(){
@@ -271,7 +308,8 @@ function render(){
   const now = osloNow(), q = $("q").value.trim().toLowerCase(), genre = $("genre").value, maxAge = +$("age").value,
         when = $("when").value, sort = $("sort").value, hidePast = $("hidePast").checked, hideSpecial = $("hideSpecial").checked, scored = $("scored").checked;
   document.querySelectorAll(".day").forEach(b => b.setAttribute("aria-pressed", b.dataset.d === day));
-  document.querySelectorAll(".thead button").forEach(b => b.setAttribute("aria-pressed", b.dataset.sort === sort));
+  document.querySelectorAll(".thead button").forEach(b => { if(b.dataset.sort === sort) b.setAttribute("aria-sort", dir > 0 ? "ascending" : "descending"); else b.removeAttribute("aria-sort"); });
+  $("dir").textContent = dir > 0 ? "↑" : "↓"; $("dir").title = dir > 0 ? "Stigende – trykk for synkende" : "Synkende – trykk for stigende";
   const rows = [];
   for(const f of data.films){
     let shows = f.shows.filter(s => s.d === day);
@@ -291,9 +329,13 @@ function render(){
     if(q){ const hay = [f.title, f.orig, genres(f).join(" "), (f.genre||[]).join(" "), f.director, (f.actors||[]).join(" "), f.lang].join(" ").toLowerCase(); if(!hay.includes(q)) continue; }
     rows.push({f, shows, imdb, crit, aud, first: (upcoming[0]||shows[0]).t, isToday});
   }
-  const num = v => v == null ? -1 : v;
-  rows.sort((a,b) => sort === "imdb" ? num(b.imdb)-num(a.imdb) : sort === "crit" ? num(b.crit)-num(a.crit) : sort === "aud" ? num(b.aud)-num(a.aud)
-    : sort === "title" ? a.f.title.localeCompare(b.f.title,"nb") : sort === "len" ? (a.f.len||999)-(b.f.len||999) : a.first.localeCompare(b.first) || a.f.title.localeCompare(b.f.title,"nb"));
+  // Stigende/synkende etter valgt kolonne. Filmer uten verdi havner alltid sist.
+  const key = r => sort === "imdb" ? r.imdb : sort === "crit" ? r.crit : sort === "aud" ? r.aud : sort === "len" ? r.f.len
+    : sort === "title" ? r.f.title : sort === "genre" ? (genres(r.f)[0] || null) : r.first;
+  rows.sort((a,b) => { const x = key(a), y = key(b);
+    if(x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
+    const c = typeof x === "number" ? x - y : String(x).localeCompare(String(y), "nb");
+    return (c * dir) || a.first.localeCompare(b.first) || a.f.title.localeCompare(b.f.title,"nb"); });
 
   $("count").textContent = rows.length ? `${rows.length} ${rows.length===1?"film":"filmer"}` : "";
   if(!rows.length){
@@ -302,7 +344,7 @@ function render(){
     return;
   }
   $("list").innerHTML = rows.map(({f, shows, imdb, crit, aud, isToday}) => {
-    const facts = [genres(f).slice(0,3).join("/"), fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : /tbc/i.test(f.age) ? "Aldersgrense ikke satt" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
+    const facts = [fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : /tbc/i.test(f.age) ? "Aldersgrense ikke satt" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
     const orig = f.orig && f.orig.toLowerCase() !== f.title.toLowerCase() ? `<div class="orig">${esc(f.orig)}</div>` : "";
     const stubs = shows.map(s => {
       const past = isToday && s.t <= now.time;
@@ -313,6 +355,7 @@ function render(){
     const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
       <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div></div>
+      <div class="genre">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
       <div class="shows">${stubs}</div>
       ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stemmer":"", weak, weak?"Under 400 stemmer":"")}
       ${scoreCell("s-crit","Kritikere<small>Tomatometer</small>", crit==null?null:crit+"%", f.rt&&f.rt.url, f.rt&&f.rt.criticsCount?f.rt.criticsCount+" anm.":"", false, "Tomatometer")}
@@ -328,7 +371,42 @@ function showUpdated(){
   const t = d.toLocaleTimeString("nb-NO",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"});
   $("status").textContent = "Oppdatert " + (same ? "i dag kl. " + t : d.toLocaleDateString("nb-NO",{day:"numeric",month:"short",timeZone:"Europe/Oslo"}) + " kl. " + t);
 }
-function use(j){ data = j; renderDays(); renderGenres(); showUpdated(); render(); }
+function when(iso){
+  if(!iso) return "";
+  const d = new Date(iso), today = osloNow().date, ds = iso.slice(0,10);
+  const t = d.toLocaleTimeString("nb-NO",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"}).replace(":",".");
+  const diff = Math.round((new Date(today+"T12:00") - new Date(ds+"T12:00"))/864e5);
+  return (diff === 0 ? "i dag" : diff === 1 ? "i går" : d.toLocaleDateString("nb-NO",{day:"numeric",month:"numeric",timeZone:"Europe/Oslo"})) + " kl. " + t;
+}
+function dshort(iso){ const [a,b] = dayLabel(iso, osloNow().date); return a.toLowerCase() + (a === "I dag" || a === "I morgen" ? "" : " " + b); }
+function renderNews(){
+  const c = data.changes, box = $("news"), body = $("newsBody"), more = $("newsMore");
+  if(!c){ box.hidden = true; return; }
+  const nf = c.newFilms||[], ns = c.newShows||[], sc = c.scores||[], gn = c.gone||[];
+  const nShows = ns.reduce((a,x)=>a+x.n,0);
+  const sum = [nf.length && `${nf.length} ${nf.length===1?"ny film":"nye filmer"}`, nShows && `${nShows} ${nShows===1?"ny visning":"nye visninger"}`,
+    sc.length && `endret score på ${sc.length} ${sc.length===1?"film":"filmer"}`, gn.length && `${gn.length} tatt av programmet`].filter(Boolean);
+  const fmt = v => v == null ? "–" : typeof v === "number" && v % 1 ? String(v).replace(".",",") : String(v);
+  const parts = [];
+  if(c.first) parts.push(`<p>Første oppdatering. Fra neste gang står det her hva som er nytt.</p>`);
+  else if(!sum.length) parts.push(`<p>Ingen endringer siden forrige oppdatering.</p>`);
+  else {
+    parts.push(`<p>${esc(sum.join(", ").replace(/^./, x => x.toUpperCase()))}.</p>`);
+    if(nf.length) parts.push(`<p><span class="lbl">Nye filmer:</span> ${nf.map(x => `${esc(x.title)} (fra ${esc(dshort(x.first.slice(0,10)))} ${esc(x.first.slice(11).replace(":","."))})`).join(", ")}.</p>`);
+    if(ns.length) parts.push(`<p><span class="lbl">Nye visninger:</span> ${ns.map(x => `${esc(x.title)} (${x.n}, ${esc(x.days.length > 3 ? x.days.length+" dager" : x.days.map(dshort).join(", "))})`).join(", ")}.</p>`);
+    if(sc.length) parts.push(`<p><span class="lbl">Endret score:</span> ${sc.map(x => `${esc(x.title)} ${x.diffs.map(d => `${esc(d[0])} ${fmt(d[1])}${d[0]==="IMDb"?"":" %"} → ${fmt(d[2])}${d[0]==="IMDb"?"":" %"}`).join(", ")}`).join("; ")}.</p>`);
+    if(gn.length) parts.push(`<p><span class="lbl">Tatt av programmet:</span> ${gn.map(x => esc(x.title)).join(", ")}.</p>`);
+  }
+  body.innerHTML = parts.join("");
+  $("newsWhen").textContent = c.at ? "Oppdatering " + when(c.at) + (c.quietSince ? ", ingen endringer " + when(c.quietSince) : "") : "";
+  box.hidden = false;
+  const open = more.getAttribute("aria-expanded") === "true";
+  body.classList.toggle("clamp", !open);
+  requestAnimationFrame(() => { const over = body.scrollHeight > body.clientHeight + 2; more.hidden = !open && !over; });
+}
+$("newsMore").addEventListener("click", () => { const m = $("newsMore"), open = m.getAttribute("aria-expanded") !== "true";
+  m.setAttribute("aria-expanded", open); m.textContent = open ? "Vis mindre" : "Vis alt"; $("newsBody").classList.toggle("clamp", !open); });
+function use(j){ data = j; renderDays(); renderGenres(); showUpdated(); renderNews(); render(); }
 
 function load(){
   return fetch("data.json?v=" + Date.now(), {cache:"no-store"}).then(r => { if(!r.ok) throw 0; return r.json(); })
@@ -372,8 +450,11 @@ $("keySave").addEventListener("click", () => {
 
 /* ---------- hendelser ---------- */
 $("days").addEventListener("click", e => { const b = e.target.closest("button.day"); if(!b) return; day = b.dataset.d; render(); });
-$("thead").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; $("sort").value = b.dataset.sort; saveCtl(); render(); });
-CTL.forEach(k => $(k).addEventListener(k === "q" ? "input" : "change", () => { saveCtl(); render(); }));
+$("thead").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return;
+  if($("sort").value === b.dataset.sort) dir = -dir; else { $("sort").value = b.dataset.sort; dir = DEFDIR[b.dataset.sort] || 1; }
+  saveCtl(); render(); });
+$("dir").addEventListener("click", () => { dir = -dir; saveCtl(); render(); });
+CTL.forEach(k => $(k).addEventListener(k === "q" ? "input" : "change", () => { if(k === "sort") dir = DEFDIR[$("sort").value] || 1; saveCtl(); render(); }));
 loadCtl();
 load();
 // Hold «har startet» riktig hvis siden står åpen
