@@ -35,10 +35,10 @@ h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) /
 .hero .hname{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc(100cqi / 9.0),1.75rem);line-height:1.1;letter-spacing:-.01em;hyphens:manual;overflow-wrap:break-word}
 .hero .hsub{color:var(--hero-sub);font-size:.85rem;line-height:1.25}
 /* Egen farge per kort */
-.hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6}
+.hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6;grid-column:1/-1}
+.hero.job .hname{font-size:clamp(.95rem,calc(50cqi / 9.0),1.75rem)}
 .hero.gig{--hero:#4A2D6B;--hero-sub:#DCCDEE;--stripe:#B98AF0}
-.hero.kino{--hero:#123B4A;--hero-sub:#BCD3DB;--stripe:#4FB3C7;grid-column:1/-1}
-.hero.kino .hname{font-size:clamp(.95rem,calc(50cqi / 9.0),1.75rem)}
+.hero.kino{--hero:#123B4A;--hero-sub:#BCD3DB;--stripe:#4FB3C7}
 @media (prefers-color-scheme: dark){.hero.job{--hero:#1F3550;--hero-sub:#B5C6DD;--stripe:#4F86C9}.hero.gig{--hero:#3A2652;--hero-sub:#CDBCE2;--stripe:#9A6FD1}.hero.kino{--hero:#163A47;--hero-sub:#A9C3CC;--stripe:#3E97AA}}
 /* Boble på konsertkortet: nye konserter fra favorittene siden sist (lyseblå, ikke rød) */
 .hero .hnew{align-self:flex-start;background:#e6eefc;color:#2a52b8;font-weight:700;font-size:.82rem;line-height:1.2;border-radius:999px;padding:4px 10px}
