@@ -2,11 +2,11 @@ name: Kinoprogram Drammen
 
 on:
   schedule:
-    # Kl. 07:15 norsk tid hele året. GitHub bruker UTC, så begge står her, og «Sjekk tidspunkt»
-    # lar bare den som treffer 07:15 i Norge den dagen kjøre (sommertid / vintertid).
+    # Kl. 07:29 norsk tid hele året. GitHub bruker UTC, så begge står her, og «Sjekk tidspunkt»
+    # lar bare den som treffer 07:29 i Norge den dagen kjøre (sommertid / vintertid).
     # Ferdig etter ca. 1–2 minutter; resten er margin hvis GitHub starter for sent.
-    - cron: "15 5 * * *"
-    - cron: "15 6 * * *"
+    - cron: "29 5 * * *"
+    - cron: "29 6 * * *"
   workflow_dispatch: {}   # «Oppdater nå» på siden, eller Run workflow på GitHub
   push:
     branches: [main]
@@ -29,8 +29,8 @@ jobs:
         run: |
           off=$(TZ=Europe/Oslo date +%z)
           case "${{ github.event.schedule }}" in
-            "15 5 * * *") [ "$off" = "+0200" ] && echo run=true >> $GITHUB_OUTPUT || echo "Vintertid – venter på neste" ;;
-            "15 6 * * *") [ "$off" = "+0100" ] && echo run=true >> $GITHUB_OUTPUT || echo "Sommertid – kjørte forrige" ;;
+            "29 5 * * *") [ "$off" = "+0200" ] && echo run=true >> $GITHUB_OUTPUT || echo "Vintertid – venter på neste" ;;
+            "29 6 * * *") [ "$off" = "+0100" ] && echo run=true >> $GITHUB_OUTPUT || echo "Sommertid – kjørte forrige" ;;
             *) echo run=true >> $GITHUB_OUTPUT ;;
           esac
       - uses: actions/checkout@v4
