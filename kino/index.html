@@ -124,6 +124,14 @@ input.ctl{-webkit-appearance:none;appearance:none}
   .score .n{display:none}
 }
 @media (max-width:380px){.wrap{padding-left:12px;padding-right:12px}.screen h1{font-size:1.45rem}}
+/* Store skjermer (iPad, Mac, mobil på tvers): hele programmet på et innrammet ark, siden rundt litt mørkere.
+   Mobil på høykant bruker hele bredden, uten ramme – som konsertkalenderen. */
+@media (min-width:760px){
+  body{background:#DCE1E7}
+  .wrap{width:calc(100% - 48px);max-width:1000px;margin:28px auto 40px;padding:24px 28px 32px;background:var(--bg);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px rgba(20,28,38,.10)}
+  html.top .wrap{padding-top:24px}
+}
+@media (min-width:760px) and (prefers-color-scheme:dark){body{background:#080B10}}
 @media (prefers-reduced-motion:no-preference){.screen.busy .refresh{animation:pulse 1.4s ease-in-out infinite}@keyframes pulse{50%{opacity:.55}}}
 </style>
 <script>try{if(window.self===window.top)document.documentElement.classList.add("top")}catch(e){}</script>
