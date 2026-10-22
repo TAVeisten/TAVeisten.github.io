@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T12:33+02:00",
+ "updated": "2026-10-22T12:43+02:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "changes": {
@@ -39,7 +39,8 @@
     ]
    }
   ],
-  "gone": []
+  "gone": [],
+  "quietSince": "2026-10-22T12:43+02:00"
  },
  "films": [
   {
@@ -426,6 +427,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-12",
+   "endsSoon": null,
    "genre": [
     "Action",
     "Komedie"
@@ -515,6 +518,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-31",
+   "endsSoon": null,
    "genre": [
     "Komedie",
     "Animation",
@@ -698,6 +703,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Thriller",
     "Romantikk"
@@ -785,6 +792,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-25",
+   "endsSoon": "2026-10-25",
    "genre": [
     "Animation",
     "Children's Movie"
@@ -880,6 +889,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-04",
+   "endsSoon": null,
    "genre": [
     "Musikkfilm",
     "Drama"
@@ -999,6 +1010,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-19",
+   "endsSoon": null,
    "genre": [],
    "orig": "Mysteriepakken",
    "director": null,
@@ -1110,6 +1123,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-29",
+   "endsSoon": null,
    "genre": [
     "Action"
    ],
@@ -1319,6 +1334,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Horror"
    ],
@@ -1411,6 +1428,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Sci-Fi",
     "Horror"
@@ -1459,6 +1478,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Action"
    ],
@@ -1581,6 +1602,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Drama"
    ],
@@ -1739,6 +1762,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Drama",
     "Romantikk"
@@ -1812,6 +1837,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-29",
+   "endsSoon": null,
    "genre": [
     "Drama"
    ],
@@ -1890,6 +1917,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Action",
     "Thriller",
@@ -1970,6 +1999,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Thriller"
    ],
@@ -2054,6 +2085,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-29",
+   "endsSoon": null,
    "genre": [
     "Drama"
    ],
@@ -2157,6 +2190,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-01",
+   "endsSoon": null,
    "genre": [
     "Dokumentar"
    ],
@@ -2318,6 +2353,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Familiefilm",
     "Animation"
@@ -2433,6 +2470,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-17",
+   "endsSoon": null,
    "genre": [
     "Familiefilm",
     "Children's Movie",
@@ -2648,6 +2687,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Superheltfilm",
     "Horror",
@@ -2747,6 +2788,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-28",
+   "endsSoon": null,
    "genre": [
     "Drama",
     "Komedie"
@@ -2848,6 +2891,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-28",
+   "endsSoon": null,
    "genre": [
     "Drama"
    ],
@@ -2928,6 +2973,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-01",
+   "endsSoon": null,
    "genre": [
     "Dokumentar"
    ],
@@ -2970,6 +3017,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Animation",
     "Children's Movie"
@@ -3036,6 +3085,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-31",
+   "endsSoon": null,
    "genre": [],
    "orig": "Stitch Head",
    "director": "Steve Hudson",
@@ -3110,6 +3161,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-01",
+   "endsSoon": null,
    "genre": [
     "Dokumentar"
    ],
@@ -3165,6 +3218,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-25",
+   "endsSoon": "2026-10-25",
    "genre": [
     "Animation"
    ],
@@ -3199,6 +3254,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-24",
+   "endsSoon": "2026-10-24",
    "genre": [
     "Drama"
    ],
@@ -3252,6 +3309,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-25",
+   "endsSoon": "2026-10-25",
    "genre": [
     "Spenning",
     "Thriller"
@@ -3316,6 +3375,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-29",
+   "endsSoon": null,
    "genre": [
     "Drama"
    ],
@@ -3364,6 +3425,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [],
    "orig": "The Odyssey",
    "director": "Christopher Nolan",
@@ -3414,6 +3477,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-08",
+   "endsSoon": null,
    "genre": [
     "Dokumentar"
    ],
@@ -3446,6 +3511,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-25",
+   "endsSoon": "2026-10-25",
    "genre": [
     "Komedie",
     "Spenning"
@@ -3505,6 +3572,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-26",
+   "endsSoon": null,
    "genre": [
     "Opera"
    ],
@@ -3689,6 +3758,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-12",
+   "endsSoon": null,
    "genre": [
     "Drama"
    ],
@@ -3732,6 +3803,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Adventure",
     "Superheltfilm"
@@ -3794,6 +3867,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-29",
+   "endsSoon": null,
    "genre": [],
    "orig": "En kake til presidenten",
    "director": null,
@@ -3824,6 +3899,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-29",
+   "endsSoon": null,
    "genre": [
     "Drama"
    ],
@@ -3896,6 +3973,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-08",
+   "endsSoon": null,
    "genre": [
     "Dokumentar"
    ],
@@ -3949,6 +4028,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-01",
+   "endsSoon": null,
    "genre": [
     "Dokumentar"
    ],
@@ -3982,6 +4063,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-30",
+   "endsSoon": null,
    "genre": [
     "Horror"
    ],
@@ -4052,6 +4135,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Animation",
     "Familiefilm",
@@ -4113,6 +4198,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
    "genre": [
     "Horror"
    ],
@@ -4162,6 +4249,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-30",
+   "endsSoon": null,
    "genre": [
     "Horror"
    ],
@@ -4220,6 +4309,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-01",
+   "endsSoon": null,
    "genre": [
     "Dokumentar"
    ],
@@ -4257,6 +4348,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-31",
+   "endsSoon": null,
    "genre": [
     "Skrekkfilm"
    ],
@@ -4304,6 +4397,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-10-31",
+   "endsSoon": null,
    "genre": [],
    "orig": "The Devils",
    "director": "Ken Russell",
@@ -4343,6 +4438,8 @@
      "avail": "many"
     }
    ],
+   "lastAny": "2026-11-06",
+   "endsSoon": null,
    "genre": [
     "Musikkfilm",
     "Concert"
