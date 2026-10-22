@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T09:36+02:00",
+ "updated": "2026-10-22T09:39+02:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "films": [
@@ -84,7 +84,9 @@
    "about": "De vant i Høyesterett. Men kampen var ikke over. I La fjella leve retter en av Norges mest anerkjente dokumentarfilmskapere, Håvard Bustnes, blikket mot Fosen-saken og statens pågående brudd på menneskerettighetene. La fjella leve kommer på kino over hele landet 9. oktober.",
    "premiere": "9 oktober",
    "imdb": {
-    "id": "tt40036377"
+    "id": "tt40036377",
+    "rating": 7.5,
+    "votes": 26
    },
    "rt": null
   },
@@ -514,7 +516,9 @@
    "about": "Årets villeste komedie!",
    "premiere": "16 oktober",
    "imdb": {
-    "id": "tt39453840"
+    "id": "tt39453840",
+    "rating": 8.4,
+    "votes": 32
    },
    "rt": null
   },
@@ -589,7 +593,9 @@
    "about": "Vinner av Sølvbjørnen for Beste Skuespiller til Sandra Hüller, Berlinale 2026",
    "premiere": "16 oktober",
    "imdb": {
-    "id": "tt25399154"
+    "id": "tt25399154",
+    "rating": 7.5,
+    "votes": 2847
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/rose_2026",
@@ -692,7 +698,9 @@
    "about": "Ærlig, ekte og morsomt om å motvillig bli voksen og å finne sin plass",
    "premiere": "9 oktober",
    "imdb": {
-    "id": "tt39443962"
+    "id": "tt39443962",
+    "rating": 7.1,
+    "votes": 75
    },
    "rt": null
   },
@@ -773,7 +781,9 @@
    "about": "Å begynne på ny skole er vanskelig, spesielt når alle de andre elevene er monstre.",
    "premiere": "16 oktober",
    "imdb": {
-    "id": "tt38807889"
+    "id": "tt38807889",
+    "rating": 7.4,
+    "votes": 56
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/monster_mia",
@@ -960,7 +970,9 @@
    "about": null,
    "premiere": "2 oktober",
    "imdb": {
-    "id": "tt32261958"
+    "id": "tt32261958",
+    "rating": 6.1,
+    "votes": 19801
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/verity",
@@ -1045,7 +1057,9 @@
    "about": "Husk din beste venn!",
    "premiere": "25 september",
    "imdb": {
-    "id": "tt36583977"
+    "id": "tt36583977",
+    "rating": 7.7,
+    "votes": 6948
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/forgotten_island",
@@ -1160,7 +1174,9 @@
    "about": null,
    "premiere": "16 oktober",
    "imdb": {
-    "id": "tt38673337"
+    "id": "tt38673337",
+    "rating": 8.6,
+    "votes": 18
    },
    "rt": null
   },
@@ -1278,7 +1294,9 @@
    "about": "Et av verdens mest kjente videospill er klart for kinolerretet.",
    "premiere": "16 oktober",
    "imdb": {
-    "id": "tt27419420"
+    "id": "tt27419420",
+    "rating": 6.2,
+    "votes": 11196
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/street_fighter_2026",
@@ -1482,7 +1500,9 @@
    "about": "Mommy won't save you",
    "premiere": "9 oktober",
    "imdb": {
-    "id": "tt36586020"
+    "id": "tt36586020",
+    "rating": 5.4,
+    "votes": 11213
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/other_mommy",
@@ -1574,7 +1594,9 @@
    "about": null,
    "premiere": "18 september",
    "imdb": {
-    "id": "tt35538033"
+    "id": "tt35538033",
+    "rating": 7.6,
+    "votes": 110501
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/resident_evil_2026",
@@ -1617,7 +1639,9 @@
    "about": "Menneskets beste venn til unnsetning!",
    "premiere": "25 september",
    "imdb": {
-    "id": "tt7526136"
+    "id": "tt7526136",
+    "rating": 7.2,
+    "votes": 29043
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/heart_of_the_beast",
@@ -1741,7 +1765,9 @@
    "about": "En vinternatt på Holmlia mister 15 år gamle Benjamin livet – drept av 19 år gamle Joe Erling, kun fordi han er mørk i huden. Ett år senere står Benjamins mor, Marit, overfor enhver forelders verste mareritt, rettssaken mot han som drepte sønnen hennes.",
    "premiere": "2 oktober",
    "imdb": {
-    "id": "tt36726913"
+    "id": "tt36726913",
+    "rating": 6.7,
+    "votes": 94
    },
    "rt": null
   },
@@ -1898,7 +1924,9 @@
    "about": "Ny tolkning av Jane Austens store klassiker",
    "premiere": "9 oktober",
    "imdb": {
-    "id": "tt13609648"
+    "id": "tt13609648",
+    "rating": 7.4,
+    "votes": 3918
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/sense_and_sensibility_2026",
@@ -1966,7 +1994,9 @@
    "about": "\"Et humoristisk og visuelt mesterstykke\" 9/10 TBA",
    "premiere": "25 september",
    "imdb": {
-    "id": "tt37496603"
+    "id": "tt37496603",
+    "rating": 5.9,
+    "votes": 160
    },
    "rt": null
   },
@@ -2046,7 +2076,9 @@
    "about": "En nervepirrende actionthriller der en bortført statsminister og et dødelig sjakkparti setter Norges skjebne på spill.",
    "premiere": "11 september",
    "imdb": {
-    "id": "tt32375006"
+    "id": "tt32375006",
+    "rating": 6.1,
+    "votes": 343
    },
    "rt": null
   },
@@ -2122,7 +2154,9 @@
    "about": "Whalefall er en episk overlevelsesthriller om en ung manns møte med en hval.",
    "premiere": "16 oktober",
    "imdb": {
-    "id": "tt28535715"
+    "id": "tt28535715",
+    "rating": 6.7,
+    "votes": 5239
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/whalefall",
@@ -2201,7 +2235,9 @@
    "about": "Agnieszka Holland har skapt et hypnotisk portrett av en av 1900-tallets mest myteomspunne forfattere: Franz Kafka. Filmen følger ham fra ungdomsårene i Praha til hans død.",
    "premiere": "23 oktober",
    "imdb": {
-    "id": "tt17070412"
+    "id": "tt17070412",
+    "rating": 6.2,
+    "votes": 2081
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/franz",
@@ -2302,7 +2338,9 @@
    "about": null,
    "premiere": "23 oktober",
    "imdb": {
-    "id": "tt32368068"
+    "id": "tt32368068",
+    "rating": 7.7,
+    "votes": 1294
    },
    "rt": null
   },
@@ -2460,7 +2498,9 @@
    "about": null,
    "premiere": "23 oktober",
    "imdb": {
-    "id": "tt43714599"
+    "id": "tt43714599",
+    "rating": 7.4,
+    "votes": 17
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/laban-the-little-ghost-spooky-time",
@@ -2572,7 +2612,9 @@
    "about": "Sauen Shaun er tilbake!",
    "premiere": "2 oktober",
    "imdb": {
-    "id": "tt36841161"
+    "id": "tt36841161",
+    "rating": 7.2,
+    "votes": 1616
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/shaun_the_sheep_the_beast_of_mossy_bottom",
@@ -2792,7 +2834,9 @@
    "about": "Ansikt til ansikt med frykten.",
    "premiere": "23 oktober",
    "imdb": {
-    "id": "tt34890576"
+    "id": "tt34890576",
+    "rating": null,
+    "votes": null
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/clayface",
@@ -2888,7 +2932,9 @@
    "about": "DIGGER er den nye filmen til den Oscar-vinnende filmskaperen Alejandro G. Iñárritu, og har Tom Cruise i tittelrollen.",
    "premiere": "2 oktober",
    "imdb": {
-    "id": "tt31450459"
+    "id": "tt31450459",
+    "rating": 7.5,
+    "votes": 40611
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/digger_2026",
@@ -2983,7 +3029,9 @@
    "about": "Bare 19 år gammel reiser Anthony Bourdain til Provincetown hvor han plutselig befinner seg i den kaotiske verdenen på et restaurantkjøkken. Det blir starten på en sommer som vil forme resten av livet hans.",
    "premiere": "23 oktober",
    "imdb": {
-    "id": "tt33095251"
+    "id": "tt33095251",
+    "rating": 7.3,
+    "votes": 18104
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/tony_2026",
@@ -3025,7 +3073,9 @@
    "about": "Skye, Ryder, Marshall og Chase er endelig tilbake!",
    "premiere": "7 August",
    "imdb": {
-    "id": "tt29356163"
+    "id": "tt29356163",
+    "rating": 6.1,
+    "votes": 2881
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/paw_patrol_the_dino_movie",
@@ -3086,7 +3136,9 @@
    "about": null,
    "premiere": "2 oktober",
    "imdb": {
-    "id": "tt26720001"
+    "id": "tt26720001",
+    "rating": 5.8,
+    "votes": 1258
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/stitch_head",
@@ -3162,7 +3214,9 @@
    "about": "Her avsløres mekanismene satt i system for de effektive utryddelsene av sivile palestinere i Gaza, fortalt av de som utformet og utførte massedrapene: israelske etterretningsoffiserer og soldater.",
    "premiere": "23 oktober",
    "imdb": {
-    "id": "tt44766123"
+    "id": "tt44766123",
+    "rating": 8.2,
+    "votes": 5026
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/naza",
@@ -3251,7 +3305,9 @@
    "about": "Vinner av Gullbjørnen, Berlinale 2026!",
    "premiere": "25 desember",
    "imdb": {
-    "id": "tt32888226"
+    "id": "tt32888226",
+    "rating": 7.2,
+    "votes": 2444
    },
    "rt": null
   },
@@ -3303,7 +3359,9 @@
    "about": "The flagship theatrical release of the season. A high-stakes psychological mystery unravelling dark lineage and hidden truths, led by Turkey’s premier box-office stars.",
    "premiere": "15 oktober",
    "imdb": {
-    "id": "tt42886802"
+    "id": "tt42886802",
+    "rating": 7.9,
+    "votes": 472
    },
    "rt": null
   },
@@ -3342,7 +3400,9 @@
    "about": "Christopher Nolans store epos!",
    "premiere": "17 juli",
    "imdb": {
-    "id": "tt33764258"
+    "id": "tt33764258",
+    "rating": 8.4,
+    "votes": 533326
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/the_odyssey_2026",
@@ -3425,7 +3485,9 @@
    "about": "In this movie both DHARMA and AYUSHMAN KHURRANA is back with a big COMEDY HIT. Recommended on BIG screen for BIG Laughter...",
    "premiere": "23 oktober",
    "imdb": {
-    "id": "tt31806773"
+    "id": "tt31806773",
+    "rating": null,
+    "votes": null
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/udta_teer",
@@ -3665,7 +3727,9 @@
    "about": "Hans Petter Moland bringer Knut Hamsuns udødelige mesterverk Markens grøde til det store lerretet",
    "premiere": "30 oktober",
    "imdb": {
-    "id": "tt5782552"
+    "id": "tt5782552",
+    "rating": 7.6,
+    "votes": 45
    },
    "rt": null
   },
@@ -3707,7 +3771,9 @@
    "about": "Etter den globale suksessen til Spider-Man: No Way Home, som slo alle rekorder, markerer Spider-Man: Brand New Day starten på et helt nytt kapittel for Peter Parker og Spider-Man.",
    "premiere": "29 juli",
    "imdb": {
-    "id": "tt22084616"
+    "id": "tt22084616",
+    "rating": 7.9,
+    "votes": 358972
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/spider_man_brand_new_day",
@@ -3795,7 +3861,9 @@
    "about": "Hirayama vasker offentlige toaletter i Tokyo. Til og fra jobb kjører han bil mens han hører på kassetter med klassisk pop og rock. I leiligheten sin har han få møbler, mange bøker og en god del planter. Dagene er fylt av rutiner og livet er i vater, men en dag kommer en ung niese uanmeldt på besøk. ",
    "premiere": "2 februar",
    "imdb": {
-    "id": "tt27503384"
+    "id": "tt27503384",
+    "rating": 7.9,
+    "votes": 113687
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/perfect_days_2023",
@@ -3949,7 +4017,9 @@
    "about": null,
    "premiere": "14 August",
    "imdb": {
-    "id": "tt35298123"
+    "id": "tt35298123",
+    "rating": 6.5,
+    "votes": 23121
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/teenage_sex_and_death_at_camp_miasma",
@@ -4019,7 +4089,9 @@
    "about": null,
    "premiere": "30 oktober",
    "imdb": {
-    "id": "tt2056785"
+    "id": "tt2056785",
+    "rating": 8.9,
+    "votes": 517
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/wildwood",
@@ -4078,7 +4150,9 @@
    "about": "Be careful who you wish for",
    "premiere": "22 mai",
    "imdb": {
-    "id": "tt37287335"
+    "id": "tt37287335",
+    "rating": 7.8,
+    "votes": 406334
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/obsession_2025",
@@ -4124,7 +4198,9 @@
    "about": "Do you like scary movies?",
    "premiere": "28 oktober",
    "imdb": {
-    "id": "tt0117571"
+    "id": "tt0117571",
+    "rating": 7.5,
+    "votes": 456329
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/1074316-scream",
@@ -4175,7 +4251,9 @@
    "about": null,
    "premiere": "30 oktober",
    "imdb": {
-    "id": "tt48921265"
+    "id": "tt48921265",
+    "rating": null,
+    "votes": null
    },
    "rt": null
   },
@@ -4215,7 +4293,9 @@
    "about": null,
    "premiere": "26 april",
    "imdb": {
-    "id": "tt0081505"
+    "id": "tt0081505",
+    "rating": 8.4,
+    "votes": 1249166
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/shining",
@@ -4285,7 +4365,9 @@
    "about": null,
    "premiere": "4 november",
    "imdb": {
-    "id": "tt46000907"
+    "id": "tt46000907",
+    "rating": null,
+    "votes": null
    },
    "rt": null
   }
