@@ -226,7 +226,35 @@ def imdb_lookup(f, today):
     return best["id"] if best else None
 
 
+RATINGS = None
+
+
+def imdb_ratings_file(wanted):
+    """IMDbs offisielle datafil (oppdateres daglig): tconst, averageRating, numVotes."""
+    import gzip, io
+    try:
+        r = S.get("https://datasets.imdbws.com/title.ratings.tsv.gz", timeout=(10, 60))
+        if r.status_code != 200:
+            log(f"  IMDb-datafil: {r.status_code}")
+            return {}
+        out = {}
+        with gzip.open(io.BytesIO(r.content), "rt", encoding="utf-8") as fh:
+            for line in fh:
+                tt, _, rest = line.partition("\t")
+                if tt in wanted:
+                    rating, votes = rest.strip().split("\t")
+                    out[tt] = (float(rating), int(votes))
+        log(f"  IMDb-datafil: {len(out)} av {len(wanted)} filmer har rating")
+        return out
+    except Exception as e:
+        log(f"  IMDb-datafil feilet: {e}")
+        return {}
+
+
 def imdb_rating(tt):
+    if RATINGS and tt in RATINGS:
+        rating, votes = RATINGS[tt]
+        return {"id": tt, "rating": rating, "votes": votes, "genre": []}
     r = get(f"https://www.imdb.com/title/{tt}/")
     if not r:
         return None
@@ -346,13 +374,9 @@ def main():
                 f[k] = prev[k]
         ov = overrides.get(f["title"], {})
 
-        # IMDb
+        # IMDb: finn id nå, rating fra datafilen etterpå
         tt = ov["imdb"] if "imdb" in ov else ((prev.get("imdb") or {}).get("id") or imdb_lookup(f, today))
-        f["imdb"] = None
-        if tt:
-            f["imdb"] = imdb_rating(tt) or prev.get("imdb") or {"id": tt}
-        if not f.get("genre") and f["imdb"] and f["imdb"].get("genre"):
-            f["genre"] = f["imdb"]["genre"]
+        f["imdb"] = {"id": tt, "_prev": prev.get("imdb")} if tt else None
 
         # Rotten Tomatoes
         path = ov["rt"] if "rt" in ov else (((prev.get("rt") or {}).get("url") or "").replace(RT, "") or rt_lookup(f, today))
@@ -360,6 +384,23 @@ def main():
         if path:
             f["rt"] = rt_scores(path) or prev.get("rt")
         time.sleep(0.5)
+
+    global RATINGS
+    wanted = {f["imdb"]["id"] for f in films if f.get("imdb") and f["imdb"].get("id")}
+    RATINGS = imdb_ratings_file(wanted)
+    for f in films:
+        im = f.get("imdb")
+        if not im or "_prev" not in im:
+            continue
+        prev = im.pop("_prev")
+        tt = im["id"]
+        if tt in RATINGS:
+            rating, votes = RATINGS[tt]
+            f["imdb"] = {"id": tt, "rating": rating, "votes": votes}
+        elif prev and prev.get("id") == tt and prev.get("rating") is not None:
+            f["imdb"] = prev
+        else:
+            f["imdb"] = {"id": tt, "rating": None, "votes": None}
 
     films.sort(key=lambda f: (f["shows"][0]["d"], f["shows"][0]["t"], f["title"]))
     data = {
