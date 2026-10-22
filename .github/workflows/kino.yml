@@ -2,9 +2,11 @@ name: Kinoprogram Drammen
 
 on:
   schedule:
-    # UTC. Gir ca. kl. 06:40 og 12:40 om vinteren, 07:40 og 13:40 om sommeren (GitHub kan forsinke noen minutter)
-    - cron: "40 5 * * *"
-    - cron: "40 11 * * *"
+    # Kl. 07:15 norsk tid hele året. GitHub bruker UTC, så begge står her, og «Sjekk tidspunkt»
+    # lar bare den som treffer 07:15 i Norge den dagen kjøre (sommertid / vintertid).
+    # Ferdig etter ca. 1–2 minutter; resten er margin hvis GitHub starter for sent.
+    - cron: "15 5 * * *"
+    - cron: "15 6 * * *"
   workflow_dispatch: {}   # «Oppdater nå» på siden, eller Run workflow på GitHub
   push:
     branches: [main]
@@ -22,13 +24,27 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Sjekk tidspunkt
+        id: check
+        run: |
+          off=$(TZ=Europe/Oslo date +%z)
+          case "${{ github.event.schedule }}" in
+            "15 5 * * *") [ "$off" = "+0200" ] && echo run=true >> $GITHUB_OUTPUT || echo "Vintertid – venter på neste" ;;
+            "15 6 * * *") [ "$off" = "+0100" ] && echo run=true >> $GITHUB_OUTPUT || echo "Sommertid – kjørte forrige" ;;
+            *) echo run=true >> $GITHUB_OUTPUT ;;
+          esac
       - uses: actions/checkout@v4
+        if: steps.check.outputs.run == 'true'
       - uses: actions/setup-python@v5
+        if: steps.check.outputs.run == 'true'
         with:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4
+        if: steps.check.outputs.run == 'true'
       - run: python -u kino/update.py
+        if: steps.check.outputs.run == 'true'
       - name: Lagre data
+        if: steps.check.outputs.run == 'true'
         run: |
           git config user.name "kino-oppdatering"
           git config user.email "actions@users.noreply.github.com"
