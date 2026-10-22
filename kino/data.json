@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T09:39+02:00",
+ "updated": "2026-10-22T09:40+02:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "films": [
@@ -841,8 +841,8 @@
      "tags": [
       "Eng. tale",
       "Norsk tekst",
-      "BAR åpen",
-      "18år"
+      "18år",
+      "BAR åpen"
      ],
      "url": "https://www.nfkino.no/screening/2605/845d82e2-245a-4e80-b6b8-8c35a9b6ac14",
      "avail": "many"
@@ -4332,8 +4332,18 @@
    "lang": null,
    "about": null,
    "premiere": "1 Januar",
-   "imdb": null,
-   "rt": null
+   "imdb": {
+    "id": "tt0065638",
+    "rating": 5.4,
+    "votes": 87
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/the_devils",
+    "critics": 55,
+    "criticsCount": 101,
+    "audience": 87,
+    "audienceCount": "2,500+ Ratings"
+   }
   },
   {
    "id": "rammstein-live-mexico-city",
