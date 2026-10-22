@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T09:52+02:00",
+ "updated": "2026-10-22T11:26+02:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "films": [
@@ -2841,7 +2841,7 @@
    "rt": {
     "url": "https://www.rottentomatoes.com/m/clayface",
     "critics": 76,
-    "criticsCount": 91,
+    "criticsCount": 92,
     "audience": null,
     "audienceCount": "0 Verified Ratings"
    }
