@@ -91,6 +91,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .score a,.score span.v{display:inline-block;min-width:52px;border-radius:8px;padding:5px 6px;font-weight:700;text-decoration:none;font-size:.95rem}
 .score a:hover{outline:1px solid currentColor}
 .score .lab{display:none}
+.thead small,.score .lab small{display:block;font-weight:400;font-size:.68rem;color:var(--faint);line-height:1.1}
 .score .n{display:block;font-weight:400;font-size:.66rem;opacity:.8;margin-top:1px}
 .s-imdb a,.s-imdb span.v{background:var(--imdb-bg);color:var(--imdb)}
 .s-crit a,.s-crit span.v{background:var(--crit-bg);color:var(--crit)}
@@ -117,7 +118,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
   .film,.shows{grid-column:1/-1}
   .shows{order:3;margin-top:2px}
   .score{order:2;display:flex;align-items:center;gap:6px;text-align:left}
-  .score .lab{display:inline;font-size:.72rem;color:var(--muted);flex:none}
+  .score .lab{display:inline-block;font-size:.72rem;color:var(--muted);flex:none;line-height:1.15}
   .score a,.score span.v{min-width:0;padding:3px 7px;font-size:.9rem}
   .score .n{display:none}
 }
@@ -184,13 +185,13 @@ input.ctl{-webkit-appearance:none;appearance:none}
   <div class="thead" id="thead" aria-hidden="true">
     <span>Film</span><span>Visninger</span>
     <span><button type="button" data-sort="imdb">IMDb</button></span>
-    <span><button type="button" data-sort="crit">Kritikere</button></span>
-    <span><button type="button" data-sort="aud">Publikum</button></span>
+    <span><button type="button" data-sort="crit">Kritikere<small>Tomatometer</small></button></span>
+    <span><button type="button" data-sort="aud">Publikum<small>Popcornmeter</small></button></span>
   </div>
   <div class="list" id="list"></div>
 
   <div class="foot">
-    <p>Kritikere og publikum er fra Rotten Tomatoes (Tomatometer og Popcornmeter). En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
+    <p>Kritikere og publikum er fra Rotten Tomatoes: Tomatometer er kritikernes score, Popcornmeter er publikums score. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
     <p>Programmet oppdateres automatisk morgen og midt på dagen. Kilder: <a href="https://www.nfkino.no/kino/drammen-kino?city=drammen" target="_blank" rel="noopener">NF Kino</a>, <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a> og <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
   </div>
 </div>
@@ -305,8 +306,8 @@ function render(){
       <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div></div>
       <div class="shows">${stubs}</div>
       ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stemmer":"", weak, weak?"Under 400 stemmer":"")}
-      ${scoreCell("s-crit","Kritikere", crit==null?null:crit+"%", f.rt&&f.rt.url, f.rt&&f.rt.criticsCount?f.rt.criticsCount+" anm.":"", false, "Tomatometer")}
-      ${scoreCell("s-aud","Publikum", aud==null?null:aud+"%", f.rt&&f.rt.url, f.rt&&f.rt.audienceCount?short(f.rt.audienceCount):"", false, "Popcornmeter")}
+      ${scoreCell("s-crit","Kritikere<small>Tomatometer</small>", crit==null?null:crit+"%", f.rt&&f.rt.url, f.rt&&f.rt.criticsCount?f.rt.criticsCount+" anm.":"", false, "Tomatometer")}
+      ${scoreCell("s-aud","Publikum<small>Popcornmeter</small>", aud==null?null:aud+"%", f.rt&&f.rt.url, f.rt&&f.rt.audienceCount?short(f.rt.audienceCount):"", false, "Popcornmeter")}
     </div>`;
   }).join("");
 }
