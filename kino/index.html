@@ -49,6 +49,7 @@ button,select,input{font:inherit;color:inherit}
 .days{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
 .day{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:.9rem}
 .day b{font-weight:700}
+select.day{padding-right:28px;background:var(--card);-webkit-appearance:menulist;appearance:auto}
 .day[aria-pressed="true"]{background:var(--salong);border-color:var(--salong);color:var(--salong-ink)}
 .day:focus-visible,.ctl:focus-visible,.stub:focus-visible{outline:2px solid var(--chip-ink);outline-offset:2px}
 
@@ -216,7 +217,7 @@ function dayLabel(iso, today){
   const wd = d.toLocaleDateString("nb-NO",{weekday:"long"}), dm = d.getDate()+"/"+(d.getMonth()+1);
   if(diff === 0) return ["I dag", dm];
   if(diff === 1) return ["I morgen", dm];
-  return [wd.charAt(0).toUpperCase()+wd.slice(1), dm];
+  return [wd.charAt(0).toUpperCase()+wd.slice(1,3), dm];
 }
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]); }
 
@@ -231,10 +232,17 @@ function renderDays(){
   data.films.forEach(f => f.shows.forEach(s => { if(s.d >= today) set.add(s.d); }));
   const list = [...set].sort();
   if(!day || !set.has(day)) day = list[0] || today;
-  $("days").innerHTML = list.map(d => { const [a,b] = dayLabel(d, today); return `<button type="button" class="day" data-d="${d}" aria-pressed="${d===day}"><b>${esc(a)}</b> ${esc(b)}</button>`; }).join("");
+  const first = list.slice(0, 7), rest = list.slice(7);
+  $("days").innerHTML = first.map(d => { const [a,b] = dayLabel(d, today); return `<button type="button" class="day" data-d="${d}" aria-pressed="${d===day}"><b>${esc(a)}</b> ${esc(b)}</button>`; }).join("")
+    + (rest.length ? `<select class="day more" id="more" aria-label="Flere dager"><option value="">Flere dager</option>${rest.map(d => { const [a,b] = dayLabel(d, today); return `<option value="${d}">${esc(a)} ${esc(b)}</option>`; }).join("")}</select>` : "");
+  const m = $("more"); if(m){ m.value = rest.includes(day) ? day : ""; m.onchange = () => { if(m.value){ day = m.value; render(); } }; }
 }
+const GENRE = {"animation":"Animasjon","children's movie":"Barnefilm","adventure":"Eventyr","horror":"Skrekk","skrekkfilm":"Skrekk","sci-fi":"Science fiction",
+  "concert":"Konsert","romantikk":"Romantikk","komedie":"Komedie","comedy":"Komedie","drama":"Drama","thriller":"Thriller","action":"Action","dokumentar":"Dokumentar",
+  "documentary":"Dokumentar","family":"Familiefilm","familiefilm":"Familiefilm","musikkfilm":"Musikkfilm","spenning":"Spenning","superheltfilm":"Superhelt","fantasy":"Fantasy","crime":"Krim"};
+function genres(f){ const out = []; (f.genre||[]).forEach(g => { const n = GENRE[g.toLowerCase()] || g; if(!out.includes(n)) out.push(n); }); return out; }
 function renderGenres(){
-  const g = new Set(); data.films.forEach(f => (f.genre||[]).forEach(x => g.add(x)));
+  const g = new Set(); data.films.forEach(f => genres(f).forEach(x => g.add(x)));
   const cur = $("genre").value;
   $("genre").innerHTML = '<option value="">Alle sjangre</option>' + [...g].sort((a,b)=>a.localeCompare(b,"nb")).map(x => `<option>${esc(x)}</option>`).join("");
   if([...g].includes(cur)) $("genre").value = cur;
@@ -265,12 +273,12 @@ function render(){
     const upcoming = shows.filter(s => !isToday || s.t > now.time);
     if(hidePast) shows = upcoming;
     if(!shows.length) continue;
-    if(genre && !(f.genre||[]).includes(genre)) continue;
+    if(genre && !genres(f).includes(genre)) continue;
     if(maxAge < 99 && ageNum(f.age) > maxAge) continue;
     const imdb = f.imdb && f.imdb.rating != null ? +f.imdb.rating : null;
     const crit = f.rt && f.rt.critics != null ? f.rt.critics : null, aud = f.rt && f.rt.audience != null ? f.rt.audience : null;
     if(scored && imdb == null && crit == null) continue;
-    if(q){ const hay = [f.title, f.orig, (f.genre||[]).join(" "), f.director, (f.actors||[]).join(" "), f.lang].join(" ").toLowerCase(); if(!hay.includes(q)) continue; }
+    if(q){ const hay = [f.title, f.orig, genres(f).join(" "), (f.genre||[]).join(" "), f.director, (f.actors||[]).join(" "), f.lang].join(" ").toLowerCase(); if(!hay.includes(q)) continue; }
     rows.push({f, shows, imdb, crit, aud, first: (upcoming[0]||shows[0]).t, isToday});
   }
   const num = v => v == null ? -1 : v;
@@ -284,7 +292,7 @@ function render(){
     return;
   }
   $("list").innerHTML = rows.map(({f, shows, imdb, crit, aud, isToday}) => {
-    const facts = [(f.genre||[]).slice(0,3).join("/"), fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
+    const facts = [genres(f).slice(0,3).join("/"), fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : /tbc/i.test(f.age) ? "Aldersgrense ikke satt" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
     const orig = f.orig && f.orig.toLowerCase() !== f.title.toLowerCase() ? `<div class="orig">${esc(f.orig)}</div>` : "";
     const stubs = shows.map(s => {
       const past = isToday && s.t <= now.time;
@@ -353,7 +361,7 @@ $("keySave").addEventListener("click", () => {
 });
 
 /* ---------- hendelser ---------- */
-$("days").addEventListener("click", e => { const b = e.target.closest(".day"); if(!b) return; day = b.dataset.d; render(); });
+$("days").addEventListener("click", e => { const b = e.target.closest("button.day"); if(!b) return; day = b.dataset.d; render(); });
 $("thead").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return; $("sort").value = b.dataset.sort; saveCtl(); render(); });
 CTL.forEach(k => $(k).addEventListener(k === "q" ? "input" : "change", () => { saveCtl(); render(); }));
 loadCtl();
