@@ -114,12 +114,13 @@ input.ctl{-webkit-appearance:none;appearance:none}
 
 @media (max-width:720px){
   .thead{display:none}
-  .row{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 8px;padding:12px}
+  .row{grid-template-columns:auto auto auto;justify-content:space-between;gap:8px 4px;padding:12px}
   .film,.shows{grid-column:1/-1}
   .shows{order:3;margin-top:2px}
-  .score{order:2;display:flex;align-items:center;gap:6px;text-align:left}
-  .score .lab{display:inline-block;font-size:.72rem;color:var(--muted);flex:none;line-height:1.15}
-  .score a,.score span.v{min-width:0;padding:3px 7px;font-size:.9rem}
+  .score{order:2;display:flex;align-items:center;gap:5px;text-align:left}
+  .score .lab{display:inline-block;font-size:.7rem;color:var(--muted);flex:none;line-height:1.15}
+  .score .lab small{font-size:.6rem}
+  .score a,.score span.v{min-width:0;padding:3px 6px;font-size:.9rem}
   .score .n{display:none}
 }
 @media (max-width:380px){.wrap{padding-left:12px;padding-right:12px}.screen h1{font-size:1.45rem}}
