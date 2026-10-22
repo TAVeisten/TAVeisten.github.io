@@ -151,6 +151,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
   .row{grid-template-columns:auto minmax(0,1fr);gap:8px 0;padding:12px}
   .film,.shows,.genre{grid-column:1/-1}
   .genre{order:1;padding-top:0;margin-top:-6px;font-size:.84rem}
+  .genre.nogenre{display:none}
   .shows{order:3;margin-top:2px}
   .score{display:flex;align-items:center;gap:5px;text-align:left}
   /* Scorene som én stripe: IMDb-del og Rotten Tomatoes-del */
@@ -371,7 +372,7 @@ function render(){
     const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
       <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
-      <div class="genre">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
+      <div class="genre${genres(f).length ? "" : " nogenre"}">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
       <div class="shows">${stubs}</div>
       ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stemmer":"", weak, weak?"Under 400 stemmer":"")}
       <div class="rtbox"><span class="rtlab">Rotten Tomatoes</span>
