@@ -1,0 +1,38 @@
+name: Kinoprogram Drammen
+
+on:
+  schedule:
+    # UTC. Gir ca. kl. 06:40 og 12:40 om vinteren, 07:40 og 13:40 om sommeren (GitHub kan forsinke noen minutter)
+    - cron: "40 5 * * *"
+    - cron: "40 11 * * *"
+  workflow_dispatch: {}   # «Oppdater nå» på siden, eller Run workflow på GitHub
+  push:
+    branches: [main]
+    paths: ["kino/update.py", "kino/overrides.json", ".github/workflows/kino.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kino
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - run: python kino/update.py
+      - name: Lagre data
+        run: |
+          git config user.name "kino-oppdatering"
+          git config user.email "actions@users.noreply.github.com"
+          git add kino/data.json
+          git commit -m "Kinoprogram oppdatert" || exit 0
+          git pull --rebase origin main
+          git push
