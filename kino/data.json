@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T09:40+02:00",
+ "updated": "2026-10-22T09:52+02:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "films": [
@@ -595,7 +595,7 @@
    "imdb": {
     "id": "tt25399154",
     "rating": 7.5,
-    "votes": 2847
+    "votes": 2881
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/rose_2026",
@@ -972,7 +972,7 @@
    "imdb": {
     "id": "tt32261958",
     "rating": 6.1,
-    "votes": 19801
+    "votes": 20228
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/verity",
@@ -1059,7 +1059,7 @@
    "imdb": {
     "id": "tt36583977",
     "rating": 7.7,
-    "votes": 6948
+    "votes": 7069
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/forgotten_island",
@@ -1175,8 +1175,8 @@
    "premiere": "16 oktober",
    "imdb": {
     "id": "tt38673337",
-    "rating": 8.6,
-    "votes": 18
+    "rating": 8.7,
+    "votes": 20
    },
    "rt": null
   },
@@ -1296,7 +1296,7 @@
    "imdb": {
     "id": "tt27419420",
     "rating": 6.2,
-    "votes": 11196
+    "votes": 13053
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/street_fighter_2026",
@@ -1502,7 +1502,7 @@
    "imdb": {
     "id": "tt36586020",
     "rating": 5.4,
-    "votes": 11213
+    "votes": 11724
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/other_mommy",
@@ -1596,7 +1596,7 @@
    "imdb": {
     "id": "tt35538033",
     "rating": 7.6,
-    "votes": 110501
+    "votes": 111578
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/resident_evil_2026",
@@ -1641,7 +1641,7 @@
    "imdb": {
     "id": "tt7526136",
     "rating": 7.2,
-    "votes": 29043
+    "votes": 29552
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/heart_of_the_beast",
@@ -1767,7 +1767,7 @@
    "imdb": {
     "id": "tt36726913",
     "rating": 6.7,
-    "votes": 94
+    "votes": 95
    },
    "rt": null
   },
@@ -1925,8 +1925,8 @@
    "premiere": "9 oktober",
    "imdb": {
     "id": "tt13609648",
-    "rating": 7.4,
-    "votes": 3918
+    "rating": 7.3,
+    "votes": 4343
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/sense_and_sensibility_2026",
@@ -2078,7 +2078,7 @@
    "imdb": {
     "id": "tt32375006",
     "rating": 6.1,
-    "votes": 343
+    "votes": 345
    },
    "rt": null
   },
@@ -2156,7 +2156,7 @@
    "imdb": {
     "id": "tt28535715",
     "rating": 6.7,
-    "votes": 5239
+    "votes": 6041
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/whalefall",
@@ -2237,7 +2237,7 @@
    "imdb": {
     "id": "tt17070412",
     "rating": 6.2,
-    "votes": 2081
+    "votes": 2085
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/franz",
@@ -2340,7 +2340,7 @@
    "imdb": {
     "id": "tt32368068",
     "rating": 7.7,
-    "votes": 1294
+    "votes": 1299
    },
    "rt": null
   },
@@ -2614,7 +2614,7 @@
    "imdb": {
     "id": "tt36841161",
     "rating": 7.2,
-    "votes": 1616
+    "votes": 1640
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/shaun_the_sheep_the_beast_of_mossy_bottom",
@@ -2934,7 +2934,7 @@
    "imdb": {
     "id": "tt31450459",
     "rating": 7.5,
-    "votes": 40611
+    "votes": 41250
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/digger_2026",
@@ -3031,7 +3031,7 @@
    "imdb": {
     "id": "tt33095251",
     "rating": 7.3,
-    "votes": 18104
+    "votes": 18266
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/tony_2026",
@@ -3075,7 +3075,7 @@
    "imdb": {
     "id": "tt29356163",
     "rating": 6.1,
-    "votes": 2881
+    "votes": 2890
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/paw_patrol_the_dino_movie",
@@ -3138,7 +3138,7 @@
    "imdb": {
     "id": "tt26720001",
     "rating": 5.8,
-    "votes": 1258
+    "votes": 1260
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/stitch_head",
@@ -3216,7 +3216,7 @@
    "imdb": {
     "id": "tt44766123",
     "rating": 8.2,
-    "votes": 5026
+    "votes": 5176
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/naza",
@@ -3307,7 +3307,7 @@
    "imdb": {
     "id": "tt32888226",
     "rating": 7.2,
-    "votes": 2444
+    "votes": 2459
    },
    "rt": null
   },
@@ -3361,7 +3361,7 @@
    "imdb": {
     "id": "tt42886802",
     "rating": 7.9,
-    "votes": 472
+    "votes": 481
    },
    "rt": null
   },
@@ -3402,7 +3402,7 @@
    "imdb": {
     "id": "tt33764258",
     "rating": 8.4,
-    "votes": 533326
+    "votes": 534260
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/the_odyssey_2026",
@@ -3728,8 +3728,8 @@
    "premiere": "30 oktober",
    "imdb": {
     "id": "tt5782552",
-    "rating": 7.6,
-    "votes": 45
+    "rating": 7.7,
+    "votes": 47
    },
    "rt": null
   },
@@ -3773,7 +3773,7 @@
    "imdb": {
     "id": "tt22084616",
     "rating": 7.9,
-    "votes": 358972
+    "votes": 360300
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/spider_man_brand_new_day",
@@ -3863,7 +3863,7 @@
    "imdb": {
     "id": "tt27503384",
     "rating": 7.9,
-    "votes": 113687
+    "votes": 113747
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/perfect_days_2023",
@@ -4019,7 +4019,7 @@
    "imdb": {
     "id": "tt35298123",
     "rating": 6.5,
-    "votes": 23121
+    "votes": 23300
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/teenage_sex_and_death_at_camp_miasma",
@@ -4091,7 +4091,7 @@
    "imdb": {
     "id": "tt2056785",
     "rating": 8.9,
-    "votes": 517
+    "votes": 591
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/wildwood",
@@ -4152,7 +4152,7 @@
    "imdb": {
     "id": "tt37287335",
     "rating": 7.8,
-    "votes": 406334
+    "votes": 407455
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/obsession_2025",
@@ -4200,7 +4200,7 @@
    "imdb": {
     "id": "tt0117571",
     "rating": 7.5,
-    "votes": 456329
+    "votes": 456456
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/1074316-scream",
@@ -4295,7 +4295,7 @@
    "imdb": {
     "id": "tt0081505",
     "rating": 8.4,
-    "votes": 1249166
+    "votes": 1249312
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/shining",
