@@ -79,24 +79,45 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .sortwrap{display:flex;gap:6px;min-width:0;grid-column:span 2}
 .sortwrap select{flex:1;min-width:0}
 .dir{flex:none;width:44px;border:1px solid var(--line);background:var(--card);border-radius:10px;cursor:pointer;font-size:1rem}
-/* Nytt siden sist: maks to linjer, kan utvides */
-.news{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--chip-ink);border-radius:12px;padding:10px 14px;margin:0 0 14px}
+/* Nytt siden sist: samme boks som «Nytt i dag» i Konsertkalender Norge – to linjer lukket, trykk for å åpne;
+   de to første delene vises i sin helhet, resten er egne nedtrekkslister med én felles «Åpne alle»-knapp */
+.news{background:var(--card);border:1px solid var(--line);padding:10px 12px 10px 14px;border-radius:8px;font-size:14px;line-height:1.4;cursor:pointer;max-width:70ch;margin:0 0 14px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:2px 12px}
 .news[hidden]{display:none}
-.news-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin-bottom:4px}
-.news-head b{font-size:.98rem}
-.news-head span{color:var(--muted);font-size:.8rem}
-.news-body{font-size:.9rem;line-height:1.45}
-.news-body p{margin:0 0 4px}
-.news-body p:last-child{margin-bottom:0}
-.news-body .lbl{font-weight:600}
-.news-body.clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
-.news-body.clamp p{display:inline;margin:0}
-.news-body.clamp p::after{content:" "}
-.news-body .nw-title{font-weight:700}
-.news-body .nw-when{color:var(--muted);font-size:.8rem}
-.news-body.clamp .nw-when{display:none}
-.news-more{background:none;border:0;padding:4px 0 0;color:var(--chip-ink);font-weight:600;cursor:pointer;font-size:.86rem}
-.news-more[hidden]{display:none}
+.news>.nt{flex:1 1 0;min-width:0}
+.news .nl{flex:0 0 100%;display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.news.open .nl{margin-bottom:4px}
+.news:hover{border-color:var(--muted)}
+.news:focus-visible{outline:2px solid var(--chip-ink);outline-offset:2px}
+.news:not(.open) .nt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.news:not(.open) .ns,.news:not(.open) .nw-when{display:none}
+.news .nh{font-weight:600}
+.news.open{display:block;cursor:default}
+.news.open:hover{border-color:var(--line)}
+.news.open .nt{display:block;overflow:visible}
+.news .ns{margin-top:10px;display:grid;gap:12px}
+.news .ns b{display:block;font-weight:700;margin-bottom:3px}
+.news .ns ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.news .ns.nx{gap:0;margin-top:12px;border-top:1px solid var(--line)}
+.news .nx details{border-bottom:1px solid var(--line)}
+.news .nx details:last-child{border-bottom:0}
+.news .nx summary{list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer;font-weight:700}
+.news .nx summary::-webkit-details-marker{display:none}
+.news .nx summary .cn{color:var(--muted);font-weight:500}
+.news .nx summary::after{content:"";margin-left:auto;margin-right:4px;width:7px;height:7px;border-right:2px solid var(--chip-ink);border-bottom:2px solid var(--chip-ink);transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+.news .nx details[open] summary::after{transform:rotate(-135deg) translate(-1px,-1px)}
+.news .nx details ul{padding-bottom:12px}
+.news .nxall{display:flex;justify-content:flex-end;border-bottom:1px solid var(--line)}
+.news .nxall button{font:inherit;font-size:13px;font-weight:700;color:var(--chip-ink);background:none;border:0;padding:0 4px;min-height:40px;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.news .nxall button::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+.news .nxall button.on::after{transform:rotate(-135deg) translate(-1px,-1px)}
+.news .nxall button:hover{text-decoration:underline;text-underline-offset:3px}
+.news .nw-when{color:var(--muted);font-size:12px;margin:10px 0 0}
+.news .nm{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--chip-ink);white-space:nowrap;line-height:1.4;cursor:pointer}
+.news .nm[hidden]{display:none}
+.news.open .nm{margin-top:10px}
+.news .nm::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+.news.open .nm::after{transform:rotate(-135deg) translate(-1px,-1px)}
+.news:hover .nm,.news .nm:hover{text-decoration:underline;text-underline-offset:3px}
 .list{display:flex;flex-direction:column;gap:8px}
 .row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .film h3{font-size:1.02rem;margin:0;line-height:1.25}
@@ -199,9 +220,8 @@ input.ctl{-webkit-appearance:none;appearance:none}
     <p class="err" id="keyErr">Du kan også starte oppdateringen selv: <a href="https://github.com/TAVeisten/TAVeisten.github.io/actions/workflows/kino.yml" target="_blank" rel="noopener">åpne den på GitHub</a> og trykk «Run workflow».</p>
   </div>
 
-  <section class="news" id="news" hidden aria-label="Nytt siden sist">
-    <div class="news-body clamp" id="newsBody"></div>
-    <button type="button" class="news-more" id="newsMore" aria-expanded="false" hidden>Vis alt</button>
+  <section class="news" id="news" hidden role="button" tabindex="0" aria-expanded="false" aria-label="Nytt siden sist" title="Trykk for å se hele">
+    <span class="nl">Nytt siden sist</span><span class="nt" id="newsBody"></span><span class="nm" id="newsMore" hidden>Vis alt</span>
   </section>
 
   <nav class="days" id="days" aria-label="Velg dag"></nav>
@@ -414,28 +434,41 @@ function renderNews(){
     en.length && `${en.length} gått av programmet`].filter(Boolean);
   if(soon.length) sum.unshift(`${soon.length} går snart av`);
   const fmt = v => v == null ? "–" : typeof v === "number" && v % 1 ? String(v).replace(".",",") : String(v);
-  const parts = [];
-  const T = `<span class="nw-title">Nytt siden sist:</span> `;
-  if(c.first) parts.push(`<p>${T}Første oppdatering. Fra neste gang står det her hva som er nytt.</p>`);
-  else if(!sum.length) parts.push(`<p>${T}Ingen endringer siden forrige oppdatering.</p>`);
-  if(!c.first && sum.length){
-    parts.push(`<p>${T}${esc(sum.join(", ").replace(/^./, x => x.toUpperCase()))}.</p>`);
-    if(soon.length) parts.push(`<p><span class="lbl">Går snart av:</span> ${soon.map(f => `${esc(f.title)} (siste visning ${esc(dshort(f.endsSoon))} ${esc(f.shows.filter(x=>x.d===f.endsSoon).slice(-1).map(x=>x.t.replace(":",".")).join(""))})`).join(", ")}.</p>`);
-    if(nf.length) parts.push(`<p><span class="lbl">Nye filmer:</span> ${nf.map(x => `${esc(x.title)} (fra ${esc(dshort(x.first.slice(0,10)))} ${esc(x.first.slice(11).replace(":","."))})`).join(", ")}.</p>`);
-    if(ns.length) parts.push(`<p><span class="lbl">Nye visninger:</span> ${ns.map(x => `${esc(x.title)} (${x.n}, ${esc(x.days.length > 3 ? x.days.length+" dager" : x.days.map(dshort).join(", "))})`).join(", ")}.</p>`);
-    if(sc.length) parts.push(`<p><span class="lbl">Endret score:</span> ${sc.map(x => `${esc(x.title)} ${x.diffs.map(d => `${esc(d[0])} ${fmt(d[1])}${d[0]==="IMDb"?"":" %"} → ${fmt(d[2])}${d[0]==="IMDb"?"":" %"}`).join(", ")}`).join("; ")}.</p>`);
-    if(gn.length) parts.push(`<p><span class="lbl">Tatt av programmet:</span> ${gn.map(x => esc(x.title)).join(", ")}.</p>`);
-    if(en.length) parts.push(`<p><span class="lbl">Gått av programmet:</span> ${en.map(x => esc(x.title) + (x.last ? ` (siste visning ${esc(dshort(x.last))})` : "")).join(", ")}.</p>`);
-  }
-  if(c.at) parts.push(`<p class="nw-when">Gjelder oppdateringen ${esc(when(c.at))}${c.quietSince ? esc(", ingen endringer " + when(c.quietSince)) : ""}.</p>`);
-  body.innerHTML = parts.join("");
+  const head = c.first ? "Første oppdatering. Fra neste gang står det her hva som er nytt."
+    : !sum.length ? "Ingen endringer siden forrige oppdatering."
+    : sum.join(" · ").replace(/^./, x => x.toUpperCase());
+  // Sections as in Konsertkalender: the first two in full, the rest as dropdowns (one bullet per film)
+  const secs = c.first ? [] : [
+    ["Går snart av", soon.map(f => `${f.title} (siste visning ${dshort(f.endsSoon)} ${f.shows.filter(x=>x.d===f.endsSoon).slice(-1).map(x=>x.t.replace(":",".")).join("")})`), 1],
+    ["Nye filmer", nf.map(x => `${x.title} (fra ${dshort(x.first.slice(0,10))} ${x.first.slice(11).replace(":",".")})`), 1],
+    ["Nye visninger", ns.map(x => `${x.title} (${x.n}, ${x.days.length > 3 ? x.days.length+" dager" : x.days.map(dshort).join(", ")})`)],
+    ["Endret score", sc.map(x => `${x.title}: ${x.diffs.map(d => `${d[0]} ${fmt(d[1])}${d[0]==="IMDb"?"":" %"} → ${fmt(d[2])}${d[0]==="IMDb"?"":" %"}`).join(", ")}`)],
+    ["Tatt av programmet", gn.map(x => x.title)],
+    ["Gått av programmet", en.map(x => x.title + (x.last ? ` (siste visning ${dshort(x.last)})` : ""))]
+  ].filter(x => x[1].length);
+  const ul = items => `<ul>${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>`;
+  const top = secs.filter(x => x[2]), dd = secs.filter(x => !x[2]);
+  let h = `<span class="nh">${esc(head)}</span>`;
+  if(top.length) h += `<div class="ns">${top.map(x => `<div><b>${esc(x[0])}</b>${ul(x[1])}</div>`).join("")}</div>`;
+  if(dd.length) h += `<div class="ns nx">${dd.length > 1 ? `<div class="nxall"><button type="button" aria-expanded="false">Åpne alle</button></div>` : ""}${dd.map(x => `<details><summary>${esc(x[0])} <span class="cn">(${x[1].length})</span></summary>${ul(x[1])}</details>`).join("")}</div>`;
+  if(c.at) h += `<p class="nw-when">Gjelder oppdateringen ${esc(when(c.at))}${c.quietSince ? esc(", ingen endringer " + when(c.quietSince)) : ""}.</p>`;
+  body.innerHTML = h;
   box.hidden = false;
-  const open = more.getAttribute("aria-expanded") === "true";
-  body.classList.toggle("clamp", !open);
-  requestAnimationFrame(() => { const over = body.scrollHeight > body.clientHeight + 2; more.hidden = !open && !over; });
+  const ds = [...body.querySelectorAll(".nx details")], ab = body.querySelector(".nxall button");
+  if(ab){ const sync = () => { const all = ds.every(d => d.open); ab.textContent = all ? "Lukk alle" : "Åpne alle"; ab.classList.toggle("on", all); ab.setAttribute("aria-expanded", String(all)); };
+    ab.addEventListener("click", () => { const o = !ds.every(d => d.open); ds.forEach(d => { d.open = o; }); sync(); });
+    ds.forEach(d => d.addEventListener("toggle", sync)); sync(); }
+  fitNews();
 }
-$("newsMore").addEventListener("click", () => { const m = $("newsMore"), open = m.getAttribute("aria-expanded") !== "true";
-  m.setAttribute("aria-expanded", open); m.textContent = open ? "Vis mindre" : "Vis alt"; $("newsBody").classList.toggle("clamp", !open); });
+// «Vis alt» shows when there is more than the two-line headline
+function fitNews(){ const box = $("news"), body = $("newsBody"), more = $("newsMore");
+  if(box.classList.contains("open")){ more.hidden = false; return; }
+  more.hidden = !(body.querySelector(".ns,.nw-when") || body.scrollHeight > body.clientHeight + 1); }
+function togNews(){ const box = $("news"), o = box.classList.toggle("open"); box.setAttribute("aria-expanded", String(o)); $("newsMore").textContent = o ? "Vis mindre" : "Vis alt"; fitNews(); }
+// Collapsed to two lines by default; clicks inside the open lists do not close the box
+$("news").addEventListener("click", e => { const box = $("news"); if(box.classList.contains("open") && !e.target.closest(".nm") && e.target.closest(".ns,.nw-when")) return; togNews(); });
+$("news").addEventListener("keydown", e => { if(e.target !== $("news")) return; if(e.key === "Enter" || e.key === " "){ e.preventDefault(); togNews(); } });
+addEventListener("resize", () => { if($("news") && !$("news").hidden) fitNews(); });
 function use(j){ data = j; renderDays(); renderGenres(); showUpdated(); renderNews(); render(); }
 
 function load(){
