@@ -280,6 +280,18 @@ input.ctl{-webkit-appearance:none;appearance:none}
   </div>
 </div>
 
+<script>/* Trykk inne i en åpen nedtrekksliste lukker den (lenker, knapper og felt virker som før); er toppen av lista over skjermen, rulles den fram igjen */
+(function(){
+  const skip=t=>t.closest("a,button,input,select,textarea,label,summary,option,.ivf,.rejf,[contenteditable]");
+  window.__shutView=el=>{ if(!el) return; requestAnimationFrame(()=>{ if(el.getBoundingClientRect().top<0) el.scrollIntoView({block:"start"}); }); };
+  window.__tapShut=t=>!skip(t)&&!(window.getSelection&&String(getSelection()).trim());
+  document.addEventListener("click",e=>{
+    if(!(e.target instanceof Element)||!__tapShut(e.target)) return;
+    const d=e.target.closest("details[open]"); if(!d) return;
+    d.open=false; __shutView(d.querySelector(":scope>summary")||d);
+  });
+})();
+</script>
 <script>
 (function(){
 "use strict";
@@ -465,8 +477,8 @@ function fitNews(){ const box = $("news"), body = $("newsBody"), more = $("newsM
   if(box.classList.contains("open")){ more.hidden = false; return; }
   more.hidden = !(body.querySelector(".ns,.nw-when") || body.scrollHeight > body.clientHeight + 1); }
 function togNews(){ const box = $("news"), o = box.classList.toggle("open"); box.setAttribute("aria-expanded", String(o)); $("newsMore").textContent = o ? "Vis mindre" : "Vis alt"; fitNews(); }
-// Collapsed to two lines by default; clicks inside the open lists do not close the box
-$("news").addEventListener("click", e => { const box = $("news"); if(box.classList.contains("open") && !e.target.closest(".nm") && e.target.closest(".ns,.nw-when")) return; togNews(); });
+// Collapsed to two lines by default; a tap in the open box closes it, a tap inside an open dropdown closes only that dropdown
+$("news").addEventListener("click", e => { const box = $("news"); if(box.classList.contains("open") && !e.target.closest(".nm") && (!__tapShut(e.target) || e.target.closest(".nx details[open]"))) return; togNews(); if(!box.classList.contains("open")) __shutView(box); });
 $("news").addEventListener("keydown", e => { if(e.target !== $("news")) return; if(e.key === "Enter" || e.key === " "){ e.preventDefault(); togNews(); } });
 addEventListener("resize", () => { if($("news") && !$("news").hidden) fitNews(); });
 function use(j){ data = j; renderDays(); renderGenres(); showUpdated(); renderNews(); render(); }
