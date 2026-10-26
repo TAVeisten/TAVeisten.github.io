@@ -65,11 +65,11 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .count{color:var(--muted);font-size:.85rem;margin:0 2px 8px}
 
 /* Filmlisten: tabell på stor skjerm, kort på mobil */
-.thead,.row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.35fr) 76px 128px;gap:12px 14px;align-items:start}
+.thead,.row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.35fr) 52px 60px;gap:12px 14px;align-items:start}
 .film h3,.genre{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
 /* Handlingen står under tittel og sjanger; visninger og scorer går over begge radene */
-.plot{grid-column:1/3;grid-row:2;margin:-6px 0 0;color:var(--muted);font-size:.84rem;line-height:1.35;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden}
-/* Lang beskrivelse: maks fire linjer med «…»; trykk for å vise resten, trykk igjen for å lukke */
+.plot{grid-column:1/3;grid-row:2;margin:-6px 0 0;color:var(--muted);font-size:.84rem;line-height:1.35;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
+/* Lang beskrivelse: maks tre linjer med «…»; trykk for å vise resten, trykk igjen for å lukke */
 .plot.cut,.plot.open{cursor:pointer}.plot.open{display:block;-webkit-line-clamp:unset;line-clamp:none}
 .plot.open::after{content:" Vis mindre";color:var(--chip-ink);font-weight:600;white-space:nowrap}
 .row>.film{grid-column:1;grid-row:1}.row>.genre{grid-column:2;grid-row:1}
@@ -148,16 +148,19 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .stub.sold{opacity:.55}.stub.sold small::after{content:", utsolgt"}
 .score{text-align:center;font-variant-numeric:tabular-nums}
 /* Egne bånd for IMDb og Rotten Tomatoes: hele høyden i raden, så de leses som egne kolonner */
-.s-imdb{align-self:stretch;margin:-10px 0;padding:10px 2px;background:var(--imdb-band)}
-.rtbox{align-self:stretch;margin:-10px -12px -10px 0;padding:10px 4px;background:var(--rt-band);border-radius:0 11px 11px 0;display:grid;grid-template-columns:1fr 1fr;gap:4px;align-content:start}
+.s-imdb{align-self:stretch;margin:-10px 0;padding:10px 1px;background:var(--imdb-band)}
+.rtbox{align-self:stretch;margin:-10px -12px -10px 0;padding:10px 3px;background:var(--rt-band);border-radius:0 11px 11px 0;display:grid;grid-template-columns:1fr;gap:4px;align-content:start}
 .rtbox .rtlab{display:none}
-.thead .h-imdb{background:var(--imdb-band);border-radius:10px 10px 0 0;padding:6px 4px}
-.thead .h-rt{background:var(--rt-band);border-radius:10px 10px 0 0;padding:6px 4px;display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-right:-12px}
+.thead .h-imdb{background:var(--imdb-band);border-radius:10px 10px 0 0;padding:6px 2px}
+.thead .h-rt{background:var(--rt-band);border-radius:10px 10px 0 0;padding:6px 3px;display:grid;grid-template-columns:1fr;gap:1px;margin-right:-12px;font-size:.7rem}
+/* Smale scorekolonner: Kritikere (grønn) og Publikum (blå) står under hverandre */
+.thead .h-rt small{display:none}.thead .h-rt [data-sort=crit]{color:var(--crit)}.thead .h-rt [data-sort=aud]{color:var(--aud)}
 .thead .h-rt .rtname{grid-column:1/-1;font-weight:700;color:var(--crit);text-align:center;font-size:.76rem}
-.score a,.score span.v{display:inline-block;min-width:46px;border-radius:8px;padding:4px 4px;font-weight:700;text-decoration:none;font-size:.95rem}
+.score a,.score span.v{display:block;min-width:0;border-radius:7px;padding:3px 2px;font-weight:700;text-decoration:none;font-size:.95rem}
 .score a:hover{outline:1px solid currentColor}
 .score .lab{display:none}
 .thead small,.score .lab small{display:block;font-weight:400;font-size:.62rem;color:var(--faint);line-height:1.1}
+.rtbox .score .n{display:none}
 .score .n{display:block;font-weight:400;font-size:.62rem;opacity:.8;margin-top:1px;white-space:nowrap}
 .s-imdb a,.s-imdb span.v{background:var(--imdb-bg);color:var(--imdb)}
 .s-crit a,.s-crit span.v{background:var(--crit-bg);color:var(--crit)}
@@ -281,14 +284,14 @@ input.ctl{-webkit-appearance:none;appearance:none}
     <span><button type="button" data-sort="genre">Sjanger</button></span>
     <span><button type="button" data-sort="time">Visninger</button></span>
     <span class="h-imdb"><button type="button" data-sort="imdb">IMDb</button></span>
-    <span class="h-rt"><span class="rtname">Rotten Tomatoes</span>
+    <span class="h-rt"><span class="rtname" title="Rotten Tomatoes">RT</span>
       <button type="button" data-sort="crit">Kritikere<small>Tomatometer</small></button>
       <button type="button" data-sort="aud">Publikum<small>Popcornmeter</small></button></span>
   </div>
   <div class="list" id="list"></div>
 
   <div class="foot">
-    <p>Kritikere og publikum er fra Rotten Tomatoes: Tomatometer er kritikernes score, Popcornmeter er publikums score. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
+    <p>Kritikere og publikum er fra Rotten Tomatoes (RT): Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). Tallet under IMDb-scoren er antall stemmer. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
     <p>Programmet oppdateres automatisk hver morgen, og er klart før kl. 08:00. Kilder: <a href="https://www.nfkino.no/kino/drammen-kino?city=drammen" target="_blank" rel="noopener">NF Kino</a>, <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a> og <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
   </div>
 </div>
@@ -422,7 +425,7 @@ function render(){
       <div class="genre${genres(f).length ? "" : " nogenre"}">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
       ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
       <div class="shows">${stubs}</div>
-      ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stemmer":"", weak, weak?"Under 400 stemmer":"")}
+      ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes):"", weak, weak?"Under 400 stemmer":"")}
       <div class="rtbox"><span class="rtlab">Rotten Tomatoes</span>
       ${scoreCell("s-crit","Kritikere<small>Tomatometer</small>", crit==null?null:crit+"%", f.rt&&f.rt.url, f.rt&&f.rt.criticsCount?f.rt.criticsCount+" anm.":"", false, "Tomatometer")}
       ${scoreCell("s-aud","Publikum<small>Popcornmeter</small>", aud==null?null:aud+"%", f.rt&&f.rt.url, f.rt&&f.rt.audienceCount?short(f.rt.audienceCount):"", false, "Popcornmeter")}</div>
