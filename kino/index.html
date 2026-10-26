@@ -291,7 +291,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
   <div class="list" id="list"></div>
 
   <div class="foot">
-    <p>Kritikere og publikum er fra Rotten Tomatoes (RT): Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). Tallet under IMDb-scoren er antall stemmer. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
+    <p>Kritikere og publikum er fra Rotten Tomatoes (RT): Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). «st.» under IMDb-scoren er antall stemmer. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
     <p>Programmet oppdateres automatisk hver morgen, og er klart før kl. 08:00. Kilder: <a href="https://www.nfkino.no/kino/drammen-kino?city=drammen" target="_blank" rel="noopener">NF Kino</a>, <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a> og <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
   </div>
 </div>
@@ -425,7 +425,7 @@ function render(){
       <div class="genre${genres(f).length ? "" : " nogenre"}">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
       ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
       <div class="shows">${stubs}</div>
-      ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes):"", weak, weak?"Under 400 stemmer":"")}
+      ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" st.":"", weak, weak?"Under 400 stemmer":"")}
       <div class="rtbox"><span class="rtlab">Rotten Tomatoes</span>
       ${scoreCell("s-crit","Kritikere<small>Tomatometer</small>", crit==null?null:crit+"%", f.rt&&f.rt.url, f.rt&&f.rt.criticsCount?f.rt.criticsCount+" anm.":"", false, "Tomatometer")}
       ${scoreCell("s-aud","Publikum<small>Popcornmeter</small>", aud==null?null:aud+"%", f.rt&&f.rt.url, f.rt&&f.rt.audienceCount?short(f.rt.audienceCount):"", false, "Popcornmeter")}</div>
