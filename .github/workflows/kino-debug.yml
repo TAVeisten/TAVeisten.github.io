@@ -1,12 +1,15 @@
 name: kino-debug
 on: workflow_dispatch
+permissions:
+  contents: write
 jobs:
   d:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: pip install requests beautifulsoup4
       - run: |
-          python - <<'PY'
+          python - > kino/_debug.txt <<'PY'
           import requests,re
           from bs4 import BeautifulSoup
           for slug in ["pensjonskuppet","tony","verity","sangen-fra-skogene"]:
@@ -19,3 +22,6 @@ jobs:
               for m in s.select('meta[name=description],meta[property="og:description"]'):
                   print("META",m.get("content","")[:300])
           PY
+      - run: |
+          git config user.name dbg; git config user.email actions@users.noreply.github.com
+          git add kino/_debug.txt; git commit -m dbg; git pull --rebase origin main; git push
