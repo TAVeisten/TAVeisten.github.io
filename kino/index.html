@@ -65,7 +65,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .count{color:var(--muted);font-size:.85rem;margin:0 2px 8px}
 
 /* Filmlisten: tabell på stor skjerm, kort på mobil */
-.thead,.row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.35fr) 46px 100px;gap:12px 14px;align-items:start}
+.thead,.row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.35fr) 54px 100px;gap:12px 14px;align-items:start}
 .film h3,.genre{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
 /* Handlingen står under tittel og sjanger; visninger og scorer går over begge radene */
 .plot{grid-column:1/3;grid-row:2;margin:-6px 0 0;color:var(--muted);font-size:.84rem;line-height:1.35;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
@@ -291,7 +291,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
   <div class="list" id="list"></div>
 
   <div class="foot">
-    <p>Kritikere og publikum er fra Rotten Tomatoes: Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). «st.» under IMDb-scoren er antall stemmer. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
+    <p>Kritikere og publikum er fra Rotten Tomatoes: Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). «stem.» under IMDb-scoren er antall stemmer. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
     <p>Programmet oppdateres automatisk hver morgen, og er klart før kl. 08:00. Kilder: <a href="https://www.nfkino.no/kino/drammen-kino?city=drammen" target="_blank" rel="noopener">NF Kino</a>, <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a> og <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
   </div>
 </div>
@@ -425,7 +425,7 @@ function render(){
       <div class="genre${genres(f).length ? "" : " nogenre"}">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
       ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
       <div class="shows">${stubs}</div>
-      ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" st.":"", weak, weak?"Under 400 stemmer":"")}
+      ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stem.":"", weak, weak?"Under 400 stemmer":"")}
       <div class="rtbox"><span class="rtlab">Rotten Tomatoes</span>
       ${scoreCell("s-crit","Kritikere<small>Tomatometer</small>", crit==null?null:crit+"%", f.rt&&f.rt.url, f.rt&&f.rt.criticsCount?f.rt.criticsCount+" anm.":"", false, "Tomatometer")}
       ${scoreCell("s-aud","Publikum<small>Popcornmeter</small>", aud==null?null:aud+"%", f.rt&&f.rt.url, f.rt&&f.rt.audienceCount?short(f.rt.audienceCount):"", false, "Popcornmeter")}</div>
