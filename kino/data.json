@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-26T11:02+01:00",
+ "updated": "2026-10-26T11:16+01:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "changes": {
-  "at": "2026-10-26T11:02+01:00",
-  "since": "2026-10-26T08:12+01:00",
+  "at": "2026-10-26T11:16+01:00",
+  "since": "2026-10-26T11:02+01:00",
   "newFilms": [],
   "newShows": [],
   "scores": [
@@ -13,18 +13,8 @@
     "diffs": [
      [
       "IMDb",
-      7.7,
-      7.5
-     ]
-    ]
-   },
-   {
-    "title": "Sense and Sensibility",
-    "diffs": [
-     [
-      "Publikum",
-      88,
-      89
+      7.5,
+      7.7
      ]
     ]
    },
@@ -33,8 +23,8 @@
     "diffs": [
      [
       "IMDb",
-      8.5,
-      8.6
+      8.6,
+      8.5
      ]
     ]
    },
@@ -43,8 +33,8 @@
     "diffs": [
      [
       "IMDb",
-      7.2,
-      7.1
+      7.1,
+      7.2
      ]
     ]
    },
@@ -53,8 +43,8 @@
     "diffs": [
      [
       "IMDb",
-      7.5,
-      7.6
+      7.6,
+      7.5
      ]
     ]
    },
@@ -63,8 +53,8 @@
     "diffs": [
      [
       "IMDb",
-      8.8,
-      8.7
+      8.7,
+      8.8
      ]
     ]
    },
@@ -73,8 +63,8 @@
     "diffs": [
      [
       "IMDb",
-      7.2,
-      7.1
+      7.1,
+      7.2
      ]
     ]
    },
@@ -83,8 +73,8 @@
     "diffs": [
      [
       "IMDb",
-      8.0,
-      7.7
+      7.7,
+      8.0
      ]
     ]
    },
@@ -93,8 +83,8 @@
     "diffs": [
      [
       "IMDb",
-      6.1,
-      6.0
+      6.0,
+      6.1
      ]
     ]
    },
@@ -103,8 +93,8 @@
     "diffs": [
      [
       "IMDb",
-      8.2,
-      8.1
+      8.1,
+      8.2
      ]
     ]
    }
@@ -608,12 +598,12 @@
    ],
    "lang": "NO",
    "about": "Årets villeste komedie!",
-   "plot": "Etter 40 år med støvtørking og lojalitet, får Annema (65) takken: sparken som kone.",
+   "plot": "Etter 40 år med støvtørking og lojalitet, får Annema (65) takken: sparken som kone. Ektemannen Arne har funnet en yngre modell og kaster henne på dør. Sammen med Nina, som er «for gammel» for arbeidslivet, og Mona, som er for blakk til å overleve, bestemmer trioen seg for å pensjonere seg fra lovlydigheten. De planlegger et umulig kupp: å rane selveste Oljefondet. En ellevill komedie om en høyst uoffisiell, men velfortjent, førtidspensjon.",
    "premiere": "16 oktober",
    "imdb": {
     "id": "tt39453840",
-    "rating": 7.5,
-    "votes": 70
+    "rating": 7.7,
+    "votes": 57
    },
    "rt": null
   },
@@ -708,12 +698,12 @@
    ],
    "lang": "FR",
    "about": null,
-   "plot": "En slående vakker dokumentar om livet i skogen. Som ung gutt lærte regissør Vincent Munier å verdsette naturen av sin far.",
+   "plot": "En slående vakker dokumentar om livet i skogen. Som ung gutt lærte regissør Vincent Munier å verdsette naturen av sin far. Nå er Vincents sønn på samme alder, og de tre generasjonene begir seg inn i de tette skogene i Frankrike for å oppleve fugler, hjorter og gaupe på nært hold. Bestefarens absolutte favoritt er tiuren, en fugl som nå har forsvunnet fra de franske skogene. For å gi barnebarnet mulighet til å oppleve den fantastiske fuglen, reiser de til Norge. Sangen fra skogene er en usedvanlig vakker film, preget av ro og undring. Den minner oss om all den glede naturen gir og hvor viktig det er at vi tar vare på den. Vincent Munier er en av verdens fremste naturfotografer. Med sitt kamera fanger han øyeblikk de færreste får oppleve, og gjør dem tilgjengelige for alle.",
    "premiere": "23 oktober",
    "imdb": {
     "id": "tt32368068",
     "rating": 7.7,
-    "votes": 1323
+    "votes": 1313
    },
    "rt": null
   },
@@ -879,12 +869,12 @@
    ],
    "lang": "EN",
    "about": "Ny tolkning av Jane Austens store klassiker",
-   "plot": "Den nye filmatiseringen av Jane Austens hyllede klassiker puster nytt liv i den rørende fortellingen om Dashwood-søstrene, i en tidløs fortelling om kjærlighet …",
+   "plot": "Den nye filmatiseringen av Jane Austens hyllede klassiker puster nytt liv i den rørende fortellingen om Dashwood-søstrene, i en tidløs fortelling om kjærlighet, søsterskap og samfunnets forventninger i England på slutten av 1700-tallet. Etter farens død mister familien både hjemmet sitt og sin økonomiske trygghet. Mrs. Dashwood må ta sine tre døtre med til langt mer beskjedne kår på landsbygda. I en tid hvor kjærlighet, velstand og sosial status er tett vevd sammen, må de unge jentene ta smarte valg for å sikre familiens fremtid. Sense & Sensibility er regissert av britiske Georgia Oakley (Blue Jean) og på rollelisten finner vi Daisy Edgar-Jones, George MacKay, Caitríona Balfe, Stacy Martin, Frank Dillane og, ikke minst, vår helt egne Herbert Nordrum!",
    "premiere": "9 oktober",
    "imdb": {
     "id": "tt13609648",
     "rating": 7.4,
-    "votes": 5520
+    "votes": 5055
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/sense_and_sensibility_2026",
@@ -933,7 +923,7 @@
    "actors": [],
    "lang": null,
    "about": "Opplev det morsomme og spektakulære stykket på kino",
-   "plot": "Med et overflod av nydelig melodi, følger Mozart sin vittige romantiske komedie to seilere som bytter plass for å teste hvorvidt deres forlovede er trofast eller ikke …",
+   "plot": "Med et overflod av nydelig melodi, følger Mozart sin vittige romantiske komedie to seilere som bytter plass for å teste hvorvidt deres forlovede er trofast eller ikke, med et hysterisk morsomt resultat. Omtalt som \" fargerikt og oppfinnsomt \" av The New York Times, har Phelim McDermott oppdatert produksjonen til å foregå på en fornøyelsespark inspirert av Coney Island på 1950-tallet. Her møter vi sverdslukere, flammeslukere, contortionists og mye, mye mer.",
    "premiere": "3 oktober",
    "imdb": null,
    "rt": null
@@ -1095,7 +1085,7 @@
    ],
    "lang": "SV",
    "about": null,
-   "plot": "Lille spøkelset Laban er tilbake med en ny samling koselige og passe skumle eventyr på Godmorgen solslott.",
+   "plot": "Lille spøkelset Laban er tilbake med en ny samling koselige og passe skumle eventyr på Godmorgen solslott. Sammen med lillesøster Labolina og bestevennen Lilleprins Bus byr dagene på alt fra knask eller knep, bursdagsfeiring og bortkomne julegaver til uventede gjester og mange andre morsomme opplevelser. En sjarmerende kinofilm fylt med lek, latter og spøk for de aller minste.",
    "premiere": "23 oktober",
    "imdb": {
     "id": "tt43714599",
@@ -1246,12 +1236,12 @@
    ],
    "lang": "EN",
    "about": "Et av verdens mest kjente videospill er klart for kinolerretet.",
-   "plot": "I 1993 gjenforenes fiendene Ryu og Ken Masters, to Street Fighter-utøvere som tidligere var som brødre, til et verdensmesterskap i kampsporten.",
+   "plot": "I 1993 gjenforenes fiendene Ryu og Ken Masters, to Street Fighter-utøvere som tidligere var som brødre, til et verdensmesterskap i kampsporten. De blir rekruttert av den mystiske Chun-Li, med lovnad om en legendarisk konkurranse de ikke kan takke nei til. Det viser seg raskt at det skjuler seg en farlig konspirasjon med enorme konsekvenser bak turneringen, og både Ryu og Ken må legge rivaliseringen til side for å takle sitt livs største utfordring.",
    "premiere": "16 oktober",
    "imdb": {
     "id": "tt27419420",
     "rating": 6.2,
-    "votes": 16999
+    "votes": 15990
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/street_fighter_2026",
@@ -1433,12 +1423,12 @@
    "actors": [],
    "lang": null,
    "about": null,
-   "plot": "Hvert år dukker det opp en gave hos søsknene Edle og Brage. Avsenderen er hemmelig og pakken er sendt fra Arendal.",
+   "plot": "Hvert år dukker det opp en gave hos søsknene Edle og Brage. Avsenderen er hemmelig og pakken er sendt fra Arendal. Nå vil de finne ut hvem som står bak. Jakten på avsenderen blir en varm og nysgjerrig dokumentar om familie, tradisjoner og små mysterier som binder mennesker sammen.",
    "premiere": "16 oktober",
    "imdb": {
     "id": "tt38673337",
-    "rating": 8.6,
-    "votes": 22
+    "rating": 8.5,
+    "votes": 21
    },
    "rt": null
   },
@@ -1585,12 +1575,12 @@
    "actors": [],
    "lang": "EN",
    "about": "Sauen Shaun er tilbake!",
-   "plot": "Beboerne på Mossy Bottom Farm gleder seg til Halloween – helt til den klønete bonden ødelegger flokkens elskede gresskarhage.",
+   "plot": "Beboerne på Mossy Bottom Farm gleder seg til Halloween – helt til den klønete bonden ødelegger flokkens elskede gresskarhage. Shaun forsøker seg som vitenskapsmann for å fikse problemet, men ting kommer raskt ut av kontroll, noe som igjen fører til at et villdyr begynner å streife rundt i skogen.",
    "premiere": "2 oktober",
    "imdb": {
     "id": "tt36841161",
-    "rating": 7.1,
-    "votes": 2151
+    "rating": 7.2,
+    "votes": 1866
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/shaun_the_sheep_the_beast_of_mossy_bottom",
@@ -1704,12 +1694,12 @@
    ],
    "lang": "NO",
    "about": "En vinternatt på Holmlia mister 15 år gamle Benjamin livet – drept av 19 år gamle Joe Erling, kun fordi han er mørk i huden. Ett år senere står Benjamins mor, Marit, overfor enhver forelders verste mareritt, rettssaken mot han som drepte sønnen hennes.",
-   "plot": "Vi følger Marits kamp i retten og gjennom tilbakeblikk til livet før tragedien veves to skjebner sammen.",
+   "plot": "Vi følger Marits kamp i retten og gjennom tilbakeblikk til livet før tragedien veves to skjebner sammen. Benjamin vokser opp omgitt av venner og en mor som tar vare på han, mens Joe Erling formes i et miljø preget av omsorgssvikt. Begge bor i områder med lav sosial status. Benjamin opplever at politiet stigmatiserer ham og Joe Erling glir inn i det nynazistiske Boot Boys-miljøet i søken etter trygghet. Filmen skildrer hvor sårbart det er når unge gutter forsøker å finne seg selv og sin tilhørighet – og hvor katastrofale konsekvensene kan bli når hatet får rom til å gro. 25 år etter drapet på Benjamin Hermansen er dette en historie vi fortsatt må fortelle – om rasisme, tap og håpet om forsoning i et samfunn som ikke må glemme.",
    "premiere": "2 oktober",
    "imdb": {
     "id": "tt36726913",
     "rating": 6.7,
-    "votes": 102
+    "votes": 101
    },
    "rt": null
   },
@@ -1961,12 +1951,12 @@
    ],
    "lang": "EN",
    "about": "Mommy won't save you",
-   "plot": "8 år gamle Bela bor sammen med foreldrene sine da hun en dag får en usynlig venn med utseendet til moren.",
+   "plot": "8 år gamle Bela bor sammen med foreldrene sine da hun en dag får en usynlig venn med utseendet til moren. Men er «andre mamma» bare fantasi? Foreldrenes samlivsproblemer har slått sprekker i familieidyllens grunnmur. Når den mystiske «andre mamma» sin tilstedeværelse blir truende, tar det ikke lang tid før alt står i fare for å rase sammen. Skrekkfilmekspertene i Blumhouse har fått med Jessica Chastain og Jay Duplass i to av hovedrollene når de denne gangen tar for seg overnaturlige trusler i aller nærmeste krets.",
    "premiere": "9 oktober",
    "imdb": {
     "id": "tt36586020",
     "rating": 5.3,
-    "votes": 12947
+    "votes": 12611
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/other_mommy",
@@ -2162,12 +2152,12 @@
    ],
    "lang": "EN",
    "about": null,
-   "plot": "Verity er en forførende psykologisk thriller basert på Colleen Hoovers bestselgende roman.",
+   "plot": "Verity er en forførende psykologisk thriller basert på Colleen Hoovers bestselgende roman. Vi møter den anerkjente forfatteren Verity Crawford (Anne Hathaway) og Lowen Ashleigh (Dakota Johnson), en presset forfatter som flytter til den avsidesliggende Crawford-eiendommen for å ghostwrite for Verity. Når Lowen oppdager det som ser ut til å være Veritys urovekkende selvbiografiske notater, blir hun dratt inn i mørke og forvridde bekjennelser om Veritys ektemann Jeremy (Josh Hartnett). I takt med at grensene viskes ut, kjemper hun med å skille fiksjon fra virkelighet, manipulasjon fra tiltrekning, og mulighet fra besettelse.",
    "premiere": "2 oktober",
    "imdb": {
     "id": "tt32261958",
     "rating": 6.1,
-    "votes": 21839
+    "votes": 21290
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/verity",
@@ -2477,7 +2467,7 @@
    ],
    "lang": "NO",
    "about": "Hans Petter Moland bringer Knut Hamsuns udødelige mesterverk Markens grøde til det store lerretet",
-   "plot": "Den prisbelønte regissøren Hans Petter Moland bringer Knut Hamsuns udødelige mesterverk Markens grøde til det store lerretet, med Herbert Nordrum («Verdens verste …",
+   "plot": "Den prisbelønte regissøren Hans Petter Moland bringer Knut Hamsuns udødelige mesterverk Markens grøde til det store lerretet, med Herbert Nordrum («Verdens verste menneske») og Asta Kamma August («Hendelser ved Vann») i hovedrollene. Det er sen høst. Isak kjemper for å overleve i villmarken. Over fjellet dukker en dag Inger opp. Ut av et møte i nød vokser kjærligheten. I nådeløs natur kjemper Isak og Inger for å skape et liv sammen. Med kjærligheten som drivkraft bygger de gården Sellanraa opp fra ingenting. Når en mørk hemmelighet kommer til overflaten, blir kjærligheten satt på prøve. I andre roller møter vi blant andre Gard B. Eidsvold, Anders Baasmo, Oddgeir Thune og Sjur Vatne Brean. Filmen er basert på Hamsuns Nobelprisvinnende roman fra 1917, og er en av de viktigste verkene i norsk kulturhistorie. Det er en storslått fortelling om kjærlighet og menneskets plass i den vakre og ubarmhjertige naturen.",
    "premiere": "30 oktober",
    "imdb": {
     "id": "tt5782552",
@@ -2718,12 +2708,12 @@
    ],
    "lang": "EN",
    "about": "Ansikt til ansikt med frykten.",
-   "plot": "DC Studio’s “Clayface” er en skrekk-thriller fra regissør James Watkins, med Tom Rhys Harries i tittelrollen som skurken fra Gotham City.",
+   "plot": "DC Studio’s “Clayface” er en skrekk-thriller fra regissør James Watkins, med Tom Rhys Harries i tittelrollen som skurken fra Gotham City. Matt Hagens reise fra gategutt til hollywoodstjerne er nær ved å fullendes, når en av Gothams mafiosoer ødelegger alt ved å vansire ham. Alene og uten mer å tape, oppsøker Matt hjelp gjennom en banebrytende behandling som gir ham sitt gamle jeg tilbake... Samtidig som det uventet påvirker hans grep om virkeligheten, noe som leder ham ut på en ferd drevet av altoppslukende hevn. I filmen spiller også Naomi Ackie, David Dencik, Max Minghella og Eddie Marsan, sammen med Nancy Carroll og Joshua James. James Watkins regisserer etter et manus av Mike Flanagan og Hossein Amini, og en historie av Flanagan, basert på rollefigurer fra DC. Filmen er produsert av Matt Reeves, Lynn Harris, James Gunn og Peter Safran, med Michael E. Uslan, Rafi Crohn, Paul Ritchie, Chantal Nong Vo og Lars P. Winther som utøvende produsenter. Watkins’ kreative team inkluderer fotograf Rob Hardy, produksjonsdesigner James Price, klipper Jon Harris, VFX-sjef Angus Bickerton, kostymedesigner Keith Madden og castingansvarlige Lucy Bevan.",
    "premiere": "23 oktober",
    "imdb": {
     "id": "tt34890576",
     "rating": 7.6,
-    "votes": 17416
+    "votes": 12151
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/clayface",
@@ -2806,12 +2796,12 @@
    ],
    "lang": "EN",
    "about": "Whalefall er en episk overlevelsesthriller om en ung manns møte med en hval.",
-   "plot": "Jay Gardiner (Austin Abrams) dykker ned i havet utenfor Californias kyst på jakt etter levningene etter sin avdøde far (Josh Brolin), og blir slukt av en massiv hval.",
+   "plot": "Jay Gardiner (Austin Abrams) dykker ned i havet utenfor Californias kyst på jakt etter levningene etter sin avdøde far (Josh Brolin), og blir slukt av en massiv hval. Mens han er fanget inne i hvalen med kun én time oksygen igjen på tanken, innser Jay at de tøffe lærdommene som faren hans ga ham kan være nøkkelen til hvordan han skal komme seg ut.",
    "premiere": "16 oktober",
    "imdb": {
     "id": "tt28535715",
     "rating": 6.7,
-    "votes": 8064
+    "votes": 7489
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/whalefall",
@@ -2913,12 +2903,12 @@
    ],
    "lang": "EN",
    "about": "Bare 19 år gammel reiser Anthony Bourdain til Provincetown hvor han plutselig befinner seg i den kaotiske verdenen på et restaurantkjøkken. Det blir starten på en sommer som vil forme resten av livet hans.",
-   "plot": "Bare 19 år gammel reiser Anthony Bourdain til Provincetown hvor han plutselig befinner seg i den kaotiske verdenen på et restaurantkjøkken.",
+   "plot": "Bare 19 år gammel reiser Anthony Bourdain til Provincetown hvor han plutselig befinner seg i den kaotiske verdenen på et restaurantkjøkken. Det blir starten på en sommer som vil forme resten av livet hans.",
    "premiere": "23 oktober",
    "imdb": {
     "id": "tt33095251",
     "rating": 7.3,
-    "votes": 18730
+    "votes": 18546
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/tony_2026",
@@ -2996,12 +2986,12 @@
    ],
    "lang": "DE",
    "about": "Agnieszka Holland har skapt et hypnotisk portrett av en av 1900-tallets mest myteomspunne forfattere: Franz Kafka. Filmen følger ham fra ungdomsårene i Praha til hans død.",
-   "plot": "Regissør Agnieszka Holland er kjent for filmer som Europa Europa (1990), In Darkness (2011) og Green Border (2023).",
+   "plot": "Regissør Agnieszka Holland er kjent for filmer som Europa Europa (1990), In Darkness (2011) og Green Border (2023). Ofte skildrer hun virkelige hendelser i Europas turbulente nyere historie med rå realisme, men i møte med Franz Kafka benytter hun et drømmende filmspråk som visker vekk skillelinjene mellom fantasi og virkelighet. Resultatet er en levende, poetisk og uforutsigbar film som hopper mellom ulike virkelighetsnivåer. Her brettes Kafkas kreative kaos ut i all sin surrealistiske blomst, med Idan Weiss i sin første store filmrolle. Han skaper et intenst portrett av den ikoniske forfatteren og fanger både det sårbare og det visjonære i Kafkas vesen. Dette er en fascinerende visuell reise inn i sinnet til en av historiens mest gåtefulle forfattere.",
    "premiere": "23 oktober",
    "imdb": {
     "id": "tt17070412",
     "rating": 6.2,
-    "votes": 2105
+    "votes": 2101
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/franz",
@@ -3077,12 +3067,12 @@
    ],
    "lang": "HE",
    "about": "Her avsløres mekanismene satt i system for de effektive utryddelsene av sivile palestinere i Gaza, fortalt av de som utformet og utførte massedrapene: israelske etterretningsoffiserer og soldater.",
-   "plot": "I den dempede belysningen om natten fra byens tak i Tel Aviv foregår det samtaler i all hemmelighet.",
+   "plot": "I den dempede belysningen om natten fra byens tak i Tel Aviv foregår det samtaler i all hemmelighet. Dette er avslørende og oppsiktsvekkende intervjuer med israelske soldater fra de israelske filmskaperne bak NO OTHER LAND. Her blottlegges systematiske massedrap gjennom KI og moderne teknologi på sivile palestinere i Gaza. De israelske filmskaperne og gravejournalistene følte et stort ansvar for å utforske og avsløre systemene bak massedrapene staten Israel står bak. De spurte seg selv under de hemmelige innspillingene over en tre års periode hva deres forfedre hadde spurt seg: – Hvordan er det mulig at én gruppe mennesker kan tillate seg å dehumanisere andre? Hva er mekanismene bak og normaliseringen av slike holdninger?",
    "premiere": "23 oktober",
    "imdb": {
     "id": "tt44766123",
     "rating": 8.3,
-    "votes": 5689
+    "votes": 5549
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/naza",
@@ -3142,12 +3132,12 @@
    ],
    "lang": "EN",
    "about": "Etter den globale suksessen til Spider-Man: No Way Home, som slo alle rekorder, markerer Spider-Man: Brand New Day starten på et helt nytt kapittel for Peter Parker og Spider-Man.",
-   "plot": "Det har gått fire år siden hendelsene i No Way Home, og Peter er nå voksen og lever helt alene, etter at han frivillig slettet seg selv fra livene og minnene til dem han elsker.",
+   "plot": "Det har gått fire år siden hendelsene i No Way Home, og Peter er nå voksen og lever helt alene, etter at han frivillig slettet seg selv fra livene og minnene til dem han elsker. I et New York som ikke lenger vet hvem han er, har han viet seg fullt og helt til å beskytte byen som Spider-Man på heltid. Men etter hvert som kravene til ham øker, utløser presset en uventet fysisk utvikling som truer hans eksistens. Samtidig danner et mystisk nytt mønster av forbrytelser grunnlaget for en av de farligste truslene han noen gang har stått overfor.",
    "premiere": "29 juli",
    "imdb": {
     "id": "tt22084616",
     "rating": 7.9,
-    "votes": 366130
+    "votes": 364384
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/spider_man_brand_new_day",
@@ -3205,12 +3195,12 @@
    ],
    "lang": "NO",
    "about": "Ærlig, ekte og morsomt om å motvillig bli voksen og å finne sin plass",
-   "plot": "I «Suser avgårde» følger vi fire venner i slutten av 20-årene, som i løpet av et år opplever ulike eksistensielle kriser rundt overgangen til voksenlivet.",
+   "plot": "I «Suser avgårde» følger vi fire venner i slutten av 20-årene, som i løpet av et år opplever ulike eksistensielle kriser rundt overgangen til voksenlivet. Særlig dyp er krisen til Agnes. Hun er hekta på av-og-på-eksen Daniel, til tross for at han stikker av hver gang han aner alvor. Nå er Daniel tilbake fra Berlin – har han endelig forandret seg? «Suser avgårde» er et morsomt, og kompromissløst ærlig generasjonsportrett. Historien er inspirert av deLillos’ tekstunivers, og en rekke unge artister har laget coverversjoner av klassiske deLillos-låter spesielt for filmens lydspor. Manus av Rakel Kraft Biørnstad, Regi er ved Rikke Gregersen («Rekviem for Selina»), mens vennegjengen skildres av noen av landets mest lovende unge skuespillere: Sarah Francesca Brænne, Steinar Klouman Hallert, Ada Eide og Fredrik Stenberg Ditlev-Simonsen. Produsert av Ingvil Sæther Berger/Motlys",
    "premiere": "9 oktober",
    "imdb": {
     "id": "tt39443962",
     "rating": 7.2,
-    "votes": 94
+    "votes": 86
    },
    "rt": null
   },
@@ -3274,12 +3264,12 @@
    ],
    "lang": "EN",
    "about": "DIGGER er den nye filmen til den Oscar-vinnende filmskaperen Alejandro G. Iñárritu, og har Tom Cruise i tittelrollen.",
-   "plot": "Den mektigste mannen i verden legger ut på et panisk oppdrag for å bevise at han er menneskehetens redningsmann før katastrofen han selv har utløst ødelegger alt.",
+   "plot": "Den mektigste mannen i verden legger ut på et panisk oppdrag for å bevise at han er menneskehetens redningsmann før katastrofen han selv har utløst ødelegger alt. Cruise spiller sammen med Oscar-vinner Riz Ahmed, John Goodman, Oscar-nominerte Sandra Hüller, Michael Stuhlbarg, og Oscar-nominerte Jesse Plemons. Iñárritu har regissert filmen etter et manus av ham selv & Oscar-vinnerne Alexander Dinelaris & Nicolás Giacobone, og Sabina Berman, en historie av Berman & Iñárritu og Jez Butterworth. Filmen er produsert av Iñárritu, Oscar-nominerte Mary Parent, og Tom Cruise. Bak kamera har Iñárritu med seg den Oscar-vinnende fotografen Emmanuel Lubezki; klipperne Conor O'Neill og Oscar-vinnner Stephen Mirrione; den Oscar-vinnende kostymedesigneren Jacqueline West; den Oscar-nominerte castingansvarlige Francine Maisler; med den Oscar-vinnende produksjonsdesigneren Dennis Gassnes og produksjonsdesigner Richard Johnson; den Oscar-vinnende sminkedesigneren Kazu Hiro, og komponist Cosmo Sheldrake. Warner Bros. Pictures presenterer en produksjon fra Legendary Pictures Production, en film av Alejandro G. Iñárritu - DIGGER.",
    "premiere": "2 oktober",
    "imdb": {
     "id": "tt31450459",
     "rating": 7.5,
-    "votes": 43484
+    "votes": 42908
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/digger_2026",
@@ -3329,7 +3319,7 @@
    "actors": [],
    "lang": null,
    "about": null,
-   "plot": "I et Irak preget av sanksjoner og knapphet på 1990-tallet får en ung jente i oppgave å bake en kake til presidentens fødselsdag – et påbud ingen tør å ignorere.",
+   "plot": "I et Irak preget av sanksjoner og knapphet på 1990-tallet får en ung jente i oppgave å bake en kake til presidentens fødselsdag – et påbud ingen tør å ignorere. I jakten på ingredienser legger hun og familien ut på en reise gjennom et samfunn preget av frykt, mangel og politisk press.",
    "premiere": "9 oktober",
    "imdb": null,
    "rt": null
@@ -3392,12 +3382,12 @@
    ],
    "lang": "NO",
    "about": "De vant i Høyesterett. Men kampen var ikke over. I La fjella leve retter en av Norges mest anerkjente dokumentarfilmskapere, Håvard Bustnes, blikket mot Fosen-saken og statens pågående brudd på menneskerettighetene. La fjella leve kommer på kino over hele landet 9. oktober.",
-   "plot": "I over 20 år har samiske reindriftsutøvere på Fosen kjempet mot Europas største vindkraftanlegg, bygget midt i de viktigste beiteområdene deres.",
+   "plot": "I over 20 år har samiske reindriftsutøvere på Fosen kjempet mot Europas største vindkraftanlegg, bygget midt i de viktigste beiteområdene deres. Når Høyesterett slår fast at anleggene bryter samiske menneskerettigheter, gir det håp om at vindturbinene skal rives. Men regjeringen nekter likevel å fjerne dem. Samiske ungdommer svarer med å mobilisere i protest, og alt settes på spill: fjellet, kulturen og framtida.",
    "premiere": "9 oktober",
    "imdb": {
     "id": "tt40036377",
-    "rating": 7.6,
-    "votes": 27
+    "rating": 7.5,
+    "votes": 26
    },
    "rt": null
   },
@@ -3472,12 +3462,12 @@
    ],
    "lang": "DE",
    "about": "Vinner av Sølvbjørnen for Beste Skuespiller til Sandra Hüller, Berlinale 2026",
-   "plot": "Set shortly after the Thirty Years' War, the film centres on Rose, a soldier who arrives in a remote Protestant village claiming to be the missing heir to a neglected estate.",
+   "plot": "Set shortly after the Thirty Years' War, the film centres on Rose, a soldier who arrives in a remote Protestant village claiming to be the missing heir to a neglected estate. Although Rose presents documents to support the claim, the villagers respond with caution and suspicion. Seeking stability and a place to belong, Rose attempts to integrate into the wary community. Yet Rose's identity is built on deception: the name is assumed, and the soldier's true gender is hidden. As Rose pursues acceptance, the plan extends to considering an arranged marriage with Suzanna, the daughter of a leading local farmer, revealing the lengths Rose is willing to go to secure a future.",
    "premiere": "16 oktober",
    "imdb": {
     "id": "tt25399154",
     "rating": 7.5,
-    "votes": 3032
+    "votes": 2979
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/rose_2026",
@@ -3552,7 +3542,7 @@
    ],
    "lang": "NO",
    "about": "En nervepirrende actionthriller der en bortført statsminister og et dødelig sjakkparti setter Norges skjebne på spill.",
-   "plot": "Krisestaben på Stortinget og leder i Delta-troppen Anton Block blir stilt overfor den ultimate utfordringen når Norges statsminister forsvinner.",
+   "plot": "Krisestaben på Stortinget og leder i Delta-troppen Anton Block blir stilt overfor den ultimate utfordringen når Norges statsminister forsvinner. En terrorist presser dem til å delta i et dødelig parti sjakk hvor hvert trekk setter menneskeliv i fare. Mens klokken teller nedover kjemper Anton Block og kompanjong Björk Jonsdottir for å redde statsministeren og avverge katastrofen som nærmer seg. En nasjon i sjakk er en kommende actionthriller fra regissør John Andreas Andersen, kjent blant annet for Nr.24 og Skjelvet. Filmen er basert på Johan Høsts kritikerroste bokfenomen som ble en bestselger i 2022.",
    "premiere": "11 september",
    "imdb": {
     "id": "tt32375006",
@@ -3608,12 +3598,12 @@
    ],
    "lang": "ES",
    "about": "\"Et humoristisk og visuelt mesterstykke\" 9/10 TBA",
-   "plot": "Halvsøstrene Lily (Renate Reinsve) og Diana (Helene Bjørneby) vender motvillig tilbake til Gran Canaria, hvor moren deres har omkommet under mystiske omstendigheter.",
+   "plot": "Halvsøstrene Lily (Renate Reinsve) og Diana (Helene Bjørneby) vender motvillig tilbake til Gran Canaria, hvor moren deres har omkommet under mystiske omstendigheter. Når søstrene oppdager at moren levde et helt ukjent liv, begynner en reise i hennes viltre fotspor. Vi tas med på en reise fra turistmaskinen til Gran Canarias skjulte hjerte – et alternativt univers i de kanariske fjellene. . Butterfly introduserer oss for en verden rik på farger, ritualer og følelser, og fengsler med en tone som er både humoristisk og dypt rørende. Butterfly er en livsbejaende og original kinoopplevelse med Reinsve og Bjørnebye i rollene som søstrene, Lillian Müller som moren, og Numan Acar som hennes langt yngre elsker. Filmen er spilt inn i eksisterende miljøer, både i det «norske Granca», i omgivelser ukjente for de fleste nordmenn.",
    "premiere": "25 september",
    "imdb": {
     "id": "tt37496603",
     "rating": 5.9,
-    "votes": 163
+    "votes": 162
    },
    "rt": null
   },
@@ -3653,12 +3643,12 @@
    ],
    "lang": "JA",
    "about": "Hirayama vasker offentlige toaletter i Tokyo. Til og fra jobb kjører han bil mens han hører på kassetter med klassisk pop og rock. I leiligheten sin har han få møbler, mange bøker og en god del planter. Dagene er fylt av rutiner og livet er i vater, men en dag kommer en ung niese uanmeldt på besøk. ",
-   "plot": "Med denne Oscar-nominerte filmperlen om de små, men vesentlige tingene i livet, viser Wim Wenders hvilken mesterlig regissør han er.",
+   "plot": "Med denne Oscar-nominerte filmperlen om de små, men vesentlige tingene i livet, viser Wim Wenders hvilken mesterlig regissør han er. Kôji Yakusho som spiller Hirayama mottok prisen for beste skuespiller i Cannes og filmen vant publikumsprisen under Film fra Sør. Terningkast 5, NRK - «En nydelig, poetisk fundering over meningen med livet» Terningkast 5, Adressa - «En oppløftende og vakker film for vår tid» Terningkast 5, Klassekampen - «Gir meg en nostalgisk følelse»",
    "premiere": "2 februar",
    "imdb": {
     "id": "tt27503384",
     "rating": 7.9,
-    "votes": 113973
+    "votes": 113906
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/perfect_days_2023",
@@ -3719,7 +3709,7 @@
    ],
    "lang": null,
    "about": null,
-   "plot": "Ozzy & Black Sabbath: Back To The Beginning documents a landmark moment in music history: Ozzy Osbourne’s historic final farewell performance for his fans at Villa Park …",
+   "plot": "Ozzy & Black Sabbath: Back To The Beginning documents a landmark moment in music history: Ozzy Osbourne’s historic final farewell performance for his fans at Villa Park stadium in his Birmingham hometown--captured just 17 days before his untimely passing. The film highlights the historic day with performances from Ozzy, Black Sabbath, and some of the most influential names in rock, along with personal reflections from the superstar musicians they inspired and a behind-the-scenes look at the day itself. This is an historic and intimate farewell to Ozzy and the band that changed music forever.",
    "premiere": "28 oktober",
    "imdb": {
     "id": "tt46055956",
@@ -3828,12 +3818,12 @@
    ],
    "lang": "EN",
    "about": null,
-   "plot": "Fra filmskaperen Zach Cregger (Weapons, Barbarian) kommer en spennende og skremmende nytolkning av Resident Evil-franchisen.",
+   "plot": "Fra filmskaperen Zach Cregger (Weapons, Barbarian) kommer en spennende og skremmende nytolkning av Resident Evil-franchisen. I en helt ny historie følger Resident Evil Bryan (Austin Abrams), en medisinsk budbringer som uvitende havner i et actionfylt, nådeløst kappløp for å overleve idet én skjebnesvanger og grusom natt kollapser rundt ham i totalt kaos.",
    "premiere": "18 september",
    "imdb": {
     "id": "tt35538033",
     "rating": 7.6,
-    "votes": 115818
+    "votes": 114673
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/resident_evil_2026",
@@ -3920,7 +3910,7 @@
    "actors": [],
    "lang": "FI",
    "about": "En annerledes far-sønn-historie",
-   "plot": "På den finske landsbygda bor Tero, Henri og hunden Juri sammen i et lite hus.",
+   "plot": "På den finske landsbygda bor Tero, Henri og hunden Juri sammen i et lite hus. Tero har vært alenefar for Henri store deler av livet, og har lært sønnen det han kan best, som å skyte med hagle og reparere biler. Til tross for Teros noe uvanlige oppdragelsesmetoder og tidvis høye alkoholkonsum, har far og sønn et sterkt bånd og en ubetinget kjærlighet til hverandre. Når tenåringen Henri får kjæreste og ønsker seg mer privatliv, får Tero kraftig separasjonsangst og blir redd for å miste sønnen og meningen med livet. “Et lite stykke Finland” er en tørrvittig, varm og rørende dokumentarfilm som viser viktigheten av familie, selskap og kjærlighet. Filmen er regissert av Jukka Kärkkäinen, som har fulgt Tero og Henri over flere år. Han har tidligere laget prisvinnende filmer som “The Living Room of the Nation” og “The Punk Syndrome\". \"Dokumentarens svar på Aki Kaurismäki\" - cinephilia.gr",
    "premiere": "30 oktober",
    "imdb": null,
    "rt": null
@@ -4016,7 +4006,7 @@
    "actors": [],
    "lang": null,
    "about": "Dette er kinodokumentaren om Witch Club Satan, bandet som ble et internasjonalt fenomen over natta.",
-   "plot": "I hjertet av Norges mektige black metal-scene oppstår plutselig en ny kraft.",
+   "plot": "I hjertet av Norges mektige black metal-scene oppstår plutselig en ny kraft. Nikoline, Victoria og Johanna inngår en treårig pakt der de skal vie hele livet til å vekke verden, hverandre og seg selv som hekser. På rekordtid går trioen fra å ikke kunne verken spille eller growle til å bli et globalt fenomen som blir booket til store internasjonale festivaler og verdensturneer. Witch Club Satan er ikke bare et feministisk black metal band som har tatt publikum med storm, det er også et prosjekt som krever mer av kvinnene enn de kunne forestilt seg. Vi følger trioen på veien mot å finne sin urkraft – gjennom opp- og nedturer i bandets tre første leveår. Det blir mørkt, rått, ærlig og blodig.",
    "premiere": "30 oktober",
    "imdb": null,
    "rt": null
@@ -4056,12 +4046,12 @@
    ],
    "lang": "EN",
    "about": null,
-   "plot": "Etter flere år med lurvete oppfølgere, får den unge filmskaperen Kris (Hannah Einbinder, Hacks) oppgaven med å relansere den legendariske slasher-serien Camp Miasma.",
+   "plot": "Etter flere år med lurvete oppfølgere, får den unge filmskaperen Kris (Hannah Einbinder, Hacks) oppgaven med å relansere den legendariske slasher-serien Camp Miasma. Under researcharbeidet oppsøker hun Billy (Gillian Anderson, X-Files), den tidligere stjernen fra originalfilmen, som nå lever tilbaketrukket innhyllet i mystikk på området der filmene en gang ble spilt inn. Møtet utvikler seg til et intenst forhold som trekker dem begge inn i en blodig verden av frykt, begjær, minner og galskap.",
    "premiere": "14 August",
    "imdb": {
     "id": "tt35298123",
     "rating": 6.5,
-    "votes": 24189
+    "votes": 23888
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/teenage_sex_and_death_at_camp_miasma",
@@ -4222,12 +4212,12 @@
    ],
    "lang": "EN",
    "about": null,
-   "plot": "Når lillebroren hennes blir bortført av en flokk kråker, legger tenåringen Prue McKeel ut på et desperat redningsoppdrag i en skog som skjuler seg like utenfor Portland i Oregon.",
+   "plot": "Når lillebroren hennes blir bortført av en flokk kråker, legger tenåringen Prue McKeel ut på et desperat redningsoppdrag i en skog som skjuler seg like utenfor Portland i Oregon. Sammen med den klønete, men lojale klassekameraten Curtis Mehlberg, må Prue finne veien gjennom en verden fylt med snakkende dyr, banditter og mektige skikkelser. Når de oppdager at hele skogen er truet, må Prue finne motet hun trenger for å redde både lillebroren og Wildwood.",
    "premiere": "30 oktober",
    "imdb": {
     "id": "tt2056785",
-    "rating": 8.7,
-    "votes": 5079
+    "rating": 8.8,
+    "votes": 3103
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/wildwood",
@@ -4298,12 +4288,12 @@
    ],
    "lang": "EN",
    "about": "Be careful who you wish for",
-   "plot": "Den håpløse romantikeren Bear, er forelska i kollegaen sin, Nikki, noe han aldri greier å formidle til henne.",
+   "plot": "Den håpløse romantikeren Bear, er forelska i kollegaen sin, Nikki, noe han aldri greier å formidle til henne. En dag finner han en mulighet til å få ett ønske oppfylt, dermed ønsker han seg hennes ubetingede kjærlighet. Forholdet som blomstrer umiddelbart blir raskt klaustrofobisk og ubehagelig, noe som gjør at Bear skulle ønske han tenkte seg bedre om før han igangsatte forholdet. Obsession er Barkers spillefilmdebut, etter flere sjangereksperimenterende kortfilmer på YouTube. Den hadde verdenspremiere under Toronto International Film Festival i 2025, ble senere vist på Fantastic Fest, vant publikumsprisen på Sitges Film Festival, og har sitt siste stopp på South by Southwest.",
    "premiere": "22 mai",
    "imdb": {
     "id": "tt37287335",
     "rating": 7.8,
-    "votes": 411677
+    "votes": 409880
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/obsession_2025",
@@ -4349,12 +4339,12 @@
    ],
    "lang": null,
    "about": "Do you like scary movies?",
-   "plot": "Etter en rekke mystiske dødsfall i en idyllisk småby blir en vennegjeng målet til en maskert morder som har sett litt for mange skrekkfilmer.",
+   "plot": "Etter en rekke mystiske dødsfall i en idyllisk småby blir en vennegjeng målet til en maskert morder som har sett litt for mange skrekkfilmer. Når dødstallene stiger forstår vennegjengen at de må bruke 'reglene' fra skrekkfilmer for å navigere i den virkelige terroren de lever i. Morderen kan være hvem som helst... På rollelisten finner vi mange av 90-tallets ungdomsidoler: Drew Barrymore, Neve Campbell, Skeet Ulrich, Rose McGowan, Courtney Cox, Jada Pinkett Smith, Sarah Michelle Gellar, Jamie Kennedy, David Arquette med fler.",
    "premiere": "28 oktober",
    "imdb": {
     "id": "tt0117571",
     "rating": 7.5,
-    "votes": 457117
+    "votes": 456922
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/1074316-scream",
@@ -4443,12 +4433,12 @@
    "actors": [],
    "lang": "NO",
    "about": null,
-   "plot": "I et slott på toppen av en høyde med utsikt over landsbyen Grubbenubben, bor Stinghode.",
+   "plot": "I et slott på toppen av en høyde med utsikt over landsbyen Grubbenubben, bor Stinghode. Han er den første skapningen til en gal vitenskapsmann som er besatt av å skape monstre. Etter hvert som vitenskapsmannen lager nye monstre, ignorerer han de gamles eksistens. Stinghode passer på alle monstrene og lærer dem å bli siviliserte, å aldri forlate slottet, og å ikke tiltrekke seg oppmerksomhet i frykt for en rasende mobb. En dag kommer et omreisende sirkus til byen, og direktøren er på utkikk etter sin neste store attraksjon. Han blir bergtatt av Stinghode og forsøker å få ham til å forlate slottet i bytte mot potensiell berømmelse. Stinghode takker først nei til tilbudet og ber ham ryke og reise, men når han innser at professoren ikke lenger legger merke til ham, takker han ja likevel – til stor forferdelse for de andre monstrene.",
    "premiere": "2 oktober",
    "imdb": {
     "id": "tt26720001",
     "rating": 5.8,
-    "votes": 1267
+    "votes": 1264
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/stitch_head",
@@ -4491,12 +4481,12 @@
    "actors": [],
    "lang": "DE",
    "about": "Å begynne på ny skole er vanskelig, spesielt når alle de andre elevene er monstre.",
-   "plot": "Mia har alltid følt seg feilplassert i den perfekte småbyen Primrose Valley, og i sin egen familie.",
+   "plot": "Mia har alltid følt seg feilplassert i den perfekte småbyen Primrose Valley, og i sin egen familie. Etter en dramatisk hendelse på skolen blir hun mot sin vilje sendt til Rotwood Academy, et isolert og gåtefullt internat. Der oppdager hun raskt sannheten: alle de andre elevene er ekte monstre. For første gang føler Mia at hun hører til. Men idet hun omfavner sin egen annerledeshet, avslører hun en mørk plan som truer hele menneskeheten. Nå må Mia velge mellom trygg tilhørighet og motet til å gjøre det rette.",
    "premiere": "16 oktober",
    "imdb": {
     "id": "tt38807889",
-    "rating": 7.1,
-    "votes": 71
+    "rating": 7.2,
+    "votes": 65
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/monster_mia",
@@ -4545,7 +4535,7 @@
    "actors": [],
    "lang": null,
    "about": "The film is based on the successful Netflix animated series “Gupi” and brings the already well-known character to the big screen for the first time – with a imaginative story, humour and an adventure for the whole family.",
-   "plot": "Gupi and her friends enter a completely different world through a mysterious wardrobe – a dark, gloomy and colourless place where a grumpy king lives.",
+   "plot": "Gupi and her friends enter a completely different world through a mysterious wardrobe – a dark, gloomy and colourless place where a grumpy king lives. The king has lost his joy and never smiles. And because the king does not laugh, there is no laughter anywhere in his kingdom. Gupi and her friends therefore decide to do everything they can to make him smile again and bring joy back to the kingdom.",
    "premiere": "23 oktober",
    "imdb": null,
    "rt": null
@@ -4591,7 +4581,7 @@
    "imdb": {
     "id": "tt0081505",
     "rating": 8.4,
-    "votes": 1250325
+    "votes": 1249950
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/shining",
@@ -4750,12 +4740,12 @@
    ],
    "lang": "EN",
    "about": null,
-   "plot": "Se Anders Danielsen Lie som legendariske Bill Evans.",
+   "plot": "Se Anders Danielsen Lie som legendariske Bill Evans. Sommeren 1961 har den legendariske jazzpianisten Bill Evans (Anders Danielsen Lie) funnet sitt musikalske ideal i trioen med Scott LaFaro og Paul Motian. De spiller inn to banebrytende album. Men da LaFaro omkommer i en bilulykke, bryter verden sammen. Lammet av sorg trekker Evans seg bort fra musikken og menneskene rundt seg, mens han kjemper mot avhengighet, tvil og frykten for aldri å kunne spille igjen. Regissør Grant Gee unngår den tradisjonelle musikerbiografien og skaper i stedet et atmosfærisk portrett av en kunstner i krise, skildret over ulike tidsperioder. Med en strålende Anders Danielsen Lie i hovedrollen utforsker Everybody Digs Bill Evans hvordan sorg kan lamme kreativiteten.",
    "premiere": "6 november",
    "imdb": {
     "id": "tt34347792",
     "rating": 6.9,
-    "votes": 334
+    "votes": 333
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/everybody_digs_bill_evans",
@@ -4873,7 +4863,7 @@
    ],
    "lang": "NO",
    "about": "Bli med på en eventyrlig reise på jakt etter Julenissens verksted - en film for hele familien, fylt med humor, kjente sanger, ekte julestemning og et julebudskap som vil varme i vinterkulda.",
-   "plot": "Da ni år gamle Mari en natt våkner og oppdager en nisse på soverommet sitt, blir det starten på et juleeventyr utenom det vanlige.",
+   "plot": "Da ni år gamle Mari en natt våkner og oppdager en nisse på soverommet sitt, blir det starten på et juleeventyr utenom det vanlige. Med en gjenglemt nissevott som eneste spor legger hun, farmor og en meget skeptisk pappa ut på en eventyrlig ferd for å finne julenissen, mens vottens eier, nissens lille hjelper Stompen, gjør alt han kan for å stoppe dem. For Julenissens verksted kan nemlig ikke bli oppdaget, det vil være katastrofe! Ferden går gjennom skog, hei og vakre vinterlandskap. Men utfordringene er også mange - de må også forbi skogens vokter, Kjerringa med staven, og kjempe seg gjennom en fryktelig snøstorm. Reisen er ikke bare spennende - den åpner også familiens øyne for hverandre, og de innser til slutt hva julens virkelige magi er. Gjør klar for årets julefilm for hele familien, spekket med julestemning og kjente Thorbjørn Egner-sanger, som Kaptein Sorte Bill, Dyrene i Afrika og Det snør det snør – fremført av noen av landets fremste artister, deriblant Sissel Kyrkjebø.",
    "premiere": "6 november",
    "imdb": {
     "id": "tt41475646",
@@ -4923,7 +4913,7 @@
    "actors": [],
    "lang": "NO",
    "about": "Dette er en historie om vold, men først og fremst om ansvar, håp og kraften i å velge annerledes.",
-   "plot": "En krangel om en jakke fører til at to brødre blir angrepet med kniv i sitt eget nabolag i Oslo.",
+   "plot": "En krangel om en jakke fører til at to brødre blir angrepet med kniv i sitt eget nabolag i Oslo. De påføres livstruende skader, blodet fosser, og livet henger i en tynn tråd. Gjerningspersonene er mennesker de selv betraktet som venner. Brødrene blir forsøkt drept, men overlever mot alle odds. Det som følger, er et valg få ville klart å ta. I stedet for å søke hevn, velger de å tilgi. Som de selv sier i filmen: «Å tilgi bidrar til forebygging. Å ikke tilgi bidrar til større konsekvenser.» Dokumentaren følger brødrene i tiden etter volden, på veien ut av et kriminelt miljø og inn i et liv preget av ansvar, refleksjon og nye muligheter. Samtidig som de kjemper for å redde seg selv, blir de rollemodeller for andre unge som står i fare for å ta de samme valgene. Filmen retter også blikket mot større samfunnsutfordringer. I enkelte byområder i Norge kan utenforskap, manglende tilhørighet og vanskelige levekår bidra til økt kriminalitet. Men det finnes alternativer. Det finnes voksne som ser, som lytter og som veileder. Arenaer hvor ungdom kan oppleve mestring, fellesskap og trygghet, og erfare at det finnes andre veier.",
    "premiere": "6 november",
    "imdb": null,
    "rt": null
@@ -4978,8 +4968,8 @@
    "premiere": "6 november",
    "imdb": {
     "id": "tt34587446",
-    "rating": 7.7,
-    "votes": 23
+    "rating": 8.0,
+    "votes": 22
    },
    "rt": null
   },
@@ -5042,12 +5032,12 @@
    ],
    "lang": "JA",
    "about": null,
-   "plot": "\"War reduced Japan to zero, and Godzilla plunged it into minus.",
+   "plot": "\"War reduced Japan to zero, and Godzilla plunged it into minus. Two years have passed since then, and the country has faced agonizing struggles to achieve recovery and finally reclaim its daily life. Just as humanity managed to cling to a hard-won peace, a new threat strikes, crushing hope in an instant. There is no third time. Everything ends here.\"",
    "premiere": "6 november",
    "imdb": {
     "id": "tt23289160",
     "rating": 7.6,
-    "votes": 233605
+    "votes": 233494
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/godzilla_minus_zero",
@@ -5101,7 +5091,7 @@
    ],
    "lang": "EN",
    "about": "Opplev ikoniske George Michael i denne restaurerte konsertfilmen!",
-   "plot": "Nå kan du se George Michaels legendariske Faith-turné fra 1988 på kino!",
+   "plot": "Nå kan du se George Michaels legendariske Faith-turné fra 1988 på kino! Filmen er restaurert materiale skutt på 35mm over to konserter i Paris under Europa-turnéen. Vises eksklusivt på kino.",
    "premiere": "6 november",
    "imdb": {
     "id": "tt40564737",
@@ -5217,12 +5207,12 @@
    "actors": [],
    "lang": null,
    "about": "Skye, Ryder, Marshall og Chase er endelig tilbake!",
-   "plot": "I deres største oppdrag så langt, kommer våre firbente favoritter til unnsetning etter at de blir strandet på en mystisk øy.",
+   "plot": "I deres største oppdrag så langt, kommer våre firbente favoritter til unnsetning etter at de blir strandet på en mystisk øy. Det viser seg at øya er helt spesiell, på den bor nemlig et rikt mangfold med dinosaurer. Den sleipe borgermesteren Humdinger ankommer også øya, men for å utnytte dens naturlige ressurser. Marshall, Skye, Ryder, Chase og gjengen må ut på redningsaksjon, både for å sikre dinosaurenes videre eksistens, og for å forhindre en naturkatastrofe.",
    "premiere": "7 August",
    "imdb": {
     "id": "tt29356163",
-    "rating": 6.0,
-    "votes": 2920
+    "rating": 6.1,
+    "votes": 2904
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/paw_patrol_the_dino_movie",
@@ -5275,7 +5265,7 @@
    "imdb": {
     "id": "tt6718170",
     "rating": 7.0,
-    "votes": 303982
+    "votes": 303926
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/the_super_mario_galaxy_movie",
@@ -5314,7 +5304,7 @@
    "actors": [],
    "lang": "EN",
    "about": null,
-   "plot": "Etter de ødeleggende hendelsene i Avengers: Infinity War (2018) ligger universet i ruiner.",
+   "plot": "Etter de ødeleggende hendelsene i Avengers: Infinity War (2018) ligger universet i ruiner. Med hjelp fra de gjenværende allierte samles Avengers igjen for å omgjøre Thanos' handlinger og gjenopprette balansen i universet. I denne spesielle Avengers: Endgame Encore-utgaven får publikum se tidligere usette scener, noe som gjør dette til en unik mulighet til å oppleve Marvel Studios' episke finale på det store lerretet igjen.",
    "premiere": "25 september",
    "imdb": null,
    "rt": null
@@ -5358,12 +5348,12 @@
    ],
    "lang": "EN",
    "about": "Minions inntar Hollywood!",
-   "plot": "De gule, små bråkmakerne befinner seg nå i 1920-tallets Hollywood, hvor de forsøker å slå gjennom som filmstjerner ved å lage verdens første helaftens monsterfilm.",
+   "plot": "De gule, små bråkmakerne befinner seg nå i 1920-tallets Hollywood, hvor de forsøker å slå gjennom som filmstjerner ved å lage verdens første helaftens monsterfilm. I jakten på noe virkelig skummelt bruker de magi til å fremkalle ekte monstre, og et kaos oppstår langt utover selve filmsettet. Etter å ha mistet kontrollen slår de seg sammen med en grønn skapning for å rette opp katastrofen de selv skapte.",
    "premiere": "1 juli",
    "imdb": {
     "id": "tt32890033",
     "rating": 6.3,
-    "votes": 35688
+    "votes": 35588
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/minions_and_monsters",
@@ -5414,7 +5404,7 @@
    ],
    "lang": "EN",
    "about": "Møt Katten med hatten – som du aldri har sett ham før! Fra den magiske fantasien til Dr. Seuss kommer Katten med hatten til det store lerretet i sin første animerte kinofilm – et helt nytt, episk eventyr der rampestreker, magi og kaos råder",
-   "plot": "Katten gjør det han kan best: sprer glede til barn på sin unike, morsomme og uimotståelig frekke måte, og tar publikum med på en fantastisk reise gjennom en verden de aldri har sett før.",
+   "plot": "Katten gjør det han kan best: sprer glede til barn på sin unike, morsomme og uimotståelig frekke måte, og tar publikum med på en fantastisk reise gjennom en verden de aldri har sett før. I filmen får vår helt sitt tøffeste oppdrag hittil for I.I.I.I. (Instituttet for Institusjon av Inspirasjon og Imaginasjon, AS): å muntre opp Gabby og Sebastian, et søskenpar som sliter med å tilpasse seg etter å ha flyttet til en ny by. Katten er kjent for å ta ting litt for langt – og dette kan være hans siste sjanse til å bevise hva han er god for... eller miste den magiske hatten sin! Regissert av Alessandro Carloni og Erica Rivinoja, markerer \"Katten med hatten\" Warner Bros. Pictures Animations første helaftens kinofilm. Filmen kommer på kino 4. desember, med både norsk og engelsk tale.",
    "premiere": "4 desember",
    "imdb": {
     "id": "tt2321555",
@@ -5468,12 +5458,12 @@
    ],
    "lang": "EN",
    "about": "Den biografiske filmen om pophistoriens aller største legende.",
-   "plot": "Michael følger den ikoniske popsensasjonens vei fra talentfull barnestjerne til globalt ikon, og skildrer både de musikalske triumfene som gjorde ham udødelig og de …",
+   "plot": "Michael følger den ikoniske popsensasjonens vei fra talentfull barnestjerne til globalt ikon, og skildrer både de musikalske triumfene som gjorde ham udødelig og de personlige kampene som preget livet hans bak scenen. Gjennom sentrale øyeblikk i karrieren får vi et rått portrett av kunstneren, perfeksjonisten og mennesket bak myten. Michael er produsert av Graham King (Bohemian Rhapsody) og regissert av Antoine Fuqua (Training Day, The Equalizer)",
    "premiere": "24 april",
    "imdb": {
     "id": "tt11378946",
     "rating": 7.3,
-    "votes": 195552
+    "votes": 195282
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/michael",
@@ -5517,12 +5507,12 @@
    ],
    "lang": "EN",
    "about": "Menneskets beste venn til unnsetning!",
-   "plot": "Etter et dramatisk flystyrt i Alaskas villmark, blir den tidligere spesialsoldaten James Belmont og hans trofaste kamphund Odin strandet langt unna sivilisasjonen.",
+   "plot": "Etter et dramatisk flystyrt i Alaskas villmark, blir den tidligere spesialsoldaten James Belmont og hans trofaste kamphund Odin strandet langt unna sivilisasjonen. Sammen må de kjempe mot ekstrem kulde, sult, rovdyr og naturkreftene som truer med å ta livet av dem. Mens håpet om redning svinner, blir det sterke båndet mellom mann og hund deres viktigste våpen i kampen for å overleve.",
    "premiere": "25 september",
    "imdb": {
     "id": "tt7526136",
     "rating": 7.2,
-    "votes": 31095
+    "votes": 30601
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/heart_of_the_beast",
@@ -5570,12 +5560,12 @@
    ],
    "lang": "EN",
    "about": "Helen Mirren spiller Patricia Highsmith i Anton Corbijns elegante drama om forfatteren bak den ikoniske Tom Ripley-serien",
-   "plot": "I Anton Corbijns nye film reiser en mystisk ung mann fra et amerikansk forlag til Sveits for å møte Patricia Highsmith, spilt av Helen Mirren.",
+   "plot": "I Anton Corbijns nye film reiser en mystisk ung mann fra et amerikansk forlag til Sveits for å møte Patricia Highsmith, spilt av Helen Mirren. Oppdraget er å overtale den berømte krimforfatteren til å skrive en siste bok om den ikoniske antihelten Tom Ripley. Filmen er basert på teaterstykket av Joanna Murray-Smith.",
    "premiere": "20 november",
    "imdb": {
     "id": "tt14129116",
     "rating": 6.8,
-    "votes": 475
+    "votes": 428
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/a_talent_for_murder_2026",
@@ -5621,12 +5611,12 @@
    ],
    "lang": "EN",
    "about": "Christopher Nolans store epos!",
-   "plot": "Basert på Homers epos følger vi Odyssevs' reise hjem etter den trojanske krigen - inkludert møtene med den enøyde kjempen Polyfemos, farlige sirener, gudinnen Kirke og …",
+   "plot": "Basert på Homers epos følger vi Odyssevs' reise hjem etter den trojanske krigen - inkludert møtene med den enøyde kjempen Polyfemos, farlige sirener, gudinnen Kirke og gjenforeningen med sin kone, Penelope. The Odyssey er Christopher Nolans trettende film, og hans mest ambisiøse prosjekt så langt. Han gjenforenes med filmfotograf Hoyte van Hoytema, og har utelukkende skutt filmen med IMAX 70mm-kameraer. Med en enormt stjernespekket rolleliste, inkludert Tom Holland, Zendaya, Matt Damon, Anne Hathaway, Robert Pattinson, Charlize Theron, Lupita Nyong'o og Jon Bernthal, blir The Odyssey sommerens aller største blockbuster og et must å se på kino.",
    "premiere": "17 juli",
    "imdb": {
     "id": "tt33764258",
     "rating": 8.4,
-    "votes": 537242
+    "votes": 535976
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/the_odyssey_2026",
@@ -5676,12 +5666,12 @@
    ],
    "lang": null,
    "about": "Wild Horse Nine er en film av Oscar-vinner Martin McDonagh (The Banshees of Inisherin, Three Billboards Outside Ebbing, Missouri).",
-   "plot": "Kort tid før statskuppet i Chile i 1973 blir CIA-agentene Chris (Malkovich) og Lee (Rockwell) sendt fra Santiago til Påskeøya.",
+   "plot": "Kort tid før statskuppet i Chile i 1973 blir CIA-agentene Chris (Malkovich) og Lee (Rockwell) sendt fra Santiago til Påskeøya. De mangeårige partnerne terger hverandre både med sine mørke fortider og med nye konspirasjonsteorier, mens Chris knytter bekjentskap med et par opprørske studenter (di Giralamo og Salas), noe som kan snu hele turen på hodet.",
    "premiere": "4 desember",
    "imdb": {
     "id": "tt15799564",
-    "rating": 8.1,
-    "votes": 1169
+    "rating": 8.2,
+    "votes": 1150
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/wild_horse_nine",
@@ -5729,12 +5719,12 @@
    ],
    "lang": "EN",
    "about": null,
-   "plot": "Clark (Chiwetel Ejiofor), som er eier av en møbelbutikk, oppdager en skjult passasje i kjelleren på butikken.",
+   "plot": "Clark (Chiwetel Ejiofor), som er eier av en møbelbutikk, oppdager en skjult passasje i kjelleren på butikken. Han blir raskt helt besatt av å utforske mysteriet og betror seg til psykologen sin Dr. Mary Kline (Renate Reinsve). Når hun følger etter han inn, oppdager hun at noe mørkt og truende venter på den andre siden.",
    "premiere": "29 mai",
    "imdb": {
     "id": "tt26657236",
     "rating": 6.7,
-    "votes": 236921
+    "votes": 235832
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/backrooms",
@@ -5780,7 +5770,7 @@
    ],
    "lang": "TA",
    "about": null,
-   "plot": "Basert på det feirede, eldgamle eposet som er kjent for milliarder, forteller Namit Malhotras Ramayana: Rise of a Legend historien om Rama, en prins bundet av offer …",
+   "plot": "Basert på det feirede, eldgamle eposet som er kjent for milliarder, forteller Namit Malhotras Ramayana: Rise of a Legend historien om Rama, en prins bundet av offer; Ravana, en udødelig konge drevet av hevn; og profetien som knytter skjebnene deres sammen. I hovedrollene ser vi Ranbir Kapoor, Yash og Sai Pallavi. Filmen er produsert av den anerkjente filmskaperen Namit Malhotra, som også står bak det Oscar-belønnede VFX-selskapet DNEG, kjent for storfilmer som The Odyssey, Dune, Interstellar og Inception. Regien er ved Nitesh Tiwari, som tidligere har regissert Dangal, fortsatt den mest innbringende indiske filmen på verdensbasis. Musikken er komponert av Oscar-vinnerne Hans Zimmer og A.R. Rahman.",
    "premiere": "6 november",
    "imdb": {
     "id": "tt27988879",
@@ -5836,7 +5826,7 @@
    "actors": [],
    "lang": null,
    "about": "Se MACBETH stykket på kino",
-   "plot": "Vi viser Verdi sin spenningsfylte tolkning av det udødelige Shakesperianske dramaet om den skotske kongen, hjemsøkt av spøkelsene fra hans morderiske vei til tronen, og …",
+   "plot": "Vi viser Verdi sin spenningsfylte tolkning av det udødelige Shakesperianske dramaet om den skotske kongen, hjemsøkt av spøkelsene fra hans morderiske vei til tronen, og hans maktsyke kone med en ambisjon som er dømt til å lede til undergang. To av operaens mest ekstraordinære artister, baritone Quinn Kelsey og Lisa Davidson inntar hovedrollene som det maktsyke parret fast bestemt til å gripe makten til enhver pris.",
    "premiere": "17 oktober",
    "imdb": null,
    "rt": null
