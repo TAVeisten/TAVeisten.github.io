@@ -188,8 +188,8 @@ def film_details(f):
     f["premiere"] = clean(field("premiere-date")) or None
 
 
-def plot_line(body, short, limit=170):
-    """Én kort setning om hva filmen handler om: første setning(er) av handlingen på NF Kino.
+def plot_line(body, short, limit=1200):
+    """Beskrivelse av hva filmen handler om: handlingsteksten på NF Kino.
     Uten handlingstekst brukes kortbeskrivelsen, men bare hvis den er en ekte setning (ikke et slagord)."""
     def sentences(t):
         t = re.sub(r"([a-zæøå0-9][.!?])(?=[A-ZÆØÅ])", r"\1 ", t)      # «skogen.Som» -> «skogen. Som»
@@ -200,9 +200,10 @@ def plot_line(body, short, limit=170):
         if not s or len(s[0].split()) < 7 or s[0].startswith(("\"", "«")):
             return None
         src = s
+    # Hele beskrivelsen (siden viser maks fire linjer og «…» som kan trykkes på for resten)
     out = src[0]
     for x in src[1:]:
-        if len(out) >= 60 or len(out) + 1 + len(x) > limit:   # én setning, to bare hvis den første er veldig kort
+        if len(out) + 1 + len(x) > limit:
             break
         out += " " + x
     if len(out) > limit + 30:
