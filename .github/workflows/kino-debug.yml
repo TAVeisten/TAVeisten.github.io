@@ -1,0 +1,21 @@
+name: kino-debug
+on: workflow_dispatch
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pip install requests beautifulsoup4
+      - run: |
+          python - <<'PY'
+          import requests,re
+          from bs4 import BeautifulSoup
+          for slug in ["pensjonskuppet","tony","verity","sangen-fra-skogene"]:
+              r=requests.get(f"https://www.nfkino.no/film/{slug}?city=drammen",timeout=20,headers={"User-Agent":"Mozilla/5.0"})
+              s=BeautifulSoup(r.text,"html.parser")
+              print("=====",slug,r.status_code)
+              for el in s.select("[class*=field--name-]"):
+                  c=[x for x in el.get("class") if x.startswith("field--name-")][0]
+                  print(c,"::",re.sub(r"\s+"," ",el.get_text())[:250])
+              for m in s.select('meta[name=description],meta[property="og:description"]'):
+                  print("META",m.get("content","")[:300])
+          PY
