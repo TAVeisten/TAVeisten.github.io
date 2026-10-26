@@ -65,7 +65,12 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .count{color:var(--muted);font-size:.85rem;margin:0 2px 8px}
 
 /* Filmlisten: tabell på stor skjerm, kort på mobil */
-.thead,.row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.7fr) minmax(0,1.5fr) 76px 150px;gap:12px;align-items:start}
+.thead,.row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.35fr) 88px 150px;gap:12px 18px;align-items:start}
+.film h3,.genre{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+/* Handlingen står under tittel og sjanger; visninger og scorer går over begge radene */
+.plot{grid-column:1/3;grid-row:2;margin:-6px 0 0;color:var(--muted);font-size:.84rem;line-height:1.35}
+.row>.film{grid-column:1;grid-row:1}.row>.genre{grid-column:2;grid-row:1}
+.row>.shows{grid-column:3;grid-row:1/span 2}.row>.s-imdb{grid-column:4;grid-row:1/span 2}.row>.rtbox{grid-column:5;grid-row:1/span 2}
 .thead{padding:0 14px 0;color:var(--muted);font-size:.78rem;font-weight:600;align-items:end}
 .thead>span{padding-bottom:6px}
 .thead .h-imdb,.thead .h-rt{text-align:center}
@@ -150,7 +155,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .score a:hover{outline:1px solid currentColor}
 .score .lab{display:none}
 .thead small,.score .lab small{display:block;font-weight:400;font-size:.68rem;color:var(--faint);line-height:1.1}
-.score .n{display:block;font-weight:400;font-size:.66rem;opacity:.8;margin-top:1px}
+.score .n{display:block;font-weight:400;font-size:.66rem;opacity:.8;margin-top:1px;white-space:nowrap}
 .s-imdb a,.s-imdb span.v{background:var(--imdb-bg);color:var(--imdb)}
 .s-crit a,.s-crit span.v{background:var(--crit-bg);color:var(--crit)}
 .s-aud a,.s-aud span.v{background:var(--aud-bg);color:var(--aud)}
@@ -176,6 +181,9 @@ input.ctl{-webkit-appearance:none;appearance:none}
   .film,.shows,.genre{grid-column:1/-1}
   .genre{order:1;padding-top:0;margin-top:-6px;font-size:.84rem}
   .genre.nogenre{display:none}
+  .plot{grid-column:1/-1;grid-row:auto;order:1;margin:-4px 0 0;font-size:.82rem}
+  .row>.film,.row>.genre,.row>.shows{grid-column:1/-1;grid-row:auto}
+  .row>.s-imdb,.row>.rtbox{grid-column:auto;grid-row:auto}
   .shows{order:3;margin-top:2px}
   .score{display:flex;align-items:center;gap:5px;text-align:left}
   /* Scorene som én stripe: IMDb-del og Rotten Tomatoes-del */
@@ -377,7 +385,7 @@ function render(){
     const imdb = f.imdb && f.imdb.rating != null ? +f.imdb.rating : null;
     const crit = f.rt && f.rt.critics != null ? f.rt.critics : null, aud = f.rt && f.rt.audience != null ? f.rt.audience : null;
     if(scored && imdb == null && crit == null) continue;
-    if(q){ const hay = [f.title, f.orig, genres(f).join(" "), (f.genre||[]).join(" "), f.director, (f.actors||[]).join(" "), f.lang].join(" ").toLowerCase(); if(!hay.includes(q)) continue; }
+    if(q){ const hay = [f.title, f.orig, genres(f).join(" "), (f.genre||[]).join(" "), f.director, (f.actors||[]).join(" "), f.lang, f.plot].join(" ").toLowerCase(); if(!hay.includes(q)) continue; }
     rows.push({f, shows, imdb, crit, aud, first: (upcoming[0]||shows[0]).t, isToday});
   }
   // Stigende/synkende etter valgt kolonne. Filmer uten verdi havner alltid sist.
@@ -407,6 +415,7 @@ function render(){
     return `<div class="row">
       <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
+      ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
       <div class="shows">${stubs}</div>
       ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stemmer":"", weak, weak?"Under 400 stemmer":"")}
       <div class="rtbox"><span class="rtlab">Rotten Tomatoes</span>

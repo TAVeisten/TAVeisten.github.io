@@ -182,8 +182,32 @@ def film_details(f):
     f["actors"] = [a for a in re.split(r",\s*", field("actors")) if a][:6]
     f["lang"] = field("language") or None
     f["about"] = (field("short-description") or "")[:300] or None
+    body = soup.select_one(".field--name-body")
+    f["plot"] = plot_line(clean(body.get_text(" ")) if body else "", f["about"] or "")
     m = re.search(r"(\d{1,2})\.?\s*(\w+)\s*(\d{4})?", field("premiere-date") or "")
     f["premiere"] = clean(field("premiere-date")) or None
+
+
+def plot_line(body, short, limit=170):
+    """Én kort setning om hva filmen handler om: første setning(er) av handlingen på NF Kino.
+    Uten handlingstekst brukes kortbeskrivelsen, men bare hvis den er en ekte setning (ikke et slagord)."""
+    def sentences(t):
+        t = re.sub(r"([a-zæøå0-9][.!?])(?=[A-ZÆØÅ])", r"\1 ", t)      # «skogen.Som» -> «skogen. Som»
+        return [x.strip() for x in re.split(r"(?<=[.!?])\s+(?=[«\"A-ZÆØÅ0-9])", t) if x.strip()]
+    src = sentences(body)
+    if not src:
+        s = sentences(short)
+        if not s or len(s[0].split()) < 7 or s[0].startswith(("\"", "«")):
+            return None
+        src = s
+    out = src[0]
+    for x in src[1:]:
+        if len(out) >= 60 or len(out) + 1 + len(x) > limit:   # én setning, to bare hvis den første er veldig kort
+            break
+        out += " " + x
+    if len(out) > limit + 30:
+        out = out[:limit].rsplit(" ", 1)[0].rstrip(",;:–- ") + " …"
+    return out
 
 
 # ---------------------------------------------------------------- IMDb
@@ -435,12 +459,12 @@ def main():
         prev = old.get(f["id"], {})
         if time_left() < 0:
             log("• (tid brukt opp – bruker forrige data)", f["title"])
-            for k in ("genre", "orig", "director", "actors", "lang", "about", "premiere", "imdb", "rt"):
+            for k in ("genre", "orig", "director", "actors", "lang", "about", "plot", "premiere", "imdb", "rt"):
                 f[k] = prev.get(k)
             continue
         log("•", f["title"], f"({int(time.monotonic() - START)} s)")
         film_details(f)
-        for k in ("genre", "orig", "director", "actors", "lang", "about", "premiere"):
+        for k in ("genre", "orig", "director", "actors", "lang", "about", "plot", "premiere"):
             if not f.get(k) and prev.get(k):
                 f[k] = prev[k]
         ov = overrides.get(f["title"], {})
