@@ -65,7 +65,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .count{color:var(--muted);font-size:.85rem;margin:0 2px 8px}
 
 /* Filmlisten: tabell på stor skjerm, kort på mobil */
-.thead,.row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.35fr) 52px 60px;gap:12px 14px;align-items:start}
+.thead,.row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.35fr) 46px 100px;gap:12px 14px;align-items:start}
 .film h3,.genre{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
 /* Handlingen står under tittel og sjanger; visninger og scorer går over begge radene */
 .plot{grid-column:1/3;grid-row:2;margin:-6px 0 0;color:var(--muted);font-size:.84rem;line-height:1.35;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
@@ -149,18 +149,18 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .score{text-align:center;font-variant-numeric:tabular-nums}
 /* Egne bånd for IMDb og Rotten Tomatoes: hele høyden i raden, så de leses som egne kolonner */
 .s-imdb{align-self:stretch;margin:-10px -7px -10px 0;padding:10px 8px 10px 1px;background:var(--imdb-band)}
-.rtbox{align-self:stretch;margin:-10px -12px -10px -7px;padding:10px 3px 10px 10px;background:var(--rt-band);border-radius:0 11px 11px 0;display:grid;grid-template-columns:1fr;gap:4px;align-content:start}
+.rtbox{align-self:stretch;margin:-10px -12px -10px -7px;padding:10px 3px 10px 10px;background:var(--rt-band);border-radius:0 11px 11px 0;display:grid;grid-template-columns:1fr 1fr;gap:3px;align-content:start}
 .rtbox .rtlab{display:none}
 .thead .h-imdb{background:var(--imdb-band);border-radius:10px 0 0 0;padding:6px 9px 6px 2px;margin-right:-7px}
-.thead .h-rt{background:var(--rt-band);border-radius:0 10px 0 0;padding:6px 3px 6px 10px;margin-left:-7px;display:grid;grid-template-columns:1fr;gap:1px;margin-right:-12px;font-size:.7rem}
+.thead .h-rt{background:var(--rt-band);border-radius:0 10px 0 0;padding:6px 3px 6px 10px;margin-left:-7px;display:grid;grid-template-columns:1fr 1fr;gap:2px 3px;margin-right:-12px;font-size:.66rem}
 /* Smale scorekolonner: Kritikere (grønn) og Publikum (blå) står under hverandre */
-.thead .h-rt small{display:none}.thead .h-rt [data-sort=crit]{color:var(--crit)}.thead .h-rt [data-sort=aud]{color:var(--aud)}
+/* Tomatometer/Popcornmeter skal aldri være bredere enn Kritikere/Publikum: skriften krympes til den passer (fitRtHead) */
+.thead .h-rt button{display:flex;flex-direction:column;align-items:center;min-width:0}.thead .h-rt small{white-space:nowrap;letter-spacing:-.01em}
 .thead .h-rt .rtname{grid-column:1/-1;font-weight:700;color:var(--crit);text-align:center;font-size:.76rem}
-.score a,.score span.v{display:block;min-width:0;border-radius:7px;padding:3px 2px;font-weight:700;text-decoration:none;font-size:.95rem}
+.score a,.score span.v{display:block;min-width:0;border-radius:7px;padding:3px 1px;font-weight:700;text-decoration:none;font-size:.88rem}
 .score a:hover{outline:1px solid currentColor}
 .score .lab{display:none}
 .thead small,.score .lab small{display:block;font-weight:400;font-size:.62rem;color:var(--faint);line-height:1.1}
-.rtbox .score .n{display:none}
 .score .n{display:block;font-weight:400;font-size:.62rem;opacity:.8;margin-top:1px;white-space:nowrap}
 .s-imdb a,.s-imdb span.v{background:var(--imdb-bg);color:var(--imdb)}
 .s-crit a,.s-crit span.v{background:var(--crit-bg);color:var(--crit)}
@@ -284,14 +284,14 @@ input.ctl{-webkit-appearance:none;appearance:none}
     <span><button type="button" data-sort="genre">Sjanger</button></span>
     <span><button type="button" data-sort="time">Visninger</button></span>
     <span class="h-imdb"><button type="button" data-sort="imdb">IMDb</button></span>
-    <span class="h-rt"><span class="rtname" title="Rotten Tomatoes">RT</span>
-      <button type="button" data-sort="crit">Kritikere<small>Tomatometer</small></button>
-      <button type="button" data-sort="aud">Publikum<small>Popcornmeter</small></button></span>
+    <span class="h-rt"><span class="rtname">Rotten Tomatoes</span>
+      <button type="button" data-sort="crit"><span class="hl">Kritikere</span><small>Tomatometer</small></button>
+      <button type="button" data-sort="aud"><span class="hl">Publikum</span><small>Popcornmeter</small></button></span>
   </div>
   <div class="list" id="list"></div>
 
   <div class="foot">
-    <p>Kritikere og publikum er fra Rotten Tomatoes (RT): Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). «st.» under IMDb-scoren er antall stemmer. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
+    <p>Kritikere og publikum er fra Rotten Tomatoes: Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). «st.» under IMDb-scoren er antall stemmer. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
     <p>Programmet oppdateres automatisk hver morgen, og er klart før kl. 08:00. Kilder: <a href="https://www.nfkino.no/kino/drammen-kino?city=drammen" target="_blank" rel="noopener">NF Kino</a>, <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a> og <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
   </div>
 </div>
@@ -435,6 +435,9 @@ function render(){
 }
 
 // Merk beskrivelser som er kuttet etter fire linjer, så «…» kan trykkes på
+function fitRtHead(){ document.querySelectorAll(".h-rt button").forEach(b => { const l = b.querySelector(".hl"), sm = b.querySelector("small"); if(!l || !sm) return; sm.style.fontSize = ""; let f = parseFloat(getComputedStyle(sm).fontSize); while(f > 6 && sm.scrollWidth > l.offsetWidth + .5){ f -= .25; sm.style.fontSize = f + "px"; } }); }
+addEventListener("resize", fitRtHead); document.fonts && document.fonts.ready.then(fitRtHead); setTimeout(fitRtHead, 0);
+
 function markCut(){ requestAnimationFrame(() => document.querySelectorAll("#list .plot:not(.open)").forEach(p => p.classList.toggle("cut", p.scrollHeight > p.clientHeight + 1))); }
 addEventListener("resize", markCut);
 
