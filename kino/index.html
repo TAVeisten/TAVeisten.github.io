@@ -148,11 +148,11 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .stub.sold{opacity:.55}.stub.sold small::after{content:", utsolgt"}
 .score{text-align:center;font-variant-numeric:tabular-nums}
 /* Egne bånd for IMDb og Rotten Tomatoes: hele høyden i raden, så de leses som egne kolonner */
-.s-imdb{align-self:stretch;margin:-10px 0;padding:10px 1px;background:var(--imdb-band)}
-.rtbox{align-self:stretch;margin:-10px -12px -10px 0;padding:10px 3px;background:var(--rt-band);border-radius:0 11px 11px 0;display:grid;grid-template-columns:1fr;gap:4px;align-content:start}
+.s-imdb{align-self:stretch;margin:-10px -7px -10px 0;padding:10px 8px 10px 1px;background:var(--imdb-band)}
+.rtbox{align-self:stretch;margin:-10px -12px -10px -7px;padding:10px 3px 10px 10px;background:var(--rt-band);border-radius:0 11px 11px 0;display:grid;grid-template-columns:1fr;gap:4px;align-content:start}
 .rtbox .rtlab{display:none}
-.thead .h-imdb{background:var(--imdb-band);border-radius:10px 10px 0 0;padding:6px 2px}
-.thead .h-rt{background:var(--rt-band);border-radius:10px 10px 0 0;padding:6px 3px;display:grid;grid-template-columns:1fr;gap:1px;margin-right:-12px;font-size:.7rem}
+.thead .h-imdb{background:var(--imdb-band);border-radius:10px 0 0 0;padding:6px 9px 6px 2px;margin-right:-7px}
+.thead .h-rt{background:var(--rt-band);border-radius:0 10px 0 0;padding:6px 3px 6px 10px;margin-left:-7px;display:grid;grid-template-columns:1fr;gap:1px;margin-right:-12px;font-size:.7rem}
 /* Smale scorekolonner: Kritikere (grønn) og Publikum (blå) står under hverandre */
 .thead .h-rt small{display:none}.thead .h-rt [data-sort=crit]{color:var(--crit)}.thead .h-rt [data-sort=aud]{color:var(--aud)}
 .thead .h-rt .rtname{grid-column:1/-1;font-weight:700;color:var(--crit);text-align:center;font-size:.76rem}
