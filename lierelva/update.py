@@ -1,22 +1,24 @@
-"""Henter fangstlisten for inneværende sesong fra lierelva.com og lagrer den i lierelva/data.json.
+"""Henter alle fangster fra lierelva.com og lagrer dem i lierelva/data.json.
 
-Årene 2013–2025 kommer fra Excel-arket og røres aldri. Fra 2026 erstattes årets rader med det
-lierelva.com viser (siden viser hele sesongen, nyeste først). Får vi ingen rader, endres ingenting.
+Hvert år hentes fra årssiden (dataHele<år>.php, 2013 og fram til i fjor), og inneværende sesong fra
+dataHeleSng.php. Et år erstattes med det lierelva.com viser. Får et år ingen rader, eller plutselig
+mye færre enn før, blir det stående uendret.
 """
 import json, os, re, sys, datetime, pathlib
 from collections import Counter
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://www.lierelva.com/dataHeleSng.php"
-FIRST_WEB_YEAR = 2026
+URL = "https://www.lierelva.com/dataHeleSng.php"          # inneværende sesong
+ARKIV = "https://www.lierelva.com/dataHele{}.php"        # tidligere år
+FIRST_YEAR = 2013
 DATA = pathlib.Path(__file__).with_name("data.json")
 MAX_KG = 15.9  # høyeste valg i vektlista på lierelva.com
 GEAR = {"MARK", "SPINNER", "FLUE", "SLUK"}
 
 
-def fetch_rows():
-    r = requests.get(URL, timeout=60, headers={"User-Agent": "Mozilla/5.0 (fangststatistikk taveisten.github.io)"})
+def fetch_rows(url=URL):
+    r = requests.get(url, timeout=60, headers={"User-Agent": "Mozilla/5.0 (fangststatistikk taveisten.github.io)"})
     r.raise_for_status()
     r.encoding = r.apparent_encoding if r.encoding in (None, "ISO-8859-1") else r.encoding
     soup = BeautifulSoup(r.text, "html.parser")
@@ -51,20 +53,33 @@ def fetch_rows():
 
 def main():
     data = json.loads(DATA.read_text(encoding="utf-8"))
-    rows = fetch_rows()
-    print(f"Hentet {len(rows)} rader fra lierelva.com")
-    if not rows:
+    by_year = {}
+    this_year = datetime.date.today().year
+    for y in range(FIRST_YEAR, this_year + 1):
+        url = ARKIV.format(y)
+        try:
+            rows = [r for r in fetch_rows(url) if int(r[0][:4]) == y]
+        except Exception as e:
+            print(f"{y}: kunne ikke hentes ({e})"); rows = []
+        if rows:
+            by_year[y] = rows
+    # Inneværende sesong: brukes når årssiden ikke finnes ennå, eller har færre rader enn sesongsiden
+    try:
+        sesong = fetch_rows(URL)
+        for y in {int(r[0][:4]) for r in sesong}:
+            s = [r for r in sesong if int(r[0][:4]) == y]
+            if len(s) >= len(by_year.get(y, [])):
+                by_year[y] = s
+    except Exception as e:
+        print(f"Sesongsiden kunne ikke hentes ({e})")
+    by_year = {y: v for y, v in by_year.items() if v}
+    print("Hentet:", {y: len(v) for y, v in sorted(by_year.items())})
+    if not by_year:
         print("Ingen rader – lar data.json være som den er")
         return
-    by_year = {}
-    for row in rows:
-        by_year.setdefault(int(row[0][:4]), []).append(row)
     changed = False
     lagt_til, fjernet = [], []
     for y, yr in sorted(by_year.items()):
-        if y < FIRST_WEB_YEAR:
-            print(f"Ignorerer {len(yr)} rader fra {y} (kommer fra Excel)")
-            continue
         yr.sort(key=lambda r: (r[0], r[3]))
         old = data["years"].get(str(y), [])
         if len(yr) < len(old) * 0.8:
@@ -85,8 +100,6 @@ def main():
     kjent = {tuple(u[:4]) for k in ("mistenkelig", "ugyldig", "godkjent") for u in data.get(k, [])}
     nye = []
     for y, yr in by_year.items():
-        if y < FIRST_WEB_YEAR:
-            continue
         for r in yr:
             if r[2] >= MAX_KG and tuple(r[:4]) not in kjent:
                 mist.append(r[:4] + ["Høyeste valg i vektlista (15,9 kg) – mulig falsk registrering"])
