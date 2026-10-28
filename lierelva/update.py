@@ -4,6 +4,7 @@
 lierelva.com viser (siden viser hele sesongen, nyeste først). Får vi ingen rader, endres ingenting.
 """
 import json, os, re, sys, datetime, pathlib
+from collections import Counter
 import requests
 from bs4 import BeautifulSoup
 
@@ -59,6 +60,7 @@ def main():
     for row in rows:
         by_year.setdefault(int(row[0][:4]), []).append(row)
     changed = False
+    lagt_til, fjernet = [], []
     for y, yr in sorted(by_year.items()):
         if y < FIRST_WEB_YEAR:
             print(f"Ignorerer {len(yr)} rader fra {y} (kommer fra Excel)")
@@ -69,6 +71,9 @@ def main():
             print(f"{y}: bare {len(yr)} rader mot {len(old)} før – lar året være (mulig feil på kilden)")
             continue
         if yr != old:
+            a, b = Counter(map(tuple, yr)), Counter(map(tuple, old))
+            lagt_til += [list(r) for r in (a - b).elements()]
+            fjernet += [list(r) for r in (b - a).elements()]
             data["years"][str(y)] = yr
             changed = True
         data.setdefault("web", {})[str(y)] = {"rader": len(yr), "sist": yr[-1][0]}
@@ -93,6 +98,21 @@ def main():
         linjer = "\n".join(f"- {r[0]}: {'laks' if r[1] == 'L' else 'sjøørret'} {r[2]} kg, {r[3]}, {r[4].lower()}" for r in nye)
         with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
             fh.write("mistenkelig<<EOF\n" + linjer + "\nEOF\n")
+    # «Nytt siden sist»: skrives bare når noe er endret, ellers står forrige oppsummering igjen
+    if lagt_til or fjernet or nye:
+        def art(r): return "laks" if r[1] == "L" else "sjøørret"
+        def kg(v): return f"{v:.1f}".replace(".", ",")
+        pkt = []
+        if lagt_til:
+            nl = sum(1 for r in lagt_til if r[1] == "L"); ns = len(lagt_til) - nl
+            st = max(lagt_til, key=lambda r: r[2])
+            pkt.append(f"{len(lagt_til)} {'ny fangst' if len(lagt_til) == 1 else 'nye fangster'} ({nl} laks, {ns} sjøørret), største {kg(st[2])} kg {art(st)}.")
+        if fjernet:
+            pkt.append(f"{len(fjernet)} {'registrering' if len(fjernet) == 1 else 'registreringer'} fjernet fra lierelva.com.")
+        for r in nye:
+            pkt.append(f"Mulig falsk registrering: {kg(r[2])} kg {art(r)} {r[0][8:10]}.{r[0][5:7]}.{r[0][:4]} ({r[3].title()}). 15,9 kg er høyeste valg i vektlista – telles med inntil du sier fra.")
+        data["nytt"] = {"tid": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes"),
+                        "punkter": pkt, "nye": sorted(lagt_til, key=lambda r: (r[0], r[2]), reverse=True)[:50]}
     data["checked"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes")
     if changed:
         data["updated"] = data["checked"]
