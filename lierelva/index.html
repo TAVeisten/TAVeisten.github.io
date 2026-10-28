@@ -404,7 +404,7 @@ function tiles(elId, st){
   // Største: trykk (eller mus over på Mac) viser en boble med hvem, redskap og dato
   function maks(m){ return m ? '<button type="button" class="tip" data-tip="' + esc(navn(m[3]) + " · " + GNAME[m[4]] + " · " + m[0].slice(8,10) + "." + m[0].slice(5,7) + "." + m[0].slice(0,4)) + '">' + nf1.format(m[2]) + '</button>' : "–"; }
   function row(lbl, s){ return '<tr><td>' + lbl + '</td><td>' + nf0.format(s.n) + '</td><td>' + nf0.format(s.kg) + '</td><td>' + snitt(s.kg, s.n) + '</td><td>' + maks(s.max) + '</td></tr>'; }
-  document.getElementById(elId).innerHTML = '<div class="box"><table class="sumtab"><tr><th></th><th>Fisk</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>' +
+  document.getElementById(elId).innerHTML = '<div class="box"><table class="sumtab"><tr><th></th><th>Antall</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>' +
     row("Laks", L) + row("Sjøørret", S) +
     '<tr class="tot"><td>Totalt</td><td>' + nf0.format(n) + '</td><td>' + nf0.format(kg) + '</td><td>' + snitt(kg, n) + '</td><td></td></tr></table></div>';
 }
@@ -475,7 +475,7 @@ function renderAar(){
   lineChart("cAarSnitt", labels, per.map(function(s){ return s.n ? Math.round(s.kg/s.n*1000)/1000 : null; }), function(v){ return nf1.format(v); });
   charts.cAarSnitt.options.plugins.tooltip.callbacks.label = function(c){ return " " + nf3.format(c.raw) + " kg"; };
   document.getElementById("aarTabTittel").textContent = ART[f] + " – tall per år";
-  var h = '<tr><th>År</th><th>Fisk</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>';
+  var h = '<tr><th>År</th><th>Antall</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>';
   for (var i = YEARS.length - 1; i >= 0; i--) {
     var s = per[i];
     h += '<tr><td>' + YEARS[i] + '</td><td>' + nf0.format(s.n) + '</td><td>' + nf0.format(s.kg) + '</td><td>' + (s.n ? nf3.format(s.kg/s.n) : "–") + '</td><td>' + (s.max ? nf1.format(s.max[2]) : "–") + '</td></tr>';
@@ -493,7 +493,7 @@ function renderTopp(){
   var by = {};
   rows.forEach(function(r){ var nk = r[3].toUpperCase(); var p = by[nk] || (by[nk] = {n:0,kg:0,max:0}); p.n++; p.kg += r[2]; if (!IGN[key(r)]) p.max = Math.max(p.max, r[2]); });
   var fl = Object.keys(by).map(function(k){ return [k, by[k]]; }).sort(function(a,b){ return b[1].n-a[1].n || b[1].kg-a[1].kg; }).slice(0, state.flest);
-  h = '<tr><th>#</th><th class="nm">Navn</th><th>Fisk</th><th>Kg</th></tr>';
+  h = '<tr><th>#</th><th class="nm">Navn</th><th>Antall</th><th>Kg</th></tr>';
   fl.forEach(function(e,i){ h += '<tr><td class="rk">' + (i+1) + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(e[0]) + '">' + esc(navn(e[0])) + '</a><small>Største ' + nf1.format(e[1].max) + ' kg</small></td><td><b>' + e[1].n + '</b></td><td>' + nf0.format(e[1].kg) + '</td></tr>'; });
   document.getElementById("toppFlest").innerHTML = fl.length ? h : '<tr><td>Ingen fangst</td></tr>';
   document.querySelectorAll(".more").forEach(function(b){ b.textContent = state[b.dataset.list] > 10 ? "Vis 10" : "Vis 25"; });
