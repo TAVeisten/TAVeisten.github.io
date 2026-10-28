@@ -251,7 +251,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
   </section>
 
   <section id="fangster">
-    <h2>Alle fangster</h2>
+    <h2 class="th3">Alle fangster<span class="resetTop" id="fTop"></span></h2>
     <p class="sub">Hele fangstlisten, med søk, filtre og sortering. Trykk på et navn for å se alt den personen har fått, og trykk på en kolonne for å sortere.</p>
     <div class="flt">
       <input class="q" type="search" id="fQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn">
@@ -268,7 +268,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
     </div>
     <div class="sum" id="fSum"></div>
     <div class="box"><table id="fTab"></table>
-    <button class="more" id="fMore" hidden></button></div>
+    <div class="moreRow" id="fMore"></div></div>
   </section>
 
   <div class="note" id="note"></div>
@@ -668,27 +668,32 @@ function renderTopp(){
     var el = document.getElementById(a[0]); el.hidden = !qw.length; el.textContent = a[1] + " treff (" + a[2] + ")"; });
   var total = {stor:nStor, flest:nFlest};
   // Valg for lengde: 10, 25 og 100 – knappen for lengden som vises er skjult
-  document.querySelectorAll(".moreRow").forEach(function(el){
+  document.querySelectorAll(".moreRow[data-list]").forEach(function(el){
     var cur = state[el.dataset.list], tot = total[el.dataset.list];
     // Ingen knapper når alt allerede vises
     // Lengre lister vokser 100 om gangen, som «Alle fangster». «Vis bare 10» står også øverst, så du slipper å scrolle ned.
-    var btns = [];
-    function btn(n, txt){ btns.push('<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="' + n + '">' + txt + '</button>'); }
-    if (cur > 10) btn(10, "Vis bare 10");
-    if (cur < 25 && 25 < tot) btn(25, "Vis 25");
-    if (cur < tot) {
-      if (cur < 100 && 100 < tot) btn(100, "Vis 100");
-      else if (cur < 100) btn(tot, "Vis alle (" + nf0.format(tot) + ")");
-      else { var rest = tot - cur; btn(cur + 100, rest > 100 ? "Vis 100 til (" + nf0.format(rest) + " igjen)" : "Vis resten (" + nf0.format(rest) + ")"); }
-    }
-    el.innerHTML = btns.join("");
+    el.innerHTML = pageBtns(cur, tot, 'data-list="' + el.dataset.list + '"');
     var top = document.querySelector('.resetTop[data-list="' + el.dataset.list + '"]');
     top.innerHTML = cur > 10 && tot > 10 ? '<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="10">Vis bare 10</button>' : "";
   });
 }
 
+// Felles lengdevalg for listene: 10 → 25 → 100 → 100 til … («Vis bare 10» når listen er utvidet)
+function pageBtns(cur, tot, attr){
+  var btns = [];
+  function btn(n, txt){ btns.push('<button type="button" class="more" ' + attr + ' data-n="' + n + '">' + txt + '</button>'); }
+  if (cur > 10) btn(10, "Vis bare 10");
+  if (cur < 25 && 25 < tot) btn(25, "Vis 25");
+  if (cur < tot) {
+    if (cur < 100 && 100 < tot) btn(100, "Vis 100");
+    else if (cur < 100) btn(tot, "Vis alle (" + nf0.format(tot) + ")");
+    else { var rest = tot - cur; btn(cur + 100, rest > 100 ? "Vis 100 til (" + nf0.format(rest) + " igjen)" : "Vis resten (" + nf0.format(rest) + ")"); }
+  }
+  return btns.join("");
+}
+
 // ---------- Alle fangster ----------
-var ALL = [], fState = {q:"", aar:"", art:"", red:"", sort:"d-", vis:100};
+var ALL = [], fState = {q:"", aar:"", art:"", red:"", sort:"d-", vis:10};
 function renderFangster(){
   var qw = norm(fState.q).split(" ").filter(Boolean);
   var rows = ALL.filter(function(o){ var r = o.r;
@@ -718,12 +723,10 @@ function renderFangster(){
       '<td class="wide">' + ART[r[1]] + '</td><td class="wide">' + GNAME[r[4]] + '</td><td><b>' + nf1.format(r[2]) + '</b></td></tr>';
   });
   document.getElementById("fTab").innerHTML = rows.length ? h : '<tr><td>Ingen fangster passer med filtrene</td></tr>';
-  var mb = document.getElementById("fMore"), rest = rows.length - fState.vis;
-  if (rest > 0) { mb.hidden = false; mb.textContent = "Vis " + Math.min(rest, 100) + " til (" + nf0.format(rest) + " igjen)"; }
-  else if (fState.vis > 100) { mb.hidden = false; mb.textContent = "Vis færre"; }
-  else mb.hidden = true;
+  document.getElementById("fMore").innerHTML = pageBtns(fState.vis, rows.length, 'data-f="1"');
+  document.getElementById("fTop").innerHTML = fState.vis > 10 && rows.length > 10 ? '<button type="button" class="more" data-f="1" data-n="10">Vis bare 10</button>' : "";
 }
-function setF(k, v){ fState[k] = v; fState.vis = 100; renderFangster(); }
+function setF(k, v){ fState[k] = v; fState.vis = 10; renderFangster(); }
 
 function renderAll(){ gearLegends(); renderSesong(); renderAlle(); renderAar(); renderTopp(); renderFangster(); }
 
@@ -735,10 +738,11 @@ document.addEventListener("click", function(e){
   var pn = e.target.closest("a.pn");
   if (pn) { e.preventDefault(); var n = navn(pn.dataset.n); document.getElementById("fQ").value = n; fState.aar = ""; document.getElementById("fAar").value = ""; setF("q", n);
     if (!pn.closest("#fTab")) document.getElementById("fangster").scrollIntoView(); return; }
-  if (e.target.id === "fMore") { var tot = fState.vis; fState.vis = e.target.textContent.indexOf("færre") >= 0 ? 100 : tot + 100; renderFangster(); return; }
-  if (e.target.id === "fReset") { ["fQ","fAar","fArt","fRed"].forEach(function(id){ document.getElementById(id).value = ""; }); fState.q = fState.aar = fState.art = fState.red = ""; setF("vis", 100); return; }
-  // En utvidet fangstliste lukkes igjen (tilbake til 100) når du trykker i den
-  if (e.target.closest("#fTab td") && fState.vis > 100) { fState.vis = 100; renderFangster(); document.getElementById("fangster").scrollIntoView(); return; }
+  var fm = e.target.closest(".more[data-f]");
+  if (fm) { fState.vis = +fm.dataset.n; renderFangster(); if (fState.vis === 10) document.getElementById("fangster").scrollIntoView(); return; }
+  if (e.target.id === "fReset") { ["fQ","fAar","fArt","fRed"].forEach(function(id){ document.getElementById(id).value = ""; }); fState.q = fState.aar = fState.art = fState.red = ""; setF("vis", 10); return; }
+  // En utvidet fangstliste lukkes igjen (tilbake til 10) når du trykker i den
+  if (e.target.closest("#fTab td") && fState.vis > 10) { fState.vis = 10; renderFangster(); document.getElementById("fangster").scrollIntoView(); return; }
   var b = e.target.closest(".seg button");
   if (b) {
     var k = b.parentNode.dataset.key; state[k] = b.dataset.v; segs();
