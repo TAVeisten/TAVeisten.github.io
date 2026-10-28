@@ -397,7 +397,7 @@ function lineLabels(ch, opts){
       ctx.strokeText(s, pt.x, y); ctx.fillText(s, pt.x, y);
       // Redskap: helt navn når det er plass, ellers forkortelse (M, Sp, F, Sl)
       var sub = ds.sub && ds.sub[i]; if (!sub) return;
-      if (room < 44) sub = {Mark:"M", Spinner:"Sp", Flue:"F", Sluk:"Sl"}[sub] || sub;
+      if (room < 38) sub = {Mark:"M", Spinner:"Sp", Flue:"F", Sluk:"Sl"}[sub] || sub;
       ctx.fillStyle = css("--muted"); ctx.font = "600 " + (fs - 1) + "px " + css("--body");
       var y2 = below ? y + fs + 1 : y - fs - 1; ctx.strokeText(sub, pt.x, y2); ctx.fillText(sub, pt.x, y2);
     });
@@ -406,7 +406,7 @@ function lineLabels(ch, opts){
 }
 function twoLines(id, labels, sets, title){
   var o = baseOpts();
-  o.layout.padding = {top:34, bottom:4, left:4, right:8};
+  o.layout.padding = {top:34, bottom:4, left:4, right:18};
   var all = []; sets.forEach(function(s){ s.data.forEach(function(v){ if (v != null) all.push(v); }); });
   var hi = Math.max.apply(null, all);
   var lo = Math.min.apply(null, all);
@@ -593,7 +593,7 @@ function renderAar(){
   twoLines("cAarMax", labels, [maxSet("L", "--line1", false, "above"), maxSet("S", "--sjo", false, "below")], "Største fisk");
   // Forklaringen av forkortelsene vises bare når grafen faktisk bruker dem (smal skjerm); ellers står hele redskapsnavnet ved punktet
   var cm = charts.cAarMax, ab = document.querySelector(".artleg .abbr");
-  if (cm && ab) ab.hidden = cm.chartArea.width / Math.max(YEARS.length, 1) >= 44;
+  if (cm && ab) ab.hidden = cm.chartArea.width / Math.max(YEARS.length, 1) >= 38;
   function snSet(k, color, dash, pos){ return {label:ART[k], color:color, dash:dash, pos:pos,
     data:both.map(function(s){ return s[k].n ? Math.round(s[k].kg / s[k].n * 1000) / 1000 : null; }), fmt:function(v){ return nf2.format(v); },
     tip:function(i){ var s = both[i][k]; return s.n ? nf3.format(s.kg / s.n) + " kg" : "–"; }}; }
