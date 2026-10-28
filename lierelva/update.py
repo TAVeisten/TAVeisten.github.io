@@ -3,7 +3,7 @@
 Årene 2013–2025 kommer fra Excel-arket og røres aldri. Fra 2026 erstattes årets rader med det
 lierelva.com viser (siden viser hele sesongen, nyeste først). Får vi ingen rader, endres ingenting.
 """
-import json, re, sys, datetime, pathlib
+import json, os, re, sys, datetime, pathlib
 import requests
 from bs4 import BeautifulSoup
 
@@ -73,19 +73,26 @@ def main():
             changed = True
         data.setdefault("web", {})[str(y)] = {"rader": len(yr), "sist": yr[-1][0]}
         print(f"{y}: {len(yr)} fangster, siste {yr[-1][0]}")
-    # 15,9 kg er det høyeste valget i vektlista på lierelva.com. Slike registreringer er trolig falske
-    # (noen har valgt maks) og merkes som ugyldige, så de ikke telles i statistikken.
-    ugyldig = data.setdefault("ugyldig", [])
-    kjent = {tuple(u[:4]) for u in ugyldig}
+    # 15,9 kg er det høyeste valget i vektlista på lierelva.com, så slike registreringer kan være falske
+    # (noen har valgt maks). De telles med som vanlig, men merkes som mistenkelige: siden viser en melding,
+    # og GitHub-jobben oppretter en sak (issue) slik at Thom Are får beskjed og kan avgjøre om den skal tas ut.
+    mist = data.setdefault("mistenkelig", [])
+    kjent = {tuple(u[:4]) for k in ("mistenkelig", "ugyldig", "godkjent") for u in data.get(k, [])}
+    nye = []
     for y, yr in by_year.items():
         if y < FIRST_WEB_YEAR:
             continue
         for r in yr:
             if r[2] >= MAX_KG and tuple(r[:4]) not in kjent:
-                ugyldig.append(r[:4] + ["Høyeste valg i vektlista (15,9 kg) – trolig falsk registrering"])
+                mist.append(r[:4] + ["Høyeste valg i vektlista (15,9 kg) – mulig falsk registrering"])
                 kjent.add(tuple(r[:4]))
+                nye.append(r)
                 changed = True
-                print("Merket som ugyldig:", r)
+                print("Mistenkelig registrering:", r)
+    if nye and os.environ.get("GITHUB_OUTPUT"):
+        linjer = "\n".join(f"- {r[0]}: {'laks' if r[1] == 'L' else 'sjøørret'} {r[2]} kg, {r[3]}, {r[4].lower()}" for r in nye)
+        with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+            fh.write("mistenkelig<<EOF\n" + linjer + "\nEOF\n")
     data["checked"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes")
     if changed:
         data["updated"] = data["checked"]

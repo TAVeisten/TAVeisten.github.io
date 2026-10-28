@@ -71,6 +71,9 @@ tr.ny td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
 .note{color:var(--muted);font-size:.8rem;margin:28px 0 0}
 .note p{margin:0 0 6px}
 .err{color:#B3261E;font-weight:600}
+.warn{background:#FFF4D6;color:#5C4400;border:1px solid #F0D58A;border-radius:10px;padding:10px 12px;font-size:.88rem;margin:0 0 10px}
+.warn b{color:#3D2E00}
+@media (prefers-color-scheme: dark){.warn{background:#3A3115;color:#F0DFA8;border-color:#5C4B1E}.warn b{color:#FFF0C2}}
 @media (max-width:520px){body{font-size:14.5px}h1{font-size:1.5rem}.sheet{padding:10px 12px 24px}nav{margin:0 -12px;padding:8px 12px}.box{padding:10px}.chart{height:230px}.kpi .v{font-size:1.25rem}}
 </style>
 </head>
@@ -78,6 +81,7 @@ tr.ny td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
 <div class="sheet">
   <h1>🐟 Lierelva – Laks & sjøørret</h1>
   <p class="lead" id="lead">Laster fangstdata …</p>
+  <div class="warn" id="warn" hidden></div>
   <nav>
     <a href="#sesong">Sesong</a><a href="#alle">Alle år</a><a href="#aar">År for år</a><a href="#topp">Topplister</a>
   </nav>
@@ -402,11 +406,20 @@ fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Er
   var chk = d.checked ? new Date(d.checked) : null;
   document.getElementById("lead").textContent = nf0.format(ROWS.length) + " fangster " + YEARS[0] + "–" + YEARS[YEARS.length-1] +
     (wy ? " · siste registrerte fangst " + dato(web[wy].sist) : "") + (chk ? " · sjekket " + chk.toLocaleDateString("nb-NO",{day:"numeric",month:"short"}) : "");
+  var OK = {}; (d.godkjent || []).forEach(function(r){ OK[key(r)] = 1; });
+  var mist = (d.mistenkelig || []).filter(function(r){ return !IGN[key(r)] && !OK[key(r)]; });
+  if (mist.length) {
+    var w = document.getElementById("warn");
+    w.innerHTML = "⚠️ <b>Mulig falsk registrering</b> (15,9 kg er høyeste valg i vektlista): " +
+      mist.map(function(r){ return nf1.format(r[2]) + " kg " + ART[r[1]].toLowerCase() + " " + dato(r[0]) + " (" + esc(navn(r[3])) + ")"; }).join(", ") +
+      ". Den telles med inntil du ber Claude ta den ut eller beholde den.";
+    w.hidden = false;
+  }
   var dob = (d.dobbel || []).map(function(r){ return nf1.format(r[2]) + " kg " + ART[r[1]].toLowerCase() + " " + dato(r[0]) + " (" + navn(r[3]) + ")"; }).join(", ");
   var ign = (d.ugyldig || []).map(function(r){ return nf1.format(r[2]) + " kg " + ART[r[1]].toLowerCase() + " " + dato(r[0]); }).join(", ");
   document.getElementById("note").innerHTML =
     '<p>Kilder: 2013–2025 fra Excel-arket «Lierelva – Laks & Sjøørret», og fra 2026 hentes fangstlisten fra <a href="https://www.lierelva.com/dataHeleSng.php">lierelva.com</a> hver morgen kl. 07:41 i mai–oktober.</p>' +
-    (ign ? '<p>Tatt ut av statistikken: ' + ign + '. 15,9 kg er det høyeste valget i vektlista på lierelva.com, så registreringen er trolig falsk. Nye registreringer på 15,9 kg tas ut automatisk.</p>' : '') +
+    (ign ? '<p>Tatt ut av statistikken: ' + ign + '. 15,9 kg er det høyeste valget i vektlista på lierelva.com, så registreringen er trolig falsk. Nye registreringer på 15,9 kg gir en melding øverst på siden og en sak på GitHub.</p>' : '') +
     (dob ? '<p>Registrert to ganger, men telt bare én gang: ' + dob + '.</p>' : '') +
     '<p>Ukene i «Utvikling gjennom sesongen» er ISO-uker. Snittet er gjennomsnittet av de andre sesongene.</p>';
   segs(); renderAll();

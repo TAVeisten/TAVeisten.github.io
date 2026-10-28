@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: lierelva
@@ -41,6 +42,7 @@ jobs:
       - run: pip install requests beautifulsoup4
         if: steps.check.outputs.run == 'true'
       - run: python -u lierelva/update.py
+        id: upd
         if: steps.check.outputs.run == 'true'
       - name: Lagre data
         if: steps.check.outputs.run == 'true'
@@ -51,3 +53,14 @@ jobs:
           git commit -m "Lierelva fangst oppdatert" || exit 0
           git pull --rebase origin main
           git push
+      - name: Gi beskjed om mistenkelige registreringer (15,9 kg)
+        if: steps.upd.outputs.mistenkelig != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LISTE: ${{ steps.upd.outputs.mistenkelig }}
+        run: |
+          printf '%s\n\n%s\n\n%s\n' \
+            "Disse registreringene på lierelva.com er på 15,9 kg, som er det høyeste valget i vektlista. De kan være falske:" \
+            "$LISTE" \
+            "De telles med i statistikken inntil du sier fra. Be Claude ta dem ut (eller beholde dem), og lukk saken." > body.md
+          gh issue create --repo "${{ github.repository }}" --title "Lierelva: mulig falsk registrering (15,9 kg)" --body-file body.md
