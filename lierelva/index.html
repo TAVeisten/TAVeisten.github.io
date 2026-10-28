@@ -128,8 +128,8 @@ input[type=search]{font:inherit;font-size:.95rem;color:var(--ink);background:var
 .sum{font-size:.85rem;color:var(--muted);margin:0 0 8px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center}
 .sum b{color:var(--ink)}
 .sum button{border:0;background:none;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;padding:0}
-#fTab th.s{cursor:pointer;user-select:none;white-space:nowrap}
-#fTab th.s.on{color:var(--accent)}
+#fTab th.s,#topp th.s{cursor:pointer;user-select:none;white-space:nowrap}
+#fTab th.s.on,#topp th.s.on{color:var(--accent)}
 #fTab td.d{white-space:nowrap;text-align:left}
 #fTab th.d{text-align:left}
 #fTab td.nm a{color:var(--ink);text-decoration:none;font-weight:500}
@@ -326,7 +326,7 @@ document.addEventListener("mouseover", function(e){ if (!HOVER) return; var b = 
 document.addEventListener("mouseout", function(e){ if (!HOVER) return; var b = e.target.closest && e.target.closest(".tip"); if (b && !b.contains(e.relatedTarget)) hideTip(); });
 window.addEventListener("scroll", function(){ if (!HOVER) return; hideTip(); }, {passive:true});
 var DATA, ROWS = [], YEARS = [], IGN = {}, charts = {};
-var state = {sesong:null, utvArt:"L", aarArt:"L", toppArt:"B", toppAar:"alle", toppQ:"", stor:10, flest:10};
+var state = {sesong:null, utvArt:"L", aarArt:"L", toppArt:"B", toppAar:"alle", toppQ:"", sortStor:"r+", sortFlest:"r+", stor:10, flest:10};
 
 function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
 function dato(iso){ return +iso.slice(8,10) + ". " + MND[+iso.slice(5,7)-1] + " " + iso.slice(0,4); }
@@ -640,16 +640,24 @@ function renderTopp(){
   var qw = norm(state.toppQ).split(" ").filter(Boolean);
   function treff(n){ var t = norm(n); return qw.every(function(w){ return t.indexOf(w) >= 0; }); }
   if (qw.length) stor = stor.filter(function(x){ return treff(x[0][3]); });
+  // Sortering ved trykk på overskriftene: hele trefflisten sorteres før den kortes ned. Plassnummeret beholdes.
+  function cmpTxt(a, b){ return navn(a).localeCompare(navn(b), "nb"); }
+  function sortBy(arr, sk, val){ var k = sk[0], dir = sk[1] === "+" ? 1 : -1;
+    arr.sort(function(a, b){ var c = k === "n" ? cmpTxt(val.n(a), val.n(b)) : k === "r" ? 0 : val[k](a) - val[k](b); return dir * (c || (val.r(a) - val.r(b))); }); }
+  function th(list, k, label, cls){ var sk = state[list], on = sk[0] === k;
+    return '<th class="s' + (cls ? " " + cls : "") + (on ? " on" : "") + '" data-list="' + list + '" data-s="' + k + '">' + label + (on ? (sk[1] === "+" ? " ▲" : " ▼") : "") + '</th>'; }
+  sortBy(stor, state.sortStor, {r:function(x){ return x[1]; }, n:function(x){ return x[0][3]; }, k:function(x){ return x[0][2]; }});
   var nStor = stor.length; stor = stor.slice(0, state.stor);
-  var h = '<tr><th>#</th><th class="nm">Navn</th><th>Kg</th></tr>';
+  var h = '<tr>' + th("sortStor","r","#") + th("sortStor","n","Navn","nm") + th("sortStor","k","Kg") + '</tr>';
   stor.forEach(function(x){ var r = x[0]; h += '<tr><td class="rk">' + x[1] + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(r[3]) + '">' + esc(navn(r[3])) + '</a><small>' + (f === "B" ? ART[r[1]] + ' · ' : '') + dato(r[0]) + ' · ' + GNAME[r[4]] + '</small></td><td><b>' + nf1.format(r[2]) + '</b></td></tr>'; });
   document.getElementById("toppStor").innerHTML = stor.length ? h : '<tr><td>' + (qw.length ? 'Ingen treff' : 'Ingen fangst') + '</td></tr>';
   var by = {};
   rows.forEach(function(r){ var nk = r[3].toUpperCase(); var p = by[nk] || (by[nk] = {n:0,kg:0,max:0,L:0,S:0}); p.n++; p[r[1]]++; p.kg += r[2]; if (!IGN[key(r)] && r[2] > p.max) { p.max = r[2]; p.maxArt = r[1]; } });
   var fl = Object.keys(by).map(function(k){ return [k, by[k]]; }).sort(function(a,b){ return b[1].n-a[1].n || b[1].kg-a[1].kg; }).map(function(e,i){ e.push(i+1); return e; });
   if (qw.length) fl = fl.filter(function(e){ return treff(e[0]); });
+  sortBy(fl, state.sortFlest, {r:function(e){ return e[2]; }, n:function(e){ return e[0]; }, a:function(e){ return e[1].n; }, k:function(e){ return e[1].kg; }});
   var nFlest = fl.length; fl = fl.slice(0, state.flest);
-  h = '<tr><th>#</th><th class="nm">Navn</th><th>Antall</th><th>Kg</th></tr>';
+  h = '<tr>' + th("sortFlest","r","#") + th("sortFlest","n","Navn","nm") + th("sortFlest","a","Antall") + th("sortFlest","k","Kg") + '</tr>';
   fl.forEach(function(e){ h += '<tr><td class="rk">' + e[2] + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(e[0]) + '">' + esc(navn(e[0])) + '</a><small>' + (f === "B" ? e[1].L + ' laks · ' + e[1].S + ' sjøørret · <span style="white-space:nowrap">største ' : '<span style="white-space:nowrap">Største ') + nf1.format(e[1].max) + ' kg' + (f === "B" && e[1].maxArt ? ' (' + ART[e[1].maxArt].toLowerCase() + ')' : '') + '</span></small></td><td><b>' + e[1].n + '</b></td><td>' + nf0.format(e[1].kg) + '</td></tr>'; });
   document.getElementById("toppFlest").innerHTML = fl.length ? h : '<tr><td>' + (qw.length ? 'Ingen treff' : 'Ingen fangst') + '</td></tr>';
   // Antall treff vises bare når det søkes
@@ -722,6 +730,10 @@ document.addEventListener("click", function(e){
     if (k === "utvArt") renderUtv(); else if (k === "aarArt") renderAar(); else renderTopp();
     return;
   }
+  // Topplister: trykk på overskrift sorterer; samme overskrift igjen snur retningen
+  var ts = e.target.closest("#topp th.s");
+  if (ts) { var sl = ts.dataset.list, sk = ts.dataset.s, cur2 = state[sl];
+    state[sl] = cur2[0] === sk ? sk + (cur2[1] === "+" ? "-" : "+") : sk + (sk === "r" || sk === "n" ? "+" : "-"); renderTopp(); return; }
   var m = e.target.closest(".more");
   if (m && m.dataset.list) { var lst = m.dataset.list, n = +m.dataset.n; state[lst] = n; renderTopp(); if (n === 10) document.getElementById(lst === "stor" ? "toppStor" : "toppFlest").closest(".box").scrollIntoView(); return; }
   // En utvidet toppliste lukkes igjen når du trykker i den
