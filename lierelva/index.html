@@ -178,7 +178,6 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
 
   <section id="alle">
     <h2 id="alleTittel">Alle år summert</h2>
-    <p class="sub" id="alleSub">Alle sesonger lagt sammen.</p>
     <div class="tiles" id="alleTiles"></div>
     <div class="grid2">
       <div class="box"><h3>Antall fisk per redskap</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cAlleAnt"></canvas></div></div>
@@ -461,8 +460,6 @@ function renderAlle(){
   document.getElementById("alleTittel").textContent = "Alle år summert (" + YEARS[0] + "–" + YEARS[YEARS.length-1] + ")";
   var st = stats(ROWS);
   tiles("alleTiles", st);
-  var tkg = 0; ROWS.forEach(function(r){ tkg += r[2]; });
-  document.getElementById("alleSub").innerHTML = "<b>" + nf0.format(ROWS.length) + " fisk · " + nf0.format(tkg) + " kg</b> · " + YEARS[0] + "–" + YEARS[YEARS.length-1];
   gearPair("cAlleAnt", "cAlleKg", st);
 }
 function renderAar(){
