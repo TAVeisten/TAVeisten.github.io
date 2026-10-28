@@ -503,7 +503,7 @@ function gearLegends(){
   var h = GEARS.map(function(g){ return '<span><i style="background:' + css("--"+g.toLowerCase()) + '"></i>' + GNAME[g] + '</span>'; }).join("");
   document.querySelectorAll(".gearleg, .gearleg-in").forEach(function(el){ el.innerHTML = h; });
   var a = '<span><i class="ln" style="background:' + css("--line1") + '"></i>Laks</span><span><i class="ln" style="background:' + css("--sjo") + '"></i>Sjøørret</span>';
-  document.querySelectorAll(".artleg").forEach(function(el, i){ el.innerHTML = a + (i === 0 ? '<span>M = mark · Sp = spinner · F = flue · Sl = sluk</span>' : ''); });
+  document.querySelectorAll(".artleg").forEach(function(el, i){ el.innerHTML = a + (i === 0 ? '<span class="abbr" hidden>M = mark · Sp = spinner · F = flue · Sl = sluk</span>' : ''); });
 }
 function segs(){
   document.querySelectorAll(".seg").forEach(function(el){
@@ -591,6 +591,9 @@ function renderAar(){
     sub:both.map(function(s){ return s[k].max ? GNAME[s[k].max[4]] : ""; }),
     tip:function(i){ var m = both[i][k].max; return m ? nf1.format(m[2]) + " kg (" + GNAME[m[4]] + ")" : "–"; }}; }
   twoLines("cAarMax", labels, [maxSet("L", "--line1", false, "above"), maxSet("S", "--sjo", false, "below")], "Største fisk");
+  // Forklaringen av forkortelsene vises bare når grafen faktisk bruker dem (smal skjerm); ellers står hele redskapsnavnet ved punktet
+  var cm = charts.cAarMax, ab = document.querySelector(".artleg .abbr");
+  if (cm && ab) ab.hidden = cm.chartArea.width / Math.max(YEARS.length, 1) >= 44;
   function snSet(k, color, dash, pos){ return {label:ART[k], color:color, dash:dash, pos:pos,
     data:both.map(function(s){ return s[k].n ? Math.round(s[k].kg / s[k].n * 1000) / 1000 : null; }), fmt:function(v){ return nf2.format(v); },
     tip:function(i){ var s = both[i][k]; return s.n ? nf3.format(s.kg / s.n) + " kg" : "–"; }}; }
