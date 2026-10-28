@@ -4,7 +4,7 @@ Hvert år hentes fra årssiden (dataHele<år>.php, 2013 og fram til i fjor), og 
 dataHeleSng.php. Et år erstattes med det lierelva.com viser. Får et år ingen rader, eller plutselig
 mye færre enn før, blir det stående uendret.
 """
-import json, os, re, sys, datetime, pathlib
+import json, os, re, sys, time, datetime, pathlib
 from collections import Counter
 import requests
 from bs4 import BeautifulSoup
@@ -17,9 +17,22 @@ MAX_KG = 15.9  # høyeste valg i vektlista på lierelva.com
 GEAR = {"MARK", "SPINNER", "FLUE", "SLUK"}
 
 
+def get(url):
+    """Henter en side, med inntil tre forsøk hvis lierelva.com svarer tregt eller med feil."""
+    for i in range(3):
+        try:
+            r = requests.get(url, timeout=60, headers={"User-Agent": "Mozilla/5.0 (fangststatistikk taveisten.github.io)"})
+            r.raise_for_status()
+            return r
+        except Exception as e:
+            print(f"Forsøk {i + 1} feilet for {url}: {e}")
+            if i == 2:
+                raise
+            time.sleep(20)
+
+
 def fetch_rows(url=URL):
-    r = requests.get(url, timeout=60, headers={"User-Agent": "Mozilla/5.0 (fangststatistikk taveisten.github.io)"})
-    r.raise_for_status()
+    r = get(url)
     r.encoding = r.apparent_encoding if r.encoding in (None, "ISO-8859-1") else r.encoding
     soup = BeautifulSoup(r.text, "html.parser")
     rows, skipped = [], []
