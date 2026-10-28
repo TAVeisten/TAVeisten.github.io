@@ -365,11 +365,12 @@ function gearSets(labels, getter, fmt){
       borderColor:surf, borderWidth:{top:2,left:0,right:0,bottom:0}, borderSkipped:false, borderRadius:3, stack:"s", maxBarThickness:56, categoryPercentage:.72, barPercentage:.9};
   });
 }
-function stackChart(id, labels, getter, fmt, unit){
+function stackChart(id, labels, getter, fmt, unit, title){
   var o = baseOpts();
   o.scales.x.stacked = true; o.scales.y.stacked = true;
   o.plugins.valueLabels = {mode:"stackTotal", fmt:fmt, minRoom:22};
   o.plugins.tooltip.callbacks = {
+    title:function(items){ return title && items.length ? title(items[0].dataIndex) : (items[0] ? items[0].label : ""); },
     label:function(c){ return " " + c.dataset.label + ": " + fmt(c.raw) + unit; },
     footer:function(items){ var t = 0; items.forEach(function(i){ t += i.raw; }); return "Sum: " + fmt(t) + unit; }
   };
@@ -410,8 +411,8 @@ function tiles(elId, st){
 }
 function gearPair(idAnt, idKg, st){
   var labels = ["Laks","Sjøørret"], fs = ["L","S"];
-  stackChart(idAnt, labels, function(i,g){ return st[fs[i]].g[g].n; }, function(v){ return nf0.format(v); }, "");
-  stackChart(idKg, labels, function(i,g){ return Math.round(st[fs[i]].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg");
+  stackChart(idAnt, labels, function(i,g){ return st[fs[i]].g[g].n; }, function(v){ return nf0.format(v); }, "", function(i){ return "Antall " + labels[i].toLowerCase(); });
+  stackChart(idKg, labels, function(i,g){ return Math.round(st[fs[i]].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg", function(i){ return "Vekt " + labels[i].toLowerCase(); });
 }
 
 // ---------- Seksjoner ----------
@@ -468,8 +469,8 @@ function renderAar(){
   var f = state.aarArt, narrow = document.getElementById("cAarAnt").parentNode.clientWidth < 420;
   var labels = YEARS.map(function(y){ return narrow ? "’" + y.slice(2) : y; });
   var per = YEARS.map(function(y){ return stats(DATA.years[y])[f]; });
-  stackChart("cAarAnt", labels, function(i,g){ return per[i].g[g].n; }, function(v){ return nf0.format(v); }, "");
-  stackChart("cAarKg", labels, function(i,g){ return Math.round(per[i].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg");
+  stackChart("cAarAnt", labels, function(i,g){ return per[i].g[g].n; }, function(v){ return nf0.format(v); }, "", function(i){ return "Antall " + ART[f].toLowerCase() + " " + YEARS[i]; });
+  stackChart("cAarKg", labels, function(i,g){ return Math.round(per[i].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg", function(i){ return "Vekt " + ART[f].toLowerCase() + " " + YEARS[i]; });
   lineChart("cAarMax", labels, per.map(function(s){ return s.max ? s.max[2] : null; }), function(v){ return nf1.format(v); },
     function(i){ var m = per[i].max; return m ? " · " + GNAME[m[4]] + " · " + navn(m[3]) : ""; });
   lineChart("cAarSnitt", labels, per.map(function(s){ return s.n ? Math.round(s.kg/s.n*1000)/1000 : null; }), function(v){ return nf1.format(v); });
