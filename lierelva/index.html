@@ -60,14 +60,20 @@ header.top .lead b{color:#fff}
 @media (max-width:600px){.sum .wd{display:none}}
 h2{font-size:1.3rem;margin:34px 0 4px;letter-spacing:-.01em}
 /* Seksjoner som kan lukkes: trykk på overskriften. Sesong er åpen, de andre lukket når siden åpnes */
-section.fold>h2{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
-section.fold>h2::before{content:"";display:inline-block;width:.5em;height:.5em;border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:translateY(-.15em) rotate(45deg);margin:0 .55em 0 .1em;transition:transform .15s;flex:none}
-section.fold.shut>h2::before{transform:translateY(0) rotate(-45deg)}
+section.fold{border-top:2px solid var(--line);margin-top:22px;scroll-margin-top:var(--navh,48px)}
+section.fold>h2{display:flex;align-items:center;gap:12px;margin:0 -16px;padding:14px 16px 8px;font-size:clamp(1.45rem,1.05rem + 2vw,2.1rem);line-height:1.15;letter-spacing:-.01em;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;background:var(--sheet)}
+section.fold>h2::after{content:"▾";order:3;flex:none;margin-left:auto;width:34px;height:34px;border-radius:50%;background:var(--chip);color:var(--accent);display:grid;place-items:center;font-size:1.1rem;transform:rotate(180deg);transition:transform .2s}
+section.fold.shut>h2::after{transform:none}
+/* Åpen seksjon: overskriften blir hengende under menyen, så den alltid kan lukkes med ett trykk */
+section.fold:not(.shut)>h2{position:sticky;top:var(--navh,48px);z-index:4;border-bottom:1px solid var(--line)}
+section.fold:not(.shut)>.sbody{padding-top:8px}
 section.fold.shut>.sbody{display:none}
-section.fold.shut>h2{margin-bottom:0}
 section.fold.shut>h2 .resetTop{display:none}
-section.fold>h2.th3{justify-content:flex-start;gap:0}
-section.fold>h2.th3 .resetTop{margin-left:auto}
+section.fold>h2 .resetTop{order:2;margin-left:auto}
+section.fold>h2.th3::after{margin-left:0}
+@media (min-width:760px){section.fold>h2{margin:0 -28px;padding:14px 28px 8px}}
+@media (max-width:520px){section.fold>h2{margin:0 -12px;padding:12px 12px 8px}}
+@media (prefers-reduced-motion:reduce){section.fold>h2::after{transition:none}}
 h3{font-size:1rem;margin:0 0 6px}
 .sub{color:var(--muted);font-size:.85rem;margin:0 0 12px}
 nav{position:sticky;top:0;z-index:5;background:var(--sheet);margin:0 -16px;padding:8px 16px;border-bottom:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
@@ -305,7 +311,11 @@ var ART = {L:"Laks",S:"Sjøørret"};
   h.setAttribute("role", "button"); h.setAttribute("tabindex", "0"); h.setAttribute("aria-expanded", id === "sesong" ? "true" : "false");
 });
 function openSec(id){ var s = document.getElementById(id); if (s && s.classList.contains("shut")) { s.classList.remove("shut"); s.querySelector("h2").setAttribute("aria-expanded", "true"); } }
-function toggleSec(s){ var shut = s.classList.toggle("shut"); s.querySelector("h2").setAttribute("aria-expanded", shut ? "false" : "true"); }
+function toggleSec(s){ var shut = s.classList.toggle("shut"); s.querySelector("h2").setAttribute("aria-expanded", shut ? "false" : "true");
+  if (shut && s.getBoundingClientRect().top < 0) s.scrollIntoView(); }
+// Høyden på menyen, så åpne overskrifter henger rett under den
+function navH(){ document.documentElement.style.setProperty("--navh", document.querySelector("nav").offsetHeight + "px"); }
+navH(); window.addEventListener("resize", navH);
 if (location.hash) openSec(location.hash.slice(1));
 var nf1 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:1,maximumFractionDigits:1});
 var nf3 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:3,maximumFractionDigits:3});
