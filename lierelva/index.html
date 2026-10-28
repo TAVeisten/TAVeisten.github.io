@@ -47,6 +47,10 @@ header.top .lead b{color:#fff}
 .sumtab td,.sumtab th{padding:7px 6px}
 .sumtab td:first-child{font-weight:700}
 .sumtab tr.tot td{font-weight:700;border-top:2px solid var(--line);border-bottom:0}
+.tip{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;border-bottom:1.5px dotted var(--muted);line-height:1.2}
+.tip:hover,.tip.on{color:var(--accent);border-bottom-color:var(--accent)}
+#tipbox{position:absolute;z-index:30;white-space:nowrap;max-width:calc(100vw - 24px);overflow:hidden;text-overflow:ellipsis;background:var(--sheet);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:.85rem;line-height:1.35;box-shadow:0 6px 18px rgba(20,28,38,.18)}
+#tipbox[hidden]{display:none}
 .bigl{font-size:.8rem;color:var(--muted);margin-top:8px;display:grid;gap:3px}
 .bigl b{color:var(--ink)}
 /* Én linje: kuttes med … hvis skjermen er for smal */
@@ -266,6 +270,24 @@ document.addEventListener("click", function(e){
   var els = ch.getElementsAtEventForMode(e, ch.options.interaction.mode || "index", {intersect:false}, true);
   if (els.length) { var r = cv.getBoundingClientRect(); ch.setActiveElements(els); ch.tooltip.setActiveElements(els, {x:e.clientX - r.left, y:e.clientY - r.top}); ch.update("none"); }
 }, true);
+var tipEl = null, tipBtn = null;
+function hideTip(){ if (tipEl) tipEl.hidden = true; if (tipBtn) tipBtn.classList.remove("on"); tipBtn = null; }
+function showTip(b){
+  if (!tipEl) { tipEl = document.createElement("div"); tipEl.id = "tipbox"; tipEl.setAttribute("role", "tooltip"); document.body.appendChild(tipEl); }
+  hideTip(); tipBtn = b; b.classList.add("on");
+  tipEl.textContent = b.dataset.tip; tipEl.hidden = false;
+  var r = b.getBoundingClientRect(), w = tipEl.offsetWidth, x = r.right + window.scrollX - w;
+  x = Math.max(window.scrollX + 12, Math.min(x, window.scrollX + document.documentElement.clientWidth - w - 12));
+  tipEl.style.left = x + "px"; tipEl.style.top = (r.bottom + window.scrollY + 6) + "px";
+}
+document.addEventListener("click", function(e){
+  var b = e.target.closest ? e.target.closest(".tip") : null;
+  if (b && b !== tipBtn) { showTip(b); return; }
+  hideTip();
+});
+document.addEventListener("mouseover", function(e){ if (!HOVER) return; var b = e.target.closest && e.target.closest(".tip"); if (b) showTip(b); });
+document.addEventListener("mouseout", function(e){ if (!HOVER) return; var b = e.target.closest && e.target.closest(".tip"); if (b && !b.contains(e.relatedTarget)) hideTip(); });
+window.addEventListener("scroll", function(){ if (!HOVER) return; hideTip(); }, {passive:true});
 var DATA, ROWS = [], YEARS = [], IGN = {}, charts = {};
 var state = {sesong:null, utvArt:"L", aarArt:"L", toppArt:"L", toppAar:"alle", stor:10, flest:10};
 
@@ -379,12 +401,12 @@ function segs(){
 function tiles(elId, st){
   var L = st.L, S = st.S, n = L.n + S.n, kg = L.kg + S.kg;
   function snitt(a,b){ return b ? nf2.format(a/b) : "–"; }
-  function row(lbl, s){ return '<tr><td>' + lbl + '</td><td>' + nf0.format(s.n) + '</td><td>' + nf0.format(s.kg) + '</td><td>' + snitt(s.kg, s.n) + '</td><td>' + (s.max ? nf1.format(s.max[2]) : "–") + '</td></tr>'; }
-  function big(lbl, m){ return m ? '<span>' + lbl + ' <b>' + nf1.format(m[2]) + ' kg</b> · ' + GNAME[m[4]] + ' · ' + esc(navn(m[3])) + ' · ' + kort(m[0]) + '</span>' : ''; }
+  // Største: trykk (eller mus over på Mac) viser en boble med hvem, redskap og dato
+  function maks(m){ return m ? '<button type="button" class="tip" data-tip="' + esc(navn(m[3]) + " · " + GNAME[m[4]] + " · " + m[0].slice(8,10) + "." + m[0].slice(5,7) + "." + m[0].slice(0,4)) + '">' + nf1.format(m[2]) + '</button>' : "–"; }
+  function row(lbl, s){ return '<tr><td>' + lbl + '</td><td>' + nf0.format(s.n) + '</td><td>' + nf0.format(s.kg) + '</td><td>' + snitt(s.kg, s.n) + '</td><td>' + maks(s.max) + '</td></tr>'; }
   document.getElementById(elId).innerHTML = '<div class="box"><table class="sumtab"><tr><th></th><th>Fisk</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>' +
     row("Laks", L) + row("Sjøørret", S) +
-    '<tr class="tot"><td>Totalt</td><td>' + nf0.format(n) + '</td><td>' + nf0.format(kg) + '</td><td>' + snitt(kg, n) + '</td><td></td></tr></table>' +
-    '<div class="bigl">' + big("Laks", L.max) + big("Sjøørret", S.max) + '</div></div>';
+    '<tr class="tot"><td>Totalt</td><td>' + nf0.format(n) + '</td><td>' + nf0.format(kg) + '</td><td>' + snitt(kg, n) + '</td><td></td></tr></table></div>';
 }
 function gearPair(idAnt, idKg, st){
   var labels = ["Laks","Sjøørret"], fs = ["L","S"];
