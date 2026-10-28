@@ -84,6 +84,8 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .thead button[aria-sort="descending"]::after{content:" ▼";font-size:.7em}
 .thead .h-imdb button[aria-sort]::after,.thead .h-rt button[aria-sort]::after{display:block;line-height:1;margin-top:1px}
 .genre{color:var(--muted);font-size:.88rem;padding-top:2px}
+/* Sjangeren det filtreres på markeres (lyseblå, ikke rød) */
+.genre mark.gsel{background:var(--chip);color:var(--chip-ink);font-weight:600;border-radius:4px;padding:0 3px}
 .sortwrap{display:flex;gap:6px;min-width:0;grid-column:span 2}
 .sortwrap select{flex:1;min-width:0}
 .dir{flex:none;width:44px;border:1px solid var(--line);background:var(--card);border-radius:10px;cursor:pointer;font-size:1rem}
@@ -410,6 +412,7 @@ function render(){
     $("reset").onclick = () => { $("q").value=""; $("genre").value=""; $("age").value="99"; $("when").value=""; $("hideSpecial").checked=false; $("scored").checked=false; saveCtl(); render(); };
     return;
   }
+  const selGenre = $("genre").value;
   $("list").innerHTML = rows.map(({f, shows, imdb, crit, aud, isToday}) => {
     const facts = [fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : /tbc/i.test(f.age) ? "Aldersgrense ikke satt" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
     const orig = f.orig && f.orig.toLowerCase() !== f.title.toLowerCase() ? `<div class="orig">${esc(f.orig)}</div>` : "";
@@ -422,7 +425,7 @@ function render(){
     const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
       <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
-      <div class="genre${genres(f).length ? "" : " nogenre"}">${esc(genres(f).slice(0,3).join(", ") || "–")}</div>
+      <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
       ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
       <div class="shows">${stubs}</div>
       ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stem.":"", weak, weak?"Under 400 stemmer":"")}
