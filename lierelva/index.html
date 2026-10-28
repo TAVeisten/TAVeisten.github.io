@@ -82,6 +82,11 @@ select{font:inherit;font-size:.9rem;font-weight:600;color:var(--ink);background:
 .legend .gearleg-in{display:contents}
 .legend .gearleg-in span{margin-right:0}
 .chart.tall{height:300px}
+/* Overskrift, valg og forklaring på én linje når det er plass (Mac/iPad), under hverandre på mobil */
+.bhead{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0 0 8px}
+.bhead h3{margin:0}
+.bhead .legend{margin:0}
+@media (min-width:760px){.bhead .legend{margin-left:auto}.chart.tall{height:260px}}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.8rem;color:var(--muted);margin:0 0 6px}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .legend i.ln{height:3px;border-radius:2px;width:16px;vertical-align:3px}
@@ -178,9 +183,11 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
     <div class="controls"><select id="sesongAar" aria-label="Velg sesong"></select></div>
     <div class="tiles" id="sesongTiles"></div>
     <div class="box">
-      <h3>Sesongutvikling – antall fisk, akkumulert</h3>
-      <div class="controls"><div class="seg" data-key="utvArt"></div></div>
-      <div class="legend" id="utvLeg"></div>
+      <div class="bhead">
+        <h3>Sesongutvikling – antall fisk, akkumulert</h3>
+        <div class="seg" data-key="utvArt"></div>
+        <div class="legend" id="utvLeg"></div>
+      </div>
       <div class="chart tall"><canvas id="cUtv"></canvas></div>
     </div>
     <div class="grid2 mt">
@@ -572,6 +579,10 @@ function renderUtv(){
   document.getElementById("utvLeg").innerHTML = '<span><i class="ln" style="background:' + c1 + '"></i>' + y + '</span><span><i class="dash"></i>Snitt ' + span + '</span>';
   var o = baseOpts();
   o.scales.x.ticks.autoSkip = true; o.scales.x.ticks.maxTicksLimit = 8;
+  // Skalaen stopper like over den høyeste linjen, så grafen ikke får et tomt felt øverst
+  var top = Math.max.apply(null, a.concat(b).filter(function(v){ return v != null; }).concat([1]));
+  var step = top > 200 ? 50 : top > 60 ? 25 : top > 20 ? 10 : 5;
+  o.scales.y.max = Math.ceil(top * 1.04 / step) * step; o.scales.y.ticks.stepSize = step;
   o.plugins.tooltip.callbacks = {label:function(c){ return " " + c.dataset.label + ": " + (c.datasetIndex ? nf1.format(c.raw) : nf0.format(c.raw)); }};
   draw("cUtv", {type:"line", data:{labels:labels, datasets:[
     {label:y, data:a, borderColor:c1, backgroundColor:c1, borderWidth:2, pointRadius:0, pointHoverRadius:5, cubicInterpolationMode:"monotone"},
