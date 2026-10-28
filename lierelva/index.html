@@ -410,7 +410,7 @@ function tiles(elId, st){
 }
 function gearPair(idAnt, idKg, st){
   var labels = ["Laks","Sjøørret"], fs = ["L","S"];
-  stackChart(idAnt, labels, function(i,g){ return st[fs[i]].g[g].n; }, function(v){ return nf0.format(v); }, " fisk");
+  stackChart(idAnt, labels, function(i,g){ return st[fs[i]].g[g].n; }, function(v){ return nf0.format(v); }, "");
   stackChart(idKg, labels, function(i,g){ return Math.round(st[fs[i]].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg");
 }
 
@@ -450,7 +450,7 @@ function renderUtv(){
   document.getElementById("utvLeg").innerHTML = '<span><i class="ln" style="background:' + c1 + '"></i>' + y + '</span><span><i class="dash"></i>Snitt ' + span + '</span>';
   var o = baseOpts();
   o.scales.x.ticks.autoSkip = true; o.scales.x.ticks.maxTicksLimit = 8;
-  o.plugins.tooltip.callbacks = {label:function(c){ return " " + c.dataset.label + ": " + (c.datasetIndex ? nf1.format(c.raw) : nf0.format(c.raw)) + " fisk"; }};
+  o.plugins.tooltip.callbacks = {label:function(c){ return " " + c.dataset.label + ": " + (c.datasetIndex ? nf1.format(c.raw) : nf0.format(c.raw)); }};
   draw("cUtv", {type:"line", data:{labels:labels, datasets:[
     {label:y, data:a, borderColor:c1, backgroundColor:c1, borderWidth:2, pointRadius:0, pointHoverRadius:5, cubicInterpolationMode:"monotone"},
     {label:"Snitt " + span, data:b, borderColor:c2, backgroundColor:c2, borderWidth:2, borderDash:[6,4], pointRadius:0, pointHoverRadius:5, cubicInterpolationMode:"monotone"}
@@ -468,7 +468,7 @@ function renderAar(){
   var f = state.aarArt, narrow = document.getElementById("cAarAnt").parentNode.clientWidth < 420;
   var labels = YEARS.map(function(y){ return narrow ? "’" + y.slice(2) : y; });
   var per = YEARS.map(function(y){ return stats(DATA.years[y])[f]; });
-  stackChart("cAarAnt", labels, function(i,g){ return per[i].g[g].n; }, function(v){ return nf0.format(v); }, " fisk");
+  stackChart("cAarAnt", labels, function(i,g){ return per[i].g[g].n; }, function(v){ return nf0.format(v); }, "");
   stackChart("cAarKg", labels, function(i,g){ return Math.round(per[i].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg");
   lineChart("cAarMax", labels, per.map(function(s){ return s.max ? s.max[2] : null; }), function(v){ return nf1.format(v); },
     function(i){ var m = per[i].max; return m ? " · " + GNAME[m[4]] + " · " + navn(m[3]) : ""; });
