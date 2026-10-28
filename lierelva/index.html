@@ -323,7 +323,7 @@ document.addEventListener("mouseover", function(e){ if (!HOVER) return; var b = 
 document.addEventListener("mouseout", function(e){ if (!HOVER) return; var b = e.target.closest && e.target.closest(".tip"); if (b && !b.contains(e.relatedTarget)) hideTip(); });
 window.addEventListener("scroll", function(){ if (!HOVER) return; hideTip(); }, {passive:true});
 var DATA, ROWS = [], YEARS = [], IGN = {}, charts = {};
-var state = {sesong:null, utvArt:"L", aarArt:"L", toppArt:"L", toppAar:"alle", stor:10, flest:10};
+var state = {sesong:null, utvArt:"L", aarArt:"L", toppArt:"B", toppAar:"alle", stor:10, flest:10};
 
 function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
 function dato(iso){ return +iso.slice(8,10) + ". " + MND[+iso.slice(5,7)-1] + " " + iso.slice(0,4); }
@@ -524,7 +524,9 @@ function gearLegends(){
 function segs(){
   document.querySelectorAll(".seg").forEach(function(el){
     var k = el.dataset.key;
-    el.innerHTML = ["L","S"].map(function(f){ return '<button type="button" data-v="' + f + '" aria-pressed="' + (state[k] === f) + '">' + ART[f] + '</button>'; }).join("");
+    // Topplistene har også «Begge» (laks og sjøørret samlet), først i rekken
+    var opts = k === "toppArt" ? ["B","L","S"] : ["L","S"];
+    el.innerHTML = opts.map(function(f){ return '<button type="button" data-v="' + f + '" aria-pressed="' + (state[k] === f) + '">' + (f === "B" ? "Begge" : ART[f]) + '</button>'; }).join("");
   });
 }
 function tiles(elId, st){
@@ -629,16 +631,16 @@ function renderAar(){
   document.getElementById("aarTab").innerHTML = h;
 }
 function renderTopp(){
-  var f = state.toppArt, y = state.toppAar, rows = rowsOf(y).filter(function(r){ return r[1] === f; });
+  var f = state.toppArt, y = state.toppAar, rows = rowsOf(y).filter(function(r){ return f === "B" || r[1] === f; });
   var stor = rows.filter(function(r){ return !IGN[key(r)]; }).sort(function(a,b){ return b[2]-a[2] || (a[0] < b[0] ? -1 : 1); }).slice(0, state.stor);
   var h = '<tr><th>#</th><th class="nm">Navn</th><th>Kg</th></tr>';
-  stor.forEach(function(r,i){ h += '<tr><td class="rk">' + (i+1) + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(r[3]) + '">' + esc(navn(r[3])) + '</a><small>' + dato(r[0]) + ' · ' + GNAME[r[4]] + '</small></td><td><b>' + nf1.format(r[2]) + '</b></td></tr>'; });
+  stor.forEach(function(r,i){ h += '<tr><td class="rk">' + (i+1) + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(r[3]) + '">' + esc(navn(r[3])) + '</a><small>' + (f === "B" ? ART[r[1]] + ' · ' : '') + dato(r[0]) + ' · ' + GNAME[r[4]] + '</small></td><td><b>' + nf1.format(r[2]) + '</b></td></tr>'; });
   document.getElementById("toppStor").innerHTML = stor.length ? h : '<tr><td>Ingen fangst</td></tr>';
   var by = {};
-  rows.forEach(function(r){ var nk = r[3].toUpperCase(); var p = by[nk] || (by[nk] = {n:0,kg:0,max:0}); p.n++; p.kg += r[2]; if (!IGN[key(r)]) p.max = Math.max(p.max, r[2]); });
+  rows.forEach(function(r){ var nk = r[3].toUpperCase(); var p = by[nk] || (by[nk] = {n:0,kg:0,max:0,L:0,S:0}); p.n++; p[r[1]]++; p.kg += r[2]; if (!IGN[key(r)]) p.max = Math.max(p.max, r[2]); });
   var fl = Object.keys(by).map(function(k){ return [k, by[k]]; }).sort(function(a,b){ return b[1].n-a[1].n || b[1].kg-a[1].kg; }).slice(0, state.flest);
   h = '<tr><th>#</th><th class="nm">Navn</th><th>Antall</th><th>Kg</th></tr>';
-  fl.forEach(function(e,i){ h += '<tr><td class="rk">' + (i+1) + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(e[0]) + '">' + esc(navn(e[0])) + '</a><small>Største ' + nf1.format(e[1].max) + ' kg</small></td><td><b>' + e[1].n + '</b></td><td>' + nf0.format(e[1].kg) + '</td></tr>'; });
+  fl.forEach(function(e,i){ h += '<tr><td class="rk">' + (i+1) + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(e[0]) + '">' + esc(navn(e[0])) + '</a><small>' + (f === "B" ? e[1].L + ' laks · ' + e[1].S + ' sjøørret · s' : 'S') + 'tørste ' + nf1.format(e[1].max) + ' kg</small></td><td><b>' + e[1].n + '</b></td><td>' + nf0.format(e[1].kg) + '</td></tr>'; });
   document.getElementById("toppFlest").innerHTML = fl.length ? h : '<tr><td>Ingen fangst</td></tr>';
   document.querySelectorAll(".more").forEach(function(b){ b.textContent = state[b.dataset.list] > 10 ? "Vis 10" : "Vis 25"; });
 }
