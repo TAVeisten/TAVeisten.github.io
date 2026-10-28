@@ -160,19 +160,19 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
   </nav>
 
   <section id="sesong">
-    <h2 id="sesongTittel">Sesongen</h2>
-    <p class="sub">Fangst per art og redskap, og hvordan sesongen utviklet seg uke for uke.</p>
+    <h2 id="sesongTittel">Sesong</h2>
+    <p class="sub">Fangsten i valgt sesong, hvordan den utviklet seg uke for uke, og fordelingen på redskap.</p>
     <div class="controls"><select id="sesongAar" aria-label="Velg sesong"></select></div>
     <div class="tiles" id="sesongTiles"></div>
-    <div class="grid2">
-      <div class="box"><h3>Antall fisk per redskap</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cSesAnt"></canvas></div></div>
-      <div class="box"><h3>Oppfisket vekt per redskap (kg)</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cSesKg"></canvas></div></div>
-    </div>
-    <div class="box mt">
+    <div class="box">
       <h3>Sesongutvikling – antall fisk, akkumulert</h3>
       <div class="controls"><div class="seg" data-key="utvArt"></div></div>
       <div class="legend" id="utvLeg"></div>
       <div class="chart tall"><canvas id="cUtv"></canvas></div>
+    </div>
+    <div class="grid2 mt">
+      <div class="box"><h3>Antall fisk per redskap</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cSesAnt"></canvas></div></div>
+      <div class="box"><h3>Oppfisket vekt per redskap (kg)</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cSesKg"></canvas></div></div>
     </div>
   </section>
 
@@ -418,7 +418,7 @@ function gearPair(idAnt, idKg, st){
 // ---------- Seksjoner ----------
 function renderSesong(){
   var y = state.sesong, st = stats(rowsOf(y));
-  document.getElementById("sesongTittel").textContent = "Sesongen " + y;
+  document.getElementById("sesongTittel").textContent = "Sesong";
   tiles("sesongTiles", st);
   gearPair("cSesAnt", "cSesKg", st);
   renderUtv();
