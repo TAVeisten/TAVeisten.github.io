@@ -35,17 +35,16 @@ h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) /
 .hero .hname{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc(100cqi / 9.0),1.75rem);line-height:1.1;letter-spacing:-.01em;hyphens:manual;overflow-wrap:break-word}
 .hero .hsub{color:var(--hero-sub);font-size:.85rem;line-height:1.25}
 /* Egen farge per kort */
-.hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6;grid-column:1/-1}
-.hero.job .hname{font-size:clamp(.95rem,calc(50cqi / 9.0),1.75rem)}
+.hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6}
 /* Jobbtavla: dobbelt så bred knapp (samme høyde), midt i kortet */
 .hero.job .btns{justify-content:center}
 /* Alle kortene: ikon, overskrift, tekst og knapper midt i kortet */
 .hero{align-items:center;text-align:center}
 .hero .btns{align-self:stretch;justify-content:center}
-.hero.job .btn{flex:0 0 auto;padding:8px 96px;max-width:100%}
 .hero.gig{--hero:#4A2D6B;--hero-sub:#DCCDEE;--stripe:#B98AF0}
 .hero.kino{--hero:#123B4A;--hero-sub:#BCD3DB;--stripe:#4FB3C7}
-@media (prefers-color-scheme: dark){.hero.job{--hero:#1F3550;--hero-sub:#B5C6DD;--stripe:#4F86C9}.hero.gig{--hero:#3A2652;--hero-sub:#CDBCE2;--stripe:#9A6FD1}.hero.kino{--hero:#163A47;--hero-sub:#A9C3CC;--stripe:#3E97AA}}
+.hero.fisk{--hero:#1F4433;--hero-sub:#C3DCCD;--stripe:#5DBB86}
+@media (prefers-color-scheme: dark){.hero.job{--hero:#1F3550;--hero-sub:#B5C6DD;--stripe:#4F86C9}.hero.gig{--hero:#3A2652;--hero-sub:#CDBCE2;--stripe:#9A6FD1}.hero.kino{--hero:#163A47;--hero-sub:#A9C3CC;--stripe:#3E97AA}.hero.fisk{--hero:#1B3A2C;--hero-sub:#B3CCBE;--stripe:#4A9E70}}
 /* Boble på konsertkortet: nye konserter fra favorittene siden sist (lyseblå, ikke rød) */
 .hero .hnew{align-self:center;background:#e6eefc;color:#2a52b8;font-weight:700;font-size:.82rem;line-height:1.2;border-radius:999px;padding:4px 10px}
 .hero .hnew[hidden]{display:none}
@@ -91,6 +90,14 @@ html:not(.top) body{padding-top:0}
         <a class="btn" href="https://claude.ai/artifact/WpXV8rLyjJ2ETAeoCHyABq" aria-label="Jobbtavla">Jobbtavla</a>
       </div>
     </div>
+    <div class="hero fisk">
+      <span class="hicon">🐟</span>
+      <span class="hname">Lierelva – Laks & sjøørret</span>
+      <span class="hsub">Fangststatistikk fra 2013, oppdatert daglig i sesongen (mai–oktober)</span>
+      <div class="btns">
+        <a class="btn" href="https://taveisten.github.io/lierelva/" aria-label="Lierelva – Laks & sjøørret">Lierelva – Laks & sjøørret</a>
+      </div>
+    </div>
     <div class="hero gig">
       <span class="hicon">🎸</span>
       <span class="hname">Konsertkalender Norge</span>
@@ -115,12 +122,6 @@ html:not(.top) body{padding-top:0}
   <div class="list">
     <a class="item" href="https://claude.ai/new">
       <span class="icon">💬</span><span class="txt"><span class="name">Ny chat</span></span><span class="arrow">›</span></a>
-  </div>
-
-  <h2>Fiske</h2>
-  <div class="list">
-    <a class="item" href="https://taveisten.github.io/lierelva/">
-      <span class="icon">🐟</span><span class="txt"><span class="name">Lierelva – Laks & sjøørret</span><span class="sub"><br>Fangststatistikk fra 2013, oppdatert daglig i sesongen</span></span><span class="arrow">›</span></a>
   </div>
 
   <h2>Dokumentasjon</h2>
