@@ -29,6 +29,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15p
 @media (min-width:900px){body{padding-top:24px;padding-bottom:24px}.sheet{border:1px solid var(--line);border-radius:16px;min-height:0;padding:22px 28px 32px;box-shadow:0 2px 14px rgba(20,30,50,.06)}}
 h1{font-size:1.75rem;line-height:1.15;margin:4px 0 4px;letter-spacing:-.01em}
 .lead{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.info{font-size:.92rem;margin:2px 0 6px;color:var(--ink);max-width:62em}
+.info a{color:var(--accent)}
 h2{font-size:1.3rem;margin:34px 0 4px;letter-spacing:-.01em}
 h3{font-size:1rem;margin:0 0 6px}
 .sub{color:var(--muted);font-size:.85rem;margin:0 0 12px}
@@ -99,6 +101,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
 <body>
 <div class="sheet">
   <h1>🐟 Lierelva – Laks & sjøørret</h1>
+  <p class="info">Dataene er frivillige innmeldinger på <a href="https://www.lierelva.com/dataHeleSng.php">lierelva.com</a> og utgjør bare ca. 1/3 av alle fangster i elva. Trendene fra år til år er likevel interessante, gitt at andelen som meldes inn er mer eller mindre stabil.</p>
   <p class="lead" id="lead">Laster fangstdata …</p>
   <div class="warn" id="warn" hidden></div>
   <nav>
@@ -201,6 +204,20 @@ var nf1 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:1,maximumFraction
 var nf3 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:3,maximumFractionDigits:3});
 var nf0 = new Intl.NumberFormat("nb-NO",{maximumFractionDigits:0});
 var MND = ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des"];
+// Berøringsskjerm: vi styrer tabellen (tooltip) selv, så ett trykk viser den og ett nytt trykk – i grafen eller utenfor – skjuler den
+var HOVER = !!(window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches);
+function hideTips(except){
+  Object.keys(charts).forEach(function(id){ var c = charts[id]; if (!c || c === except) return;
+    if (c.tooltip && c.tooltip.getActiveElements().length) { c.tooltip.setActiveElements([], {x:0, y:0}); c.setActiveElements([]); c.update("none"); } });
+}
+document.addEventListener("click", function(e){
+  if (HOVER) return;
+  var cv = e.target.closest ? e.target.closest("canvas") : null, ch = cv ? Chart.getChart(cv) : null;
+  if (!ch || ch.tooltip.getActiveElements().length) { hideTips(); return; }
+  hideTips(ch);
+  var els = ch.getElementsAtEventForMode(e, ch.options.interaction.mode || "index", {intersect:false}, true);
+  if (els.length) { var r = cv.getBoundingClientRect(); ch.setActiveElements(els); ch.tooltip.setActiveElements(els, {x:e.clientX - r.left, y:e.clientY - r.top}); ch.update("none"); }
+}, true);
 var DATA, ROWS = [], YEARS = [], IGN = {}, charts = {};
 var state = {sesong:null, utvArt:"L", aarArt:"L", toppArt:"L", toppAar:"alle", stor:10, flest:10};
 
@@ -220,6 +237,7 @@ function stats(rows){
   });
   return o;
 }
+function norm(s){ return String(s).toLowerCase().replace(/[-–.,]/g, " ").replace(/\s+/g, " ").trim(); }
 function rowsOf(y){ return y === "alle" ? ROWS : (DATA.years[y] || []); }
 
 // ---------- Chart.js-oppsett ----------
@@ -255,6 +273,7 @@ function baseOpts(){
   Chart.defaults.color = ink;
   return {
     responsive:true, maintainAspectRatio:false, animation:false,
+    events: HOVER ? ["mousemove","mouseout","click"] : [],
     layout:{padding:{top:18}},
     interaction:{mode:"index", intersect:false},
     plugins:{legend:{display:false}, tooltip:{backgroundColor:css("--sheet"), titleColor:css("--ink"), bodyColor:css("--ink"), footerColor:css("--ink"), borderColor:css("--line"), borderWidth:1, padding:10, boxPadding:4}},
@@ -410,9 +429,9 @@ function renderTopp(){
 // ---------- Alle fangster ----------
 var ALL = [], fState = {q:"", aar:"", art:"", red:"", sort:"d-", vis:100};
 function renderFangster(){
-  var q = fState.q.trim().toLowerCase();
+  var qw = norm(fState.q).split(" ").filter(Boolean);
   var rows = ALL.filter(function(o){ var r = o.r;
-    return (!fState.aar || r[0].slice(0,4) === fState.aar) && (!fState.art || r[1] === fState.art) && (!fState.red || r[4] === fState.red) && (!q || r[3].toLowerCase().indexOf(q) >= 0);
+    return (!fState.aar || r[0].slice(0,4) === fState.aar) && (!fState.art || r[1] === fState.art) && (!fState.red || r[4] === fState.red) && (!qw.length || qw.every(function(w){ return o.n.indexOf(w) >= 0; }));
   });
   var s = fState.sort[0], dir = fState.sort[1] === "+" ? 1 : -1;
   var idx = {d:0, f:1, k:2, n:3, r:4}[s];
@@ -492,7 +511,7 @@ fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Er
   var DOB = {}; (d.dobbel || []).forEach(function(r){ DOB[key(r)] = 1; });
   // Hele lista til «Alle fangster», også de som er tatt ut av statistikken (vises overstreket)
   var whyI = {}, whyD = {}; (d.ugyldig || []).forEach(function(r){ whyI[key(r)] = r[4] || "Ugyldig registrering"; }); (d.dobbel || []).forEach(function(r){ whyD[key(r)] = r[4] || "Dobbeltregistrering"; });
-  YEARS.forEach(function(y){ var seen2 = {}; d.years[y].forEach(function(r){ var k = key(r), x = whyI[k] || null; if (!x && whyD[k]) { if (seen2[k]) x = whyD[k]; seen2[k] = 1; } ALL.push({r:r, x:x}); }); });
+  YEARS.forEach(function(y){ var seen2 = {}; d.years[y].forEach(function(r){ var k = key(r), x = whyI[k] || null; if (!x && whyD[k]) { if (seen2[k]) x = whyD[k]; seen2[k] = 1; } ALL.push({r:r, x:x, n:norm(r[3])}); }); });
   YEARS.forEach(function(y){ var seen = {}; d.years[y] = d.years[y].filter(function(r){ var k = key(r); if (IGN[k]) return false; if (DOB[k]) { if (seen[k]) return false; seen[k] = 1; } return true; }); ROWS = ROWS.concat(d.years[y]); });
   state.sesong = YEARS[YEARS.length-1];
   var opts = YEARS.slice().reverse().map(function(y){ return '<option value="' + y + '">Sesong ' + y + '</option>'; }).join("");
