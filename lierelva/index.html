@@ -47,8 +47,13 @@ header.top .lead b{color:#fff}
 .sumtab td,.sumtab th{padding:7px 6px}
 .sumtab td:first-child{font-weight:700}
 .sumtab tr.tot td{font-weight:700;border-top:2px solid var(--line);border-bottom:0}
-.bigl{font-size:.82rem;color:var(--muted);margin-top:8px;display:grid;gap:3px}
+.bigl{font-size:.8rem;color:var(--muted);margin-top:8px;display:grid;gap:3px}
 .bigl b{color:var(--ink)}
+/* Én linje: kuttes med … hvis skjermen er for smal */
+.bigl span,.sum .l1,#fTab td.nm a,#fTab td.nm small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:100%}
+#fTab td.nm{max-width:0}
+.sum .l1{flex:0 0 100%}
+@media (max-width:600px){.sum .wd{display:none}}
 h2{font-size:1.3rem;margin:34px 0 4px;letter-spacing:-.01em}
 h3{font-size:1rem;margin:0 0 6px}
 .sub{color:var(--muted);font-size:.85rem;margin:0 0 12px}
@@ -160,7 +165,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
       <div class="box"><h3>Oppfisket vekt per redskap (kg)</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cSesKg"></canvas></div></div>
     </div>
     <div class="box mt">
-      <h3>Utvikling gjennom sesongen – antall fisk, akkumulert</h3>
+      <h3>Sesongutvikling – antall fisk, akkumulert</h3>
       <div class="controls"><div class="seg" data-key="utvArt"></div></div>
       <div class="legend" id="utvLeg"></div>
       <div class="chart tall"><canvas id="cUtv"></canvas></div>
@@ -280,6 +285,7 @@ function stats(rows){
   });
   return o;
 }
+function kort(iso){ return iso.slice(8,10) + "." + iso.slice(5,7) + "." + iso.slice(2,4); }
 function norm(s){ return String(s).toLowerCase().replace(/[-–.,]/g, " ").replace(/\s+/g, " ").trim(); }
 function rowsOf(y){ return y === "alle" ? ROWS : (DATA.years[y] || []); }
 
@@ -374,11 +380,11 @@ function tiles(elId, st){
   var L = st.L, S = st.S, n = L.n + S.n, kg = L.kg + S.kg;
   function snitt(a,b){ return b ? nf2.format(a/b) : "–"; }
   function row(lbl, s){ return '<tr><td>' + lbl + '</td><td>' + nf0.format(s.n) + '</td><td>' + nf0.format(s.kg) + '</td><td>' + snitt(s.kg, s.n) + '</td><td>' + (s.max ? nf1.format(s.max[2]) : "–") + '</td></tr>'; }
-  function big(lbl, m){ return m ? '<span>Største ' + lbl + ': <b>' + nf1.format(m[2]) + ' kg</b> · ' + GNAME[m[4]] + ' · ' + esc(navn(m[3])) + ' · ' + dato(m[0]) + '</span>' : ''; }
+  function big(lbl, m){ return m ? '<span>' + lbl + ' <b>' + nf1.format(m[2]) + ' kg</b> · ' + GNAME[m[4]] + ' · ' + esc(navn(m[3])) + ' · ' + kort(m[0]) + '</span>' : ''; }
   document.getElementById(elId).innerHTML = '<div class="box"><table class="sumtab"><tr><th></th><th>Fisk</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>' +
     row("Laks", L) + row("Sjøørret", S) +
     '<tr class="tot"><td>Totalt</td><td>' + nf0.format(n) + '</td><td>' + nf0.format(kg) + '</td><td>' + snitt(kg, n) + '</td><td></td></tr></table>' +
-    '<div class="bigl">' + big("laks", L.max) + big("sjøørret", S.max) + '</div></div>';
+    '<div class="bigl">' + big("Laks", L.max) + big("Sjøørret", S.max) + '</div></div>';
 }
 function gearPair(idAnt, idKg, st){
   var labels = ["Laks","Sjøørret"], fs = ["L","S"];
@@ -433,7 +439,7 @@ function renderAlle(){
   var st = stats(ROWS);
   tiles("alleTiles", st);
   var tkg = 0; ROWS.forEach(function(r){ tkg += r[2]; });
-  document.getElementById("alleSub").innerHTML = "<b>" + nf0.format(ROWS.length) + " fisk · " + nf0.format(tkg) + " kg</b> · " + YEARS[0] + "–" + YEARS[YEARS.length-1] + ", alle sesonger lagt sammen.";
+  document.getElementById("alleSub").innerHTML = "<b>" + nf0.format(ROWS.length) + " fisk · " + nf0.format(tkg) + " kg</b> · " + YEARS[0] + "–" + YEARS[YEARS.length-1];
   gearPair("cAlleAnt", "cAlleKg", st);
 }
 function renderAar(){
@@ -490,9 +496,9 @@ function renderFangster(){
   var ok = rows.filter(function(o){ return !o.x; }), kg = 0, nl = 0, ns = 0;
   ok.forEach(function(o){ kg += o.r[2]; if (o.r[1] === "L") nl++; else ns++; });
   var ut = rows.length - ok.length;
-  document.getElementById("fSum").innerHTML = '<span><b>' + nf0.format(ok.length) + '</b> fisk</span><span><b>' + nf0.format(nl) + '</b> laks · <b>' + nf0.format(ns) + '</b> sjøørret</span><span><b>' + nf1.format(kg) + '</b> kg</span>' +
-    (ok.length ? '<span>snitt <b>' + nf3.format(kg / ok.length) + '</b> kg</span>' : '') +
-    (ut ? '<span>(' + ut + ' tatt ut av statistikken vises overstreket)</span>' : '') +
+  document.getElementById("fSum").innerHTML = '<span class="l1"><b>' + nf0.format(ok.length) + '</b> fisk<span class="wd"> (' + nf0.format(nl) + ' laks, ' + nf0.format(ns) + ' sjøørret)</span> · <b>' + nf0.format(kg) + '</b> kg' +
+    (ok.length ? ' · snitt <b>' + nf2.format(kg / ok.length) + '</b>' : '') + '</span>' +
+    (ut ? '<span>' + ut + ' tatt ut (overstreket)</span>' : '') +
     (fState.q || fState.aar || fState.art || fState.red ? '<button type="button" id="fReset">Nullstill filtre</button>' : '');
   function th(k, label, cls){ var on = fState.sort[0] === k; return '<th class="s ' + (cls||"") + (on ? " on" : "") + '" data-s="' + k + '">' + label + (on ? (fState.sort[1] === "+" ? " ▲" : " ▼") : "") + '</th>'; }
   var h = '<tr>' + th("d","Dato","d") + th("n","Navn","nm") + th("f","Art","wide") + th("r","Redskap","wide") + th("k","Kg") + '</tr>';
