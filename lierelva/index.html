@@ -116,6 +116,7 @@ td.rk{color:var(--faint);width:1.8em}
 tr.ny td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
 .hits{margin:-4px 0 6px;font-size:.82rem;color:var(--muted)}
 .sw.tq{flex:1 1 180px;min-width:0}
+@media (max-width:700px){.sw.tq{flex-basis:100%}}
 .th3{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:30px}
 .resetTop .more{margin-top:0;font-size:.8rem;padding:4px 10px}
 .moreRow{display:flex;gap:6px;flex-wrap:wrap}
@@ -249,7 +250,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
   <section id="topp">
     <h2>Topplister</h2>
     <p class="sub">Største fisk og fiskerne med flest fisk.</p>
-    <div class="controls"><select id="toppAar" aria-label="Velg år"></select><div class="seg" data-key="toppArt"></div><span class="sw tq"><input type="search" id="toppQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn i topplistene"><button type="button" class="sx" aria-label="Tøm søket" hidden>×</button></span></div>
+    <div class="controls"><span class="sw tq"><input type="search" id="toppQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn i topplistene"><button type="button" class="sx" aria-label="Tøm søket" hidden>×</button></span><select id="toppAar" aria-label="Velg år"></select><div class="seg" data-key="toppArt"></div></div>
     <div class="grid2">
       <div class="box"><h3 class="th3">Største fisk<span class="resetTop" data-list="stor"></span></h3><p class="hits" id="hitStor" hidden></p><table id="toppStor"></table><div class="moreRow" data-list="stor"></div></div>
       <div class="box"><h3 class="th3">Flest fisk<span class="resetTop" data-list="flest"></span></h3><p class="hits" id="hitFlest" hidden></p><table id="toppFlest"></table><div class="moreRow" data-list="flest"></div></div>
