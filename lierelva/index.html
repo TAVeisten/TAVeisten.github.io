@@ -114,6 +114,7 @@ td.nm,th.nm{text-align:left;width:100%}
 td.nm small{display:block;color:var(--muted);font-size:.75rem}
 td.rk{color:var(--faint);width:1.8em}
 tr.ny td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.moreRow{display:flex;gap:6px;flex-wrap:wrap}
 .more{margin-top:8px;border:0;background:var(--chip);color:var(--accent);font:inherit;font-weight:600;font-size:.85rem;padding:6px 12px;border-radius:999px;cursor:pointer}
 .mt{margin-top:14px}
 .note{color:var(--muted);font-size:.8rem;margin:28px 0 0}
@@ -239,8 +240,8 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
     <p class="sub">Største fisk og fiskerne med flest fisk.</p>
     <div class="controls"><select id="toppAar" aria-label="Velg år"></select><div class="seg" data-key="toppArt"></div></div>
     <div class="grid2">
-      <div class="box"><h3>Største fisk</h3><table id="toppStor"></table><button class="more" data-list="stor">Vis 25</button></div>
-      <div class="box"><h3>Flest fisk</h3><table id="toppFlest"></table><button class="more" data-list="flest">Vis 25</button></div>
+      <div class="box"><h3>Største fisk</h3><table id="toppStor"></table><div class="moreRow" data-list="stor"></div></div>
+      <div class="box"><h3>Flest fisk</h3><table id="toppFlest"></table><div class="moreRow" data-list="flest"></div></div>
     </div>
   </section>
 
@@ -642,7 +643,11 @@ function renderTopp(){
   h = '<tr><th>#</th><th class="nm">Navn</th><th>Antall</th><th>Kg</th></tr>';
   fl.forEach(function(e,i){ h += '<tr><td class="rk">' + (i+1) + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(e[0]) + '">' + esc(navn(e[0])) + '</a><small>' + (f === "B" ? e[1].L + ' laks · ' + e[1].S + ' sjøørret · <span style="white-space:nowrap">største ' : '<span style="white-space:nowrap">Største ') + nf1.format(e[1].max) + ' kg' + (f === "B" && e[1].maxArt ? ' (' + ART[e[1].maxArt].toLowerCase() + ')' : '') + '</span></small></td><td><b>' + e[1].n + '</b></td><td>' + nf0.format(e[1].kg) + '</td></tr>'; });
   document.getElementById("toppFlest").innerHTML = fl.length ? h : '<tr><td>Ingen fangst</td></tr>';
-  document.querySelectorAll(".more").forEach(function(b){ b.textContent = state[b.dataset.list] > 10 ? "Vis 10" : "Vis 25"; });
+  // Valg for lengde: 10, 25 og 100 – knappen for lengden som vises er skjult
+  document.querySelectorAll(".moreRow").forEach(function(el){
+    var cur = state[el.dataset.list];
+    el.innerHTML = [10,25,100].filter(function(n){ return n !== cur; }).map(function(n){ return '<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="' + n + '">' + (n === 10 ? "Vis bare 10" : "Vis " + n) + '</button>'; }).join("");
+  });
 }
 
 // ---------- Alle fangster ----------
@@ -704,10 +709,10 @@ document.addEventListener("click", function(e){
     return;
   }
   var m = e.target.closest(".more");
-  if (m) { state[m.dataset.list] = state[m.dataset.list] > 10 ? 10 : 25; renderTopp(); return; }
+  if (m && m.dataset.list) { var lst = m.dataset.list, n = +m.dataset.n; state[lst] = n; renderTopp(); if (n === 10) document.getElementById(lst === "stor" ? "toppStor" : "toppFlest").closest(".box").scrollIntoView(); return; }
   // En utvidet toppliste lukkes igjen når du trykker i den
   var t = e.target.closest("#toppStor, #toppFlest");
-  if (t) { var l = t.id === "toppStor" ? "stor" : "flest"; if (state[l] > 10) { state[l] = 10; renderTopp(); } }
+  if (t) { var l = t.id === "toppStor" ? "stor" : "flest"; if (state[l] > 10) { state[l] = 10; renderTopp(); t.closest(".box").scrollIntoView(); } }
 });
 document.getElementById("sesongAar").addEventListener("change", function(e){ state.sesong = e.target.value; renderSesong(); });
 document.getElementById("toppAar").addEventListener("change", function(e){ state.toppAar = e.target.value; renderTopp(); });
