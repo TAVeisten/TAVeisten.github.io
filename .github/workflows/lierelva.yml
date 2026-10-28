@@ -1,0 +1,53 @@
+name: Lierelva fangst
+
+on:
+  schedule:
+    # Kl. 07:41 norsk tid hver dag i mai–oktober (fiskesesongen pluss etterregistreringer).
+    # GitHub bruker UTC, så begge står her, og «Sjekk tidspunkt» lar bare den som treffer 07:41 i Norge kjøre.
+    - cron: "41 5 * 5-10 *"
+    - cron: "41 6 * 5-10 *"
+  workflow_dispatch: {}   # Run workflow på GitHub for å hente nå
+  push:
+    branches: [main]
+    paths: ["lierelva/update.py", ".github/workflows/lierelva.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lierelva
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Sjekk tidspunkt
+        id: check
+        run: |
+          off=$(TZ=Europe/Oslo date +%z)
+          case "${{ github.event.schedule }}" in
+            "41 5 * 5-10 *") [ "$off" = "+0200" ] && echo run=true >> $GITHUB_OUTPUT || echo "Vintertid – venter på neste" ;;
+            "41 6 * 5-10 *") [ "$off" = "+0100" ] && echo run=true >> $GITHUB_OUTPUT || echo "Sommertid – kjørte forrige" ;;
+            *) echo run=true >> $GITHUB_OUTPUT ;;
+          esac
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.run == 'true'
+      - uses: actions/setup-python@v5
+        if: steps.check.outputs.run == 'true'
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+        if: steps.check.outputs.run == 'true'
+      - run: python -u lierelva/update.py
+        if: steps.check.outputs.run == 'true'
+      - name: Lagre data
+        if: steps.check.outputs.run == 'true'
+        run: |
+          git config user.name "lierelva-oppdatering"
+          git config user.email "actions@users.noreply.github.com"
+          git add lierelva/data.json
+          git commit -m "Lierelva fangst oppdatert" || exit 0
+          git pull --rebase origin main
+          git push
