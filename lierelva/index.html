@@ -14,13 +14,13 @@
 :root{
   --bg:#F3F5F8; --sheet:#FFFFFF; --card:#F8FAFC; --ink:#1A1F2B; --muted:#5A6272; --faint:#8A92A0; --line:#DDE2EA; --grid:#E9EDF2;
   --accent:#1E4E6B; --chip:#E6EEF6; --chip-on:#1E4E6B; --chip-on-ink:#FFFFFF;
-  --mark:#E0702F; --spinner:#7B8794; --flue:#C99A1C; --sluk:#2F7FCF; --line1:#1E4E6B; --sjo:#7A4FA3; --avg:#8A92A0;
+  --mark:#E0702F; --spinner:#7B8794; --flue:#C99A1C; --sluk:#2F7FCF; --line1:#1E4E6B; --sjo:#9C6B3A; --avg:#8A92A0;
   --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root{
   --bg:#0E1218; --sheet:#151A22; --card:#1B212B; --ink:#E8ECF2; --muted:#9AA3B2; --faint:#717A89; --line:#2A313C; --grid:#232A34;
   --accent:#8FC1E0; --chip:#222B37; --chip-on:#8FC1E0; --chip-on-ink:#0E1218;
-  --mark:#D9692C; --spinner:#7E8A97; --flue:#B88A1A; --sluk:#3A82CF; --line1:#8FC1E0; --sjo:#C3A3E6; --avg:#7E8794; color-scheme:dark}}
+  --mark:#D9692C; --spinner:#7E8A97; --flue:#B88A1A; --sluk:#3A82CF; --line1:#8FC1E0; --sjo:#D9A877; --avg:#7E8794; color-scheme:dark}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:60px}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.35;margin:0;
@@ -73,6 +73,7 @@ select{font:inherit;font-size:.9rem;font-weight:600;color:var(--ink);background:
 @media (max-width:700px){.grid2{grid-template-columns:1fr}}
 .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}
 .chart{position:relative;height:260px}
+.chart canvas{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .chart.small{height:150px}
 .chart.combo{height:300px}
 .chart.lines{height:260px}
@@ -269,13 +270,23 @@ function hideTips(except){
   Object.keys(charts).forEach(function(id){ var c = charts[id]; if (!c || c === except) return;
     if (c.tooltip && c.tooltip.getActiveElements().length) { c.tooltip.setActiveElements([], {x:0, y:0}); c.setActiveElements([]); c.update("none"); } });
 }
-document.addEventListener("click", function(e){
+// Trykk = pointerup uten at fingeren har flyttet seg (scrolling teller ikke). Virker også der iOS ikke sender «click».
+var tapX = 0, tapY = 0, tapOk = false;
+document.addEventListener("pointerdown", function(e){ tapX = e.clientX; tapY = e.clientY; tapOk = true; }, true);
+document.addEventListener("pointermove", function(e){ if (tapOk && (Math.abs(e.clientX - tapX) > 10 || Math.abs(e.clientY - tapY) > 10)) tapOk = false; }, true);
+document.addEventListener("pointerup", function(e){
+  if (!tapOk || e.pointerType === "mouse") return;
+  if (!(e.target.closest && e.target.closest(".tip, #tipbox"))) hideTip();   // største-boblen lukkes også ved trykk utenfor
   if (HOVER) return;
+  tapOk = false;
   var cv = e.target.closest ? e.target.closest("canvas") : null, ch = cv ? Chart.getChart(cv) : null;
-  if (!ch || ch.tooltip.getActiveElements().length) { hideTips(); return; }
-  hideTips(ch);
+  if (!ch) { hideTips(); return; }                       // trykk utenfor grafene lukker
   var els = ch.getElementsAtEventForMode(e, ch.options.interaction.mode || "index", {intersect:false}, true);
-  if (els.length) { var r = cv.getBoundingClientRect(); ch.setActiveElements(els); ch.tooltip.setActiveElements(els, {x:e.clientX - r.left, y:e.clientY - r.top}); ch.update("none"); }
+  var cur = ch.tooltip.getActiveElements();
+  if (!els.length || (cur.length && cur[0].index === els[0].index)) { hideTips(); return; }   // samme søyle igjen lukker
+  hideTips(ch);                                            // annen søyle: bytter med en gang
+  var r = cv.getBoundingClientRect();
+  ch.setActiveElements(els); ch.tooltip.setActiveElements(els, {x:e.clientX - r.left, y:e.clientY - r.top}); ch.update("none");
 }, true);
 var tipEl = null, tipBtn = null;
 function hideTip(){ if (tipEl) tipEl.hidden = true; if (tipBtn) tipBtn.classList.remove("on"); tipBtn = null; }
@@ -483,8 +494,8 @@ function lineChart(id, labels, data, fmt, tipExtra){
 function gearLegends(){
   var h = GEARS.map(function(g){ return '<span><i style="background:' + css("--"+g.toLowerCase()) + '"></i>' + GNAME[g] + '</span>'; }).join("");
   document.querySelectorAll(".gearleg, .gearleg-in").forEach(function(el){ el.innerHTML = h; });
-  var a = '<span><i class="ln" style="background:' + css("--line1") + '"></i>Laks</span><span><i class="dl" style="border-color:' + css("--sjo") + '"></i>Sjøørret</span>';
-  document.querySelectorAll(".artleg").forEach(function(el, i){ el.innerHTML = a + (i === 0 ? '<span>Punktfarge = redskap</span>' : ''); });
+  var a = '<span><i class="ln" style="background:' + css("--line1") + '"></i>Laks</span><span><i class="ln" style="background:' + css("--sjo") + '"></i>Sjøørret</span>';
+  document.querySelectorAll(".artleg").forEach(function(el, i){ el.innerHTML = a; });
 }
 function segs(){
   document.querySelectorAll(".seg").forEach(function(el){
@@ -568,14 +579,14 @@ function renderAar(){
   stackChart("cAarKg", labels, function(i,g){ return Math.round(per[i].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg", function(i){ return "Vekt " + art + " " + YEARS[i]; }, 12);
   function maxSet(k, color, dash, pos){ return {label:ART[k], color:color, dash:dash, pos:pos,
     data:both.map(function(s){ return s[k].max ? s[k].max[2] : null; }), fmt:function(v){ return nf1.format(v); },
-    pointColors:both.map(function(s){ return s[k].max ? css("--" + s[k].max[4].toLowerCase()) : css(color); }),
+
     sub:both.map(function(s){ return s[k].max ? GNAME[s[k].max[4]] : ""; }),
-    tip:function(i){ var m = both[i][k].max; return m ? nf1.format(m[2]) + " kg · " + GNAME[m[4]] + " · " + navn(m[3]) : "–"; }}; }
-  twoLines("cAarMax", labels, [maxSet("L", "--line1", false, "above"), maxSet("S", "--sjo", true, "below")], "Største fisk");
+    tip:function(i){ var m = both[i][k].max; return m ? nf1.format(m[2]) + " kg (" + GNAME[m[4]] + ")" : "–"; }}; }
+  twoLines("cAarMax", labels, [maxSet("L", "--line1", false, "above"), maxSet("S", "--sjo", false, "below")], "Største fisk");
   function snSet(k, color, dash, pos){ return {label:ART[k], color:color, dash:dash, pos:pos,
     data:both.map(function(s){ return s[k].n ? Math.round(s[k].kg / s[k].n * 1000) / 1000 : null; }), fmt:function(v){ return nf2.format(v); },
     tip:function(i){ var s = both[i][k]; return s.n ? nf3.format(s.kg / s.n) + " kg" : "–"; }}; }
-  twoLines("cAarSnitt", labels, [snSet("L", "--line1", false, "above"), snSet("S", "--sjo", true, "below")], "Snittvekt");
+  twoLines("cAarSnitt", labels, [snSet("L", "--line1", false, "above"), snSet("S", "--sjo", false, "below")], "Snittvekt");
   document.getElementById("aarTabTittel").textContent = ART[f] + " – tall per år";
   var h = '<tr><th>År</th><th>Antall</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>';
   for (var i = YEARS.length - 1; i >= 0; i--) {
