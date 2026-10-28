@@ -116,6 +116,8 @@ td.rk{color:var(--faint);width:1.8em}
 tr.ny td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
 .hits{margin:-4px 0 6px;font-size:.82rem;color:var(--muted)}
 #toppQ{flex:1 1 180px;min-width:0}
+.th3{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:30px}
+.resetTop .more{margin-top:0;font-size:.8rem;padding:4px 10px}
 .moreRow{display:flex;gap:6px;flex-wrap:wrap}
 .more{margin-top:8px;border:0;background:var(--chip);color:var(--accent);font:inherit;font-weight:600;font-size:.85rem;padding:6px 12px;border-radius:999px;cursor:pointer}
 .mt{margin-top:14px}
@@ -242,8 +244,8 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
     <p class="sub">Største fisk og fiskerne med flest fisk.</p>
     <div class="controls"><select id="toppAar" aria-label="Velg år"></select><div class="seg" data-key="toppArt"></div><input type="search" id="toppQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn i topplistene"></div>
     <div class="grid2">
-      <div class="box"><h3>Største fisk</h3><p class="hits" id="hitStor" hidden></p><table id="toppStor"></table><div class="moreRow" data-list="stor"></div></div>
-      <div class="box"><h3>Flest fisk</h3><p class="hits" id="hitFlest" hidden></p><table id="toppFlest"></table><div class="moreRow" data-list="flest"></div></div>
+      <div class="box"><h3 class="th3">Største fisk<span class="resetTop" data-list="stor"></span></h3><p class="hits" id="hitStor" hidden></p><table id="toppStor"></table><div class="moreRow" data-list="stor"></div></div>
+      <div class="box"><h3 class="th3">Flest fisk<span class="resetTop" data-list="flest"></span></h3><p class="hits" id="hitFlest" hidden></p><table id="toppFlest"></table><div class="moreRow" data-list="flest"></div></div>
     </div>
   </section>
 
@@ -668,14 +670,19 @@ function renderTopp(){
   document.querySelectorAll(".moreRow").forEach(function(el){
     var cur = state[el.dataset.list], tot = total[el.dataset.list];
     // Ingen knapper når alt allerede vises
-    // 25 og 100 vises bare når de faktisk korter ned listen; «Vis alle» når noe er skjult
-    var ALLE = 1e9;
-    el.innerHTML = [10,25,100,ALLE].filter(function(n){
-      if (n === cur) return false;
-      if (n === 10) return cur > 10;
-      if (n === ALLE) return cur < tot;
-      return n < tot && (n < cur || cur < tot);
-    }).map(function(n){ return '<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="' + n + '">' + (n === 10 ? "Vis bare 10" : n === ALLE ? "Vis alle (" + nf0.format(tot) + ")" : "Vis " + n) + '</button>'; }).join("");
+    // Lengre lister vokser 100 om gangen, som «Alle fangster». «Vis bare 10» står også øverst, så du slipper å scrolle ned.
+    var btns = [];
+    function btn(n, txt){ btns.push('<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="' + n + '">' + txt + '</button>'); }
+    if (cur > 10) btn(10, "Vis bare 10");
+    if (cur < 25 && 25 < tot) btn(25, "Vis 25");
+    if (cur < tot) {
+      if (cur < 100 && 100 < tot) btn(100, "Vis 100");
+      else if (cur < 100) btn(tot, "Vis alle (" + nf0.format(tot) + ")");
+      else { var rest = tot - cur; btn(cur + 100, rest > 100 ? "Vis 100 til (" + nf0.format(rest) + " igjen)" : "Vis resten (" + nf0.format(rest) + ")"); }
+    }
+    el.innerHTML = btns.join("");
+    var top = document.querySelector('.resetTop[data-list="' + el.dataset.list + '"]');
+    top.innerHTML = cur > 10 && tot > 10 ? '<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="10">Vis bare 10</button>' : "";
   });
 }
 
