@@ -59,6 +59,15 @@ header.top .lead b{color:#fff}
 .sum .l1{flex:0 0 100%}
 @media (max-width:600px){.sum .wd{display:none}}
 h2{font-size:1.3rem;margin:34px 0 4px;letter-spacing:-.01em}
+/* Seksjoner som kan lukkes: trykk på overskriften. Sesong er åpen, de andre lukket når siden åpnes */
+section.fold>h2{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+section.fold>h2::before{content:"";display:inline-block;width:.5em;height:.5em;border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:translateY(-.15em) rotate(45deg);margin:0 .55em 0 .1em;transition:transform .15s;flex:none}
+section.fold.shut>h2::before{transform:translateY(0) rotate(-45deg)}
+section.fold.shut>.sbody{display:none}
+section.fold.shut>h2{margin-bottom:0}
+section.fold.shut>h2 .resetTop{display:none}
+section.fold>h2.th3{justify-content:flex-start;gap:0}
+section.fold>h2.th3 .resetTop{margin-left:auto}
 h3{font-size:1rem;margin:0 0 6px}
 .sub{color:var(--muted);font-size:.85rem;margin:0 0 12px}
 nav{position:sticky;top:0;z-index:5;background:var(--sheet);margin:0 -16px;padding:8px 16px;border-bottom:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
@@ -173,7 +182,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
 .news .ns{margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
 .news .ns b{display:block;margin-bottom:3px}
 .news .ns ul{margin:0;padding-left:18px;display:grid;gap:2px}
-@media (max-width:520px){body{font-size:14.5px}h1{font-size:1.5rem}.sheet{padding:10px 12px 24px}nav{margin:0 -12px;padding:8px 12px}.box{padding:10px}.chart{height:230px}.kpi .v{font-size:1.25rem}}
+@media (max-width:520px){nav{gap:4px}nav a{padding:5px 8px;font-size:.84rem}@media (max-width:389px){nav a{padding:5px 6px;font-size:.78rem}}body{font-size:14.5px}h1{font-size:1.5rem}.sheet{padding:10px 12px 24px}nav{margin:0 -12px;padding:8px 12px}.box{padding:10px}.chart{height:230px}.kpi .v{font-size:1.25rem}}
 </style>
 </head>
 <body>
@@ -187,7 +196,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
     <span class="nl">Nytt siden sist <span id="newsWhen"></span></span><div class="nt" id="newsBody"></div><div class="ns" id="newsList"></div><span class="nm" id="newsMore" hidden>Vis alt</span>
   </section>
   <nav>
-    <a href="#sesong">Sesong</a><a href="#alle">Alle år</a><a href="#aar">År for år</a><a href="#topp">Topplister</a><a href="#fangster">Alle fangster</a>
+    <a href="#sesong">Sesong</a><a href="#alle">Alle år</a><a href="#aar">År for år</a><a href="#topp">Topplister</a><a href="#fangster">Fangster</a>
   </nav>
 
   <section id="sesong">
@@ -210,7 +219,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
   </section>
 
   <section id="alle">
-    <h2 id="alleTittel">Alle år summert</h2>
+    <h2 id="alleTittel">Alle år</h2>
     <div class="tiles" id="alleTiles"></div>
     <div class="grid2">
       <div class="box"><h3>Antall fisk per redskap</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cAlleAnt"></canvas></div></div>
@@ -258,7 +267,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
   </section>
 
   <section id="fangster">
-    <h2 class="th3">Alle fangster<span class="resetTop" id="fTop"></span></h2>
+    <h2 class="th3">Fangster<span class="resetTop" id="fTop"></span></h2>
     <p class="sub">Hele fangstlisten, med søk, filtre og sortering. Trykk på et navn for å se alt den personen har fått, og trykk på en kolonne for å sortere.</p>
     <div class="flt">
       <span class="sw q"><input type="search" id="fQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn"><button type="button" class="sx" aria-label="Tøm søket" hidden>×</button></span>
@@ -288,6 +297,16 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
 var GEARS = ["MARK","SPINNER","FLUE","SLUK"];
 var GNAME = {MARK:"Mark",SPINNER:"Spinner",FLUE:"Flue",SLUK:"Sluk"};
 var ART = {L:"Laks",S:"Sjøørret"};
+// Seksjoner som kan lukkes. Sesong er åpen når siden åpnes, de andre er lukket.
+["sesong","alle","aar","topp","fangster"].forEach(function(id){
+  var s = document.getElementById(id), h = s.querySelector("h2"), b = document.createElement("div");
+  b.className = "sbody"; while (h.nextSibling) b.appendChild(h.nextSibling); s.appendChild(b);
+  s.classList.add("fold"); if (id !== "sesong") s.classList.add("shut");
+  h.setAttribute("role", "button"); h.setAttribute("tabindex", "0"); h.setAttribute("aria-expanded", id === "sesong" ? "true" : "false");
+});
+function openSec(id){ var s = document.getElementById(id); if (s && s.classList.contains("shut")) { s.classList.remove("shut"); s.querySelector("h2").setAttribute("aria-expanded", "true"); } }
+function toggleSec(s){ var shut = s.classList.toggle("shut"); s.querySelector("h2").setAttribute("aria-expanded", shut ? "false" : "true"); }
+if (location.hash) openSec(location.hash.slice(1));
 var nf1 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:1,maximumFractionDigits:1});
 var nf3 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:3,maximumFractionDigits:3});
 var nf2 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:2,maximumFractionDigits:2});
@@ -605,7 +624,7 @@ function renderUtv(){
   ]}, options:o});
 }
 function renderAlle(){
-  document.getElementById("alleTittel").textContent = "Alle år summert (" + YEARS[0] + "–" + YEARS[YEARS.length-1] + ")";
+  document.getElementById("alleTittel").textContent = "Alle år (" + YEARS[0] + "–" + YEARS[YEARS.length-1] + ")";
   var st = stats(ROWS);
   tiles("alleTiles", st);
   gearPair("cAlleAnt", "cAlleKg", st);
@@ -678,7 +697,7 @@ function renderTopp(){
   document.querySelectorAll(".moreRow[data-list]").forEach(function(el){
     var cur = state[el.dataset.list], tot = total[el.dataset.list];
     // Ingen knapper når alt allerede vises
-    // Lengre lister vokser 100 om gangen, som «Alle fangster». «Vis bare 10» står også øverst, så du slipper å scrolle ned.
+    // Lengre lister vokser 100 om gangen, som «Fangster». «Vis bare 10» står også øverst, så du slipper å scrolle ned.
     el.innerHTML = pageBtns(cur, tot, 'data-list="' + el.dataset.list + '"');
     var top = document.querySelector('.resetTop[data-list="' + el.dataset.list + '"]');
     top.innerHTML = cur > 10 && tot > 10 ? '<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="10">Vis bare 10</button>' : "";
@@ -743,6 +762,12 @@ function renderAll(){ gearLegends(); renderSesong(); renderAlle(); renderAar(); 
 
 // ---------- Hendelser ----------
 document.addEventListener("click", function(e){
+  // Menyen åpner seksjonen den hopper til
+  var na = e.target.closest("nav a");
+  if (na) { openSec(na.getAttribute("href").slice(1)); return; }
+  // Trykk på en overskrift åpner eller lukker seksjonen (ikke knappen «Vis bare 10» i overskriften)
+  var sh = e.target.closest("section.fold>h2");
+  if (sh && !e.target.closest("button")) { toggleSec(sh.parentNode); return; }
   // × tømmer søkefeltet
   var sx = e.target.closest(".sx");
   if (sx) { var si = sx.parentNode.querySelector("input"); si.value = ""; sx.hidden = true; si.dispatchEvent(new Event("input")); return; }
@@ -751,7 +776,7 @@ document.addEventListener("click", function(e){
   if (hs) { var k = hs.dataset.s, cur = fState.sort; var v = cur[0] === k ? k + (cur[1] === "+" ? "-" : "+") : k + (k === "d" || k === "k" ? "-" : "+"); document.getElementById("fSort").value = v; setF("sort", v); return; }
   var pn = e.target.closest("a.pn");
   if (pn) { e.preventDefault(); var n = navn(pn.dataset.n); document.getElementById("fQ").value = n; fState.aar = ""; document.getElementById("fAar").value = ""; setF("q", n);
-    if (!pn.closest("#fTab")) document.getElementById("fangster").scrollIntoView(); return; }
+    if (!pn.closest("#fTab")) { openSec("fangster"); document.getElementById("fangster").scrollIntoView(); } return; }
   var fm = e.target.closest(".more[data-f]");
   if (fm) { fState.vis = +fm.dataset.n; renderFangster(); if (fState.vis === 10) document.getElementById("fangster").scrollIntoView(); return; }
   if (e.target.id === "fReset") { ["fQ","fAar","fArt","fRed"].forEach(function(id){ document.getElementById(id).value = ""; }); fState.q = fState.aar = fState.art = fState.red = ""; setF("vis", 10); return; }
@@ -773,6 +798,7 @@ document.addEventListener("click", function(e){
   var t = e.target.closest("#toppStor, #toppFlest");
   if (t) { var l = t.id === "toppStor" ? "stor" : "flest"; if (state[l] > 10) { state[l] = 10; renderTopp(); t.closest(".box").scrollIntoView(); } }
 });
+document.addEventListener("keydown", function(e){ var sh = e.target.closest && e.target.closest("section.fold>h2"); if (sh && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggleSec(sh.parentNode); } });
 document.getElementById("sesongAar").addEventListener("change", function(e){ state.sesong = e.target.value; renderSesong(); });
 document.addEventListener("input", function(e){ if (e.target.closest(".sw")) syncX(); });
 var tq; document.getElementById("toppQ").addEventListener("input", function(e){ clearTimeout(tq); tq = setTimeout(function(){ state.toppQ = e.target.value; renderTopp(); }, 150); });
@@ -794,7 +820,7 @@ fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Er
   (d.ugyldig || []).forEach(function(r){ IGN[key(r)] = 1; });
   // Dobbeltregistreringer: samme fisk registrert flere ganger – bare den første telles
   var DOB = {}; (d.dobbel || []).forEach(function(r){ DOB[key(r)] = 1; });
-  // Hele lista til «Alle fangster», også de som er tatt ut av statistikken (vises overstreket)
+  // Hele lista til «Fangster», også de som er tatt ut av statistikken (vises overstreket)
   var whyI = {}, whyD = {}; (d.ugyldig || []).forEach(function(r){ whyI[key(r)] = r[4] || "Ugyldig registrering"; }); (d.dobbel || []).forEach(function(r){ whyD[key(r)] = r[4] || "Dobbeltregistrering"; });
   YEARS.forEach(function(y){ var seen2 = {}; d.years[y].forEach(function(r){ var k = key(r), x = whyI[k] || null; if (!x && whyD[k]) { if (seen2[k]) x = whyD[k]; seen2[k] = 1; } ALL.push({r:r, x:x, n:norm(r[3])}); }); });
   YEARS.forEach(function(y){ var seen = {}; d.years[y] = d.years[y].filter(function(r){ var k = key(r); if (IGN[k]) return false; if (DOB[k]) { if (seen[k]) return false; seen[k] = 1; } return true; }); ROWS = ROWS.concat(d.years[y]); });
