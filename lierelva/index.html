@@ -74,6 +74,10 @@ select{font:inherit;font-size:.9rem;font-weight:600;color:var(--ink);background:
 .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}
 .chart{position:relative;height:260px}
 .chart.small{height:150px}
+.chart.combo{height:340px}
+@media (max-width:520px){.chart.combo{height:320px}}
+.legend .gearleg-in{display:contents}
+.legend .gearleg-in span{margin-right:0}
 .chart.tall{height:300px}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.8rem;color:var(--muted);margin:0 0 6px}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
@@ -187,21 +191,15 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
 
   <section id="aar">
     <h2>År for år</h2>
-    <p class="sub">Søylene viser fangst per redskap, og linjen under viser største fisk og snittvekt samme år.</p>
+    <p class="sub">Søylene viser fangst per redskap. Linjen viser største fisk (over antall) og snittvekt (over vekt), med skala til høyre.</p>
     <div class="controls"><div class="seg" data-key="aarArt"></div></div>
-    <div class="grid2">
-      <div class="box">
-        <h3>Antall fisk per år</h3><div class="legend gearleg"></div>
-        <div class="chart"><canvas id="cAarAnt"></canvas></div>
-        <h3 class="mt">Største fisk (kg)</h3>
-        <div class="chart small"><canvas id="cAarMax"></canvas></div>
-      </div>
-      <div class="box">
-        <h3>Oppfisket vekt per år (kg)</h3><div class="legend gearleg"></div>
-        <div class="chart"><canvas id="cAarKg"></canvas></div>
-        <h3 class="mt">Snittvekt (kg)</h3>
-        <div class="chart small"><canvas id="cAarSnitt"></canvas></div>
-      </div>
+    <div class="box">
+      <h3>Antall fisk per år</h3><div class="legend"><span class="gearleg-in"></span><span><i class="ln" style="background:var(--line1)"></i>Største fisk (kg, høyre)</span></div>
+      <div class="chart combo"><canvas id="cAarAnt"></canvas></div>
+    </div>
+    <div class="box mt">
+      <h3>Oppfisket vekt per år (kg)</h3><div class="legend"><span class="gearleg-in"></span><span><i class="ln" style="background:var(--line1)"></i>Snittvekt (kg, høyre)</span></div>
+      <div class="chart combo"><canvas id="cAarKg"></canvas></div>
     </div>
     <div class="box mt">
       <h3 id="aarTabTittel">Tabell</h3>
@@ -315,6 +313,7 @@ var valueLabels = {
   id:"valueLabels",
   afterDatasetsDraw: function(ch, a, opts){
     if (!opts || !opts.mode) return;
+    if (opts.mode === "combo") return comboLabels(ch, opts);
     var ctx = ch.ctx, meta0 = ch.getDatasetMeta(0), n = ch.data.labels.length;
     var room = ch.chartArea.width / Math.max(n,1);
     if (room < (opts.minRoom || 26)) return;
@@ -336,6 +335,52 @@ var valueLabels = {
   }
 };
 Chart.register(valueLabels);
+// Søyler + linje med egen akse til høyre: sum over hver søyle, og verdi (og redskap når det er plass) over hvert linjepunkt
+function comboLabels(ch, opts){
+  var ctx = ch.ctx, n = ch.data.labels.length, room = ch.chartArea.width / Math.max(n,1);
+  if (room < 15) return;
+  var fs = room < 30 ? 10 : 11, li = ch.data.datasets.length - 1;
+  ctx.save(); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  // Lys kant rundt tallene, så de kan leses også der de krysser linjen
+  ctx.lineJoin = "round"; ctx.lineWidth = 3; ctx.strokeStyle = css("--card");
+  var put = function(s, x, y){ ctx.strokeText(s, x, y); ctx.fillText(s, x, y); };
+  for (var i = 0; i < n; i++) {
+    var tot = 0, top = Infinity, x = null;
+    for (var di = 0; di < li; di++) { var m = ch.getDatasetMeta(di), v = ch.data.datasets[di].data[i] || 0; tot += v; if (m.data[i]) { x = m.data[i].x; if (v) top = Math.min(top, m.data[i].y); } }
+    if (tot && x != null) { ctx.fillStyle = css("--ink"); ctx.font = "600 " + fs + "px " + css("--body"); put(opts.fmt(tot), x, top - 3); }
+    var lv = ch.data.datasets[li].data[i], pt = ch.getDatasetMeta(li).data[i];
+    if (lv == null || !pt) continue;
+    ctx.fillStyle = css("--line1"); ctx.font = "700 " + fs + "px " + css("--body");
+    var below = room < 34 && i % 2 === 1;   // smal skjerm: annenhver verdi under punktet, så nabotallene ikke overlapper
+    put(opts.lineFmt(lv), pt.x, below ? pt.y + fs + 8 : pt.y - 7);
+    if (opts.sub && room >= 44 && opts.sub[i]) { ctx.fillStyle = css("--muted"); ctx.font = "500 " + (fs - 1) + "px " + css("--body"); put(opts.sub[i], pt.x, pt.y - 8 - fs - 1); }
+  }
+  ctx.restore();
+}
+function comboChart(id, labels, getter, fmt, unit, title, line){
+  var o = baseOpts();
+  o.scales.x.stacked = true; o.scales.y.stacked = true;
+  var tots = labels.map(function(l,i){ var s = 0; GEARS.forEach(function(g){ s += getter(i,g) || 0; }); return s; });
+  var bmax = Math.max.apply(null, tots.concat([1]));
+  o.scales.y.max = Math.ceil(bmax * 1.85);          // søylene i nedre del …
+  o.scales.y.ticks.callback = function(v){ return v <= bmax * 1.05 ? nf0.format(v) : ""; };
+  var vals = line.data.filter(function(v){ return v != null; }), lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), span = Math.max(hi - lo, hi * 0.15, 0.5);
+  o.scales.y2 = {position:"right", grid:{display:false}, border:{display:false},
+    min: lo - span * 0.62 / 0.3, max: hi + span * 0.1 / 0.3,   // … linjen i øvre del, så tallene ikke kolliderer
+    ticks:{color:css("--muted"), maxTicksLimit:6, callback:function(v){ return v >= lo - span * 0.15 && v <= hi + span * 0.15 ? nf1.format(v) : ""; }}};
+  o.plugins.valueLabels = {mode:"combo", fmt:fmt, lineFmt:line.fmt, sub:line.sub};
+  o.plugins.tooltip.callbacks = {
+    title:function(items){ return title && items.length ? title(items[0].dataIndex) : (items[0] ? items[0].label : ""); },
+    label:function(c){ return c.dataset.type === "line" ? " " + c.dataset.label + ": " + line.tip(c.dataIndex) : " " + c.dataset.label + ": " + fmt(c.raw) + unit; },
+    footer:function(items){ var s = 0; items.forEach(function(i){ if (i.dataset.type !== "line") s += i.raw; }); return "Sum: " + fmt(s) + unit; }
+  };
+  o.plugins.tooltip.filter = function(c){ return c.raw > 0; };
+  var sets = gearSets(labels, getter); sets.forEach(function(s){ s.order = 2; });
+  var lc = css("--line1");
+  sets.push({type:"line", label:line.label, data:line.data, yAxisID:"y2", stack:"linje", order:0, borderColor:lc, borderWidth:2, tension:0,
+    pointRadius:5, pointHoverRadius:7, pointBackgroundColor:line.colors || lc, pointBorderColor:css("--card"), pointBorderWidth:2, spanGaps:true});
+  draw(id, {type:"bar", data:{labels:labels, datasets:sets}, options:o});
+}
 
 function baseOpts(){
   var ink = css("--muted"), grid = css("--grid");
@@ -390,7 +435,7 @@ function lineChart(id, labels, data, fmt, tipExtra){
 // ---------- Byggeklosser ----------
 function gearLegends(){
   var h = GEARS.map(function(g){ return '<span><i style="background:' + css("--"+g.toLowerCase()) + '"></i>' + GNAME[g] + '</span>'; }).join("");
-  document.querySelectorAll(".gearleg").forEach(function(el){ el.innerHTML = h; });
+  document.querySelectorAll(".gearleg, .gearleg-in").forEach(function(el){ el.innerHTML = h; });
 }
 function segs(){
   document.querySelectorAll(".seg").forEach(function(el){
@@ -466,12 +511,15 @@ function renderAar(){
   var f = state.aarArt, narrow = document.getElementById("cAarAnt").parentNode.clientWidth < 420;
   var labels = YEARS.map(function(y){ return narrow ? "’" + y.slice(2) : y; });
   var per = YEARS.map(function(y){ return stats(DATA.years[y])[f]; });
-  stackChart("cAarAnt", labels, function(i,g){ return per[i].g[g].n; }, function(v){ return nf0.format(v); }, "", function(i){ return "Antall " + ART[f].toLowerCase() + " " + YEARS[i]; });
-  stackChart("cAarKg", labels, function(i,g){ return Math.round(per[i].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg", function(i){ return "Vekt " + ART[f].toLowerCase() + " " + YEARS[i]; });
-  lineChart("cAarMax", labels, per.map(function(s){ return s.max ? s.max[2] : null; }), function(v){ return nf1.format(v); },
-    function(i){ var m = per[i].max; return m ? " · " + GNAME[m[4]] + " · " + navn(m[3]) : ""; });
-  lineChart("cAarSnitt", labels, per.map(function(s){ return s.n ? Math.round(s.kg/s.n*1000)/1000 : null; }), function(v){ return nf1.format(v); });
-  charts.cAarSnitt.options.plugins.tooltip.callbacks.label = function(c){ return " " + nf3.format(c.raw) + " kg"; };
+  var art = ART[f].toLowerCase();
+  comboChart("cAarAnt", labels, function(i,g){ return per[i].g[g].n; }, function(v){ return nf0.format(v); }, "", function(i){ return "Antall " + art + " " + YEARS[i]; }, {
+    label:"Største", data:per.map(function(s){ return s.max ? s.max[2] : null; }), fmt:function(v){ return nf1.format(v); },
+    colors:per.map(function(s){ return s.max ? css("--" + s.max[4].toLowerCase()) : css("--line1"); }),
+    sub:per.map(function(s){ return s.max ? GNAME[s.max[4]] : ""; }),
+    tip:function(i){ var m = per[i].max; return m ? nf1.format(m[2]) + " kg · " + GNAME[m[4]] + " · " + navn(m[3]) : "–"; }});
+  comboChart("cAarKg", labels, function(i,g){ return Math.round(per[i].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg", function(i){ return "Vekt " + art + " " + YEARS[i]; }, {
+    label:"Snittvekt", data:per.map(function(s){ return s.n ? Math.round(s.kg/s.n*1000)/1000 : null; }), fmt:function(v){ return nf2.format(v); },
+    tip:function(i){ var s = per[i]; return s.n ? nf3.format(s.kg/s.n) + " kg" : "–"; }});
   document.getElementById("aarTabTittel").textContent = ART[f] + " – tall per år";
   var h = '<tr><th>År</th><th>Antall</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>';
   for (var i = YEARS.length - 1; i >= 0; i--) {
