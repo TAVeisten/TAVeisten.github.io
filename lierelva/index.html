@@ -668,7 +668,14 @@ function renderTopp(){
   document.querySelectorAll(".moreRow").forEach(function(el){
     var cur = state[el.dataset.list], tot = total[el.dataset.list];
     // Ingen knapper når alt allerede vises
-    el.innerHTML = tot <= 10 && cur === 10 ? "" : [10,25,100].filter(function(n){ return n < cur || (n > cur && cur < tot && !(n === 100 && cur < 25 && tot <= 25)); }).map(function(n){ return '<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="' + n + '">' + (n === 10 ? "Vis bare 10" : "Vis " + n) + '</button>'; }).join("");
+    // 25 og 100 vises bare når de faktisk korter ned listen; «Vis alle» når noe er skjult
+    var ALLE = 1e9;
+    el.innerHTML = [10,25,100,ALLE].filter(function(n){
+      if (n === cur) return false;
+      if (n === 10) return cur > 10;
+      if (n === ALLE) return cur < tot;
+      return n < tot && (n < cur || cur < tot);
+    }).map(function(n){ return '<button type="button" class="more" data-list="' + el.dataset.list + '" data-n="' + n + '">' + (n === 10 ? "Vis bare 10" : n === ALLE ? "Vis alle (" + nf0.format(tot) + ")" : "Vis " + n) + '</button>'; }).join("");
   });
 }
 
