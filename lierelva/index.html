@@ -391,7 +391,9 @@ fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Er
   YEARS = Object.keys(d.years).filter(function(y){ return d.years[y].length; }).sort();
   // Ugyldige registreringer (f.eks. 15,9 kg = høyeste valg i lista) tas helt ut av statistikken
   (d.ugyldig || []).forEach(function(r){ IGN[key(r)] = 1; });
-  YEARS.forEach(function(y){ d.years[y] = d.years[y].filter(function(r){ return !IGN[key(r)]; }); ROWS = ROWS.concat(d.years[y]); });
+  // Dobbeltregistreringer: samme fisk registrert flere ganger – bare den første telles
+  var DOB = {}; (d.dobbel || []).forEach(function(r){ DOB[key(r)] = 1; });
+  YEARS.forEach(function(y){ var seen = {}; d.years[y] = d.years[y].filter(function(r){ var k = key(r); if (IGN[k]) return false; if (DOB[k]) { if (seen[k]) return false; seen[k] = 1; } return true; }); ROWS = ROWS.concat(d.years[y]); });
   state.sesong = YEARS[YEARS.length-1];
   var opts = YEARS.slice().reverse().map(function(y){ return '<option value="' + y + '">Sesong ' + y + '</option>'; }).join("");
   document.getElementById("sesongAar").innerHTML = opts;
@@ -400,10 +402,12 @@ fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Er
   var chk = d.checked ? new Date(d.checked) : null;
   document.getElementById("lead").textContent = nf0.format(ROWS.length) + " fangster " + YEARS[0] + "–" + YEARS[YEARS.length-1] +
     (wy ? " · siste registrerte fangst " + dato(web[wy].sist) : "") + (chk ? " · sjekket " + chk.toLocaleDateString("nb-NO",{day:"numeric",month:"short"}) : "");
+  var dob = (d.dobbel || []).map(function(r){ return nf1.format(r[2]) + " kg " + ART[r[1]].toLowerCase() + " " + dato(r[0]) + " (" + navn(r[3]) + ")"; }).join(", ");
   var ign = (d.ugyldig || []).map(function(r){ return nf1.format(r[2]) + " kg " + ART[r[1]].toLowerCase() + " " + dato(r[0]); }).join(", ");
   document.getElementById("note").innerHTML =
     '<p>Kilder: 2013–2025 fra Excel-arket «Lierelva – Laks & Sjøørret», og fra 2026 hentes fangstlisten fra <a href="https://www.lierelva.com/dataHeleSng.php">lierelva.com</a> hver morgen kl. 07:41 i mai–oktober.</p>' +
     (ign ? '<p>Tatt ut av statistikken: ' + ign + '. 15,9 kg er det høyeste valget i vektlista på lierelva.com, så registreringen er trolig falsk. Nye registreringer på 15,9 kg tas ut automatisk.</p>' : '') +
+    (dob ? '<p>Registrert to ganger, men telt bare én gang: ' + dob + '.</p>' : '') +
     '<p>Ukene i «Utvikling gjennom sesongen» er ISO-uker. Snittet er gjennomsnittet av de andre sesongene.</p>';
   segs(); renderAll();
 }).catch(function(e){
