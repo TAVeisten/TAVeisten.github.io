@@ -115,7 +115,7 @@ td.nm small{display:block;color:var(--muted);font-size:.75rem}
 td.rk{color:var(--faint);width:1.8em}
 tr.ny td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
 .hits{margin:-4px 0 6px;font-size:.82rem;color:var(--muted)}
-#toppQ{flex:1 1 180px;min-width:0}
+.sw.tq{flex:1 1 180px;min-width:0}
 .th3{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:30px}
 .resetTop .more{margin-top:0;font-size:.8rem;padding:4px 10px}
 .moreRow{display:flex;gap:6px;flex-wrap:wrap}
@@ -127,6 +127,12 @@ tr.ny td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
 .flt input,.flt select{width:100%;min-width:0}
 input[type=search]{font:inherit;font-size:.95rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px}
 @media (max-width:700px){.flt{grid-template-columns:1fr 1fr}.flt .q{grid-column:1/-1}}
+/* Eget ×-felt i søkefeltene: iPhone viser bare sin egen × mens du skriver, så den forsvant etter at et navn var valgt */
+.sw{position:relative;display:block;min-width:0}
+.sw input{width:100%;box-sizing:border-box;padding-right:40px}
+.sx{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:32px;height:32px;border:0;border-radius:50%;background:transparent;color:var(--faint);font:inherit;font-size:1.25rem;line-height:1;cursor:pointer;padding:0}
+.sx:hover{color:var(--ink)}
+input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;display:none}
 .sum{font-size:.85rem;color:var(--muted);margin:0 0 8px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center}
 .sum b{color:var(--ink)}
 .sum button{border:0;background:none;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;padding:0}
@@ -243,7 +249,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
   <section id="topp">
     <h2>Topplister</h2>
     <p class="sub">Største fisk og fiskerne med flest fisk.</p>
-    <div class="controls"><select id="toppAar" aria-label="Velg år"></select><div class="seg" data-key="toppArt"></div><input type="search" id="toppQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn i topplistene"></div>
+    <div class="controls"><select id="toppAar" aria-label="Velg år"></select><div class="seg" data-key="toppArt"></div><span class="sw tq"><input type="search" id="toppQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn i topplistene"><button type="button" class="sx" aria-label="Tøm søket" hidden>×</button></span></div>
     <div class="grid2">
       <div class="box"><h3 class="th3">Største fisk<span class="resetTop" data-list="stor"></span></h3><p class="hits" id="hitStor" hidden></p><table id="toppStor"></table><div class="moreRow" data-list="stor"></div></div>
       <div class="box"><h3 class="th3">Flest fisk<span class="resetTop" data-list="flest"></span></h3><p class="hits" id="hitFlest" hidden></p><table id="toppFlest"></table><div class="moreRow" data-list="flest"></div></div>
@@ -254,7 +260,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
     <h2 class="th3">Alle fangster<span class="resetTop" id="fTop"></span></h2>
     <p class="sub">Hele fangstlisten, med søk, filtre og sortering. Trykk på et navn for å se alt den personen har fått, og trykk på en kolonne for å sortere.</p>
     <div class="flt">
-      <input class="q" type="search" id="fQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn">
+      <span class="sw q"><input type="search" id="fQ" placeholder="Søk etter navn …" autocomplete="off" aria-label="Søk etter navn"><button type="button" class="sx" aria-label="Tøm søket" hidden>×</button></span>
       <select id="fAar" aria-label="År"></select>
       <select id="fArt" aria-label="Art"><option value="">Begge arter</option><option value="L">Laks</option><option value="S">Sjøørret</option></select>
       <select id="fRed" aria-label="Redskap"><option value="">Alle redskap</option><option value="MARK">Mark</option><option value="SPINNER">Spinner</option><option value="FLUE">Flue</option><option value="SLUK">Sluk</option></select>
@@ -692,6 +698,9 @@ function pageBtns(cur, tot, attr){
   return btns.join("");
 }
 
+// × i søkefeltene vises bare når det står noe der
+function syncX(){ document.querySelectorAll(".sw").forEach(function(w){ w.querySelector(".sx").hidden = !w.querySelector("input").value; }); }
+
 // ---------- Alle fangster ----------
 var ALL = [], fState = {q:"", aar:"", art:"", red:"", sort:"d-", vis:10};
 function renderFangster(){
@@ -724,6 +733,7 @@ function renderFangster(){
   });
   document.getElementById("fTab").innerHTML = rows.length ? h : '<tr><td>Ingen fangster passer med filtrene</td></tr>';
   document.getElementById("fMore").innerHTML = pageBtns(fState.vis, rows.length, 'data-f="1"');
+  syncX();
   document.getElementById("fTop").innerHTML = fState.vis > 10 && rows.length > 10 ? '<button type="button" class="more" data-f="1" data-n="10">Vis bare 10</button>' : "";
 }
 function setF(k, v){ fState[k] = v; fState.vis = 10; renderFangster(); }
@@ -732,6 +742,9 @@ function renderAll(){ gearLegends(); renderSesong(); renderAlle(); renderAar(); 
 
 // ---------- Hendelser ----------
 document.addEventListener("click", function(e){
+  // × tømmer søkefeltet
+  var sx = e.target.closest(".sx");
+  if (sx) { var si = sx.parentNode.querySelector("input"); si.value = ""; sx.hidden = true; si.dispatchEvent(new Event("input")); return; }
   // Alle fangster: sortering, navn, flere/færre, nullstill
   var hs = e.target.closest("#fTab th.s");
   if (hs) { var k = hs.dataset.s, cur = fState.sort; var v = cur[0] === k ? k + (cur[1] === "+" ? "-" : "+") : k + (k === "d" || k === "k" ? "-" : "+"); document.getElementById("fSort").value = v; setF("sort", v); return; }
@@ -760,6 +773,7 @@ document.addEventListener("click", function(e){
   if (t) { var l = t.id === "toppStor" ? "stor" : "flest"; if (state[l] > 10) { state[l] = 10; renderTopp(); t.closest(".box").scrollIntoView(); } }
 });
 document.getElementById("sesongAar").addEventListener("change", function(e){ state.sesong = e.target.value; renderSesong(); });
+document.addEventListener("input", function(e){ if (e.target.closest(".sw")) syncX(); });
 var tq; document.getElementById("toppQ").addEventListener("input", function(e){ clearTimeout(tq); tq = setTimeout(function(){ state.toppQ = e.target.value; renderTopp(); }, 150); });
 document.getElementById("toppAar").addEventListener("change", function(e){ state.toppAar = e.target.value; renderTopp(); });
 var qt; document.getElementById("fQ").addEventListener("input", function(e){ clearTimeout(qt); qt = setTimeout(function(){ setF("q", e.target.value); }, 150); });
