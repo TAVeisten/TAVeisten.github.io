@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lierelva – Laks & sjøørret</title>
+<meta name="apple-mobile-web-app-title" content="Lierelva">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="robots" content="noindex">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" href="../apple-touch-icon.png">
+<style>
+:root{
+  --bg:#F3F5F8; --sheet:#FFFFFF; --card:#F8FAFC; --ink:#1A1F2B; --muted:#5A6272; --faint:#8A92A0; --line:#DDE2EA; --grid:#E9EDF2;
+  --accent:#1E4E6B; --chip:#E6EEF6; --chip-on:#1E4E6B; --chip-on-ink:#FFFFFF;
+  --mark:#E0702F; --spinner:#7B8794; --flue:#C99A1C; --sluk:#2F7FCF; --line1:#1E4E6B; --avg:#8A92A0;
+  --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0E1218; --sheet:#151A22; --card:#1B212B; --ink:#E8ECF2; --muted:#9AA3B2; --faint:#717A89; --line:#2A313C; --grid:#232A34;
+  --accent:#8FC1E0; --chip:#222B37; --chip-on:#8FC1E0; --chip-on-ink:#0E1218;
+  --mark:#D9692C; --spinner:#7E8A97; --flue:#B88A1A; --sluk:#3A82CF; --line1:#8FC1E0; --avg:#7E8794; color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.35;margin:0;
+  padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
+.sheet{max-width:1040px;margin:0 auto;background:var(--sheet);padding:14px 16px 28px;min-height:100vh}
+@media (min-width:900px){body{padding-top:24px;padding-bottom:24px}.sheet{border:1px solid var(--line);border-radius:16px;min-height:0;padding:22px 28px 32px;box-shadow:0 2px 14px rgba(20,30,50,.06)}}
+h1{font-size:1.75rem;line-height:1.15;margin:4px 0 4px;letter-spacing:-.01em}
+.lead{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+h2{font-size:1.3rem;margin:34px 0 4px;letter-spacing:-.01em}
+h3{font-size:1rem;margin:0 0 6px}
+.sub{color:var(--muted);font-size:.85rem;margin:0 0 12px}
+nav{position:sticky;top:0;z-index:5;background:var(--sheet);margin:0 -16px;padding:8px 16px;border-bottom:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
+@media (min-width:900px){nav{margin:0 -28px;padding:8px 28px}}
+nav a{color:var(--accent);text-decoration:none;font-weight:600;font-size:.88rem;padding:5px 10px;border-radius:999px;background:var(--chip)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
+.seg{display:inline-flex;background:var(--chip);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;color:var(--ink);font:inherit;font-size:.88rem;font-weight:600;padding:5px 12px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-ink)}
+select{font:inherit;font-size:.9rem;font-weight:600;color:var(--ink);background:var(--chip);border:0;border-radius:999px;padding:6px 12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.grid2{grid-template-columns:1fr}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}
+.chart{position:relative;height:260px}
+.chart.small{height:150px}
+.chart.tall{height:300px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.8rem;color:var(--muted);margin:0 0 6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.legend i.ln{height:3px;border-radius:2px;width:16px;vertical-align:3px}
+.legend i.dash{height:0;border-top:2px dashed var(--avg);width:16px;border-radius:0;vertical-align:3px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media (max-width:700px){.tiles{grid-template-columns:1fr}}
+.tile h3{display:flex;align-items:center;gap:6px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.kpi .v{font-size:1.45rem;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:.75rem;color:var(--muted)}
+.big{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.big b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{padding:6px 6px;text-align:right;border-bottom:1px solid var(--line)}
+th{font-size:.75rem;color:var(--muted);font-weight:600}
+th:first-child,td:first-child{text-align:left}
+td.nm,th.nm{text-align:left;width:100%}
+td.nm small{display:block;color:var(--muted);font-size:.75rem}
+td.rk{color:var(--faint);width:1.8em}
+tr.ny td{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.more{margin-top:8px;border:0;background:var(--chip);color:var(--accent);font:inherit;font-weight:600;font-size:.85rem;padding:6px 12px;border-radius:999px;cursor:pointer}
+.mt{margin-top:14px}
+.note{color:var(--muted);font-size:.8rem;margin:28px 0 0}
+.note p{margin:0 0 6px}
+.err{color:#B3261E;font-weight:600}
+@media (max-width:520px){body{font-size:14.5px}h1{font-size:1.5rem}.sheet{padding:10px 12px 24px}nav{margin:0 -12px;padding:8px 12px}.box{padding:10px}.chart{height:230px}.kpi .v{font-size:1.25rem}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>🐟 Lierelva – Laks & sjøørret</h1>
+  <p class="lead" id="lead">Laster fangstdata …</p>
+  <nav>
+    <a href="#sesong">Sesong</a><a href="#alle">Alle år</a><a href="#aar">År for år</a><a href="#topp">Topplister</a>
+  </nav>
+
+  <section id="sesong">
+    <h2 id="sesongTittel">Sesongen</h2>
+    <p class="sub">Fangst per art og redskap, og hvordan sesongen utviklet seg uke for uke.</p>
+    <div class="controls"><select id="sesongAar" aria-label="Velg sesong"></select></div>
+    <div class="tiles" id="sesongTiles"></div>
+    <div class="grid2">
+      <div class="box"><h3>Antall fisk per redskap</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cSesAnt"></canvas></div></div>
+      <div class="box"><h3>Oppfisket vekt per redskap (kg)</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cSesKg"></canvas></div></div>
+    </div>
+    <div class="box mt">
+      <h3>Utvikling gjennom sesongen – antall fisk, akkumulert</h3>
+      <div class="controls"><div class="seg" data-key="utvArt"></div></div>
+      <div class="legend" id="utvLeg"></div>
+      <div class="chart tall"><canvas id="cUtv"></canvas></div>
+    </div>
+  </section>
+
+  <section id="alle">
+    <h2 id="alleTittel">Alle år summert</h2>
+    <p class="sub">Samme oversikt som «Sum»-arket, med alle sesonger lagt sammen.</p>
+    <div class="tiles" id="alleTiles"></div>
+    <div class="grid2">
+      <div class="box"><h3>Antall fisk per redskap</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cAlleAnt"></canvas></div></div>
+      <div class="box"><h3>Oppfisket vekt per redskap (kg)</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cAlleKg"></canvas></div></div>
+    </div>
+  </section>
+
+  <section id="aar">
+    <h2>År for år</h2>
+    <p class="sub">Søylene viser fangst per redskap, og linjen under viser største fisk og snittvekt samme år.</p>
+    <div class="controls"><div class="seg" data-key="aarArt"></div></div>
+    <div class="grid2">
+      <div class="box">
+        <h3>Antall fisk per år</h3><div class="legend gearleg"></div>
+        <div class="chart"><canvas id="cAarAnt"></canvas></div>
+        <h3 class="mt">Største fisk (kg)</h3>
+        <div class="chart small"><canvas id="cAarMax"></canvas></div>
+      </div>
+      <div class="box">
+        <h3>Oppfisket vekt per år (kg)</h3><div class="legend gearleg"></div>
+        <div class="chart"><canvas id="cAarKg"></canvas></div>
+        <h3 class="mt">Snittvekt (kg)</h3>
+        <div class="chart small"><canvas id="cAarSnitt"></canvas></div>
+      </div>
+    </div>
+    <div class="box mt">
+      <h3 id="aarTabTittel">Tabell</h3>
+      <table id="aarTab"></table>
+    </div>
+  </section>
+
+  <section id="topp">
+    <h2>Topplister</h2>
+    <p class="sub">Største fisk og fiskerne med flest fisk.</p>
+    <div class="controls"><select id="toppAar" aria-label="Velg år"></select><div class="seg" data-key="toppArt"></div></div>
+    <div class="grid2">
+      <div class="box"><h3>Største fisk</h3><table id="toppStor"></table><button class="more" data-list="stor">Vis 25</button></div>
+      <div class="box"><h3>Flest fisk</h3><table id="toppFlest"></table><button class="more" data-list="flest">Vis 25</button></div>
+    </div>
+  </section>
+
+  <div class="note" id="note"></div>
+</div>
+
+<script src="chart.umd.js"></script>
+<script>
+(function(){
+"use strict";
+var GEARS = ["MARK","SPINNER","FLUE","SLUK"];
+var GNAME = {MARK:"Mark",SPINNER:"Spinner",FLUE:"Flue",SLUK:"Sluk"};
+var ART = {L:"Laks",S:"Sjøørret"};
+var nf1 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:1,maximumFractionDigits:1});
+var nf3 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:3,maximumFractionDigits:3});
+var nf0 = new Intl.NumberFormat("nb-NO",{maximumFractionDigits:0});
+var MND = ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des"];
+var DATA, ROWS = [], YEARS = [], IGN = {}, charts = {};
+var state = {sesong:null, utvArt:"L", aarArt:"L", toppArt:"L", toppAar:"alle", stor:10, flest:10};
+
+function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function dato(iso){ return +iso.slice(8,10) + ". " + MND[+iso.slice(5,7)-1] + " " + iso.slice(0,4); }
+function navn(s){ return s.toLowerCase().replace(/(^|[\s\-])(\S)/g, function(m,a,b){ return a + b.toUpperCase(); }); }
+function key(r){ return r[0]+"|"+r[1]+"|"+r[2]+"|"+r[3]; }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+function stats(rows){
+  var o = {};
+  ["L","S"].forEach(function(f){ o[f] = {n:0,kg:0,g:{},max:null}; GEARS.forEach(function(g){ o[f].g[g] = {n:0,kg:0}; }); });
+  rows.forEach(function(r){
+    var s = o[r[1]]; s.n++; s.kg += r[2];
+    if (s.g[r[4]]) { s.g[r[4]].n++; s.g[r[4]].kg += r[2]; }
+    if (!IGN[key(r)] && (!s.max || r[2] > s.max[2])) s.max = r;
+  });
+  return o;
+}
+function rowsOf(y){ return y === "alle" ? ROWS : (DATA.years[y] || []); }
+
+// ---------- Chart.js-oppsett ----------
+var valueLabels = {
+  id:"valueLabels",
+  afterDatasetsDraw: function(ch, a, opts){
+    if (!opts || !opts.mode) return;
+    var ctx = ch.ctx, meta0 = ch.getDatasetMeta(0), n = ch.data.labels.length;
+    var room = ch.chartArea.width / Math.max(n,1);
+    if (room < (opts.minRoom || 26)) return;
+    ctx.save(); ctx.fillStyle = css("--ink"); ctx.font = "600 11px " + css("--body"); ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+    for (var i = 0; i < n; i++) {
+      var x, y, txt;
+      if (opts.mode === "stackTotal") {
+        var tot = 0, top = Infinity;
+        ch.data.datasets.forEach(function(ds, di){ var m = ch.getDatasetMeta(di); if (m.hidden) return; tot += ds.data[i] || 0; var el = m.data[i]; if (el && ds.data[i]) top = Math.min(top, el.y); });
+        if (!tot) continue;
+        x = meta0.data[i].x; y = top - 3; txt = opts.fmt(tot);
+      } else {
+        var v = ch.data.datasets[0].data[i]; if (v == null) continue;
+        var el2 = meta0.data[i]; x = el2.x; y = el2.y - 7; txt = opts.fmt(v);
+      }
+      ctx.fillText(txt, x, y);
+    }
+    ctx.restore();
+  }
+};
+Chart.register(valueLabels);
+
+function baseOpts(){
+  var ink = css("--muted"), grid = css("--grid");
+  Chart.defaults.font.family = css("--body");
+  Chart.defaults.color = ink;
+  return {
+    responsive:true, maintainAspectRatio:false, animation:false,
+    layout:{padding:{top:18}},
+    interaction:{mode:"index", intersect:false},
+    plugins:{legend:{display:false}, tooltip:{backgroundColor:css("--sheet"), titleColor:css("--ink"), bodyColor:css("--ink"), footerColor:css("--ink"), borderColor:css("--line"), borderWidth:1, padding:10, boxPadding:4}},
+    scales:{
+      x:{grid:{display:false}, border:{color:css("--line")}, ticks:{color:ink, autoSkip:false, maxRotation:0}},
+      y:{beginAtZero:true, grid:{color:grid}, border:{display:false}, ticks:{color:ink, maxTicksLimit:6, callback:function(v){ return nf0.format(v); }}}
+    }
+  };
+}
+function draw(id, cfg){
+  if (charts[id]) charts[id].destroy();
+  charts[id] = new Chart(document.getElementById(id), cfg);
+}
+function gearSets(labels, getter, fmt){
+  var surf = css("--card");
+  return GEARS.map(function(g){
+    return {label:GNAME[g], data:labels.map(function(l,i){ return getter(i,g); }), backgroundColor:css("--"+g.toLowerCase()),
+      borderColor:surf, borderWidth:{top:2,left:0,right:0,bottom:0}, borderSkipped:false, borderRadius:3, stack:"s", maxBarThickness:56, categoryPercentage:.72, barPercentage:.9};
+  });
+}
+function stackChart(id, labels, getter, fmt, unit){
+  var o = baseOpts();
+  o.scales.x.stacked = true; o.scales.y.stacked = true;
+  o.plugins.valueLabels = {mode:"stackTotal", fmt:fmt, minRoom:22};
+  o.plugins.tooltip.callbacks = {
+    label:function(c){ return " " + c.dataset.label + ": " + fmt(c.raw) + unit; },
+    footer:function(items){ var t = 0; items.forEach(function(i){ t += i.raw; }); return "Sum: " + fmt(t) + unit; }
+  };
+  o.plugins.tooltip.filter = function(c){ return c.raw > 0; };
+  draw(id, {type:"bar", data:{labels:labels, datasets:gearSets(labels, getter)}, options:o});
+}
+function lineChart(id, labels, data, fmt, tipExtra){
+  var o = baseOpts();
+  o.plugins.valueLabels = {mode:"points", fmt:fmt, minRoom:30};
+  o.layout.padding = {top:20, left:6, right:6};
+  o.plugins.tooltip.callbacks = {label:function(c){ return " " + fmt(c.raw) + " kg" + (tipExtra ? tipExtra(c.dataIndex) : ""); }};
+  o.scales.y.ticks.callback = function(v){ return nf1.format(v); };
+  o.scales.y.ticks.maxTicksLimit = 4;
+  var c = css("--line1");
+  draw(id, {type:"line", data:{labels:labels, datasets:[{data:data, borderColor:c, backgroundColor:c, borderWidth:2, pointRadius:4, pointHoverRadius:6, pointBorderColor:css("--card"), pointBorderWidth:2, tension:0, spanGaps:false}]}, options:o});
+}
+
+// ---------- Byggeklosser ----------
+function gearLegends(){
+  var h = GEARS.map(function(g){ return '<span><i style="background:' + css("--"+g.toLowerCase()) + '"></i>' + GNAME[g] + '</span>'; }).join("");
+  document.querySelectorAll(".gearleg").forEach(function(el){ el.innerHTML = h; });
+}
+function segs(){
+  document.querySelectorAll(".seg").forEach(function(el){
+    var k = el.dataset.key;
+    el.innerHTML = ["L","S"].map(function(f){ return '<button type="button" data-v="' + f + '" aria-pressed="' + (state[k] === f) + '">' + ART[f] + '</button>'; }).join("");
+  });
+}
+function tiles(elId, st, yearLabel){
+  document.getElementById(elId).innerHTML = ["L","S"].map(function(f){
+    var s = st[f], m = s.max;
+    return '<div class="box tile"><h3>' + ART[f] + '</h3><div class="kpis">' +
+      '<div class="kpi"><div class="v">' + nf0.format(s.n) + '</div><div class="l">fisk</div></div>' +
+      '<div class="kpi"><div class="v">' + nf0.format(s.kg) + '</div><div class="l">kg totalt</div></div>' +
+      '<div class="kpi"><div class="v">' + (s.n ? nf3.format(s.kg/s.n) : "–") + '</div><div class="l">kg snittvekt</div></div></div>' +
+      '<div class="big">' + (m ? 'Største: <b>' + nf1.format(m[2]) + ' kg</b> · ' + GNAME[m[4]] + ' · ' + esc(navn(m[3])) + ' · ' + dato(m[0]) : 'Ingen fangst registrert') + '</div></div>';
+  }).join("");
+}
+function gearPair(idAnt, idKg, st){
+  var labels = ["Laks","Sjøørret"], fs = ["L","S"];
+  stackChart(idAnt, labels, function(i,g){ return st[fs[i]].g[g].n; }, function(v){ return nf0.format(v); }, " fisk");
+  stackChart(idKg, labels, function(i,g){ return Math.round(st[fs[i]].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg");
+}
+
+// ---------- Seksjoner ----------
+function renderSesong(){
+  var y = state.sesong, st = stats(rowsOf(y));
+  document.getElementById("sesongTittel").textContent = "Sesongen " + y;
+  tiles("sesongTiles", st);
+  gearPair("cSesAnt", "cSesKg", st);
+  renderUtv();
+}
+function week(iso){
+  var d = new Date(Date.UTC(+iso.slice(0,4), +iso.slice(5,7)-1, +iso.slice(8,10)));
+  var day = d.getUTCDay() || 7; d.setUTCDate(d.getUTCDate() + 4 - day);
+  var y0 = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+  return Math.ceil(((d - y0) / 864e5 + 1) / 7);
+}
+function renderUtv(){
+  var y = state.sesong, f = state.utvArt;
+  var others = YEARS.filter(function(x){ return x !== y; });
+  var cnt = {}, avg = {}, wmin = 99, wmax = 0;
+  function add(obj, r){ var w = week(r[0]); obj[w] = (obj[w]||0) + 1; wmin = Math.min(wmin,w); wmax = Math.max(wmax,w); }
+  (DATA.years[y]||[]).forEach(function(r){ if (r[1] === f) add(cnt, r); });
+  others.forEach(function(oy){ (DATA.years[oy]||[]).forEach(function(r){ if (r[1] === f) add(avg, r); }); });
+  if (wmax === 0) { wmin = 20; wmax = 38; }
+  var labels = [], a = [], b = [], ca = 0, cb = 0, lastW = 0;
+  (DATA.years[y]||[]).forEach(function(r){ if (r[1] === f) lastW = Math.max(lastW, week(r[0])); });
+  var ongoing = String(new Date().getFullYear()) === y;
+  var nowW = week(new Date().toISOString().slice(0,10));
+  for (var w = wmin; w <= wmax; w++) {
+    labels.push("Uke " + w);
+    ca += cnt[w]||0; cb += (avg[w]||0) / Math.max(others.length,1);
+    a.push(ongoing && w > nowW ? null : ca); b.push(Math.round(cb*10)/10);
+  }
+  var c1 = css("--line1"), c2 = css("--avg");
+  var span = !others.length ? "" : (y === YEARS[YEARS.length-1] || y === YEARS[0]) ? others[0] + "–" + others[others.length-1] : "de andre årene";
+  document.getElementById("utvLeg").innerHTML = '<span><i class="ln" style="background:' + c1 + '"></i>' + y + '</span><span><i class="dash"></i>Snitt ' + span + '</span>';
+  var o = baseOpts();
+  o.scales.x.ticks.autoSkip = true; o.scales.x.ticks.maxTicksLimit = 8;
+  o.plugins.tooltip.callbacks = {label:function(c){ return " " + c.dataset.label + ": " + (c.datasetIndex ? nf1.format(c.raw) : nf0.format(c.raw)) + " fisk"; }};
+  draw("cUtv", {type:"line", data:{labels:labels, datasets:[
+    {label:y, data:a, borderColor:c1, backgroundColor:c1, borderWidth:2, pointRadius:0, pointHoverRadius:5, cubicInterpolationMode:"monotone"},
+    {label:"Snitt " + span, data:b, borderColor:c2, backgroundColor:c2, borderWidth:2, borderDash:[6,4], pointRadius:0, pointHoverRadius:5, cubicInterpolationMode:"monotone"}
+  ]}, options:o});
+}
+function renderAlle(){
+  document.getElementById("alleTittel").textContent = "Alle år summert (" + YEARS[0] + "–" + YEARS[YEARS.length-1] + ")";
+  var st = stats(ROWS);
+  tiles("alleTiles", st);
+  gearPair("cAlleAnt", "cAlleKg", st);
+}
+function renderAar(){
+  var f = state.aarArt, narrow = document.getElementById("cAarAnt").parentNode.clientWidth < 420;
+  var labels = YEARS.map(function(y){ return narrow ? "’" + y.slice(2) : y; });
+  var per = YEARS.map(function(y){ return stats(DATA.years[y])[f]; });
+  stackChart("cAarAnt", labels, function(i,g){ return per[i].g[g].n; }, function(v){ return nf0.format(v); }, " fisk");
+  stackChart("cAarKg", labels, function(i,g){ return Math.round(per[i].g[g].kg*10)/10; }, function(v){ return nf0.format(v); }, " kg");
+  lineChart("cAarMax", labels, per.map(function(s){ return s.max ? s.max[2] : null; }), function(v){ return nf1.format(v); },
+    function(i){ var m = per[i].max; return m ? " · " + GNAME[m[4]] + " · " + navn(m[3]) : ""; });
+  lineChart("cAarSnitt", labels, per.map(function(s){ return s.n ? Math.round(s.kg/s.n*1000)/1000 : null; }), function(v){ return nf1.format(v); });
+  charts.cAarSnitt.options.plugins.tooltip.callbacks.label = function(c){ return " " + nf3.format(c.raw) + " kg"; };
+  document.getElementById("aarTabTittel").textContent = ART[f] + " – tall per år";
+  var h = '<tr><th>År</th><th>Fisk</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>';
+  for (var i = YEARS.length - 1; i >= 0; i--) {
+    var s = per[i];
+    h += '<tr><td>' + YEARS[i] + '</td><td>' + nf0.format(s.n) + '</td><td>' + nf0.format(s.kg) + '</td><td>' + (s.n ? nf3.format(s.kg/s.n) : "–") + '</td><td>' + (s.max ? nf1.format(s.max[2]) : "–") + '</td></tr>';
+  }
+  var t = stats(ROWS)[f];
+  h += '<tr><th>Sum</th><th>' + nf0.format(t.n) + '</th><th>' + nf0.format(t.kg) + '</th><th>' + nf3.format(t.kg/t.n) + '</th><th>' + nf1.format(t.max[2]) + '</th></tr>';
+  document.getElementById("aarTab").innerHTML = h;
+}
+function renderTopp(){
+  var f = state.toppArt, y = state.toppAar, rows = rowsOf(y).filter(function(r){ return r[1] === f; });
+  var stor = rows.filter(function(r){ return !IGN[key(r)]; }).sort(function(a,b){ return b[2]-a[2] || (a[0] < b[0] ? -1 : 1); }).slice(0, state.stor);
+  var h = '<tr><th>#</th><th class="nm">Navn</th><th>Kg</th></tr>';
+  stor.forEach(function(r,i){ h += '<tr><td class="rk">' + (i+1) + '</td><td class="nm">' + esc(navn(r[3])) + '<small>' + dato(r[0]) + ' · ' + GNAME[r[4]] + '</small></td><td><b>' + nf1.format(r[2]) + '</b></td></tr>'; });
+  document.getElementById("toppStor").innerHTML = stor.length ? h : '<tr><td>Ingen fangst</td></tr>';
+  var by = {};
+  rows.forEach(function(r){ var nk = r[3].toUpperCase(); var p = by[nk] || (by[nk] = {n:0,kg:0,max:0}); p.n++; p.kg += r[2]; if (!IGN[key(r)]) p.max = Math.max(p.max, r[2]); });
+  var fl = Object.keys(by).map(function(k){ return [k, by[k]]; }).sort(function(a,b){ return b[1].n-a[1].n || b[1].kg-a[1].kg; }).slice(0, state.flest);
+  h = '<tr><th>#</th><th class="nm">Navn</th><th>Fisk</th><th>Kg</th></tr>';
+  fl.forEach(function(e,i){ h += '<tr><td class="rk">' + (i+1) + '</td><td class="nm">' + esc(navn(e[0])) + '<small>Største ' + nf1.format(e[1].max) + ' kg</small></td><td><b>' + e[1].n + '</b></td><td>' + nf0.format(e[1].kg) + '</td></tr>'; });
+  document.getElementById("toppFlest").innerHTML = fl.length ? h : '<tr><td>Ingen fangst</td></tr>';
+  document.querySelectorAll(".more").forEach(function(b){ b.textContent = state[b.dataset.list] > 10 ? "Vis 10" : "Vis 25"; });
+}
+
+function renderAll(){ gearLegends(); renderSesong(); renderAlle(); renderAar(); renderTopp(); }
+
+// ---------- Hendelser ----------
+document.addEventListener("click", function(e){
+  var b = e.target.closest(".seg button");
+  if (b) {
+    var k = b.parentNode.dataset.key; state[k] = b.dataset.v; segs();
+    if (k === "utvArt") renderUtv(); else if (k === "aarArt") renderAar(); else renderTopp();
+    return;
+  }
+  var m = e.target.closest(".more");
+  if (m) { state[m.dataset.list] = state[m.dataset.list] > 10 ? 10 : 25; renderTopp(); return; }
+  // En utvidet toppliste lukkes igjen når du trykker i den
+  var t = e.target.closest("#toppStor, #toppFlest");
+  if (t) { var l = t.id === "toppStor" ? "stor" : "flest"; if (state[l] > 10) { state[l] = 10; renderTopp(); } }
+});
+document.getElementById("sesongAar").addEventListener("change", function(e){ state.sesong = e.target.value; renderSesong(); });
+document.getElementById("toppAar").addEventListener("change", function(e){ state.toppAar = e.target.value; renderTopp(); });
+var lastW = window.innerWidth, rt;
+window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(function(){ if (Math.abs(window.innerWidth - lastW) > 40) { lastW = window.innerWidth; renderAar(); } }, 200); });
+if (window.matchMedia) { var mq = window.matchMedia("(prefers-color-scheme: dark)"); (mq.addEventListener ? mq.addEventListener.bind(mq, "change") : mq.addListener.bind(mq))(renderAll); }
+
+// ---------- Start ----------
+fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(d){
+  DATA = d;
+  YEARS = Object.keys(d.years).filter(function(y){ return d.years[y].length; }).sort();
+  YEARS.forEach(function(y){ ROWS = ROWS.concat(d.years[y]); });
+  (d.ikkeStorst || []).forEach(function(r){ IGN[key(r)] = 1; });
+  state.sesong = YEARS[YEARS.length-1];
+  var opts = YEARS.slice().reverse().map(function(y){ return '<option value="' + y + '">Sesong ' + y + '</option>'; }).join("");
+  document.getElementById("sesongAar").innerHTML = opts;
+  document.getElementById("toppAar").innerHTML = '<option value="alle">Alle år</option>' + YEARS.slice().reverse().map(function(y){ return '<option value="' + y + '">' + y + '</option>'; }).join("");
+  var web = d.web || {}, wy = Object.keys(web).sort().pop();
+  var chk = d.checked ? new Date(d.checked) : null;
+  document.getElementById("lead").textContent = nf0.format(ROWS.length) + " fangster " + YEARS[0] + "–" + YEARS[YEARS.length-1] +
+    (wy ? " · siste registrerte fangst " + dato(web[wy].sist) : "") + (chk ? " · sjekket " + chk.toLocaleDateString("nb-NO",{day:"numeric",month:"short"}) : "");
+  var ign = (d.ikkeStorst || []).map(function(r){ return nf1.format(r[2]) + " kg " + ART[r[1]].toLowerCase() + " " + dato(r[0]); }).join(", ");
+  document.getElementById("note").innerHTML =
+    '<p>Kilder: 2013–2025 fra Excel-arket «Lierelva – Laks & Sjøørret», og fra 2026 hentes fangstlisten fra <a href="https://www.lierelva.com/dataHeleSng.php">lierelva.com</a> hver morgen kl. 07:41 i mai–oktober.</p>' +
+    (ign ? '<p>Registreringen ' + ign + ' teller med i antall og vekt, men ikke som største fisk (sannsynlig feilregistrering, som i Excel-arket).</p>' : '') +
+    '<p>Ukene i «Utvikling gjennom sesongen» er ISO-uker. Snittet er gjennomsnittet av de andre sesongene.</p>';
+  segs(); renderAll();
+}).catch(function(e){
+  document.getElementById("lead").innerHTML = '<span class="err">Klarte ikke å laste fangstdataene (' + esc(e.message) + ').</span>';
+});
+})();
+</script>
+</body>
+</html>
