@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 URL = "https://www.lierelva.com/dataHeleSng.php"
 FIRST_WEB_YEAR = 2026
 DATA = pathlib.Path(__file__).with_name("data.json")
+MAX_KG = 15.9  # høyeste valg i vektlista på lierelva.com
 GEAR = {"MARK", "SPINNER", "FLUE", "SLUK"}
 
 
@@ -72,6 +73,19 @@ def main():
             changed = True
         data.setdefault("web", {})[str(y)] = {"rader": len(yr), "sist": yr[-1][0]}
         print(f"{y}: {len(yr)} fangster, siste {yr[-1][0]}")
+    # 15,9 kg er det høyeste valget i vektlista på lierelva.com. Slike registreringer er trolig falske
+    # (noen har valgt maks) og merkes som ugyldige, så de ikke telles i statistikken.
+    ugyldig = data.setdefault("ugyldig", [])
+    kjent = {tuple(u[:4]) for u in ugyldig}
+    for y, yr in by_year.items():
+        if y < FIRST_WEB_YEAR:
+            continue
+        for r in yr:
+            if r[2] >= MAX_KG and tuple(r[:4]) not in kjent:
+                ugyldig.append(r[:4] + ["Høyeste valg i vektlista (15,9 kg) – trolig falsk registrering"])
+                kjent.add(tuple(r[:4]))
+                changed = True
+                print("Merket som ugyldig:", r)
     data["checked"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes")
     if changed:
         data["updated"] = data["checked"]
