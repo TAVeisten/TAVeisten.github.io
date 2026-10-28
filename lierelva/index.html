@@ -33,6 +33,22 @@ h1{font-size:1.75rem;line-height:1.15;margin:4px 0 4px;letter-spacing:-.01em}
 .lead{color:var(--muted);font-size:.9rem;margin:0 0 10px}
 .info{font-size:.92rem;margin:2px 0 6px;color:var(--ink);max-width:62em}
 .info a{color:var(--accent)}
+/* Grønt toppfelt i samme farge som Lierelva-kortet på Mine sider */
+header.top{background:#1F4433;border-top:4px solid #5DBB86;color:#fff;margin:-14px -16px 12px;padding:16px 16px 14px}
+header.top h1{color:#fff;margin:0 0 6px}
+header.top .info{color:#DCEBE2;margin:0 0 8px}
+header.top .info a{color:#A8E0BF}
+header.top .lead{color:#C3DCCD;margin:0}
+header.top .lead b{color:#fff}
+@media (prefers-color-scheme: dark){header.top{background:#1B3A2C;border-top-color:#4A9E70}}
+@media (min-width:760px){header.top{margin:-22px -28px 14px;padding:20px 28px 16px;border-radius:17px 17px 0 0}}
+@media (max-width:520px){header.top{margin:-10px -12px 12px;padding:14px 12px 12px}}
+/* Kompakt tabell for laks og sjøørret */
+.sumtab td,.sumtab th{padding:7px 6px}
+.sumtab td:first-child{font-weight:700}
+.sumtab tr.tot td{font-weight:700;border-top:2px solid var(--line);border-bottom:0}
+.bigl{font-size:.82rem;color:var(--muted);margin-top:8px;display:grid;gap:3px}
+.bigl b{color:var(--ink)}
 h2{font-size:1.3rem;margin:34px 0 4px;letter-spacing:-.01em}
 h3{font-size:1rem;margin:0 0 6px}
 .sub{color:var(--muted);font-size:.85rem;margin:0 0 12px}
@@ -54,7 +70,8 @@ select{font:inherit;font-size:.9rem;font-weight:600;color:var(--ink);background:
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .legend i.ln{height:3px;border-radius:2px;width:16px;vertical-align:3px}
 .legend i.dash{height:0;border-top:2px dashed var(--avg);width:16px;border-radius:0;vertical-align:3px}
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.tiles{margin-bottom:14px}
+.tiles .box{max-width:620px}
 @media (max-width:700px){.tiles{grid-template-columns:1fr}}
 .tile h3{display:flex;align-items:center;gap:6px}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
@@ -121,9 +138,11 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
 </head>
 <body>
 <div class="sheet">
+  <header class="top">
   <h1>🐟 Lierelva – Laks & sjøørret</h1>
   <p class="info">Dataene er frivillige innmeldinger på <a href="https://www.lierelva.com/dataHeleSng.php">lierelva.com</a> og utgjør bare ca. 1/3 av alle fangster i elva. Trendene fra år til år er likevel interessante, gitt at andelen som meldes inn er mer eller mindre stabil.</p>
   <p class="lead" id="lead">Laster fangstdata …</p>
+  </header>
   <section class="news" id="news" hidden role="button" tabindex="0" aria-expanded="false" title="Trykk for å se hele">
     <span class="nl">Nytt siden sist <span id="newsWhen"></span></span><div class="nt" id="newsBody"></div><div class="ns" id="newsList"></div><span class="nm" id="newsMore" hidden>Vis alt</span>
   </section>
@@ -150,7 +169,7 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
 
   <section id="alle">
     <h2 id="alleTittel">Alle år summert</h2>
-    <p class="sub">Samme oversikt som «Sum»-arket, med alle sesonger lagt sammen.</p>
+    <p class="sub" id="alleSub">Alle sesonger lagt sammen.</p>
     <div class="tiles" id="alleTiles"></div>
     <div class="grid2">
       <div class="box"><h3>Antall fisk per redskap</h3><div class="legend gearleg"></div><div class="chart"><canvas id="cAlleAnt"></canvas></div></div>
@@ -225,6 +244,7 @@ var GNAME = {MARK:"Mark",SPINNER:"Spinner",FLUE:"Flue",SLUK:"Sluk"};
 var ART = {L:"Laks",S:"Sjøørret"};
 var nf1 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:1,maximumFractionDigits:1});
 var nf3 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:3,maximumFractionDigits:3});
+var nf2 = new Intl.NumberFormat("nb-NO",{minimumFractionDigits:2,maximumFractionDigits:2});
 var nf0 = new Intl.NumberFormat("nb-NO",{maximumFractionDigits:0});
 var MND = ["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des"];
 // Berøringsskjerm: vi styrer tabellen (tooltip) selv, så ett trykk viser den og ett nytt trykk – i grafen eller utenfor – skjuler den
@@ -350,15 +370,15 @@ function segs(){
     el.innerHTML = ["L","S"].map(function(f){ return '<button type="button" data-v="' + f + '" aria-pressed="' + (state[k] === f) + '">' + ART[f] + '</button>'; }).join("");
   });
 }
-function tiles(elId, st, yearLabel){
-  document.getElementById(elId).innerHTML = ["L","S"].map(function(f){
-    var s = st[f], m = s.max;
-    return '<div class="box tile"><h3>' + ART[f] + '</h3><div class="kpis">' +
-      '<div class="kpi"><div class="v">' + nf0.format(s.n) + '</div><div class="l">fisk</div></div>' +
-      '<div class="kpi"><div class="v">' + nf0.format(s.kg) + '</div><div class="l">kg totalt</div></div>' +
-      '<div class="kpi"><div class="v">' + (s.n ? nf3.format(s.kg/s.n) : "–") + '</div><div class="l">kg snittvekt</div></div></div>' +
-      '<div class="big">' + (m ? 'Største: <b>' + nf1.format(m[2]) + ' kg</b> · ' + GNAME[m[4]] + ' · ' + esc(navn(m[3])) + ' · ' + dato(m[0]) : 'Ingen fangst registrert') + '</div></div>';
-  }).join("");
+function tiles(elId, st){
+  var L = st.L, S = st.S, n = L.n + S.n, kg = L.kg + S.kg;
+  function snitt(a,b){ return b ? nf2.format(a/b) : "–"; }
+  function row(lbl, s){ return '<tr><td>' + lbl + '</td><td>' + nf0.format(s.n) + '</td><td>' + nf0.format(s.kg) + '</td><td>' + snitt(s.kg, s.n) + '</td><td>' + (s.max ? nf1.format(s.max[2]) : "–") + '</td></tr>'; }
+  function big(lbl, m){ return m ? '<span>Største ' + lbl + ': <b>' + nf1.format(m[2]) + ' kg</b> · ' + GNAME[m[4]] + ' · ' + esc(navn(m[3])) + ' · ' + dato(m[0]) + '</span>' : ''; }
+  document.getElementById(elId).innerHTML = '<div class="box"><table class="sumtab"><tr><th></th><th>Fisk</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>' +
+    row("Laks", L) + row("Sjøørret", S) +
+    '<tr class="tot"><td>Totalt</td><td>' + nf0.format(n) + '</td><td>' + nf0.format(kg) + '</td><td>' + snitt(kg, n) + '</td><td></td></tr></table>' +
+    '<div class="bigl">' + big("laks", L.max) + big("sjøørret", S.max) + '</div></div>';
 }
 function gearPair(idAnt, idKg, st){
   var labels = ["Laks","Sjøørret"], fs = ["L","S"];
@@ -412,6 +432,8 @@ function renderAlle(){
   document.getElementById("alleTittel").textContent = "Alle år summert (" + YEARS[0] + "–" + YEARS[YEARS.length-1] + ")";
   var st = stats(ROWS);
   tiles("alleTiles", st);
+  var tkg = 0; ROWS.forEach(function(r){ tkg += r[2]; });
+  document.getElementById("alleSub").innerHTML = "<b>" + nf0.format(ROWS.length) + " fisk · " + nf0.format(tkg) + " kg</b> · " + YEARS[0] + "–" + YEARS[YEARS.length-1] + ", alle sesonger lagt sammen.";
   gearPair("cAlleAnt", "cAlleKg", st);
 }
 function renderAar(){
@@ -546,8 +568,7 @@ fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Er
   function stamp(dt){ var now = new Date(), t = dt.toLocaleTimeString("nb-NO",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"});
     return dt.toDateString() === now.toDateString() ? "i dag kl. " + t : dt.toLocaleDateString("nb-NO",{day:"numeric",month:"short",year:dt.getFullYear() === now.getFullYear() ? undefined : "numeric",timeZone:"Europe/Oslo"}) + " kl. " + t; }
   var mnd = new Date().getMonth() + 1, iSesong = mnd >= 5 && mnd <= 10;
-  document.getElementById("lead").innerHTML = (chk ? "<b>Oppdatert " + stamp(chk) + "</b>" + (iSesong ? "" : " · neste henting i mai") + "<br>" : "") +
-    nf0.format(ROWS.length) + " fangster " + YEARS[0] + "–" + YEARS[YEARS.length-1] + (wy ? " · siste registrerte fangst " + dato(web[wy].sist) : "");
+  document.getElementById("lead").innerHTML = (chk ? "<b>Oppdatert " + stamp(chk) + "</b>" : "") + (wy ? " · siste fangst " + dato(web[wy].sist) : "") + (iSesong ? "" : " · neste henting i mai");
   // Nytt siden sist
   var nyt = d.nytt;
   if (nyt && nyt.punkter && nyt.punkter.length) {
