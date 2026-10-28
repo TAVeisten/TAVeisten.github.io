@@ -87,6 +87,12 @@ select{font:inherit;font-size:.9rem;font-weight:600;color:var(--ink);background:
 .legend i.ln{height:3px;border-radius:2px;width:16px;vertical-align:3px}
 .legend i.dash{height:0;border-top:2px dashed var(--avg);width:16px;border-radius:0;vertical-align:3px}
 .tiles{margin-bottom:14px}
+/* År for år: det knappen styrer, samlet i én ramme */
+.artgrp{border:2px solid var(--chip);border-radius:14px;padding:10px;margin:0 0 4px}
+.artgrp>.controls{margin-bottom:10px}
+.grpnote{font-size:.8rem;color:var(--muted)}
+.grph{font-size:1.05rem;margin:22px 0 8px}
+@media (max-width:520px){.artgrp{padding:6px;margin-left:-4px;margin-right:-4px}}
 .tiles .box{max-width:620px}
 @media (max-width:700px){.tiles{grid-template-columns:1fr}}
 .tile h3{display:flex;align-items:center;gap:6px}
@@ -194,9 +200,14 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
 
   <section id="aar">
     <h2>År for år</h2>
-    <p class="sub">Antall og vekt per redskap for valgt art, og største fisk og snittvekt for laks og sjøørret sammen.</p>
-    <div class="controls"><div class="seg" data-key="aarArt"></div></div>
+    <p class="sub">Først tabell og grafer for valgt art, deretter største fisk og snittvekt for laks og sjøørret sammen.</p>
+    <div class="artgrp">
+      <div class="controls"><div class="seg" data-key="aarArt"></div><span class="grpnote">Velg art for tabellen og de to grafene under</span></div>
     <div class="box">
+      <h3 id="aarTabTittel">Tabell</h3>
+      <table id="aarTab"></table>
+    </div>
+    <div class="box mt">
       <h3 id="aarAntT">Antall fisk per år</h3><div class="legend gearleg"></div>
       <div class="chart combo"><canvas id="cAarAnt"></canvas></div>
     </div>
@@ -204,17 +215,15 @@ td.nm a.pn{color:inherit;text-decoration:none}td.nm a.pn:hover{text-decoration:u
       <h3 id="aarKgT">Oppfisket vekt per år (kg)</h3><div class="legend gearleg"></div>
       <div class="chart combo"><canvas id="cAarKg"></canvas></div>
     </div>
-    <div class="box mt">
-      <h3>Største fisk per år (kg) – laks og sjøørret</h3><div class="legend artleg"></div>
+    </div>
+    <h3 class="grph">Laks og sjøørret sammen</h3>
+    <div class="box">
+      <h3>Største fisk per år (kg)</h3><div class="legend artleg"></div>
       <div class="chart lines"><canvas id="cAarMax"></canvas></div>
     </div>
     <div class="box mt">
-      <h3>Snittvekt per år (kg) – laks og sjøørret</h3><div class="legend artleg"></div>
+      <h3>Snittvekt per år (kg)</h3><div class="legend artleg"></div>
       <div class="chart lines"><canvas id="cAarSnitt"></canvas></div>
-    </div>
-    <div class="box mt">
-      <h3 id="aarTabTittel">Tabell</h3>
-      <table id="aarTab"></table>
     </div>
   </section>
 
@@ -598,7 +607,7 @@ function renderAar(){
     data:both.map(function(s){ return s[k].n ? Math.round(s[k].kg / s[k].n * 1000) / 1000 : null; }), fmt:function(v){ return nf2.format(v); },
     tip:function(i){ var s = both[i][k]; return s.n ? nf3.format(s.kg / s.n) + " kg" : "–"; }}; }
   twoLines("cAarSnitt", labels, [snSet("L", "--line1", false, "above"), snSet("S", "--sjo", false, "below")], "Snittvekt");
-  document.getElementById("aarTabTittel").textContent = ART[f] + " – tall per år";
+  document.getElementById("aarTabTittel").textContent = ART[f] + " per år";
   var h = '<tr><th>År</th><th>Antall</th><th>Kg</th><th>Snitt</th><th>Største</th></tr>';
   for (var i = YEARS.length - 1; i >= 0; i--) {
     var s = per[i];
