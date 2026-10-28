@@ -657,10 +657,10 @@ function renderTopp(){
   rows.forEach(function(r){ var nk = r[3].toUpperCase(); var p = by[nk] || (by[nk] = {n:0,kg:0,max:0,L:0,S:0}); p.n++; p[r[1]]++; p.kg += r[2]; if (!IGN[key(r)] && r[2] > p.max) { p.max = r[2]; p.maxArt = r[1]; } });
   var fl = Object.keys(by).map(function(k){ return [k, by[k]]; }).sort(function(a,b){ return b[1].n-a[1].n || b[1].kg-a[1].kg; }).map(function(e,i){ e.push(i+1); return e; });
   if (qw.length) fl = fl.filter(function(e){ return treff(e[0]); });
-  sortBy(fl, state.sortFlest, {r:function(e){ return e[2]; }, n:function(e){ return e[0]; }, a:function(e){ return e[1].n; }, k:function(e){ return e[1].kg; }});
+  sortBy(fl, state.sortFlest, {r:function(e){ return e[2]; }, n:function(e){ return e[0]; }, a:function(e){ return e[1].n; }, k:function(e){ return e[1].kg; }, s:function(e){ return e[1].kg / e[1].n; }});
   var nFlest = fl.length; fl = fl.slice(0, state.flest);
-  h = '<tr>' + th("sortFlest","r","#") + th("sortFlest","n","Navn","nm") + th("sortFlest","a","Antall") + th("sortFlest","k","Kg") + '</tr>';
-  fl.forEach(function(e){ h += '<tr><td class="rk">' + e[2] + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(e[0]) + '">' + esc(navn(e[0])) + '</a><small>' + (f === "B" ? e[1].L + ' laks · ' + e[1].S + ' sjøørret · <span style="white-space:nowrap">største ' : '<span style="white-space:nowrap">Største ') + nf1.format(e[1].max) + ' kg' + (f === "B" && e[1].maxArt ? ' (' + ART[e[1].maxArt].toLowerCase() + ')' : '') + '</span></small></td><td><b>' + e[1].n + '</b></td><td>' + nf0.format(e[1].kg) + '</td></tr>'; });
+  h = '<tr>' + th("sortFlest","r","#") + th("sortFlest","n","Navn","nm") + th("sortFlest","a","Antall") + th("sortFlest","k","Kg") + th("sortFlest","s","Snitt") + '</tr>';
+  fl.forEach(function(e){ h += '<tr><td class="rk">' + e[2] + '</td><td class="nm"><a href="#fangster" class="pn" data-n="' + esc(e[0]) + '">' + esc(navn(e[0])) + '</a><small>' + (f === "B" ? e[1].L + ' laks · ' + e[1].S + ' sjøørret · <span style="white-space:nowrap">største ' : '<span style="white-space:nowrap">Største ') + nf1.format(e[1].max) + ' kg' + (f === "B" && e[1].maxArt ? ' (' + ART[e[1].maxArt].toLowerCase() + ')' : '') + '</span></small></td><td><b>' + e[1].n + '</b></td><td>' + nf0.format(e[1].kg) + '</td><td>' + nf1.format(e[1].kg / e[1].n) + '</td></tr>'; });
   document.getElementById("toppFlest").innerHTML = fl.length ? h : '<tr><td>' + (qw.length ? 'Ingen treff' : 'Ingen fangst') + '</td></tr>';
   // Antall treff vises bare når det søkes
   [["hitStor", nStor, "fisk"], ["hitFlest", nFlest, nFlest === 1 ? "fisker" : "fiskere"]].forEach(function(a){
