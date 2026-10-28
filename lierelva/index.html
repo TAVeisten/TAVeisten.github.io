@@ -388,23 +388,31 @@ function lineLabels(ch, opts){
     var below = ds.pos === "below";
     ds.data.forEach(function(v, i){
       var pt = meta.data[i]; if (v == null || !pt) return;
-      ctx.fillStyle = ds.borderColor; ctx.font = "700 " + fs + "px " + css("--body"); ctx.textBaseline = below ? "top" : "bottom";
-      var tight = room < 34 && i % 2 === 1;   // smal skjerm: annenhver verdi litt lenger fra punktet
-      var y = below ? pt.y + 8 + (tight ? fs + 3 : 0) : pt.y - 8 - (tight ? fs + 3 : 0), s = opts.fmt[di](v);
+      // Tallet rett ved punktet: laks over, sjøørret under
+      var s = opts.fmt[di](v), f2 = fs;
+      ctx.font = "700 " + f2 + "px " + css("--body");
+      while (f2 > 8 && ctx.measureText(s).width > room - 3) { f2 -= 0.5; ctx.font = "700 " + f2 + "px " + css("--body"); }   // krymp litt så nabotallene ikke går i hverandre
+      ctx.fillStyle = ds.borderColor; ctx.textBaseline = below ? "top" : "bottom";
+      var y = below ? pt.y + 7 : pt.y - 7;
       ctx.strokeText(s, pt.x, y); ctx.fillText(s, pt.x, y);
-      if (ds.sub && ds.sub[i] && room >= 44) { ctx.fillStyle = css("--muted"); ctx.font = "500 " + (fs - 1) + "px " + css("--body");
-        var y2 = below ? y + fs + 2 : y - fs - 2; ctx.strokeText(ds.sub[i], pt.x, y2); ctx.fillText(ds.sub[i], pt.x, y2); }
+      // Redskap: helt navn når det er plass, ellers forkortelse (M, Sp, F, Sl)
+      var sub = ds.sub && ds.sub[i]; if (!sub) return;
+      if (room < 44) sub = {Mark:"M", Spinner:"Sp", Flue:"F", Sluk:"Sl"}[sub] || sub;
+      ctx.fillStyle = css("--muted"); ctx.font = "600 " + (fs - 1) + "px " + css("--body");
+      var y2 = below ? y + fs + 1 : y - fs - 1; ctx.strokeText(sub, pt.x, y2); ctx.fillText(sub, pt.x, y2);
     });
   });
   ctx.restore();
 }
 function twoLines(id, labels, sets, title){
   var o = baseOpts();
-  o.layout.padding = {top:30, bottom:4, left:4, right:8};
+  o.layout.padding = {top:34, bottom:4, left:4, right:8};
   var all = []; sets.forEach(function(s){ s.data.forEach(function(v){ if (v != null) all.push(v); }); });
   var hi = Math.max.apply(null, all);
-  o.scales.y.max = Math.ceil(hi * 1.15); o.scales.y.min = 0;
-  o.scales.y.ticks.callback = function(v){ return nf1.format(v); }; o.scales.y.ticks.maxTicksLimit = 5;
+  var lo = Math.min.apply(null, all);
+  o.scales.y.max = Math.ceil(hi * 1.15); o.scales.y.min = lo < hi * 0.25 ? -Math.ceil(hi * 0.12) : 0;
+  o.scales.y.ticks.callback = function(v){ return v < 0 ? "" : nf1.format(v); };
+  o.scales.y.ticks.maxTicksLimit = 5;
   o.plugins.valueLabels = {mode:"lines", fmt:sets.map(function(s){ return s.fmt; })};
   o.plugins.tooltip.callbacks = {
     title:function(items){ return items.length ? title + " " + YEARS[items[0].dataIndex] : ""; },
@@ -495,7 +503,7 @@ function gearLegends(){
   var h = GEARS.map(function(g){ return '<span><i style="background:' + css("--"+g.toLowerCase()) + '"></i>' + GNAME[g] + '</span>'; }).join("");
   document.querySelectorAll(".gearleg, .gearleg-in").forEach(function(el){ el.innerHTML = h; });
   var a = '<span><i class="ln" style="background:' + css("--line1") + '"></i>Laks</span><span><i class="ln" style="background:' + css("--sjo") + '"></i>Sjøørret</span>';
-  document.querySelectorAll(".artleg").forEach(function(el, i){ el.innerHTML = a; });
+  document.querySelectorAll(".artleg").forEach(function(el, i){ el.innerHTML = a + (i === 0 ? '<span>M = mark · Sp = spinner · F = flue · Sl = sluk</span>' : ''); });
 }
 function segs(){
   document.querySelectorAll(".seg").forEach(function(el){
