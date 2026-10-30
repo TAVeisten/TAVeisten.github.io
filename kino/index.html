@@ -465,7 +465,7 @@ function render(){
     }).join("");
     const iv = f.imdb && f.imdb.rating != null ? Number(f.imdb.rating).toFixed(1).replace(".",",") : null, vt = f.imdb && f.imdb.votes != null ? f.imdb.votes : null, weak = vt != null && vt < 100 ? (vt < 10 ? "weak weak2" : "weak") : "";
     return `<div class="row">
-      <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div></div>
+      <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
       ${f.plot ? `<p class="plot" data-full="${esc(f.plot)}" data-lines="3"><span class="tx">${esc(f.plot)}</span>${MORE}</p>` : ""}
       <div class="shows">${stubs}</div>
@@ -512,8 +512,9 @@ function when(iso){
   return (diff === 0 ? "i dag" : diff === 1 ? "i går" : d.toLocaleDateString("nb-NO",{day:"numeric",month:"numeric",timeZone:"Europe/Oslo"})) + " kl. " + t;
 }
 function dshort(iso){ const [a,b] = dayLabel(iso, osloNow().date); return a.toLowerCase() + (a === "I dag" || a === "I morgen" ? "" : " " + b); }
+// Merket under tittelen vises bare dagene før siste visning; på selve dagen står «Siste visning» i tidsboksen
 function endsNote(f){
-  if(!f.endsSoon || f.endsSoon < osloNow().date) return "";
+  if(!f.endsSoon || f.endsSoon < osloNow().date || f.endsSoon <= day) return "";
   return `<span class="ends" title="Kinoen har ikke flere visninger av filmen etter dette">Siste visning ${esc(dshort(f.endsSoon))}</span>`;
 }
 function renderNews(){
