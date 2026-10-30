@@ -237,6 +237,11 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .thead button:not([aria-sort])::after{content:" ⇅";font-size:.75em;color:var(--faint);font-weight:400}
 .thead button[aria-sort]::after{color:var(--chip-ink)}
 .thead .h-imdb button::after{display:inline;margin:0}
+/* Tydeligere sorteringspiler */
+.thead button:not([aria-sort])::after{font-size:.9em;color:var(--muted);font-weight:700}
+.thead .h-rt button::after{font-size:.8rem}
+/* Liggende mobil: større kolonnenavn */
+@media (min-width:721px) and (max-height:500px){.thead>span:not(.h-rt):not(.h-imdb){font-size:1rem}}
 </style>
 <script>try{if(window.self===window.top)document.documentElement.classList.add("top")}catch(e){}</script>
 </head>
