@@ -226,14 +226,13 @@ input.ctl{-webkit-appearance:none;appearance:none}
 /* Overskriftsraden: egen ramme som filmkortene; alle kolonnenavn på samme linje nederst,
    «Rotten Tomatoes» som felles overskrift over Kritikere og Publikum */
 .thead{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;align-items:stretch;margin-bottom:8px}
-.thead>span{display:flex;flex-direction:column;justify-content:flex-end;padding:8px 0 calc(8px + .62rem * 1.1)}
-.thead .h-imdb{border-radius:0;padding:8px 9px calc(8px + .62rem * 1.1) 2px}
-.thead .h-rt{display:grid;align-content:end;border-radius:0;padding:8px 3px 8px 10px}
+.thead>span{display:flex;flex-direction:column;justify-content:flex-end;padding:5px 0 calc(5px + .62rem * 1.1)}
+.thead .h-imdb{border-radius:0;padding:5px 9px calc(5px + .62rem * 1.1) 2px}
+.thead .h-rt{display:grid;align-content:end;border-radius:0;padding:5px 3px 5px 10px}
+.thead .h-rt .rtname{white-space:nowrap;overflow:visible}
 .thead .h-imdb button[aria-sort]::after{display:inline;margin:0}
 .thead .h-rt button{position:relative}
 .thead .h-rt button[aria-sort]::after{position:absolute;top:0;right:-2px;margin:0}
-.srcnote{color:var(--faint);font-size:.72rem;margin:-4px 2px 10px;text-align:right}
-@media (max-width:720px){.srcnote{text-align:left;margin-top:0}}
 </style>
 <script>try{if(window.self===window.top)document.documentElement.classList.add("top")}catch(e){}</script>
 </head>
@@ -309,7 +308,6 @@ input.ctl{-webkit-appearance:none;appearance:none}
       <button type="button" data-sort="crit"><span class="hl">Kritikere</span><small>Tomatometer</small></button>
       <button type="button" data-sort="aud"><span class="hl">Publikum</span><small>Popcornmeter</small></button></span>
   </div>
-  <p class="srcnote">IMDb og Rotten Tomatoes er hentet med originaltittelen.</p>
   <div class="list" id="list"></div>
 
   <div class="foot">
@@ -426,7 +424,7 @@ function render(){
     const c = typeof x === "number" ? x - y : String(x).localeCompare(String(y), "nb");
     return (c * dir) || a.first.localeCompare(b.first) || a.f.title.localeCompare(b.f.title,"nb"); });
 
-  $("count").textContent = rows.length ? `${rows.length} ${rows.length===1?"film":"filmer"}` : "";
+  $("count").textContent = rows.length ? `${rows.length} ${rows.length===1?"film":"filmer"} · IMDb og Rotten Tomatoes er hentet med originaltittelen` : "";
   if(!rows.length){
     $("list").innerHTML = `<div class="empty">Ingen filmer passer med søket og filtrene for denne dagen.<br><button type="button" id="reset">Nullstill søk og filtre</button></div>`;
     $("reset").onclick = () => { $("q").value=""; $("genre").value=""; $("age").value="99"; $("when").value=""; $("hideSpecial").checked=false; $("scored").checked=false; saveCtl(); render(); };
@@ -459,7 +457,8 @@ function render(){
 }
 
 // Merk beskrivelser som er kuttet etter fire linjer, så «…» kan trykkes på
-function fitRtHead(){ document.querySelectorAll(".h-rt button").forEach(b => { const l = b.querySelector(".hl"), sm = b.querySelector("small"); if(!l || !sm) return; sm.style.fontSize = ""; let f = parseFloat(getComputedStyle(sm).fontSize); while(f > 6 && sm.scrollWidth > l.offsetWidth + .5){ f -= .25; sm.style.fontSize = f + "px"; } }); }
+function fitRtHead(){ const rn = document.querySelector(".h-rt .rtname"); if(rn && rn.offsetParent){ rn.style.fontSize = ""; let f = parseFloat(getComputedStyle(rn).fontSize); while(f > 8 && rn.scrollWidth > rn.clientWidth + .5){ f -= .25; rn.style.fontSize = f + "px"; } }
+  document.querySelectorAll(".h-rt button").forEach(b => { const l = b.querySelector(".hl"), sm = b.querySelector("small"); if(!l || !sm) return; sm.style.fontSize = ""; let f = parseFloat(getComputedStyle(sm).fontSize); while(f > 6 && sm.scrollWidth > l.offsetWidth + .5){ f -= .25; sm.style.fontSize = f + "px"; } }); }
 addEventListener("resize", fitRtHead); document.fonts && document.fonts.ready.then(fitRtHead); setTimeout(fitRtHead, 0);
 
 const MORE = `<span class="tmore" role="button" tabindex="0" aria-expanded="false">Vis alt</span>`;
