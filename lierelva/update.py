@@ -137,9 +137,9 @@ def main():
             pkt.append(f"{len(fjernet)} {'registrering' if len(fjernet) == 1 else 'registreringer'} fjernet fra lierelva.com.")
         for r in nye:
             pkt.append(f"Mulig falsk registrering: {kg(r[2])} kg {art(r)} {r[0][8:10]}.{r[0][5:7]}.{r[0][:4]} ({r[3].title()}). 15,9 kg er høyeste valg i vektlista – telles med inntil du sier fra.")
-        data["nytt"] = {"tid": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes"),
+        data["nytt"] = {"tid": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
                         "punkter": pkt, "nye": sorted(lagt_til, key=lambda r: (r[0], r[2]), reverse=True)[:50]}
-    data["checked"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes")
+    data["checked"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     if changed:
         data["updated"] = data["checked"]
     DATA.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

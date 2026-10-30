@@ -387,7 +387,7 @@ def find_changes(old_data, films, today, now):
     old_films = {f["id"]: f for f in old_data.get("films", [])}
     prev = old_data.get("changes") or {}
     if not old_films:
-        return {"at": now.isoformat(timespec="minutes"), "since": None, "first": True,
+        return {"at": now.isoformat(timespec="seconds"), "since": None, "first": True,
                 "newFilms": [], "newShows": [], "scores": [], "gone": []}
     t0 = today.isoformat()
     new_films, new_shows, scores, gone = [], [], [], []
@@ -420,12 +420,12 @@ def find_changes(old_data, films, today, now):
             gone.append({"title": o["title"]})                 # tatt av før siste planlagte visning
         else:
             ended.append({"title": o["title"], "last": last})  # gikk sin siste visning
-    ch = {"at": now.isoformat(timespec="minutes"), "since": old_data.get("updated"),
+    ch = {"at": now.isoformat(timespec="seconds"), "since": old_data.get("updated"),
           "newFilms": new_films, "newShows": new_shows, "scores": scores, "gone": gone, "ended": ended}
     keys = ("newFilms", "newShows", "scores", "gone", "ended")
     if not any(ch[k] for k in keys) and prev and not prev.get("first") and any(prev.get(k) for k in keys):
         prev = dict(prev)
-        prev["quietSince"] = now.isoformat(timespec="minutes")   # ingen endringer nå; viser forrige
+        prev["quietSince"] = now.isoformat(timespec="seconds")   # ingen endringer nå; viser forrige
         return prev
     return ch
 
@@ -505,7 +505,7 @@ def main():
         old_data = {}
     changes = find_changes(old_data, films, today, now)
     data = {
-        "updated": now.isoformat(timespec="minutes"),
+        "updated": now.isoformat(timespec="seconds"),
         "cinema": "Drammen kino",
         "source": PROGRAM,
         "changes": changes,

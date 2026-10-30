@@ -499,12 +499,16 @@ function togEl(el){ const o = el.classList.toggle("open"), b = el.querySelector(
   if(o){ el.classList.remove("cut"); el.querySelector(".tx").textContent = el.dataset.full; } else { fitEl(el); if(el.classList.contains("plot")) __shutView(el.closest(".row")); } }
 addEventListener("resize", markCut);
 
+/* Klokkeslett med sekunder når tidsstempelet har sekunder (eldre data har bare minutter) */
+function hms(d, sec){ return d.toLocaleTimeString("nb-NO", sec ? {hour:"2-digit",minute:"2-digit",second:"2-digit",timeZone:"Europe/Oslo"} : {hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"}); }
+let loadedAt = null;
 function showUpdated(){
   if(!data) return;
   const d = new Date(data.updated), now = new Date();
-  const same = d.toDateString() === now.toDateString();
-  const t = d.toLocaleTimeString("nb-NO",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"});
-  $("status").textContent = "Oppdatert " + (same ? "i dag kl. " + t : d.toLocaleDateString("nb-NO",{day:"numeric",month:"short",timeZone:"Europe/Oslo"}) + " kl. " + t);
+  const same = d.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"}) === now.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"});
+  const t = hms(d, /T\d\d:\d\d:\d\d/.test(data.updated));
+  $("status").innerHTML = "Oppdatert " + (same ? "i dag kl. " + t : d.toLocaleDateString("nb-NO",{day:"numeric",month:"short",timeZone:"Europe/Oslo"}) + " kl. " + t)
+    + (loadedAt ? "<br>Siden lastet kl. " + hms(loadedAt, true) : "");
 }
 function when(iso){
   if(!iso) return "";
@@ -565,7 +569,7 @@ function togNews(){ const box = $("news"), o = box.classList.toggle("open"); box
 $("news").addEventListener("click", e => { const box = $("news"); if(box.classList.contains("open") && !e.target.closest(".nm") && (!__tapShut(e.target) || e.target.closest(".nx details[open]"))) return; togNews(); if(!box.classList.contains("open")) __shutView(box); });
 $("news").addEventListener("keydown", e => { if(e.target !== $("news")) return; if(e.key === "Enter" || e.key === " "){ e.preventDefault(); togNews(); } });
 addEventListener("resize", () => { if($("news") && !$("news").hidden) fitNews(); });
-function use(j){ data = j; renderDays(); renderGenres(); showUpdated(); renderNews(); render(); }
+function use(j){ data = j; loadedAt = new Date(); renderDays(); renderGenres(); showUpdated(); renderNews(); render(); }
 
 function load(){
   return fetch("data.json?v=" + Date.now(), {cache:"no-store"}).then(r => { if(!r.ok) throw 0; return r.json(); })

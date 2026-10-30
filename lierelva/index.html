@@ -843,10 +843,12 @@ fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Er
   document.getElementById("toppAar").innerHTML = '<option value="alle">Alle år</option>' + YEARS.slice().reverse().map(function(y){ return '<option value="' + y + '">' + y + '</option>'; }).join("");
   var web = d.web || {}, wy = Object.keys(web).sort().pop();
   var chk = d.checked ? new Date(d.checked) : null;
-  function stamp(dt){ var now = new Date(), t = dt.toLocaleTimeString("nb-NO",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"});
-    return dt.toDateString() === now.toDateString() ? "i dag kl. " + t : dt.toLocaleDateString("nb-NO",{day:"numeric",month:"short",year:dt.getFullYear() === now.getFullYear() ? undefined : "numeric",timeZone:"Europe/Oslo"}) + " kl. " + t; }
+  // Klokkeslett med sekunder når tidsstempelet har sekunder (eldre data har bare minutter)
+  function hms(dt, sec){ return dt.toLocaleTimeString("nb-NO", sec ? {hour:"2-digit",minute:"2-digit",second:"2-digit",timeZone:"Europe/Oslo"} : {hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"}); }
+  function stamp(dt, sec){ var now = new Date(), t = hms(dt, sec);
+    return dt.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"}) === now.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"}) ? "i dag kl. " + t : dt.toLocaleDateString("nb-NO",{day:"numeric",month:"short",year:dt.getFullYear() === now.getFullYear() ? undefined : "numeric",timeZone:"Europe/Oslo"}) + " kl. " + t; }
   var mnd = new Date().getMonth() + 1, iSesong = mnd >= 5 && mnd <= 10;
-  document.getElementById("lead").innerHTML = (chk ? "<b>Oppdatert " + stamp(chk) + "</b>" : "") + (wy ? " · siste fangst " + dato(web[wy].sist) : "") + (iSesong ? "" : " · neste henting i mai");
+  document.getElementById("lead").innerHTML = (chk ? "<b>Oppdatert " + stamp(chk, /T\d\d:\d\d:\d\d/.test(d.checked)) + "</b>" : "") + (wy ? " · siste fangst " + dato(web[wy].sist) : "") + (iSesong ? "" : " · neste henting i mai") + "<br>Siden lastet kl. " + hms(new Date(), true);
   // Nytt siden sist
   var nyt = d.nytt;
   if (nyt && nyt.punkter && nyt.punkter.length) {
