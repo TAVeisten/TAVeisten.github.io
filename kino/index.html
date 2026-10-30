@@ -15,8 +15,8 @@
   --bg:#F3F5F8; --card:#FFFFFF; --ink:#1A1F2B; --muted:#5A6272; --faint:#8A92A0; --line:#DCE1E8;
   --salong:#123B4A; --salong-ink:#FFFFFF; --salong-sub:#BCD3DB;
   --chip:#E6EEFC; --chip-ink:#2A52B8; --chip-line:#C9D8F5;
-  --imdb:#3A414C; --imdb-bg:#E9ECF0; --warn:#BBA65E; --pale:#B4BAC4; --warn2:#C24E00; --crit:#1F6B4F; --crit-bg:#E2F2EA; --aud:#2A52B8; --aud-bg:#E6EEFC;
-  --imdb-band:#F4F5F7; --rt-band:#ECF6F0;
+  --imdb:#3A414C; --imdb-bg:#E9ECF0; --warn:#BBA65E; --pale:#B4BAC4; --warn2:#C24E00; --crit:#3A414C; --crit-bg:#E9ECF0; --aud:#3A414C; --aud-bg:#E9ECF0;
+  --imdb-band:#F4F5F7; --rt-band:#F4F5F7;
   --past:#EEF0F3;
   --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
@@ -24,8 +24,8 @@
   --bg:#0E1218; --card:#161B23; --ink:#E8ECF2; --muted:#9AA3B2; --faint:#6F7886; --line:#2A313C;
   --salong:#163A47; --salong-ink:#F2F6FB; --salong-sub:#A9C3CC;
   --chip:#1C2A44; --chip-ink:#A9C4F5; --chip-line:#2D3E5E;
-  --imdb:#D8DDE4; --imdb-bg:#272B32; --warn:#A3956A; --pale:#525A66; --warn2:#FF7A1A; --crit:#7FD3AE; --crit-bg:#15291F; --aud:#A9C4F5; --aud-bg:#1C2A44;
-  --imdb-band:#1B1E23; --rt-band:#12201A;
+  --imdb:#D8DDE4; --imdb-bg:#272B32; --warn:#A3956A; --pale:#525A66; --warn2:#FF7A1A; --crit:#D8DDE4; --crit-bg:#272B32; --aud:#D8DDE4; --aud-bg:#272B32;
+  --imdb-band:#1B1E23; --rt-band:#1B1E23;
   --past:#1A2029; color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -151,6 +151,9 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .stub::before{content:"";position:absolute;left:3px;top:3px;bottom:3px;border-left:2px dotted var(--chip-line)}
 .stub b{flex:none;font-size:.85rem;font-variant-numeric:tabular-nums}
 .stub small{font-size:.64rem;opacity:.85;min-width:0;max-width:100%}
+/* Siste visning: egen tekst i tidsboksen som aldri kortes bort */
+.stub.last{flex-wrap:nowrap}
+.stub .lastx{flex:none;font-size:.68rem;font-weight:700;white-space:nowrap}
 .stub:hover{border-color:var(--chip-ink)}
 .stub.past{background:var(--past);color:var(--faint);border-color:var(--line)}
 .stub.past b{text-decoration:line-through}
@@ -162,7 +165,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .rtbox .rtlab{display:none}
 .thead .h-imdb{background:var(--imdb-band);border-radius:10px 0 0 0;padding:6px 9px 6px 2px;margin-right:-7px}
 .thead .h-rt{background:var(--rt-band);border-radius:0 10px 0 0;padding:6px 3px 6px 10px;margin-left:-7px;display:grid;grid-template-columns:1fr 1fr;gap:2px 3px;margin-right:-12px;font-size:.66rem}
-/* Smale scorekolonner: Kritikere (grønn) og Publikum (blå) står under hverandre */
+/* Smale scorekolonner: Kritikere og Publikum, nøytral grå som IMDb (ingen fargekoding) */
 /* Tomatometer/Popcornmeter skal aldri være bredere enn Kritikere/Publikum: skriften krympes til den passer (fitRtHead) */
 .thead .h-rt button{display:flex;flex-direction:column;align-items:center;min-width:0}.thead .h-rt small{white-space:nowrap;letter-spacing:-.01em}
 .thead .h-rt .rtname{grid-column:1/-1;font-weight:700;color:var(--crit);text-align:center;font-size:.76rem}
@@ -323,7 +326,9 @@ input.ctl{-webkit-appearance:none;appearance:none}
   <div class="list" id="list"></div>
 
   <div class="foot">
-    <p>Kritikere og publikum er fra Rotten Tomatoes: Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). «stem.» under IMDb-scoren er antall stemmer. Står antall stemmer i gult, har filmen under 100 stemmer, og scoren er usikker. Oransje og fet skrift betyr under 10 stemmer, og da er scoren svært usikker. «anm.» under Kritikere er antall anmeldelser. Tallet under Publikum er omtrent hvor mange som har gitt score. «k» betyr tusen og «mill.» millioner.</p>
+    <p><b>Rotten Tomatoes:</b> Tomatometer er kritikernes score, Popcornmeter er publikums score. «anm.» under Kritikere er antall anmeldelser. Tallet under Publikum er omtrent hvor mange som har gitt score.</p>
+    <p><b>IMDb:</b> «stem.» under scoren er antall stemmer. Gult betyr under 100 stemmer, og scoren er usikker. Oransje og fet skrift betyr under 10 stemmer, og scoren er svært usikker. Scoren vises da også blekere.</p>
+    <p>«k» betyr tusen og «mill.» millioner. IMDb- og Rotten Tomatoes-scorene oppdateres hver morgen sammen med resten av siden.</p>
     <p>Programmet oppdateres automatisk hver morgen, og er klart før kl. 08:00. Kilder: <a href="https://www.nfkino.no/kino/drammen-kino?city=drammen" target="_blank" rel="noopener">NF Kino</a>, <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a> og <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
   </div>
 </div>
@@ -440,7 +445,7 @@ function render(){
     const c = typeof x === "number" ? x - y : String(x).localeCompare(String(y), "nb");
     return (c * dir) || a.first.localeCompare(b.first) || a.f.title.localeCompare(b.f.title,"nb"); });
 
-  $("count").textContent = rows.length ? `${rows.length} ${rows.length===1?"film":"filmer"} · IMDb og Rotten Tomatoes er hentet med originaltittelen` : "";
+  $("count").textContent = rows.length ? `${rows.length} ${rows.length===1?"film":"filmer"}` : "";
   if(!rows.length){
     $("list").innerHTML = `<div class="empty">Ingen filmer passer med søket og filtrene for denne dagen.<br><button type="button" id="reset">Nullstill søk og filtre</button></div>`;
     $("reset").onclick = () => { $("q").value=""; $("genre").value=""; $("age").value="99"; $("when").value=""; $("hideSpecial").checked=false; $("scored").checked=false; saveCtl(); render(); };
@@ -453,13 +458,14 @@ function render(){
     const stubs = shows.map(s => {
       const past = isToday && s.t <= now.time;
       const tags = s.tags.filter(t => !/^(norsk tekst)$/i.test(t)).map(t => t.replace(/ tale$/i,"").replace(/^Eng\.$/,"Engelsk")).join(", ");
-      const cls = ["stub", past?"past":"", /few/.test(s.avail||"")?"few":"", /sold|full/.test(s.avail||"")?"sold":""].join(" ");
+      const last = s.d === f.endsSoon && s === f.shows.filter(x => x.d === f.endsSoon).slice(-1)[0];
+      const cls = ["stub", last?"last":"", past?"past":"", /few/.test(s.avail||"")?"few":"", /sold|full/.test(s.avail||"")?"sold":""].join(" ");
       const info = esc(s.room) + (tags ? ", " + esc(tags) : "") + (/sold|full/.test(s.avail||"") ? ", utsolgt" : /few/.test(s.avail||"") ? ", få plasser" : "");
-      return `<a class="${cls}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.room+", "+s.tags.join(", "))}"><b>${esc(s.t.replace(":","."))}</b><small data-full="${info}" data-lines="1"><span class="tx">${info}</span>${MORE}</small></a>`;
+      return `<a class="${cls}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc((last?"Siste visning – kinoen har ikke flere visninger av filmen etter denne. ":"")+s.room+", "+s.tags.join(", "))}"><b>${esc(s.t.replace(":","."))}</b>${last?`<span class="lastx">Siste visning</span>`:""}<small data-full="${info}" data-lines="1"><span class="tx">${info}</span>${MORE}</small></a>`;
     }).join("");
     const iv = f.imdb && f.imdb.rating != null ? Number(f.imdb.rating).toFixed(1).replace(".",",") : null, vt = f.imdb && f.imdb.votes != null ? f.imdb.votes : null, weak = vt != null && vt < 100 ? (vt < 10 ? "weak weak2" : "weak") : "";
     return `<div class="row">
-      <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
+      <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div></div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
       ${f.plot ? `<p class="plot" data-full="${esc(f.plot)}" data-lines="3"><span class="tx">${esc(f.plot)}</span>${MORE}</p>` : ""}
       <div class="shows">${stubs}</div>
