@@ -400,7 +400,7 @@ function scoreCell(cls, label, val, href, sub, weak, title){
   return `<div class="score ${cls}"><span class="lab">${label}</span>${inner}</div>`;
 }
 function short(n){ if(n == null || n === "") return ""; let plus = "";
-  if(typeof n === "string"){ plus = /\+/.test(n) ? "+" : ""; const d = n.replace(/[^\d]/g,""); if(!d) return ""; n = Number(d); }
+  if(typeof n === "string"){ if(/fewer than/i.test(n)) return "under 50"; plus = /\+/.test(n) ? "+" : ""; const d = n.replace(/[^\d]/g,""); if(!d) return ""; n = Number(d); }
   const t = n >= 999500 ? (n/1e6).toFixed(n>=1e7?0:1).replace(".",",")+" mill." : n >= 999.5 ? (n/1000).toFixed(n>=10000?0:1).replace(".",",")+"k" : String(n);
   return t.replace(",0 "," ").replace(",0k","k") + plus; }
 
