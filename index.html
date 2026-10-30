@@ -47,7 +47,7 @@ h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) /
 .hero .hnew[hidden]{display:none}
 a.hnew{text-decoration:none;cursor:pointer}a.hnew::after{content:" ›"}a.hnew:hover{text-decoration:underline;text-underline-offset:3px}
 /* Hele kortet er trykkbart: tittel-lenken dekker hele kortet; favoritt-boblen ligger over og har egen lenke */
-.hero{position:relative;padding:12px 12px 14px;gap:4px;justify-content:center;transition:filter .15s}
+.hero{position:relative;padding:12px 12px 14px;gap:4px;justify-content:flex-start;transition:filter .15s}
 .hero a.hname{color:var(--hero-ink);text-decoration:none}
 .hero a.hname::after{content:"";position:absolute;inset:0;border-radius:14px}
 .hero:hover,.hero:focus-within{filter:brightness(1.12)}
@@ -90,7 +90,7 @@ html:not(.top) body{padding-top:0}
     </div>
     <div class="hero fisk">
       <span class="hicon">🐟</span>
-      <a class="hname" href="https://taveisten.github.io/lierelva/">Lierelva – Laks & sjøørret</a>
+      <a class="hname" href="https://taveisten.github.io/lierelva/" aria-label="Lierelva – Laks &amp; sjøørret">Lierelva<br>Laks &amp; sjøørret</a>
       <span class="hsub">Fangst siden 2013</span>
     </div>
     <div class="hero gig">
