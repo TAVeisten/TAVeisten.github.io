@@ -36,11 +36,8 @@ h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) /
 .hero .hsub{color:var(--hero-sub);font-size:.85rem;line-height:1.25}
 /* Egen farge per kort */
 .hero.job{--hero:#1E3A5F;--hero-sub:#C9D6E8;--stripe:#5B9BE6}
-/* Jobbtavla: dobbelt så bred knapp (samme høyde), midt i kortet */
-.hero.job .btns{justify-content:center}
-/* Alle kortene: ikon, overskrift, tekst og knapper midt i kortet */
+/* Alle kortene: ikon, overskrift og tekst midt i kortet */
 .hero{align-items:center;text-align:center}
-.hero .btns{align-self:stretch;justify-content:center}
 .hero.gig{--hero:#4A2D6B;--hero-sub:#DCCDEE;--stripe:#B98AF0}
 .hero.kino{--hero:#123B4A;--hero-sub:#BCD3DB;--stripe:#4FB3C7}
 .hero.fisk{--hero:#1F4433;--hero-sub:#C3DCCD;--stripe:#5DBB86}
@@ -49,9 +46,13 @@ h2{font-weight:800;font-size:1.3rem;font-size:clamp(.95rem,calc((50cqi - 28px) /
 .hero .hnew{align-self:center;background:#e6eefc;color:#2a52b8;font-weight:700;font-size:.82rem;line-height:1.2;border-radius:999px;padding:4px 10px}
 .hero .hnew[hidden]{display:none}
 a.hnew{text-decoration:none;cursor:pointer}a.hnew::after{content:" ›"}a.hnew:hover{text-decoration:underline;text-underline-offset:3px}
-.hero .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
-.hero .btn{background:var(--chip);color:var(--hero-ink);text-decoration:none;border-radius:8px;padding:8px 10px;font-weight:600;font-size:.92rem;flex:1 1 auto;text-align:center}
-.hero .btn:hover,.hero .btn:focus-visible{background:rgba(255,255,255,.26);outline:none}
+/* Hele kortet er trykkbart: tittel-lenken dekker hele kortet; favoritt-boblen ligger over og har egen lenke */
+.hero{position:relative;padding:12px 12px 14px;gap:4px;justify-content:center;transition:filter .15s}
+.hero a.hname{color:var(--hero-ink);text-decoration:none}
+.hero a.hname::after{content:"";position:absolute;inset:0;border-radius:14px}
+.hero:hover,.hero:focus-within{filter:brightness(1.12)}
+.hero a.hname:focus-visible{outline:none}
+.hero .hnew{position:relative;z-index:1;margin-top:2px}
 /* Øvrige sider: kompakt liste */
 .list{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 a.item{display:flex;align-items:center;gap:8px;padding:6px 10px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);font-size:.95rem}
@@ -84,38 +85,26 @@ html:not(.top) body{padding-top:0}
   <div class="heroes">
     <div class="hero job">
       <span class="hicon">💼</span>
-      <span class="hname">Jobbtavla</span>
-      <span class="hsub">Stillingsannonser fra FINN, NAV, LinkedIn, Indeed og firmaenes karrieresider, oppdatert daglig kl.&nbsp;08:00</span>
-      <div class="btns">
-        <a class="btn" href="https://claude.ai/artifact/WpXV8rLyjJ2ETAeoCHyABq" aria-label="Jobbtavla">Jobbtavla</a>
-      </div>
+      <a class="hname" href="https://claude.ai/artifact/WpXV8rLyjJ2ETAeoCHyABq">Jobbtavla</a>
+      <span class="hsub">FINN, NAV, LinkedIn&nbsp;m.fl.</span>
     </div>
     <div class="hero fisk">
       <span class="hicon">🐟</span>
-      <span class="hname">Lierelva – Laks & sjøørret</span>
-      <span class="hsub">Fangststatistikk fra 2013, oppdatert daglig i sesongen (mai–oktober)</span>
-      <div class="btns">
-        <a class="btn" href="https://taveisten.github.io/lierelva/" aria-label="Lierelva – Laks & sjøørret">Lierelva – Laks & sjøørret</a>
-      </div>
+      <a class="hname" href="https://taveisten.github.io/lierelva/">Lierelva – Laks & sjøørret</a>
+      <span class="hsub">Fangst siden 2013</span>
     </div>
     <div class="hero gig">
       <span class="hicon">🎸</span>
-      <span class="hname">Konsertkalender Norge</span>
-      <span class="hsub">Kommende konserter, oppdatert daglig kl.&nbsp;08:00</span>
+      <a class="hname" href="https://taveisten.github.io/konsertkalender/">Konsertkalender Norge</a>
+      <span class="hsub">Kommende konserter</span>
       <a class="hnew" id="gigNew" href="https://taveisten.github.io/konsertkalender/?nye" hidden></a>
-      <div class="btns">
-        <a class="btn" href="https://claude.ai/artifact/XSLvj1PCYH71mErnbZsZp1" aria-label="Konsertkalender Norge – Claude-appen">Claude-appen</a>
-        <a class="btn" href="https://taveisten.github.io/konsertkalender/" aria-label="Konsertkalender Norge – Nettsiden">Nettsiden</a>
-      </div>
     </div>
     <div class="hero kino">
       <span class="hicon">🎬</span>
-      <span class="hname">Kinoprogram Drammen</span>
-      <span class="hsub">Filmer på Drammen kino med IMDb- og Rotten Tomatoes-score, oppdatert daglig kl.&nbsp;08:00</span>
-      <div class="btns">
-        <a class="btn" href="https://taveisten.github.io/kino/" aria-label="Kinoprogram Drammen">Kinoprogram Drammen</a>
-      </div>
+      <a class="hname" href="https://taveisten.github.io/kino/">Kinoprogram Drammen</a>
+      <span class="hsub">Med IMDb og Rotten Tomatoes</span>
     </div>
+  </div>
   </div>
 
   <h2>Claude</h2>
