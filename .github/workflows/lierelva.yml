@@ -2,7 +2,7 @@ name: Lierelva fangst
 
 on:
   schedule:
-    # Kl. 07:41 norsk tid hver dag i mai–oktober (fiskesesongen pluss etterregistreringer).
+    # Kl. 07:41 norsk tid hver dag 15. mai–31. oktober (fiskesesongen 15. mai–15. september pluss etterregistreringer).
     # GitHub bruker UTC, så begge står her, og «Sjekk tidspunkt» lar bare den som treffer 07:41 i Norge kjøre.
     - cron: "41 5 * 5-10 *"
     - cron: "41 6 * 5-10 *"
@@ -28,6 +28,9 @@ jobs:
         id: check
         run: |
           off=$(TZ=Europe/Oslo date +%z)
+          # Fiskesesongen er 15. mai–15. september: planlagte kjøringer starter 15. mai og går ut oktober (etterregistreringer)
+          md=$(TZ=Europe/Oslo date +%m%d)
+          if [ -n "${{ github.event.schedule }}" ] && [ "$md" -lt 515 ]; then echo "Før 15. mai – venter"; exit 0; fi
           case "${{ github.event.schedule }}" in
             "41 5 * 5-10 *") [ "$off" = "+0200" ] && echo run=true >> $GITHUB_OUTPUT || echo "Vintertid – venter på neste" ;;
             "41 6 * 5-10 *") [ "$off" = "+0100" ] && echo run=true >> $GITHUB_OUTPUT || echo "Sommertid – kjørte forrige" ;;
