@@ -60,6 +60,9 @@ select.day{padding-right:28px;background:var(--card);-webkit-appearance:menulist
 .controls .search{grid-column:1/-1}
 .ctl{width:100%;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 10px;min-width:0}
 input.ctl{-webkit-appearance:none;appearance:none}
+/* Søkefelt: tydelig ramme og forstørrelsesglass, som i Konsertkalender Norge */
+#q{border:1.5px solid var(--faint);padding-left:34px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A92A0' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E") no-repeat 11px 50%/16px}
+#q:focus{border-color:var(--chip-ink);outline:none}
 .checks{display:flex;flex-wrap:wrap;gap:6px 16px;margin:2px 2px 12px;font-size:.88rem;color:var(--muted)}
 .checks label{display:flex;align-items:center;gap:6px;cursor:pointer}
 .count{color:var(--muted);font-size:.85rem;margin:0 2px 8px}
@@ -68,10 +71,9 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .thead,.row{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.35fr) 54px 100px;gap:12px 14px;align-items:start}
 .film h3,.genre{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
 /* Handlingen står under tittel og sjanger; visninger og scorer går over begge radene */
-.plot{grid-column:1/3;grid-row:2;margin:-6px 0 0;color:var(--muted);font-size:.84rem;line-height:1.35;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
-/* Lang beskrivelse: maks tre linjer med «…»; trykk for å vise resten, trykk igjen for å lukke */
-.plot.cut,.plot.open{cursor:pointer}.plot.open{display:block;-webkit-line-clamp:unset;line-clamp:none}
-.plot.open::after{content:" Vis mindre";color:var(--chip-ink);font-weight:600;white-space:nowrap}
+.plot{grid-column:1/3;grid-row:2;margin:-6px 0 0;color:var(--muted);font-size:.84rem;line-height:1.35}
+/* Lang beskrivelse: maks tre linjer med «… Vis alt»; trykk hvor som helst for å åpne og lukke */
+.plot.cut,.plot.open{cursor:pointer}
 .row>.film{grid-column:1;grid-row:1}.row>.genre{grid-column:2;grid-row:1}
 .row>.shows{grid-column:3;grid-row:1/span 2}.row>.s-imdb{grid-column:4;grid-row:1/span 2}.row>.rtbox{grid-column:5;grid-row:1/span 2}
 .thead{padding:0 12px 0;color:var(--muted);font-size:.78rem;font-weight:600;align-items:end}
@@ -133,7 +135,10 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .film h3{font-size:1.02rem;margin:0;line-height:1.25}
 /* Lang tittel: maks to linjer; «Vis hele tittelen» viser resten uten å åpne filmsiden */
 .tmore{display:none;border:0;margin:0;font:inherit;font-size:.78rem;font-weight:600;line-height:1.2;color:var(--chip-ink);background:var(--chip);border-radius:999px;padding:1px 7px;cursor:pointer;vertical-align:1px;white-space:nowrap}
-.film h3.cut .tmore,.film h3.open .tmore{display:inline-block;margin-left:5px}
+/* Lang tekst (tittel, beskrivelse, tidsboks): «… Vis alt» rett etter teksten, «Vis mindre» når åpen */
+.cut>.tmore,.open>.tmore{display:inline-block;margin-left:5px}
+.plot .tmore{font-size:.74rem}
+.stub small .tmore{font-size:.6rem;padding:0 5px;margin-left:4px;vertical-align:0;background:var(--card);opacity:1}
 .film h3 a{text-decoration:none}
 .film h3 a:hover{text-decoration:underline;text-underline-offset:3px}
 .facts{color:var(--muted);font-size:.84rem;margin-top:3px}
@@ -145,12 +150,11 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .stub{position:relative;display:inline-flex;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:0 6px;max-width:100%;text-decoration:none;background:var(--chip);color:var(--chip-ink);border:1px solid var(--chip-line);border-radius:6px;padding:2px 7px 2px 10px;line-height:1.2}
 .stub::before{content:"";position:absolute;left:3px;top:3px;bottom:3px;border-left:2px dotted var(--chip-line)}
 .stub b{flex:none;font-size:.85rem;font-variant-numeric:tabular-nums}
-.stub small{font-size:.64rem;opacity:.85;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stub small{font-size:.64rem;opacity:.85;min-width:0;max-width:100%}
 .stub:hover{border-color:var(--chip-ink)}
 .stub.past{background:var(--past);color:var(--faint);border-color:var(--line)}
 .stub.past b{text-decoration:line-through}
-.stub.few small::after{content:", få plasser"}
-.stub.sold{opacity:.55}.stub.sold small::after{content:", utsolgt"}
+.stub.sold{opacity:.55}
 .score{text-align:center;font-variant-numeric:tabular-nums}
 /* Egne bånd for IMDb og Rotten Tomatoes: hele høyden i raden, så de leses som egne kolonner */
 .s-imdb{align-self:stretch;margin:-10px -7px -10px 0;padding:10px 8px 10px 1px;background:var(--imdb-band)}
@@ -423,13 +427,14 @@ function render(){
       const past = isToday && s.t <= now.time;
       const tags = s.tags.filter(t => !/^(norsk tekst)$/i.test(t)).map(t => t.replace(/ tale$/i,"").replace(/^Eng\.$/,"Engelsk")).join(", ");
       const cls = ["stub", past?"past":"", /few/.test(s.avail||"")?"few":"", /sold|full/.test(s.avail||"")?"sold":""].join(" ");
-      return `<a class="${cls}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.room+", "+s.tags.join(", "))}"><b>${esc(s.t.replace(":","."))}</b><small>${esc(s.room)}${tags?", "+esc(tags):""}</small></a>`;
+      const info = esc(s.room) + (tags ? ", " + esc(tags) : "") + (/sold|full/.test(s.avail||"") ? ", utsolgt" : /few/.test(s.avail||"") ? ", få plasser" : "");
+      return `<a class="${cls}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.room+", "+s.tags.join(", "))}"><b>${esc(s.t.replace(":","."))}</b><small data-full="${info}" data-lines="1"><span class="tx">${info}</span>${MORE}</small></a>`;
     }).join("");
     const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
-      <div class="film"><h3 title="${esc(f.title)}"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a><button type="button" class="tmore" aria-expanded="false" aria-label="Vis hele tittelen">Vis alt</button></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
+      <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
-      ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
+      ${f.plot ? `<p class="plot" data-full="${esc(f.plot)}" data-lines="3"><span class="tx">${esc(f.plot)}</span>${MORE}</p>` : ""}
       <div class="shows">${stubs}</div>
       ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stem.":"", weak, weak?"Under 400 stemmer":"")}
       <div class="rtbox"><span class="rtlab">Rotten Tomatoes</span>
@@ -444,14 +449,18 @@ function render(){
 function fitRtHead(){ document.querySelectorAll(".h-rt button").forEach(b => { const l = b.querySelector(".hl"), sm = b.querySelector("small"); if(!l || !sm) return; sm.style.fontSize = ""; let f = parseFloat(getComputedStyle(sm).fontSize); while(f > 6 && sm.scrollWidth > l.offsetWidth + .5){ f -= .25; sm.style.fontSize = f + "px"; } }); }
 addEventListener("resize", fitRtHead); document.fonts && document.fonts.ready.then(fitRtHead); setTimeout(fitRtHead, 0);
 
-function markCut(){ requestAnimationFrame(() => { document.querySelectorAll("#list .plot:not(.open)").forEach(p => p.classList.toggle("cut", p.scrollHeight > p.clientHeight + 1)); fitTitles(); }); }
-// Lang tittel: kortes til to linjer med «…» og «Vis alt» rett etter siste ord
-function fitTitles(){ document.querySelectorAll("#list .film h3:not(.open)").forEach(h => { if(!h.offsetParent) return;
-  const a = h.querySelector("a"), full = h.title, max = parseFloat(getComputedStyle(h).lineHeight) * 2 + 3;
-  h.classList.remove("cut"); a.textContent = full; if(h.offsetHeight <= max) return;
-  h.classList.add("cut"); let lo = 1, hi = full.length - 1;
-  while(lo < hi){ const m = (lo + hi + 1) >> 1; a.textContent = full.slice(0, m).trimEnd() + "…"; if(h.offsetHeight <= max) lo = m; else hi = m - 1; }
-  a.textContent = full.slice(0, lo).trimEnd() + "…"; }); }
+const MORE = `<span class="tmore" role="button" tabindex="0" aria-expanded="false">Vis alt</span>`;
+function markCut(){ requestAnimationFrame(() => document.querySelectorAll("#list [data-full]:not(.open)").forEach(fitEl)); }
+// Lang tekst kortes til maks antall linjer med «…» og «Vis alt» rett etter siste ord
+function fitEl(el){ if(!el.offsetParent) return;
+  const tx = el.querySelector(".tx"), full = el.dataset.full, max = parseFloat(getComputedStyle(el).lineHeight) * (+el.dataset.lines || 1) + 3;
+  el.classList.remove("cut"); tx.textContent = full; if(el.offsetHeight <= max) return;
+  el.classList.add("cut"); let lo = 1, hi = full.length - 1;
+  while(lo < hi){ const m = (lo + hi + 1) >> 1; tx.textContent = full.slice(0, m).trimEnd() + "…"; if(el.offsetHeight <= max) lo = m; else hi = m - 1; }
+  tx.textContent = full.slice(0, lo).trimEnd() + "…"; }
+function togEl(el){ const o = el.classList.toggle("open"), b = el.querySelector(".tmore");
+  b.textContent = o ? "Vis mindre" : "Vis alt"; b.setAttribute("aria-expanded", String(o));
+  if(o){ el.classList.remove("cut"); el.querySelector(".tx").textContent = el.dataset.full; } else { fitEl(el); if(el.classList.contains("plot")) __shutView(el.closest(".row")); } }
 addEventListener("resize", markCut);
 
 function showUpdated(){
@@ -479,7 +488,7 @@ function renderNews(){
   const nf = c.newFilms||[], ns = c.newShows||[], sc = c.scores||[], gn = c.gone||[], en = c.ended||[];
   const today = osloNow().date, soon = data.films.filter(f => f.endsSoon && f.endsSoon >= today).sort((a,b) => a.endsSoon.localeCompare(b.endsSoon));
   const nShows = ns.reduce((a,x)=>a+x.n,0);
-  const sum = [nf.length && `${nf.length} ${nf.length===1?"ny film":"nye filmer"}`, nShows && `${nShows} ${nShows===1?"ny visning":"nye visninger"}`,
+  const sum = [nf.length && `${nf.length} ${nf.length===1?"ny film":"nye filmer"}`, nShows && `${nShows} ${nShows===1?"ny visning":"nye visninger"} de neste 14 dagene`,
     sc.length && `endret score på ${sc.length} ${sc.length===1?"film":"filmer"}`, gn.length && `${gn.length} tatt av programmet`,
     en.length && `${en.length} gått av programmet`].filter(Boolean);
   if(soon.length) sum.unshift(`${soon.length} går snart av`);
@@ -562,11 +571,11 @@ $("keySave").addEventListener("click", () => {
 });
 
 /* ---------- hendelser ---------- */
-$("list").addEventListener("click", e => { const tb = e.target.closest(".tmore"), th = !tb && e.target.closest(".film h3.open");
-  if(tb || th){ const h = tb ? tb.closest("h3") : th; if(th && e.target.closest("a")) return;
-    const o = h.classList.toggle("open"), b = h.querySelector(".tmore"); b.textContent = o ? "Vis mindre" : "Vis alt"; b.setAttribute("aria-expanded", String(o)); if(o) h.querySelector("a").textContent = h.title; else markCut(); return; }
-  const p = e.target.closest(".plot"); if(!p || !(p.classList.contains("cut") || p.classList.contains("open"))) return;
-  const o = p.classList.toggle("open"); if(!o){ markCut(); __shutView(p.closest(".row")); } });
+$("list").addEventListener("click", e => {
+  const b = e.target.closest(".tmore"); if(b){ e.preventDefault(); e.stopPropagation(); togEl(b.parentElement); return; }
+  const p = e.target.closest(".plot"); if(p && (p.classList.contains("cut") || p.classList.contains("open"))){ togEl(p); return; }
+  const h = e.target.closest("h3.open"); if(h && !e.target.closest("a")) togEl(h); });
+$("list").addEventListener("keydown", e => { const b = e.target.closest(".tmore"); if(b && (e.key === "Enter" || e.key === " ")){ e.preventDefault(); togEl(b.parentElement); } });
 $("days").addEventListener("click", e => { const b = e.target.closest("button.day"); if(!b) return; day = b.dataset.d; render(); });
 $("thead").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return;
   if($("sort").value === b.dataset.sort) dir = -dir; else { $("sort").value = b.dataset.sort; dir = DEFDIR[b.dataset.sort] || 1; }
