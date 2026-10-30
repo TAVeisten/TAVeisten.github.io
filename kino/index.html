@@ -144,7 +144,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .facts{color:var(--muted);font-size:.84rem;margin-top:3px}
 .facts span+span::before{content:", "}
 .orig{color:var(--faint);font-size:.8rem;margin-top:2px;font-style:italic}
-.ends{display:inline-block;margin-top:5px;background:var(--chip);color:var(--chip-ink);border:1px solid var(--chip-line);border-radius:999px;padding:1px 9px;font-size:.78rem;font-weight:600}
+.ends{display:inline-block;margin-top:5px;background:var(--chip);color:var(--chip-ink);border:1px solid var(--chip-line);border-radius:999px;padding:1px 9px;font-size:.78rem;font-weight:600;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box}
 .shows{display:flex;flex-wrap:wrap;gap:4px}
 /* Billett: tidspunkt med perforert kant */
 .stub{position:relative;display:inline-flex;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:0 6px;max-width:100%;text-decoration:none;background:var(--chip);color:var(--chip-ink);border:1px solid var(--chip-line);border-radius:6px;padding:2px 7px 2px 10px;line-height:1.2}
@@ -170,7 +170,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .score a:hover{outline:1px solid currentColor}
 .score .lab{display:none}
 .thead small,.score .lab small{display:block;font-weight:400;font-size:.62rem;color:var(--faint);line-height:1.1}
-.score .n{display:block;font-weight:400;font-size:.62rem;opacity:.8;margin-top:1px;white-space:nowrap}
+.score .n{display:block;font-weight:400;font-size:.62rem;opacity:.8;margin-top:1px;white-space:normal;overflow-wrap:anywhere;line-height:1.15}
 .s-imdb a,.s-imdb span.v{background:var(--imdb-bg);color:var(--imdb)}
 .s-crit a,.s-crit span.v{background:var(--crit-bg);color:var(--crit)}
 .s-aud a,.s-aud span.v{background:var(--aud-bg);color:var(--aud)}
@@ -397,7 +397,10 @@ function scoreCell(cls, label, val, href, sub, weak, title){
   else inner = `<span class="v ${weak?"weak":""}">${esc(val)}</span>`;
   return `<div class="score ${cls}"><span class="lab">${label}</span>${inner}</div>`;
 }
-function short(n){ if(n == null) return ""; if(typeof n === "string") return n.replace(/ Verified Ratings?/i,"").replace(/,/g," "); return n >= 1000 ? (n/1000).toFixed(n>=10000?0:1).replace(".",",")+"k" : String(n); }
+function short(n){ if(n == null || n === "") return ""; let plus = "";
+  if(typeof n === "string"){ plus = /\+/.test(n) ? "+" : ""; const d = n.replace(/[^\d]/g,""); if(!d) return ""; n = Number(d); }
+  const t = n >= 1e6 ? (n/1e6).toFixed(n>=1e7?0:1).replace(".",",")+" mill." : n >= 1000 ? (n/1000).toFixed(n>=10000?0:1).replace(".",",")+"k" : String(n);
+  return t.replace(",0 "," ").replace(",0k","k") + plus; }
 
 function render(){
   if(!data) return;
@@ -441,7 +444,7 @@ function render(){
   }
   const selGenre = $("genre").value;
   $("list").innerHTML = rows.map(({f, shows, imdb, crit, aud, isToday}) => {
-    const facts = [fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : /tbc/i.test(f.age) ? "Alder ?" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
+    const facts = [fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : /tbc/i.test(f.age) ? "Aldersgr. ikke satt" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
     const orig = f.orig && f.orig.toLowerCase() !== f.title.toLowerCase() ? `<div class="orig">${esc(f.orig)}</div>` : "";
     const stubs = shows.map(s => {
       const past = isToday && s.t <= now.time;
@@ -450,7 +453,7 @@ function render(){
       const info = esc(s.room) + (tags ? ", " + esc(tags) : "") + (/sold|full/.test(s.avail||"") ? ", utsolgt" : /few/.test(s.avail||"") ? ", få plasser" : "");
       return `<a class="${cls}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.room+", "+s.tags.join(", "))}"><b>${esc(s.t.replace(":","."))}</b><small data-full="${info}" data-lines="1"><span class="tx">${info}</span>${MORE}</small></a>`;
     }).join("");
-    const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
+    const iv = f.imdb && f.imdb.rating != null ? Number(f.imdb.rating).toFixed(1).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
       <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
