@@ -152,9 +152,8 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .stub b{flex:none;font-size:.85rem;font-variant-numeric:tabular-nums}
 .stub small{font-size:.64rem;opacity:.85;min-width:0;max-width:100%}
 /* Siste visning: egen tekst i tidsboksen som aldri kortes bort */
-.stub.last{flex-wrap:nowrap}
-/* Åpnet med «Vis alt»: sal og språk får hele bredden på linjen under */
-.stub.last.open{flex-wrap:wrap}
+/* Siste visning: klokkeslett og «Siste visning» på første linje, sal og språk alltid på egen linje under */
+.stub.last small{flex-basis:100%}
 .stub .lastx{flex:none;font-size:.68rem;font-weight:700;white-space:nowrap}
 .stub:hover{border-color:var(--chip-ink)}
 .stub.past{background:var(--past);color:var(--faint);border-color:var(--line)}
