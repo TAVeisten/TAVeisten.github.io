@@ -457,7 +457,7 @@ function render(){
       const info = esc(s.room) + (tags ? ", " + esc(tags) : "") + (/sold|full/.test(s.avail||"") ? ", utsolgt" : /few/.test(s.avail||"") ? ", få plasser" : "");
       return `<a class="${cls}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.room+", "+s.tags.join(", "))}"><b>${esc(s.t.replace(":","."))}</b><small data-full="${info}" data-lines="1"><span class="tx">${info}</span>${MORE}</small></a>`;
     }).join("");
-    const iv = f.imdb && f.imdb.rating != null ? Number(f.imdb.rating).toFixed(1).replace(".",",") : null, vt = f.imdb && f.imdb.votes != null ? f.imdb.votes : null, weak = /CAMP MIASMA/.test(f.title) ? "weak weak2" /* MIDLERTIDIG TEST */ : vt != null && vt < 100 ? (vt < 10 ? "weak weak2" : "weak") : "";
+    const iv = f.imdb && f.imdb.rating != null ? Number(f.imdb.rating).toFixed(1).replace(".",",") : null, vt = f.imdb && f.imdb.votes != null ? f.imdb.votes : null, weak = vt != null && vt < 100 ? (vt < 10 ? "weak weak2" : "weak") : "";
     return `<div class="row">
       <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
