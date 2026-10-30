@@ -15,8 +15,8 @@
   --bg:#F3F5F8; --card:#FFFFFF; --ink:#1A1F2B; --muted:#5A6272; --faint:#8A92A0; --line:#DCE1E8;
   --salong:#123B4A; --salong-ink:#FFFFFF; --salong-sub:#BCD3DB;
   --chip:#E6EEFC; --chip-ink:#2A52B8; --chip-line:#C9D8F5;
-  --imdb:#8A5A00; --imdb-bg:#FBF1D9; --crit:#1F6B4F; --crit-bg:#E2F2EA; --aud:#2A52B8; --aud-bg:#E6EEFC;
-  --imdb-band:#FDF6E3; --rt-band:#ECF6F0;
+  --imdb:#3A414C; --imdb-bg:#E9ECF0; --warn:#C2620A; --warn2:#8F3A00; --crit:#1F6B4F; --crit-bg:#E2F2EA; --aud:#2A52B8; --aud-bg:#E6EEFC;
+  --imdb-band:#F4F5F7; --rt-band:#ECF6F0;
   --past:#EEF0F3;
   --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
@@ -24,8 +24,8 @@
   --bg:#0E1218; --card:#161B23; --ink:#E8ECF2; --muted:#9AA3B2; --faint:#6F7886; --line:#2A313C;
   --salong:#163A47; --salong-ink:#F2F6FB; --salong-sub:#A9C3CC;
   --chip:#1C2A44; --chip-ink:#A9C4F5; --chip-line:#2D3E5E;
-  --imdb:#F0C460; --imdb-bg:#2E2614; --crit:#7FD3AE; --crit-bg:#15291F; --aud:#A9C4F5; --aud-bg:#1C2A44;
-  --imdb-band:#211C10; --rt-band:#12201A;
+  --imdb:#D8DDE4; --imdb-bg:#272B32; --warn:#F2A35E; --warn2:#FFB07A; --crit:#7FD3AE; --crit-bg:#15291F; --aud:#A9C4F5; --aud-bg:#1C2A44;
+  --imdb-band:#1B1E23; --rt-band:#12201A;
   --past:#1A2029; color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -175,7 +175,9 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .s-crit a,.s-crit span.v{background:var(--crit-bg);color:var(--crit)}
 .s-aud a,.s-aud span.v{background:var(--aud-bg);color:var(--aud)}
 .score .none{color:var(--faint);font-weight:400;background:none}
-.score .weak{opacity:.7}
+.s-imdb a.weak{color:var(--muted)}
+.s-imdb a.weak .n{color:var(--warn);opacity:1;font-weight:600}
+.s-imdb a.weak2 .n{color:var(--warn2);font-weight:800}
 .empty{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--muted)}
 .empty button{margin-top:8px;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:6px 12px;cursor:pointer}
 .foot{color:var(--muted);font-size:.8rem;margin:22px 4px 0}
@@ -320,7 +322,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
   <div class="list" id="list"></div>
 
   <div class="foot">
-    <p>Kritikere og publikum er fra Rotten Tomatoes: Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). «stem.» under IMDb-scoren er antall stemmer. En stjerne ved IMDb-scoren betyr under 400 stemmer, så den er usikker.</p>
+    <p>Kritikere og publikum er fra Rotten Tomatoes: Tomatometer er kritikernes score (grønn), Popcornmeter er publikums score (blå). «stem.» under IMDb-scoren er antall stemmer. Står antall stemmer i oransje, har filmen under 100 stemmer, og scoren er usikker. Mørk oransje og fet skrift betyr under 10 stemmer, og da er scoren svært usikker. «anm.» under Kritikere er antall anmeldelser. Tallet under Publikum er omtrent hvor mange som har gitt score. «k» betyr tusen og «mill.» millioner.</p>
     <p>Programmet oppdateres automatisk hver morgen, og er klart før kl. 08:00. Kilder: <a href="https://www.nfkino.no/kino/drammen-kino?city=drammen" target="_blank" rel="noopener">NF Kino</a>, <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a> og <a href="https://www.rottentomatoes.com" target="_blank" rel="noopener">Rotten Tomatoes</a>.</p>
   </div>
 </div>
@@ -393,8 +395,8 @@ function renderGenres(){
 function scoreCell(cls, label, val, href, sub, weak, title){
   let inner;
   if(val == null) inner = `<span class="v none" title="Ingen score">–</span>`;
-  else if(href) inner = `<a href="${esc(href)}" target="_blank" rel="noopener" class="${weak?"weak":""}" title="${esc(title||"")}">${esc(val)}${sub?`<span class="n">${esc(sub)}</span>`:""}</a>`;
-  else inner = `<span class="v ${weak?"weak":""}">${esc(val)}</span>`;
+  else if(href) inner = `<a href="${esc(href)}" target="_blank" rel="noopener" class="${weak||""}" title="${esc(title||"")}">${esc(val)}${sub?`<span class="n">${esc(sub)}</span>`:""}</a>`;
+  else inner = `<span class="v ${weak||""}">${esc(val)}</span>`;
   return `<div class="score ${cls}"><span class="lab">${label}</span>${inner}</div>`;
 }
 function short(n){ if(n == null || n === "") return ""; let plus = "";
@@ -453,13 +455,13 @@ function render(){
       const info = esc(s.room) + (tags ? ", " + esc(tags) : "") + (/sold|full/.test(s.avail||"") ? ", utsolgt" : /few/.test(s.avail||"") ? ", få plasser" : "");
       return `<a class="${cls}" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.room+", "+s.tags.join(", "))}"><b>${esc(s.t.replace(":","."))}</b><small data-full="${info}" data-lines="1"><span class="tx">${info}</span>${MORE}</small></a>`;
     }).join("");
-    const iv = f.imdb && f.imdb.rating != null ? Number(f.imdb.rating).toFixed(1).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
+    const iv = f.imdb && f.imdb.rating != null ? Number(f.imdb.rating).toFixed(1).replace(".",",") : null, vt = f.imdb && f.imdb.votes != null ? f.imdb.votes : null, weak = vt != null && vt < 100 ? (vt < 10 ? "weak weak2" : "weak") : "";
     return `<div class="row">
       <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
       ${f.plot ? `<p class="plot" data-full="${esc(f.plot)}" data-lines="3"><span class="tx">${esc(f.plot)}</span>${MORE}</p>` : ""}
       <div class="shows">${stubs}</div>
-      ${scoreCell("s-imdb","IMDb", iv==null?null:iv+(weak?"*":""), f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stem.":"", weak, weak?"Under 400 stemmer":"")}
+      ${scoreCell("s-imdb","IMDb", iv, f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stem.":"", weak, weak ? (vt < 10 ? "Under 10 stemmer, svært usikker score" : "Under 100 stemmer, usikker score") : "")}
       <div class="rtbox"><span class="rtlab">Rotten Tomatoes</span>
       ${scoreCell("s-crit","Kritikere<small>Tomatometer</small>", crit==null?null:crit+"%", f.rt&&f.rt.url, f.rt&&f.rt.criticsCount?f.rt.criticsCount+" anm.":"", false, "Tomatometer")}
       ${scoreCell("s-aud","Publikum<small>Popcornmeter</small>", aud==null?null:aud+"%", f.rt&&f.rt.url, f.rt&&f.rt.audienceCount?short(f.rt.audienceCount):"", false, "Popcornmeter")}</div>
