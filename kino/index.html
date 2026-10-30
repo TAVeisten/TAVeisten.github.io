@@ -130,7 +130,11 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .news:hover .nm,.news .nm:hover{text-decoration:underline;text-underline-offset:3px}
 .list{display:flex;flex-direction:column;gap:8px}
 .row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-.film h3{font-size:.88rem;margin:0;line-height:1.25;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.film h3{font-size:1.02rem;margin:0;line-height:1.25;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+/* Lang tittel: maks to linjer; «Vis hele tittelen» viser resten uten å åpne filmsiden */
+.film h3.open{display:block;-webkit-line-clamp:unset;line-clamp:none}
+.tmore{display:none;background:none;border:0;padding:2px 0 0;margin:0;font:inherit;font-size:.78rem;font-weight:600;color:var(--chip-ink);cursor:pointer}
+.film h3.cut+.tmore,.film h3.open+.tmore{display:inline-block}
 .film h3 a{text-decoration:none}
 .film h3 a:hover{text-decoration:underline;text-underline-offset:3px}
 .facts{color:var(--muted);font-size:.84rem;margin-top:3px}
@@ -424,7 +428,7 @@ function render(){
     }).join("");
     const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
-      <div class="film"><h3 title="${esc(f.title)}"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
+      <div class="film"><h3 title="${esc(f.title)}"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3><button type="button" class="tmore" aria-expanded="false">Vis hele tittelen</button>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
       ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
       <div class="shows">${stubs}</div>
@@ -441,7 +445,7 @@ function render(){
 function fitRtHead(){ document.querySelectorAll(".h-rt button").forEach(b => { const l = b.querySelector(".hl"), sm = b.querySelector("small"); if(!l || !sm) return; sm.style.fontSize = ""; let f = parseFloat(getComputedStyle(sm).fontSize); while(f > 6 && sm.scrollWidth > l.offsetWidth + .5){ f -= .25; sm.style.fontSize = f + "px"; } }); }
 addEventListener("resize", fitRtHead); document.fonts && document.fonts.ready.then(fitRtHead); setTimeout(fitRtHead, 0);
 
-function markCut(){ requestAnimationFrame(() => document.querySelectorAll("#list .plot:not(.open)").forEach(p => p.classList.toggle("cut", p.scrollHeight > p.clientHeight + 1))); }
+function markCut(){ requestAnimationFrame(() => document.querySelectorAll("#list .plot:not(.open), #list .film h3:not(.open)").forEach(p => p.classList.toggle("cut", p.scrollHeight > p.clientHeight + 1))); }
 addEventListener("resize", markCut);
 
 function showUpdated(){
@@ -552,7 +556,10 @@ $("keySave").addEventListener("click", () => {
 });
 
 /* ---------- hendelser ---------- */
-$("list").addEventListener("click", e => { const p = e.target.closest(".plot"); if(!p || !(p.classList.contains("cut") || p.classList.contains("open"))) return;
+$("list").addEventListener("click", e => { const tb = e.target.closest(".tmore"), th = !tb && e.target.closest(".film h3.open");
+  if(tb || th){ const h = tb ? tb.previousElementSibling : th; if(th && e.target.closest("a")) return;
+    const o = h.classList.toggle("open"), b = h.nextElementSibling; b.textContent = o ? "Vis mindre" : "Vis hele tittelen"; b.setAttribute("aria-expanded", String(o)); if(!o) markCut(); return; }
+  const p = e.target.closest(".plot"); if(!p || !(p.classList.contains("cut") || p.classList.contains("open"))) return;
   const o = p.classList.toggle("open"); if(!o){ markCut(); __shutView(p.closest(".row")); } });
 $("days").addEventListener("click", e => { const b = e.target.closest("button.day"); if(!b) return; day = b.dataset.d; render(); });
 $("thead").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return;
