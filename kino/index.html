@@ -154,7 +154,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 /* Siste visning: egen tekst i tidsboksen som aldri kortes bort */
 .stub.last{flex-wrap:nowrap}
 /* Åpnet med «Vis alt»: sal og språk får hele bredden på linjen under */
-.stub.last:has(small.open){flex-wrap:wrap}
+.stub.last.open{flex-wrap:wrap}
 .stub .lastx{flex:none;font-size:.68rem;font-weight:700;white-space:nowrap}
 .stub:hover{border-color:var(--chip-ink)}
 .stub.past{background:var(--past);color:var(--faint);border-color:var(--line)}
@@ -494,7 +494,7 @@ function fitEl(el){ if(!el.offsetParent) return;
   el.classList.add("cut"); let lo = 1, hi = full.length - 1;
   while(lo < hi){ const m = (lo + hi + 1) >> 1; tx.textContent = full.slice(0, m).trimEnd().replace(/[.,;:–-]+$/,"") + "…"; if(el.offsetHeight <= max) lo = m; else hi = m - 1; }
   tx.textContent = full.slice(0, lo).trimEnd().replace(/[.,;:–-]+$/,"") + "…"; }
-function togEl(el){ const o = el.classList.toggle("open"), b = el.querySelector(".tmore");
+function togEl(el){ const o = el.classList.toggle("open"), b = el.querySelector(".tmore"), st = el.closest(".stub"); if(st) st.classList.toggle("open", o);
   b.textContent = o ? "Vis mindre" : "Vis alt"; b.setAttribute("aria-expanded", String(o));
   if(o){ el.classList.remove("cut"); el.querySelector(".tx").textContent = el.dataset.full; } else { fitEl(el); if(el.classList.contains("plot")) __shutView(el.closest(".row")); } }
 addEventListener("resize", markCut);
