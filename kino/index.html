@@ -401,7 +401,8 @@ function scoreCell(cls, label, val, href, sub, weak, title){
 }
 function short(n){ if(n == null || n === "") return ""; let plus = "";
   if(typeof n === "string"){ if(/fewer than/i.test(n)) return "under 50"; plus = /\+/.test(n) ? "+" : ""; const d = n.replace(/[^\d]/g,""); if(!d) return ""; n = Number(d); }
-  const t = n >= 999500 ? (n/1e6).toFixed(n>=1e7?0:1).replace(".",",")+" mill." : n >= 999.5 ? (n/1000).toFixed(n>=10000?0:1).replace(".",",")+"k" : String(n);
+  const r1 = (x, d) => { const v = Math.round(x / d) / 10; return (v % 1 ? v.toFixed(1) : String(v)).replace(".",","); };
+  const t = n >= 999500 ? (n >= 9950000 ? String(Math.round(n/1e6)) : r1(n, 1e5)) + " mill." : n >= 1000 ? (n >= 9950 ? String(Math.round(n/1000)) : r1(n, 100)) + "k" : String(n);
   return t.replace(",0 "," ").replace(",0k","k") + plus; }
 
 function render(){
