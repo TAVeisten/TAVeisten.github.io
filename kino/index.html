@@ -226,13 +226,17 @@ input.ctl{-webkit-appearance:none;appearance:none}
 /* Overskriftsraden: egen ramme som filmkortene; alle kolonnenavn på samme linje nederst,
    «Rotten Tomatoes» som felles overskrift over Kritikere og Publikum */
 .thead{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;align-items:stretch;margin-bottom:8px}
-.thead>span{display:flex;flex-direction:column;justify-content:flex-end;padding:5px 0 calc(5px + .62rem * 1.1)}
-.thead .h-imdb{border-radius:0;padding:5px 9px calc(5px + .62rem * 1.1) 2px}
+.thead>span{display:flex;flex-direction:column;justify-content:flex-end;padding:5px 0 calc(.62rem * 1.45 + 7px)}
+.thead .h-imdb{border-radius:0;padding:5px 9px calc(.62rem * 1.45 + 7px) 2px}
 .thead .h-rt{display:grid;align-content:end;border-radius:0;padding:5px 3px 5px 10px}
 .thead .h-rt .rtname{white-space:nowrap;overflow:visible}
 .thead .h-imdb button[aria-sort]::after{display:inline;margin:0}
 .thead .h-rt button{position:relative}
-.thead .h-rt button[aria-sort]::after{position:absolute;top:0;right:-2px;margin:0}
+.thead .h-rt button::after{display:block;line-height:1;margin-top:2px;font-size:.62rem}
+/* Alle overskrifter kan sorteres: grå ⇅ viser det, valgt overskrift får blå ▲/▼ */
+.thead button:not([aria-sort])::after{content:" ⇅";font-size:.75em;color:var(--faint);font-weight:400}
+.thead button[aria-sort]::after{color:var(--chip-ink)}
+.thead .h-imdb button::after{display:inline;margin:0}
 </style>
 <script>try{if(window.self===window.top)document.documentElement.classList.add("top")}catch(e){}</script>
 </head>
