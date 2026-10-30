@@ -130,7 +130,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .news:hover .nm,.news .nm:hover{text-decoration:underline;text-underline-offset:3px}
 .list{display:flex;flex-direction:column;gap:8px}
 .row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-.film h3{font-size:1.02rem;margin:0;line-height:1.25}
+.film h3{font-size:.88rem;margin:0;line-height:1.25;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
 .film h3 a{text-decoration:none}
 .film h3 a:hover{text-decoration:underline;text-underline-offset:3px}
 .facts{color:var(--muted);font-size:.84rem;margin-top:3px}
@@ -424,7 +424,7 @@ function render(){
     }).join("");
     const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
-      <div class="film"><h3><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
+      <div class="film"><h3 title="${esc(f.title)}"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
       ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
       <div class="shows">${stubs}</div>
