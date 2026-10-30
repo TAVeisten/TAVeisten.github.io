@@ -209,12 +209,13 @@ input.ctl{-webkit-appearance:none;appearance:none}
   .shows{order:3;margin-top:2px}
   .score{display:flex;align-items:center;gap:5px;text-align:left}
   /* Scorene som én stripe: IMDb-del og Rotten Tomatoes-del */
-  .s-imdb{order:2;margin:0;padding:8px 10px;border-radius:10px 0 0 10px;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px}
-  .rtbox{order:2;margin:0;padding:6px 10px 8px;border-radius:0 10px 10px 0;grid-template-columns:auto auto;justify-content:space-between;column-gap:10px;row-gap:3px}
+  .s-imdb{order:2;margin:0;min-width:56px;box-sizing:border-box;padding:8px 10px;border-radius:10px 0 0 10px;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px}
+  /* Like brede kolonner, så Kritikere og Publikum står rett under hverandre fra film til film */
+  .rtbox{order:2;margin:0;padding:6px 10px 8px;border-radius:0 10px 10px 0;grid-template-columns:1fr 1fr;column-gap:10px;row-gap:3px}
   .rtbox .rtlab{display:block;grid-column:1/-1;font-size:.68rem;font-weight:700;color:var(--crit)}
   .score .lab{display:inline-block;font-size:.7rem;color:var(--muted);flex:none;line-height:1.15}
   .score .lab small{font-size:.6rem}
-  .score a,.score span.v{min-width:0;padding:3px 6px;font-size:.9rem}
+  .score a,.score span.v{min-width:3.3em;box-sizing:border-box;text-align:center;padding:3px 6px;font-size:.9rem}
   .score .n{display:none}
 }
 /* Mobil liggende (bred, men lav skjerm): litt mindre beskrivelse og sjanger, så mer får plass på hver linje */
