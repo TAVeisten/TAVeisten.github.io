@@ -46,6 +46,7 @@ button,select,input{font:inherit;color:inherit}
 .refresh:hover,.refresh:focus-visible{background:rgba(255,255,255,.26);outline:none}
 .refresh[disabled]{opacity:.6;cursor:default}
 .status{color:var(--salong-sub);font-size:.82rem}
+.status b{color:var(--salong-ink);font-weight:600}
 
 /* Dager */
 .days{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
@@ -507,8 +508,9 @@ function showUpdated(){
   const d = new Date(data.updated), now = new Date();
   const same = d.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"}) === now.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"});
   const t = hms(d, /T\d\d:\d\d:\d\d/.test(data.updated));
-  $("status").innerHTML = "Oppdatert " + (same ? "i dag kl. " + t : d.toLocaleDateString("nb-NO",{day:"numeric",month:"short",timeZone:"Europe/Oslo"}) + " kl. " + t)
-    + (loadedAt ? "<br>Siden lastet kl. " + hms(loadedAt, true) : "");
+  /* Bare dato og klokkeslett i fet skrift (likt på alle de dynamiske sidene) */
+  $("status").innerHTML = "Oppdatert " + (same ? "<b>i dag</b> kl. <b>" + t + "</b>" : "<b>" + d.toLocaleDateString("nb-NO",{day:"numeric",month:"short",timeZone:"Europe/Oslo"}) + "</b> kl. <b>" + t + "</b>")
+    + (loadedAt ? "<br>Siden lastet kl. <b>" + hms(loadedAt, true) + "</b>" : "");
 }
 function when(iso){
   if(!iso) return "";

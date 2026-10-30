@@ -39,7 +39,7 @@ header.top h1{color:#fff;margin:0 0 6px}
 header.top .info{color:#DCEBE2;margin:0 0 8px}
 header.top .info a{color:#A8E0BF}
 header.top .lead{color:#C3DCCD;margin:0}
-header.top .lead b{color:#fff}
+header.top .lead b{color:#fff;font-weight:600}
 @media (prefers-color-scheme: dark){header.top{background:#1B3A2C;border-top-color:#4A9E70}}
 @media (min-width:760px){header.top{margin:-22px -28px 14px;padding:20px 28px 16px;border-radius:17px 17px 0 0}}
 @media (max-width:520px){header.top{margin:-10px -12px 12px;padding:14px 12px 12px}}
@@ -847,8 +847,11 @@ fetch("data.json", {cache:"no-store"}).then(function(r){ if (!r.ok) throw new Er
   function hms(dt, sec){ return dt.toLocaleTimeString("nb-NO", sec ? {hour:"2-digit",minute:"2-digit",second:"2-digit",timeZone:"Europe/Oslo"} : {hour:"2-digit",minute:"2-digit",timeZone:"Europe/Oslo"}); }
   function stamp(dt, sec){ var now = new Date(), t = hms(dt, sec);
     return dt.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"}) === now.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"}) ? "i dag kl. " + t : dt.toLocaleDateString("nb-NO",{day:"numeric",month:"short",year:dt.getFullYear() === now.getFullYear() ? undefined : "numeric",timeZone:"Europe/Oslo"}) + " kl. " + t; }
+  /* Som stamp, men bare dato og klokkeslett i fet skrift (likt på alle de dynamiske sidene) */
+  function stampB(dt, sec){ var now = new Date(), t = "<b>" + hms(dt, sec) + "</b>";
+    return dt.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"}) === now.toLocaleDateString("nb-NO",{timeZone:"Europe/Oslo"}) ? "<b>i dag</b> kl. " + t : "<b>" + dt.toLocaleDateString("nb-NO",{day:"numeric",month:"short",year:dt.getFullYear() === now.getFullYear() ? undefined : "numeric",timeZone:"Europe/Oslo"}) + "</b> kl. " + t; }
   var mnd = new Date().getMonth() + 1, iSesong = mnd >= 5 && mnd <= 10;
-  document.getElementById("lead").innerHTML = (chk ? "<b>Oppdatert " + stamp(chk, /T\d\d:\d\d:\d\d/.test(d.checked)) + "</b>" : "") + (wy ? " · siste fangst " + dato(web[wy].sist) : "") + (iSesong ? "" : " · neste henting i mai") + "<br>Siden lastet kl. " + hms(new Date(), true);
+  document.getElementById("lead").innerHTML = (chk ? "Oppdatert " + stampB(chk, /T\d\d:\d\d:\d\d/.test(d.checked)) : "") + (wy ? " · siste fangst <b>" + dato(web[wy].sist) + "</b>" : "") + (iSesong ? "" : " · neste henting i mai") + "<br>Siden lastet kl. <b>" + hms(new Date(), true) + "</b>";
   // Nytt siden sist
   var nyt = d.nytt;
   if (nyt && nyt.punkter && nyt.punkter.length) {
