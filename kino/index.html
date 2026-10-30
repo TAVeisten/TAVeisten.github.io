@@ -418,7 +418,7 @@ function render(){
   const selGenre = $("genre").value;
   $("list").innerHTML = rows.map(({f, shows, imdb, crit, aud, isToday}) => {
     const facts = [fmtLen(f.len), f.age && (/alle/i.test(f.age) ? "Alle" : /tbc/i.test(f.age) ? "Aldersgr. ikke satt" : f.age)].filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join("");
-    const orig = f.orig && f.orig.toLowerCase() !== f.title.replace(/\s*\(\d{4}\)\s*$/,"").toLowerCase() ? `<div class="orig">${esc(f.orig)}</div>` : "";
+    const orig = f.orig && f.orig.toLowerCase() !== f.title.toLowerCase() ? `<div class="orig">${esc(f.orig)}</div>` : "";
     const stubs = shows.map(s => {
       const past = isToday && s.t <= now.time;
       const tags = s.tags.filter(t => !/^(norsk tekst)$/i.test(t)).map(t => t.replace(/ tale$/i,"").replace(/^Eng\.$/,"Engelsk")).join(", ");
