@@ -165,14 +165,17 @@ html:not(.top) body{padding-top:0}
 })();
 </script>
 <!--ptr: dra ned fra toppen for å laste siden på nytt (virker også når siden er åpnet fra hjemskjermen eller i Claude-appen) -->
-<div id="ptr" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+<div id="ptr" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none"><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:0;--t:0" transform="rotate(0 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:1;--t:11" transform="rotate(30 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:2;--t:10" transform="rotate(60 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:3;--t:9" transform="rotate(90 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:4;--t:8" transform="rotate(120 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:5;--t:7" transform="rotate(150 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:6;--t:6" transform="rotate(180 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:7;--t:5" transform="rotate(210 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:8;--t:4" transform="rotate(240 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:9;--t:3" transform="rotate(270 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:10;--t:2" transform="rotate(300 12 12)"/><line x1="12" y1="2.6" x2="12" y2="7.2" style="--i:11;--t:1" transform="rotate(330 12 12)"/></svg></div>
 <style>
-#ptr{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:9999;width:38px;height:38px;margin-left:-19px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e6eefc;color:#2a52b8;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:0;transform:translateY(-60px);pointer-events:none}
-#ptr svg{transition:transform .15s}
-#ptr.ready svg{transform:rotate(180deg)}
-#ptr.go svg{animation:ptrspin .8s linear infinite}
+#ptr{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:9999;width:30px;height:30px;margin-left:-15px;color:#8e8e93;opacity:0;transform:translateY(-60px);pointer-events:none;--p:0}
+#ptr svg{display:block}
+/* Strekene kommer fram én etter én mens du drar, som på iPhone; fullt hjul = langt nok */
+#ptr line{stroke:currentColor;stroke-width:2.3;stroke-linecap:round;opacity:clamp(0,calc(var(--p) * 12 - var(--i)),1)}
+/* Når siden lastes: hjulet snurrer med falmende hale */
+#ptr.go line{opacity:calc(1 - var(--t) * .075)}
+#ptr.go svg{animation:ptrspin .9s steps(12) infinite}
 @keyframes ptrspin{to{transform:rotate(360deg)}}
-@media (prefers-color-scheme:dark){#ptr{background:#1a2a4a;color:#a6bff7}}
+@media (prefers-color-scheme:dark){#ptr{color:#aeaeb2}}
 </style>
 <script>
 (function(){
@@ -182,7 +185,7 @@ html:not(.top) body{padding-top:0}
   if(!(app || framed) || !("ontouchstart" in window)) return;
   var el = document.getElementById("ptr"), y0 = null, x0 = 0, d = 0, T = 90, busy = false;
   var atTop = function(){ return (document.scrollingElement || document.documentElement).scrollTop <= 0 && window.scrollY <= 0; };
-  var hide = function(){ el.style.transition = "transform .2s, opacity .2s"; el.style.opacity = 0; el.style.transform = "translateY(-60px)"; el.className = ""; };
+  var hide = function(){ el.style.setProperty("--p", 0); el.style.transition = "transform .2s, opacity .2s"; el.style.opacity = 0; el.style.transform = "translateY(-60px)"; el.className = ""; };
   addEventListener("touchstart", function(e){
     if(busy || e.touches.length !== 1 || !atTop()) { y0 = null; return; }
     /* ikke når fingeren starter i en rullbar liste eller et felt */
@@ -197,6 +200,7 @@ html:not(.top) body{padding-top:0}
     el.style.opacity = Math.min(1, d / T);
     el.style.transform = "translateY(" + (Math.min(d, T * 1.4) * 0.6 - 40) + "px)";
     el.className = d >= T ? "ready" : "";
+    el.style.setProperty("--p", Math.min(1, d / T));
   }, {passive:true});
   addEventListener("touchend", function(){
     if(y0 === null) return;
