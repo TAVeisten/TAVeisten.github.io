@@ -154,6 +154,8 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;appeara
 .sum button{border:0;background:none;color:var(--accent);font:inherit;font-weight:600;cursor:pointer;padding:0}
 #fTab th.s,#topp th.s{cursor:pointer;user-select:none;white-space:nowrap}
 #fTab th.s.on,#topp th.s.on{color:var(--accent)}
+/* Alle kolonner kan sorteres: grå ⇅ viser det, valgt kolonne får blå ▲/▼ (som Kinoprogram Drammen) */
+th.s .sa{font-size:.9em;color:var(--muted);font-weight:700}
 #fTab td.d{white-space:nowrap;text-align:left}
 #fTab td{vertical-align:baseline}
 #fTab th.d{text-align:left}
@@ -684,7 +686,7 @@ function renderTopp(){
   function sortBy(arr, sk, val){ var k = sk[0], dir = sk[1] === "+" ? 1 : -1;
     arr.sort(function(a, b){ var c = k === "n" ? cmpTxt(val.n(a), val.n(b)) : k === "r" ? 0 : val[k](a) - val[k](b); return dir * (c || (val.r(a) - val.r(b))); }); }
   function th(list, k, label, cls){ var sk = state[list], on = sk[0] === k;
-    return '<th class="s' + (cls ? " " + cls : "") + (on ? " on" : "") + '" data-list="' + list + '" data-s="' + k + '">' + label + (on ? (sk[1] === "+" ? " ▲" : " ▼") : "") + '</th>'; }
+    return '<th class="s' + (cls ? " " + cls : "") + (on ? " on" : "") + '" data-list="' + list + '" data-s="' + k + '">' + label + (on ? (sk[1] === "+" ? " ▲" : " ▼") : '<span class="sa"> ⇅</span>') + '</th>'; }
   sortBy(stor, state.sortStor, {r:function(x){ return x[1]; }, n:function(x){ return x[0][3]; }, k:function(x){ return x[0][2]; }});
   var nStor = stor.length; stor = stor.slice(0, state.stor);
   var h = '<tr>' + th("sortStor","r","#") + th("sortStor","n","Navn","nm") + th("sortStor","k","Kg") + '</tr>';
@@ -754,7 +756,7 @@ function renderFangster(){
     (ok.length ? ' · snitt <b>' + nf2.format(kg / ok.length) + '</b>' : '') + '</span>' +
     (ut ? '<span>' + ut + ' tatt ut (overstreket)</span>' : '') +
     (fState.q || fState.aar || fState.art || fState.red ? '<button type="button" id="fReset">Nullstill filtre</button>' : '');
-  function th(k, label, cls){ var on = fState.sort[0] === k; return '<th class="s ' + (cls||"") + (on ? " on" : "") + '" data-s="' + k + '">' + label + (on ? (fState.sort[1] === "+" ? " ▲" : " ▼") : "") + '</th>'; }
+  function th(k, label, cls){ var on = fState.sort[0] === k; return '<th class="s ' + (cls||"") + (on ? " on" : "") + '" data-s="' + k + '">' + label + (on ? (fState.sort[1] === "+" ? " ▲" : " ▼") : '<span class="sa"> ⇅</span>') + '</th>'; }
   var h = '<tr>' + th("d","Dato","d") + th("n","Navn","nm") + th("f","Art","wide") + th("r","Redskap","wide") + th("k","Kg") + '</tr>';
   rows.slice(0, fState.vis).forEach(function(o){ var r = o.r;
     h += '<tr' + (o.x ? ' class="x" title="' + esc(o.x) + '"' : '') + '><td class="d">' + r[0].slice(8,10) + '.' + r[0].slice(5,7) + '.' + r[0].slice(0,4) + '</td>' +
