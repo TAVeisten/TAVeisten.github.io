@@ -153,6 +153,8 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .stub small{font-size:.64rem;opacity:.85;min-width:0;max-width:100%}
 /* Siste visning: egen tekst i tidsboksen som aldri kortes bort */
 .stub.last{flex-wrap:nowrap}
+/* Åpnet med «Vis alt»: sal og språk får hele bredden på linjen under */
+.stub.last:has(small.open){flex-wrap:wrap}
 .stub .lastx{flex:none;font-size:.68rem;font-weight:700;white-space:nowrap}
 .stub:hover{border-color:var(--chip-ink)}
 .stub.past{background:var(--past);color:var(--faint);border-color:var(--line)}
