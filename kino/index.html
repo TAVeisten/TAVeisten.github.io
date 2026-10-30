@@ -132,7 +132,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 .film h3{font-size:1.02rem;margin:0;line-height:1.25;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
 /* Lang tittel: maks to linjer; «Vis hele tittelen» viser resten uten å åpne filmsiden */
-.film h3{position:relative}.film h3.cut{padding-right:2.1em}.film h3.open{display:block;-webkit-line-clamp:unset;line-clamp:none}
+.film h3{position:relative}.film h3.cut{padding-right:4.3em}.film h3.open{display:block;-webkit-line-clamp:unset;line-clamp:none}
 .tmore{display:none;border:0;margin:0;font:inherit;font-size:.78rem;font-weight:600;line-height:1.2;color:var(--chip-ink);background:var(--chip);border-radius:999px;padding:1px 7px;cursor:pointer;vertical-align:middle}
 .film h3.cut .tmore{display:inline-block;position:absolute;right:0;bottom:.1em}
 .film h3.open{padding-right:0}.film h3.open .tmore{display:inline-block;position:static;margin-left:6px}
@@ -429,7 +429,7 @@ function render(){
     }).join("");
     const iv = f.imdb && f.imdb.rating != null ? String(f.imdb.rating).replace(".",",") : null, weak = f.imdb && f.imdb.votes != null && f.imdb.votes < 400;
     return `<div class="row">
-      <div class="film"><h3 title="${esc(f.title)}"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a><button type="button" class="tmore" aria-expanded="false" aria-label="Vis hele tittelen">…</button></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
+      <div class="film"><h3 title="${esc(f.title)}"><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a><button type="button" class="tmore" aria-expanded="false" aria-label="Vis hele tittelen">Vis hele</button></h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
       <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
       ${f.plot ? `<p class="plot">${esc(f.plot)}</p>` : ""}
       <div class="shows">${stubs}</div>
@@ -559,7 +559,7 @@ $("keySave").addEventListener("click", () => {
 /* ---------- hendelser ---------- */
 $("list").addEventListener("click", e => { const tb = e.target.closest(".tmore"), th = !tb && e.target.closest(".film h3.open");
   if(tb || th){ const h = tb ? tb.closest("h3") : th; if(th && e.target.closest("a")) return;
-    const o = h.classList.toggle("open"), b = h.querySelector(".tmore"); b.textContent = o ? "Vis mindre" : "…"; b.setAttribute("aria-expanded", String(o)); if(!o) markCut(); return; }
+    const o = h.classList.toggle("open"), b = h.querySelector(".tmore"); b.textContent = o ? "Vis mindre" : "Vis hele"; b.setAttribute("aria-expanded", String(o)); if(!o) markCut(); return; }
   const p = e.target.closest(".plot"); if(!p || !(p.classList.contains("cut") || p.classList.contains("open"))) return;
   const o = p.classList.toggle("open"); if(!o){ markCut(); __shutView(p.closest(".row")); } });
 $("days").addEventListener("click", e => { const b = e.target.closest("button.day"); if(!b) return; day = b.dataset.d; render(); });
