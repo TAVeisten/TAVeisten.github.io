@@ -1,50 +1,27 @@
 {
- "updated": "2026-11-02T07:45:29+01:00",
+ "updated": "2026-11-03T07:39:20+01:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "changes": {
-  "at": "2026-11-02T07:45:29+01:00",
-  "since": "2026-11-01T07:23:56+01:00",
-  "newFilms": [
-   {
-    "title": "How to Rob a Bank",
-    "first": "2026-11-13 20:30",
-    "n": 1
-   }
-  ],
+  "at": "2026-11-03T07:39:20+01:00",
+  "since": "2026-11-02T07:45:29+01:00",
+  "newFilms": [],
   "newShows": [
    {
-    "title": "Et lite stykke Finland",
+    "title": "Markens grøde",
     "n": 3,
     "days": [
-     "2026-11-09",
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Markens grøde",
-    "n": 11,
-    "days": [
      "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12",
-     "2026-11-13"
+     "2026-11-16",
+     "2026-11-17"
     ]
    },
    {
     "title": "Pensjonskuppet",
-    "n": 13,
+    "n": 4,
     "days": [
-     "2026-11-06",
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12",
-     "2026-11-13"
+     "2026-11-16",
+     "2026-11-17"
     ]
    },
    {
@@ -52,366 +29,107 @@
     "n": 2,
     "days": [
      "2026-11-08",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Mysteriepakken",
-    "n": 5,
-    "days": [
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
+     "2026-11-17"
     ]
    },
    {
     "title": "Lille spøkelset Laban skøyer igjen",
-    "n": 5,
-    "days": [
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Wildwood",
-    "n": 6,
-    "days": [
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Other Mommy",
-    "n": 6,
-    "days": [
-     "2026-11-06",
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Sense and Sensibility",
-    "n": 2,
-    "days": [
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Verity",
-    "n": 2,
-    "days": [
-     "2026-11-08",
-     "2026-11-11"
-    ]
-   },
-   {
-    "title": "Clayface",
-    "n": 5,
-    "days": [
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "NAZA",
-    "n": 4,
-    "days": [
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Digger",
     "n": 1,
     "days": [
      "2026-11-08"
     ]
    },
    {
-    "title": "Resident Evil",
+    "title": "Wildwood",
     "n": 1,
     "days": [
-     "2026-11-11"
-    ]
-   },
-   {
-    "title": "Suser avgårde",
-    "n": 1,
-    "days": [
-     "2026-11-11"
-    ]
-   },
-   {
-    "title": "Rose",
-    "n": 3,
-    "days": [
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Everybody Digs Bill Evans",
-    "n": 2,
-    "days": [
-     "2026-11-09",
-     "2026-11-11"
-    ]
-   },
-   {
-    "title": "Julenissens verksted",
-    "n": 8,
-    "days": [
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
+     "2026-11-08"
     ]
    },
    {
     "title": "Dette er ikke et eple",
     "n": 1,
     "days": [
-     "2026-11-11"
-    ]
-   },
-   {
-    "title": "Jævla menn",
-    "n": 4,
-    "days": [
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "Godzilla Minus Zero",
-    "n": 6,
-    "days": [
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12",
-     "2026-11-13"
-    ]
-   },
-   {
-    "title": "George Michael: The Faith Tour",
-    "n": 5,
-    "days": [
-     "2026-11-08",
-     "2026-11-09",
-     "2026-11-10",
-     "2026-11-11",
-     "2026-11-12"
-    ]
-   },
-   {
-    "title": "The Odyssey",
-    "n": 1,
-    "days": [
-     "2026-11-10"
-    ]
-   },
-   {
-    "title": "Whalefall",
-    "n": 1,
-    "days": [
-     "2026-11-09"
-    ]
-   },
-   {
-    "title": "JAK ZYC ZEBY NIE ZWARIOWAC",
-    "n": 1,
-    "days": [
      "2026-11-08"
-    ]
-   },
-   {
-    "title": "Velkommen til familien",
-    "n": 1,
-    "days": [
-     "2026-11-13"
     ]
    }
   ],
   "scores": [
    {
-    "title": "Sense and Sensibility",
-    "diffs": [
-     [
-      "Kritikere",
-      77,
-      78
-     ]
-    ]
-   },
-   {
-    "title": "Jævla menn",
+    "title": "Markens grøde",
     "diffs": [
      [
       "IMDb",
-      7.1,
-      7.2
+      8.0,
+      7.9
      ]
     ]
    },
    {
-    "title": "Backrooms",
+    "title": "Lille spøkelset Laban skøyer igjen",
     "diffs": [
      [
-      "Kritikere",
-      86,
-      85
+      "IMDb",
+      6.8,
+      6.6
      ]
     ]
    },
    {
-    "title": "Whalefall",
+    "title": "Street Fighter",
     "diffs": [
      [
       "Kritikere",
-      73,
-      74
-     ],
+      41,
+      42
+     ]
+    ]
+   },
+   {
+    "title": "Godzilla Minus Zero",
+    "diffs": [
+     [
+      "Kritikere",
+      92,
+      93
+     ]
+    ]
+   },
+   {
+    "title": "Heart of the Beast",
+    "diffs": [
      [
       "Publikum",
-      81,
-      80
+      95,
+      94
+     ]
+    ]
+   },
+   {
+    "title": "A talent for murder",
+    "diffs": [
+     [
+      "Publikum",
+      73,
+      72
+     ]
+    ]
+   },
+   {
+    "title": "Charlie Harper",
+    "diffs": [
+     [
+      "IMDb",
+      6.7,
+      6.6
      ]
     ]
    }
   ],
   "gone": [],
-  "ended": [
-   {
-    "title": "La fjella leve",
-    "last": "2026-11-01"
-   },
-   {
-    "title": "Gupi ve Gülmeyen Kral",
-    "last": "2026-11-01"
-   },
-   {
-    "title": "Tulpiniai. Lemtinga klaida",
-    "last": "2026-11-01"
-   }
-  ]
+  "ended": []
  },
  "films": [
-  {
-   "id": "et-lite-stykke-finland",
-   "title": "Et lite stykke Finland",
-   "url": "https://www.nfkino.no/film/et-lite-stykke-finland?city=drammen",
-   "len": 95,
-   "age": "12 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002734-1000033788.jpg?itok=xduwKsVD",
-   "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "FI",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/584b8c96-0960-4735-a370-a2c5d4f1c41d",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-03",
-     "t": "18:20",
-     "room": "Sal 6",
-     "tags": [
-      "FI",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b9cd10b0-a165-422f-a894-a4217136951d",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-08",
-     "t": "16:30",
-     "room": "Sal 3",
-     "tags": [
-      "FI",
-      "Norsk tekst",
-      "Farsdagsevent"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/894561a6-7fae-4ad4-bb3a-a2f01bf5cb2c",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-09",
-     "t": "16:00",
-     "room": "Sal 3",
-     "tags": [
-      "FI",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/27b22b08-293c-483b-9385-354d1a18d07a",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-11",
-     "t": "15:30",
-     "room": "Sal 5",
-     "tags": [
-      "FI",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/c3507acc-8aeb-494d-a80a-841c8b5f66b3",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-12",
-     "t": "11:30",
-     "room": "Sal 3",
-     "tags": [
-      "FI",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a5e7e649-f1f7-4141-a79c-a426c6e3bea0",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-12",
-   "endsSoon": null,
-   "genre": [
-    "Dokumentar"
-   ],
-   "orig": "The Beauty of Errors",
-   "director": "Jukka Kärkkäinen",
-   "actors": [],
-   "lang": "FI",
-   "about": "En annerledes far-sønn-historie",
-   "plot": "På den finske landsbygda bor Tero, Henri og hunden Juri sammen i et lite hus. Tero har vært alenefar for Henri store deler av livet, og har lært sønnen det han kan best, som å skyte med hagle og reparere biler. Til tross for Teros noe uvanlige oppdragelsesmetoder og tidvis høye alkoholkonsum, har far og sønn et sterkt bånd og en ubetinget kjærlighet til hverandre. Når tenåringen Henri får kjæreste og ønsker seg mer privatliv, får Tero kraftig separasjonsangst og blir redd for å miste sønnen og meningen med livet. “Et lite stykke Finland” er en tørrvittig, varm og rørende dokumentarfilm som viser viktigheten av familie, selskap og kjærlighet. Filmen er regissert av Jukka Kärkkäinen, som har fulgt Tero og Henri over flere år. Han har tidligere laget prisvinnende filmer som “The Living Room of the Nation” og “The Punk Syndrome\". \"Dokumentarens svar på Aki Kaurismäki\" - cinephilia.gr",
-   "premiere": "30 oktober",
-   "imdb": null,
-   "rt": null
-  },
   {
    "id": "markens-grode",
    "title": "Markens grøde",
@@ -420,31 +138,6 @@
    "age": "12 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001856-1000035326.jpg?itok=rN7Z3cBi",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "11:30",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinoklubb",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b91f40fc-809f-4704-b6c8-2330b1f4d8ca",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-02",
-     "t": "17:40",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinoklubb"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/2032da0f-e450-4d3f-b1b1-b9c78a9d13bd",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "11:30",
@@ -597,14 +290,14 @@
     },
     {
      "d": "2026-11-08",
-     "t": "13:10",
-     "room": "Sal 3",
+     "t": "13:15",
+     "room": "Sal 2",
      "tags": [
       "Norsk tale",
       "Norsk tekst",
       "Kinoklubb"
      ],
-     "url": "https://www.nfkino.no/screening/2605/7cd38892-b2a5-426f-8aee-e5e4e5182b5f",
+     "url": "https://www.nfkino.no/screening/2605/92a79500-6fb9-45ad-95ee-f48a0f5628ce",
      "avail": "many"
     },
     {
@@ -738,8 +431,8 @@
      "tags": [
       "Norsk tale",
       "Norsk tekst",
-      "Kinoklubb",
-      "Seniorkino"
+      "Seniorkino",
+      "Kinoklubb"
      ],
      "url": "https://www.nfkino.no/screening/2605/a6780d55-ec87-4c50-896f-19fca810ae97",
      "avail": "many"
@@ -805,6 +498,32 @@
      ],
      "url": "https://www.nfkino.no/screening/2605/636ead5f-4e10-439e-a3b8-de849680346b",
      "avail": "many"
+    },
+    {
+     "d": "2026-11-16",
+     "t": "11:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/7578cb9c-1ab8-45a8-ad0b-d72e7bab177a",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-17",
+     "t": "11:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/6feedf32-6e1b-4095-91f7-432d65349052",
+     "avail": "many"
     }
    ],
    "lastAny": "2026-11-19",
@@ -828,8 +547,8 @@
    "premiere": "30 oktober",
    "imdb": {
     "id": "tt5782552",
-    "rating": 8.0,
-    "votes": 94
+    "rating": 7.9,
+    "votes": 109
    },
    "rt": null
   },
@@ -841,40 +560,6 @@
    "age": "9 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000896-1000030027.jpg?itok=mdBi1EnF",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/f530aabb-f2cf-4af8-9df8-dc69684e23e9",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-02",
-     "t": "15:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/3055e2bf-6ceb-44d9-a5d0-fc9011fb52c3",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-02",
-     "t": "18:00",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a9546b2b-3bee-4d22-80f1-ca64f624facf",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "11:30",
@@ -1319,6 +1004,52 @@
      ],
      "url": "https://www.nfkino.no/screening/2605/ca779624-c584-497b-9489-dbc6a80dbbb1",
      "avail": "many"
+    },
+    {
+     "d": "2026-11-16",
+     "t": "11:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/ea692793-217d-4b61-ab85-53ab17aa8360",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-16",
+     "t": "15:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/0e70c4c4-58da-4c95-8e80-e9baf0a07d6a",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-17",
+     "t": "11:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/fa1ff455-42f0-4d82-a394-3b0ebbef6205",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-17",
+     "t": "15:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/34831ad4-a9fe-4414-adb1-7ce4be4ce236",
+     "avail": "many"
     }
    ],
    "lastAny": "2026-11-19",
@@ -1344,7 +1075,7 @@
    "imdb": {
     "id": "tt39453840",
     "rating": 7.2,
-    "votes": 95
+    "votes": 97
    },
    "rt": null
   },
@@ -1356,17 +1087,6 @@
    "age": "Alle",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002619-1000031742.jpg?itok=agtCr8ZP",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "15:30",
-     "room": "Sal 5",
-     "tags": [
-      "Org. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/528a72fc-fc23-4ae8-a822-c09a8a55a362",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "11:30",
@@ -1410,9 +1130,319 @@
    "imdb": {
     "id": "tt32368068",
     "rating": 7.7,
-    "votes": 1362
+    "votes": 1367
    },
    "rt": null
+  },
+  {
+   "id": "verity",
+   "title": "Verity",
+   "url": "https://www.nfkino.no/film/verity?city=drammen",
+   "len": 117,
+   "age": "15 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002608-1000030788.jpg?itok=i46ou4w5",
+   "shows": [
+    {
+     "d": "2026-11-03",
+     "t": "11:30",
+     "room": "Sal 2",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/56149c6c-2e52-487a-a6d3-8a6d0775fdaf",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-03",
+     "t": "20:25",
+     "room": "Sal 3",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/301b91be-257a-429e-aefc-a09057268d53",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-04",
+     "t": "17:45",
+     "room": "Sal 2",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/0cff5db6-898d-4c77-9906-fe4acc2c6e3f",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-05",
+     "t": "20:25",
+     "room": "Sal 3",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/8c671dce-3966-4d0e-95ee-1ecbd20216f3",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-06",
+     "t": "16:10",
+     "room": "Sal 3",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/1a43a247-e510-4e37-a6e4-0c366ab3255f",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-07",
+     "t": "18:30",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "DSK"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/205c95e9-4426-4839-9a9b-8b50209e4613",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-11",
+     "t": "18:25",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/48c0a218-f99a-48e3-926f-ac96b290c448",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-11",
+   "endsSoon": null,
+   "genre": [
+    "Thriller",
+    "Romantikk"
+   ],
+   "orig": "Verity",
+   "director": "Michael Showalter",
+   "actors": [
+    "Anne Hathaway",
+    "Dakota Johnson",
+    "Josh Hartnett",
+    "Daniel Echevarria",
+    "Ismael Cruz Cordova.",
+    "Asel Swango"
+   ],
+   "lang": "EN",
+   "about": null,
+   "plot": "Verity er en forførende psykologisk thriller basert på Colleen Hoovers bestselgende roman. Vi møter den anerkjente forfatteren Verity Crawford (Anne Hathaway) og Lowen Ashleigh (Dakota Johnson), en presset forfatter som flytter til den avsidesliggende Crawford-eiendommen for å ghostwrite for Verity. Når Lowen oppdager det som ser ut til å være Veritys urovekkende selvbiografiske notater, blir hun dratt inn i mørke og forvridde bekjennelser om Veritys ektemann Jeremy (Josh Hartnett). I takt med at grensene viskes ut, kjemper hun med å skille fiksjon fra virkelighet, manipulasjon fra tiltrekning, og mulighet fra besettelse.",
+   "premiere": "2 oktober",
+   "imdb": {
+    "id": "tt32261958",
+    "rating": 6.0,
+    "votes": 28941
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/verity",
+    "critics": 31,
+    "criticsCount": 188,
+    "audience": 72,
+    "audienceCount": "1,000+ Verified Ratings"
+   }
+  },
+  {
+   "id": "clayface",
+   "title": "Clayface",
+   "url": "https://www.nfkino.no/film/clayface?city=drammen",
+   "len": 108,
+   "age": "15 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-1142799-1000033418.jpg?itok=YshJ_VoO",
+   "shows": [
+    {
+     "d": "2026-11-03",
+     "t": "12:00",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Babykino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/d01e0166-eb01-4472-9d5b-8ace982d8615",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-03",
+     "t": "20:35",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/ddb6f4dc-fcf5-4678-b7e8-b39a79eb27d5",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-04",
+     "t": "20:35",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/540f85d0-bc91-417a-94cf-834b5740900f",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-05",
+     "t": "20:35",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c5ec5a72-9086-421c-ac69-ccdc9571a8ad",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-06",
+     "t": "18:45",
+     "room": "Sal 3",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c1b6face-80ee-4176-8d4f-3f4011bd09fe",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-06",
+     "t": "23:30",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/1dbdc327-b413-4289-821a-d27173e08cf4",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-07",
+     "t": "21:10",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "DSK"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/90cbf9dc-021f-4053-a900-e6531beec8b6",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-07",
+     "t": "23:35",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "DSK"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/ac4d34ad-8556-4898-8fac-70532b6e6127",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-08",
+     "t": "21:00",
+     "room": "Sal 4",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c74acc7b-5bbb-4c41-98fd-7c1414351537",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-09",
+     "t": "18:20",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/409fb3af-ec5f-4872-af3a-3c31b50258a5",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-10",
+     "t": "18:35",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/f038c7f4-3964-4bc2-830a-8edc2f690bf7",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-11",
+     "t": "20:45",
+     "room": "Sal 2",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/280315df-c8d7-43fe-a545-fa4999c0feba",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-12",
+     "t": "18:30",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b457e9c2-c923-4d83-9a23-65135a4091d8",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-12",
+   "endsSoon": null,
+   "genre": [
+    "Superheltfilm",
+    "Horror",
+    "Drama",
+    "Action"
+   ],
+   "orig": "Clayface",
+   "director": "James Watkins",
+   "actors": [
+    "Naomi Ackie",
+    "David Dencik",
+    "Tom Rhys Harries",
+    "Max Minghella",
+    "Eddie Marsan"
+   ],
+   "lang": "EN",
+   "about": "Ansikt til ansikt med frykten.",
+   "plot": "DC Studio’s “Clayface” er en skrekk-thriller fra regissør James Watkins, med Tom Rhys Harries i tittelrollen som skurken fra Gotham City. Matt Hagens reise fra gategutt til hollywoodstjerne er nær ved å fullendes, når en av Gothams mafiosoer ødelegger alt ved å vansire ham. Alene og uten mer å tape, oppsøker Matt hjelp gjennom en banebrytende behandling som gir ham sitt gamle jeg tilbake... Samtidig som det uventet påvirker hans grep om virkeligheten, noe som leder ham ut på en ferd drevet av altoppslukende hevn. I filmen spiller også Naomi Ackie, David Dencik, Max Minghella og Eddie Marsan, sammen med Nancy Carroll og Joshua James. James Watkins regisserer etter et manus av Mike Flanagan og Hossein Amini, og en historie av Flanagan, basert på rollefigurer fra DC. Filmen er produsert av Matt Reeves, Lynn Harris, James Gunn og Peter Safran, med Michael E. Uslan, Rafi Crohn, Paul Ritchie, Chantal Nong Vo og Lars P. Winther som utøvende produsenter. Watkins’ kreative team inkluderer fotograf Rob Hardy, produksjonsdesigner James Price, klipper Jon Harris, VFX-sjef Angus Bickerton, kostymedesigner Keith Madden og castingansvarlige Lucy Bevan.",
+   "premiere": "23 oktober",
+   "imdb": {
+    "id": "tt34890576",
+    "rating": 7.5,
+    "votes": 36497
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/clayface",
+    "critics": 77,
+    "criticsCount": 210,
+    "audience": 94,
+    "audienceCount": "2,500+ Verified Ratings"
+   }
   },
   {
    "id": "sauen-shaun-gardens-farbannelse",
@@ -1422,16 +1452,6 @@
    "age": "Alle",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001358-1000025812.jpg?itok=5vztMsBg",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "15:30",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/18a4397d-9bd3-41f3-8504-20825984a6be",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "15:30",
@@ -1476,11 +1496,11 @@
     {
      "d": "2026-11-08",
      "t": "12:00",
-     "room": "Sal 2",
+     "room": "Sal 3",
      "tags": [
       "Norsk tale"
      ],
-     "url": "https://www.nfkino.no/screening/2605/32395907-0906-43da-ba9e-9ea31b9ffed7",
+     "url": "https://www.nfkino.no/screening/2605/7d94d8a3-9e7f-493a-8b34-14a051ec605b",
      "avail": "many"
     },
     {
@@ -1491,6 +1511,17 @@
       "Norsk tale"
      ],
      "url": "https://www.nfkino.no/screening/2605/97bc1a80-1913-4b24-8d9e-46206581c046",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-17",
+     "t": "17:30",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Relæxt"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/0b326391-9fb0-45e7-bfd7-0dd1992cc693",
      "avail": "many"
     }
    ],
@@ -1511,7 +1542,7 @@
    "imdb": {
     "id": "tt36841161",
     "rating": 7.1,
-    "votes": 2855
+    "votes": 3079
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/shaun_the_sheep_the_beast_of_mossy_bottom",
@@ -1529,17 +1560,6 @@
    "age": "TBC",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000817-1000034711.png?itok=k5Stjdrr",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "15:45",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e4d18d31-1ffb-4202-b59b-e9714aa50e6a",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "15:45",
@@ -1670,6 +1690,68 @@
    "rt": null
   },
   {
+   "id": "en-nasjon-i-sjakk",
+   "title": "En nasjon i sjakk",
+   "url": "https://www.nfkino.no/film/en-nasjon-i-sjakk?city=drammen",
+   "len": 115,
+   "age": "15 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/media-images/2026-09/gmnt-a2909fe488-176680-vst-6a9e9ca16e263.jpeg?itok=DcnJP7ND",
+   "shows": [
+    {
+     "d": "2026-11-03",
+     "t": "15:50",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/ec269540-7a55-4425-aa76-ad85998bd43e",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-07",
+     "t": "21:20",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinoklubb",
+      "DSK"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e858d7b7-44b7-47c5-b225-ecb87b093e0e",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
+   "genre": [
+    "Action",
+    "Thriller",
+    "Spenning"
+   ],
+   "orig": "En nasjon i sjakk",
+   "director": "John Andreas Andersen",
+   "actors": [
+    "Tobias Santelmann",
+    "Jonas Hoff Oftebro",
+    "Pål Sverre Hagen",
+    "Maria Bonnevie",
+    "Sofie Vollan",
+    "Dino Kelly"
+   ],
+   "lang": "NO",
+   "about": "En nervepirrende actionthriller der en bortført statsminister og et dødelig sjakkparti setter Norges skjebne på spill.",
+   "plot": "Krisestaben på Stortinget og leder i Delta-troppen Anton Block blir stilt overfor den ultimate utfordringen når Norges statsminister forsvinner. En terrorist presser dem til å delta i et dødelig parti sjakk hvor hvert trekk setter menneskeliv i fare. Mens klokken teller nedover kjemper Anton Block og kompanjong Björk Jonsdottir for å redde statsministeren og avverge katastrofen som nærmer seg. En nasjon i sjakk er en kommende actionthriller fra regissør John Andreas Andersen, kjent blant annet for Nr.24 og Skjelvet. Filmen er basert på Johan Høsts kritikerroste bokfenomen som ble en bestselger i 2022.",
+   "premiere": "11 september",
+   "imdb": {
+    "id": "tt32375006",
+    "rating": 6.1,
+    "votes": 361
+   },
+   "rt": null
+  },
+  {
    "id": "lille-spokelset-laban-skoyer-igjen",
    "title": "Lille spøkelset Laban skøyer igjen",
    "url": "https://www.nfkino.no/film/lille-spokelset-laban-skoyer-igjen?city=drammen",
@@ -1677,17 +1759,6 @@
    "age": "Alle",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002905-1000032454.jpg?itok=oOAhFboZ",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "16:00",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Barnefilm"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/3b1d95c7-9db4-4b94-bcc0-2eb994414c12",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "16:00",
@@ -1735,13 +1806,13 @@
     },
     {
      "d": "2026-11-08",
-     "t": "11:30",
-     "room": "Sal 3",
+     "t": "11:40",
+     "room": "Sal 2",
      "tags": [
       "Norsk tale",
       "Barnefilm"
      ],
-     "url": "https://www.nfkino.no/screening/2605/1142cb26-956d-43e2-a6c4-4caf44c1ca45",
+     "url": "https://www.nfkino.no/screening/2605/075eb76d-43b3-4776-89c9-d29f5dfe0b1a",
      "avail": "many"
     },
     {
@@ -1806,8 +1877,8 @@
    "premiere": "23 oktober",
    "imdb": {
     "id": "tt43714599",
-    "rating": 6.8,
-    "votes": 20
+    "rating": 6.6,
+    "votes": 21
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/laban-the-little-ghost-spooky-time",
@@ -1818,62 +1889,107 @@
    }
   },
   {
-   "id": "drapet-pa-benjamin-hermansen",
-   "title": "Drapet på Benjamin Hermansen",
-   "url": "https://www.nfkino.no/film/drapet-pa-benjamin-hermansen?city=drammen",
-   "len": 96,
+   "id": "naza",
+   "title": "NAZA",
+   "url": "https://www.nfkino.no/film/naza?city=drammen",
+   "len": 80,
    "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-1035849-1000033876.jpg?itok=UlE5iGFn",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003335-1000034863.jpg?itok=9O0K5e1g",
    "shows": [
     {
-     "d": "2026-11-02",
-     "t": "16:15",
+     "d": "2026-11-03",
+     "t": "16:20",
      "room": "Sal 6",
      "tags": [
-      "Norsk tale",
+      "HE",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/389ce153-b818-4490-952a-77c2629ef981",
+     "url": "https://www.nfkino.no/screening/2605/88c21b4a-8d01-4332-a780-4fd14dec35ab",
      "avail": "many"
     },
     {
-     "d": "2026-11-07",
-     "t": "16:25",
+     "d": "2026-11-05",
+     "t": "18:10",
+     "room": "Sal 6",
+     "tags": [
+      "HE",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/05665423-31fb-4115-8c1a-eec4aa8df561",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-08",
+     "t": "11:30",
+     "room": "Sal 6",
+     "tags": [
+      "HE",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/5547ca85-6a42-4a61-99c5-e90e722f7240",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-09",
+     "t": "11:30",
+     "room": "Sal 3",
+     "tags": [
+      "HE",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e0647b5a-1fc3-472e-90cb-1bdc46e3ec82",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-10",
+     "t": "18:50",
      "room": "Sal 2",
      "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "DSK"
+      "HE",
+      "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/7854f3c5-89d7-40e5-8370-a1d21eabf142",
+     "url": "https://www.nfkino.no/screening/2605/a9174b68-79f5-4337-87ea-629a4fff3edd",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-12",
+     "t": "18:50",
+     "room": "Sal 2",
+     "tags": [
+      "HE",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/57b62122-c873-45ab-ac87-7f37c62182cd",
      "avail": "many"
     }
    ],
-   "lastAny": "2026-11-07",
+   "lastAny": "2026-11-18",
    "endsSoon": null,
    "genre": [
-    "Drama"
+    "Dokumentar"
    ],
-   "orig": "Drapet på Benjamin Hermansen",
-   "director": "Ingvild Søderlind",
+   "orig": "NAZA",
+   "director": "Rachel Szor, Yuval Abraham",
    "actors": [
-    "Morten Rudå",
-    "Laila Goody",
-    "Aida Serina Naya Welle",
-    "Frode Winther",
-    "Irjan Magnus Mustaparta",
-    "Tale Haugen Sørli"
+    "Anonymus"
    ],
-   "lang": "NO",
-   "about": "En vinternatt på Holmlia mister 15 år gamle Benjamin livet – drept av 19 år gamle Joe Erling, kun fordi han er mørk i huden. Ett år senere står Benjamins mor, Marit, overfor enhver forelders verste mareritt, rettssaken mot han som drepte sønnen hennes.",
-   "plot": "Vi følger Marits kamp i retten og gjennom tilbakeblikk til livet før tragedien veves to skjebner sammen. Benjamin vokser opp omgitt av venner og en mor som tar vare på han, mens Joe Erling formes i et miljø preget av omsorgssvikt. Begge bor i områder med lav sosial status. Benjamin opplever at politiet stigmatiserer ham og Joe Erling glir inn i det nynazistiske Boot Boys-miljøet i søken etter trygghet. Filmen skildrer hvor sårbart det er når unge gutter forsøker å finne seg selv og sin tilhørighet – og hvor katastrofale konsekvensene kan bli når hatet får rom til å gro. 25 år etter drapet på Benjamin Hermansen er dette en historie vi fortsatt må fortelle – om rasisme, tap og håpet om forsoning i et samfunn som ikke må glemme.",
-   "premiere": "2 oktober",
+   "lang": "HE",
+   "about": "Her avsløres mekanismene satt i system for de effektive utryddelsene av sivile palestinere i Gaza, fortalt av de som utformet og utførte massedrapene: israelske etterretningsoffiserer og soldater.",
+   "plot": "I den dempede belysningen om natten fra byens tak i Tel Aviv foregår det samtaler i all hemmelighet. Dette er avslørende og oppsiktsvekkende intervjuer med israelske soldater fra de israelske filmskaperne bak NO OTHER LAND. Her blottlegges systematiske massedrap gjennom KI og moderne teknologi på sivile palestinere i Gaza. De israelske filmskaperne og gravejournalistene følte et stort ansvar for å utforske og avsløre systemene bak massedrapene staten Israel står bak. De spurte seg selv under de hemmelige innspillingene over en tre års periode hva deres forfedre hadde spurt seg: – Hvordan er det mulig at én gruppe mennesker kan tillate seg å dehumanisere andre? Hva er mekanismene bak og normaliseringen av slike holdninger?",
+   "premiere": "23 oktober",
    "imdb": {
-    "id": "tt36726913",
-    "rating": 6.4,
-    "votes": 109
+    "id": "tt44766123",
+    "rating": 8.3,
+    "votes": 6339
    },
-   "rt": null
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/naza",
+    "critics": 100,
+    "criticsCount": 78,
+    "audience": 99,
+    "audienceCount": "50+ Verified Ratings"
+   }
   },
   {
    "id": "wildwood",
@@ -1883,17 +1999,6 @@
    "age": "12 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002807-1000035366.jpg?itok=-4Q1BWoG",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "17:30",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/93299054-905a-4446-9027-6e445841de93",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "17:30",
@@ -1972,17 +2077,28 @@
       "DSK"
      ],
      "url": "https://www.nfkino.no/screening/2605/bb6e5400-55c3-4be3-aabf-082d2c3b7a0b",
-     "avail": "many"
+     "avail": "few"
     },
     {
      "d": "2026-11-08",
-     "t": "12:00",
+     "t": "11:50",
      "room": "Sal 5",
      "tags": [
       "Eng. tale",
       "Norsk tekst"
      ],
      "url": "https://www.nfkino.no/screening/2605/b1bed931-85db-476e-9c1e-56c648739150",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-08",
+     "t": "14:40",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/2bca1b91-f84f-4183-a44f-ff137661082d",
      "avail": "many"
     },
     {
@@ -2062,12 +2178,12 @@
    "imdb": {
     "id": "tt2056785",
     "rating": 8.7,
-    "votes": 13195
+    "votes": 14830
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/wildwood",
     "critics": 99,
-    "criticsCount": 159,
+    "criticsCount": 164,
     "audience": 97,
     "audienceCount": "2,500+ Verified Ratings"
    }
@@ -2080,28 +2196,6 @@
    "age": "15 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001429-1000033333.jpg?itok=Mn5tygxI",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "17:45",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/3bfc1fa0-68d1-45a8-85a1-60c1bc386c4a",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-02",
-     "t": "21:00",
-     "room": "Sal 4",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a3c598ba-f5d1-4860-8e94-9eef1b96230f",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "17:45",
@@ -2278,15 +2372,96 @@
    "imdb": {
     "id": "tt36586020",
     "rating": 5.3,
-    "votes": 14254
+    "votes": 14582
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/other_mommy",
     "critics": 19,
-    "criticsCount": 99,
+    "criticsCount": 100,
     "audience": 48,
     "audienceCount": "1,000+ Verified Ratings"
    }
+  },
+  {
+   "id": "et-lite-stykke-finland",
+   "title": "Et lite stykke Finland",
+   "url": "https://www.nfkino.no/film/et-lite-stykke-finland?city=drammen",
+   "len": 95,
+   "age": "12 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002734-1000033788.jpg?itok=xduwKsVD",
+   "shows": [
+    {
+     "d": "2026-11-03",
+     "t": "18:20",
+     "room": "Sal 6",
+     "tags": [
+      "FI",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b9cd10b0-a165-422f-a894-a4217136951d",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-08",
+     "t": "16:30",
+     "room": "Sal 3",
+     "tags": [
+      "FI",
+      "Norsk tekst",
+      "Farsdagsevent"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/894561a6-7fae-4ad4-bb3a-a2f01bf5cb2c",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-09",
+     "t": "16:00",
+     "room": "Sal 3",
+     "tags": [
+      "FI",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/27b22b08-293c-483b-9385-354d1a18d07a",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-11",
+     "t": "15:30",
+     "room": "Sal 5",
+     "tags": [
+      "FI",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c3507acc-8aeb-494d-a80a-841c8b5f66b3",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-12",
+     "t": "11:30",
+     "room": "Sal 3",
+     "tags": [
+      "FI",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a5e7e649-f1f7-4141-a79c-a426c6e3bea0",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-12",
+   "endsSoon": null,
+   "genre": [
+    "Dokumentar"
+   ],
+   "orig": "The Beauty of Errors",
+   "director": "Jukka Kärkkäinen",
+   "actors": [],
+   "lang": "FI",
+   "about": "En annerledes far-sønn-historie",
+   "plot": "På den finske landsbygda bor Tero, Henri og hunden Juri sammen i et lite hus. Tero har vært alenefar for Henri store deler av livet, og har lært sønnen det han kan best, som å skyte med hagle og reparere biler. Til tross for Teros noe uvanlige oppdragelsesmetoder og tidvis høye alkoholkonsum, har far og sønn et sterkt bånd og en ubetinget kjærlighet til hverandre. Når tenåringen Henri får kjæreste og ønsker seg mer privatliv, får Tero kraftig separasjonsangst og blir redd for å miste sønnen og meningen med livet. “Et lite stykke Finland” er en tørrvittig, varm og rørende dokumentarfilm som viser viktigheten av familie, selskap og kjærlighet. Filmen er regissert av Jukka Kärkkäinen, som har fulgt Tero og Henri over flere år. Han har tidligere laget prisvinnende filmer som “The Living Room of the Nation” og “The Punk Syndrome\". \"Dokumentarens svar på Aki Kaurismäki\" - cinephilia.gr",
+   "premiere": "30 oktober",
+   "imdb": null,
+   "rt": null
   },
   {
    "id": "street-fighter",
@@ -2296,17 +2471,6 @@
    "age": "12 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001806-1000033657.jpg?itok=86L98sZK",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "17:45",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a9032fcd-11ae-4e3b-94f8-cb67670f43ab",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "18:20",
@@ -2363,74 +2527,14 @@
    "imdb": {
     "id": "tt27419420",
     "rating": 6.2,
-    "votes": 19956
+    "votes": 20346
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/street_fighter_2026",
-    "critics": 41,
-    "criticsCount": 143,
+    "critics": 42,
+    "criticsCount": 144,
     "audience": 78,
     "audienceCount": "2,500+ Verified Ratings"
-   }
-  },
-  {
-   "id": "tony",
-   "title": "Tony",
-   "url": "https://www.nfkino.no/film/tony?city=drammen",
-   "len": 106,
-   "age": "12 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002865-1000030655.jpg?itok=-bOmngs0",
-   "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "18:35",
-     "room": "Sal 6",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/3b910ad0-2f63-46d6-ab8b-4a333425a386",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-05",
-     "t": "18:30",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/0c2d2f2f-e74f-4eb2-b5e0-efca69a44263",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-05",
-   "endsSoon": "2026-11-05",
-   "genre": [
-    "Drama"
-   ],
-   "orig": "Tony",
-   "director": "Matt Johnson",
-   "actors": [
-    "Antonio Banderas",
-    "Emilia Jones",
-    "Dominic Sessa"
-   ],
-   "lang": "EN",
-   "about": "Bare 19 år gammel reiser Anthony Bourdain til Provincetown hvor han plutselig befinner seg i den kaotiske verdenen på et restaurantkjøkken. Det blir starten på en sommer som vil forme resten av livet hans.",
-   "plot": "Bare 19 år gammel reiser Anthony Bourdain til Provincetown hvor han plutselig befinner seg i den kaotiske verdenen på et restaurantkjøkken. Det blir starten på en sommer som vil forme resten av livet hans.",
-   "premiere": "23 oktober",
-   "imdb": {
-    "id": "tt33095251",
-    "rating": 7.3,
-    "votes": 20145
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/tony_2026",
-    "critics": 93,
-    "criticsCount": 235,
-    "audience": 92,
-    "audienceCount": "1,000+ Verified Ratings"
    }
   },
   {
@@ -2441,18 +2545,6 @@
    "age": "Alle",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/media-images/2026-10/gmnt-67eec5dff3-176680-vst-6adb40c7ad1fb.jpeg?itok=Jb0YW62r",
    "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "20:00",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "Kinoklubb"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/5fe215c0-43e6-4715-b549-4ff3f2e326be",
-     "avail": "many"
-    },
     {
      "d": "2026-11-03",
      "t": "20:00",
@@ -2550,7 +2642,7 @@
    "imdb": {
     "id": "tt13609648",
     "rating": 7.3,
-    "votes": 7863
+    "votes": 8391
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/sense_and_sensibility_2026",
@@ -2558,629 +2650,6 @@
     "criticsCount": 135,
     "audience": 89,
     "audienceCount": "500+ Verified Ratings"
-   }
-  },
-  {
-   "id": "verity",
-   "title": "Verity",
-   "url": "https://www.nfkino.no/film/verity?city=drammen",
-   "len": 117,
-   "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002608-1000030788.jpg?itok=i46ou4w5",
-   "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "20:25",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/ad11db4e-916e-4c18-9074-142b3ab06f9c",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-03",
-     "t": "11:30",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/56149c6c-2e52-487a-a6d3-8a6d0775fdaf",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-03",
-     "t": "20:25",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/301b91be-257a-429e-aefc-a09057268d53",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-04",
-     "t": "17:45",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/0cff5db6-898d-4c77-9906-fe4acc2c6e3f",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-05",
-     "t": "20:25",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/8c671dce-3966-4d0e-95ee-1ecbd20216f3",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-06",
-     "t": "16:10",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/1a43a247-e510-4e37-a6e4-0c366ab3255f",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-07",
-     "t": "18:30",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "DSK"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/205c95e9-4426-4839-9a9b-8b50209e4613",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-08",
-     "t": "14:50",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b26d466e-beb3-42cc-a875-c36f45249908",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-11",
-     "t": "18:25",
-     "room": "Sal 6",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/48c0a218-f99a-48e3-926f-ac96b290c448",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-11",
-   "endsSoon": null,
-   "genre": [
-    "Thriller",
-    "Romantikk"
-   ],
-   "orig": "Verity",
-   "director": "Michael Showalter",
-   "actors": [
-    "Anne Hathaway",
-    "Dakota Johnson",
-    "Josh Hartnett",
-    "Daniel Echevarria",
-    "Ismael Cruz Cordova.",
-    "Asel Swango"
-   ],
-   "lang": "EN",
-   "about": null,
-   "plot": "Verity er en forførende psykologisk thriller basert på Colleen Hoovers bestselgende roman. Vi møter den anerkjente forfatteren Verity Crawford (Anne Hathaway) og Lowen Ashleigh (Dakota Johnson), en presset forfatter som flytter til den avsidesliggende Crawford-eiendommen for å ghostwrite for Verity. Når Lowen oppdager det som ser ut til å være Veritys urovekkende selvbiografiske notater, blir hun dratt inn i mørke og forvridde bekjennelser om Veritys ektemann Jeremy (Josh Hartnett). I takt med at grensene viskes ut, kjemper hun med å skille fiksjon fra virkelighet, manipulasjon fra tiltrekning, og mulighet fra besettelse.",
-   "premiere": "2 oktober",
-   "imdb": {
-    "id": "tt32261958",
-    "rating": 6.0,
-    "votes": 27073
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/verity",
-    "critics": 31,
-    "criticsCount": 188,
-    "audience": 72,
-    "audienceCount": "1,000+ Verified Ratings"
-   }
-  },
-  {
-   "id": "franz",
-   "title": "Franz",
-   "url": "https://www.nfkino.no/film/franz?city=drammen",
-   "len": 127,
-   "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002132-1000025141.jpg?itok=SAFc2E8J",
-   "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "20:30",
-     "room": "Sal 5",
-     "tags": [
-      "Org. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/08f0ea34-c4c6-48f6-b82e-327d8300739c",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-04",
-     "t": "15:25",
-     "room": "Sal 5",
-     "tags": [
-      "Org. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/43afa0d6-7af3-4d40-b1d3-98df0060c15a",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-04",
-   "endsSoon": "2026-11-04",
-   "genre": [
-    "Drama"
-   ],
-   "orig": "Franz",
-   "director": "Agnieszka Holland",
-   "actors": [
-    "Daniel Dongres",
-    "Peter Kurth",
-    "Idan Weiss"
-   ],
-   "lang": "DE",
-   "about": "Agnieszka Holland har skapt et hypnotisk portrett av en av 1900-tallets mest myteomspunne forfattere: Franz Kafka. Filmen følger ham fra ungdomsårene i Praha til hans død.",
-   "plot": "Regissør Agnieszka Holland er kjent for filmer som Europa Europa (1990), In Darkness (2011) og Green Border (2023). Ofte skildrer hun virkelige hendelser i Europas turbulente nyere historie med rå realisme, men i møte med Franz Kafka benytter hun et drømmende filmspråk som visker vekk skillelinjene mellom fantasi og virkelighet. Resultatet er en levende, poetisk og uforutsigbar film som hopper mellom ulike virkelighetsnivåer. Her brettes Kafkas kreative kaos ut i all sin surrealistiske blomst, med Idan Weiss i sin første store filmrolle. Han skaper et intenst portrett av den ikoniske forfatteren og fanger både det sårbare og det visjonære i Kafkas vesen. Dette er en fascinerende visuell reise inn i sinnet til en av historiens mest gåtefulle forfattere.",
-   "premiere": "23 oktober",
-   "imdb": {
-    "id": "tt17070412",
-    "rating": 6.2,
-    "votes": 2130
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/franz",
-    "critics": 74,
-    "criticsCount": 65,
-    "audience": null,
-    "audienceCount": "Fewer than 50 Ratings"
-   }
-  },
-  {
-   "id": "clayface",
-   "title": "Clayface",
-   "url": "https://www.nfkino.no/film/clayface?city=drammen",
-   "len": 108,
-   "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-1142799-1000033418.jpg?itok=YshJ_VoO",
-   "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "20:35",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/d69d566a-3227-44db-ae63-744c74c510f4",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-03",
-     "t": "12:00",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "Babykino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/d01e0166-eb01-4472-9d5b-8ace982d8615",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-03",
-     "t": "20:35",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/ddb6f4dc-fcf5-4678-b7e8-b39a79eb27d5",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-04",
-     "t": "20:35",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/540f85d0-bc91-417a-94cf-834b5740900f",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-05",
-     "t": "20:35",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/c5ec5a72-9086-421c-ac69-ccdc9571a8ad",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-06",
-     "t": "18:45",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/c1b6face-80ee-4176-8d4f-3f4011bd09fe",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-06",
-     "t": "23:30",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/1dbdc327-b413-4289-821a-d27173e08cf4",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-07",
-     "t": "21:10",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "DSK"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/90cbf9dc-021f-4053-a900-e6531beec8b6",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-07",
-     "t": "23:35",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "DSK"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/ac4d34ad-8556-4898-8fac-70532b6e6127",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-08",
-     "t": "21:00",
-     "room": "Sal 4",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/c74acc7b-5bbb-4c41-98fd-7c1414351537",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-09",
-     "t": "18:20",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/409fb3af-ec5f-4872-af3a-3c31b50258a5",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-10",
-     "t": "18:35",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/f038c7f4-3964-4bc2-830a-8edc2f690bf7",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-11",
-     "t": "20:45",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/280315df-c8d7-43fe-a545-fa4999c0feba",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-12",
-     "t": "18:30",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b457e9c2-c923-4d83-9a23-65135a4091d8",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-12",
-   "endsSoon": null,
-   "genre": [
-    "Superheltfilm",
-    "Horror",
-    "Drama",
-    "Action"
-   ],
-   "orig": "Clayface",
-   "director": "James Watkins",
-   "actors": [
-    "Naomi Ackie",
-    "David Dencik",
-    "Tom Rhys Harries",
-    "Max Minghella",
-    "Eddie Marsan"
-   ],
-   "lang": "EN",
-   "about": "Ansikt til ansikt med frykten.",
-   "plot": "DC Studio’s “Clayface” er en skrekk-thriller fra regissør James Watkins, med Tom Rhys Harries i tittelrollen som skurken fra Gotham City. Matt Hagens reise fra gategutt til hollywoodstjerne er nær ved å fullendes, når en av Gothams mafiosoer ødelegger alt ved å vansire ham. Alene og uten mer å tape, oppsøker Matt hjelp gjennom en banebrytende behandling som gir ham sitt gamle jeg tilbake... Samtidig som det uventet påvirker hans grep om virkeligheten, noe som leder ham ut på en ferd drevet av altoppslukende hevn. I filmen spiller også Naomi Ackie, David Dencik, Max Minghella og Eddie Marsan, sammen med Nancy Carroll og Joshua James. James Watkins regisserer etter et manus av Mike Flanagan og Hossein Amini, og en historie av Flanagan, basert på rollefigurer fra DC. Filmen er produsert av Matt Reeves, Lynn Harris, James Gunn og Peter Safran, med Michael E. Uslan, Rafi Crohn, Paul Ritchie, Chantal Nong Vo og Lars P. Winther som utøvende produsenter. Watkins’ kreative team inkluderer fotograf Rob Hardy, produksjonsdesigner James Price, klipper Jon Harris, VFX-sjef Angus Bickerton, kostymedesigner Keith Madden og castingansvarlige Lucy Bevan.",
-   "premiere": "23 oktober",
-   "imdb": {
-    "id": "tt34890576",
-    "rating": 7.5,
-    "votes": 33701
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/clayface",
-    "critics": 77,
-    "criticsCount": 206,
-    "audience": 94,
-    "audienceCount": "2,500+ Verified Ratings"
-   }
-  },
-  {
-   "id": "hex-en-film-om-fenomenet-witch-club-satan",
-   "title": "HEX - En film om fenomenet Witch Club Satan",
-   "url": "https://www.nfkino.no/film/hex-en-film-om-fenomenet-witch-club-satan?city=drammen",
-   "len": 92,
-   "age": "9 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001277-1000032705.jpg?itok=YkDJe8bJ",
-   "shows": [
-    {
-     "d": "2026-11-02",
-     "t": "21:00",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/226c0c87-d2cd-4ddd-9d85-147593dbd40d",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-04",
-     "t": "21:00",
-     "room": "Sal 5",
-     "tags": [
-      "Norsk tekst",
-      "Regissørbesøk"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/6f0edfc7-bfc7-49b8-bc52-269abab0171a",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-05",
-     "t": "16:00",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/d3cb8d8d-db73-4b10-8562-001dfe63c51e",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-05",
-   "endsSoon": "2026-11-05",
-   "genre": [
-    "Dokumentar"
-   ],
-   "orig": "HEX - En film om fenomenet Witch Club Satan",
-   "director": "Maja Holand",
-   "actors": [],
-   "lang": null,
-   "about": "Dette er kinodokumentaren om Witch Club Satan, bandet som ble et internasjonalt fenomen over natta.",
-   "plot": "I hjertet av Norges mektige black metal-scene oppstår plutselig en ny kraft. Nikoline, Victoria og Johanna inngår en treårig pakt der de skal vie hele livet til å vekke verden, hverandre og seg selv som hekser. På rekordtid går trioen fra å ikke kunne verken spille eller growle til å bli et globalt fenomen som blir booket til store internasjonale festivaler og verdensturneer. Witch Club Satan er ikke bare et feministisk black metal band som har tatt publikum med storm, det er også et prosjekt som krever mer av kvinnene enn de kunne forestilt seg. Vi følger trioen på veien mot å finne sin urkraft – gjennom opp- og nedturer i bandets tre første leveår. Det blir mørkt, rått, ærlig og blodig.",
-   "premiere": "30 oktober",
-   "imdb": null,
-   "rt": null
-  },
-  {
-   "id": "en-nasjon-i-sjakk",
-   "title": "En nasjon i sjakk",
-   "url": "https://www.nfkino.no/film/en-nasjon-i-sjakk?city=drammen",
-   "len": 115,
-   "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/media-images/2026-09/gmnt-a2909fe488-176680-vst-6a9e9ca16e263.jpeg?itok=DcnJP7ND",
-   "shows": [
-    {
-     "d": "2026-11-03",
-     "t": "15:50",
-     "room": "Sal 5",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinoklubb"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/ec269540-7a55-4425-aa76-ad85998bd43e",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-07",
-     "t": "21:20",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinoklubb",
-      "DSK"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e858d7b7-44b7-47c5-b225-ecb87b093e0e",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-07",
-   "endsSoon": null,
-   "genre": [
-    "Action",
-    "Thriller",
-    "Spenning"
-   ],
-   "orig": "En nasjon i sjakk",
-   "director": "John Andreas Andersen",
-   "actors": [
-    "Tobias Santelmann",
-    "Jonas Hoff Oftebro",
-    "Pål Sverre Hagen",
-    "Maria Bonnevie",
-    "Sofie Vollan",
-    "Dino Kelly"
-   ],
-   "lang": "NO",
-   "about": "En nervepirrende actionthriller der en bortført statsminister og et dødelig sjakkparti setter Norges skjebne på spill.",
-   "plot": "Krisestaben på Stortinget og leder i Delta-troppen Anton Block blir stilt overfor den ultimate utfordringen når Norges statsminister forsvinner. En terrorist presser dem til å delta i et dødelig parti sjakk hvor hvert trekk setter menneskeliv i fare. Mens klokken teller nedover kjemper Anton Block og kompanjong Björk Jonsdottir for å redde statsministeren og avverge katastrofen som nærmer seg. En nasjon i sjakk er en kommende actionthriller fra regissør John Andreas Andersen, kjent blant annet for Nr.24 og Skjelvet. Filmen er basert på Johan Høsts kritikerroste bokfenomen som ble en bestselger i 2022.",
-   "premiere": "11 september",
-   "imdb": {
-    "id": "tt32375006",
-    "rating": 6.1,
-    "votes": 359
-   },
-   "rt": null
-  },
-  {
-   "id": "naza",
-   "title": "NAZA",
-   "url": "https://www.nfkino.no/film/naza?city=drammen",
-   "len": 80,
-   "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003335-1000034863.jpg?itok=9O0K5e1g",
-   "shows": [
-    {
-     "d": "2026-11-03",
-     "t": "16:20",
-     "room": "Sal 6",
-     "tags": [
-      "HE",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/88c21b4a-8d01-4332-a780-4fd14dec35ab",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-05",
-     "t": "18:10",
-     "room": "Sal 6",
-     "tags": [
-      "HE",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/05665423-31fb-4115-8c1a-eec4aa8df561",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-08",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "HE",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/5547ca85-6a42-4a61-99c5-e90e722f7240",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-09",
-     "t": "11:30",
-     "room": "Sal 3",
-     "tags": [
-      "HE",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e0647b5a-1fc3-472e-90cb-1bdc46e3ec82",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-10",
-     "t": "18:50",
-     "room": "Sal 2",
-     "tags": [
-      "HE",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a9174b68-79f5-4337-87ea-629a4fff3edd",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-12",
-     "t": "18:50",
-     "room": "Sal 2",
-     "tags": [
-      "HE",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/57b62122-c873-45ab-ac87-7f37c62182cd",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-18",
-   "endsSoon": null,
-   "genre": [
-    "Dokumentar"
-   ],
-   "orig": "NAZA",
-   "director": "Rachel Szor, Yuval Abraham",
-   "actors": [
-    "Anonymus"
-   ],
-   "lang": "HE",
-   "about": "Her avsløres mekanismene satt i system for de effektive utryddelsene av sivile palestinere i Gaza, fortalt av de som utformet og utførte massedrapene: israelske etterretningsoffiserer og soldater.",
-   "plot": "I den dempede belysningen om natten fra byens tak i Tel Aviv foregår det samtaler i all hemmelighet. Dette er avslørende og oppsiktsvekkende intervjuer med israelske soldater fra de israelske filmskaperne bak NO OTHER LAND. Her blottlegges systematiske massedrap gjennom KI og moderne teknologi på sivile palestinere i Gaza. De israelske filmskaperne og gravejournalistene følte et stort ansvar for å utforske og avsløre systemene bak massedrapene staten Israel står bak. De spurte seg selv under de hemmelige innspillingene over en tre års periode hva deres forfedre hadde spurt seg: – Hvordan er det mulig at én gruppe mennesker kan tillate seg å dehumanisere andre? Hva er mekanismene bak og normaliseringen av slike holdninger?",
-   "premiere": "23 oktober",
-   "imdb": {
-    "id": "tt44766123",
-    "rating": 8.3,
-    "votes": 6255
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/naza",
-    "critics": 100,
-    "criticsCount": 76,
-    "audience": 99,
-    "audienceCount": "50+ Verified Ratings"
    }
   },
   {
@@ -3237,7 +2706,7 @@
    "imdb": {
     "id": "tt31450459",
     "rating": 7.5,
-    "votes": 45384
+    "votes": 45702
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/digger_2026",
@@ -3322,14 +2791,63 @@
    "imdb": {
     "id": "tt35538033",
     "rating": 7.5,
-    "votes": 120192
+    "votes": 121160
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/resident_evil_2026",
     "critics": 96,
-    "criticsCount": 303,
+    "criticsCount": 302,
     "audience": 90,
     "audienceCount": "10,000+ Verified Ratings"
+   }
+  },
+  {
+   "id": "franz",
+   "title": "Franz",
+   "url": "https://www.nfkino.no/film/franz?city=drammen",
+   "len": 127,
+   "age": "15 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002132-1000025141.jpg?itok=SAFc2E8J",
+   "shows": [
+    {
+     "d": "2026-11-04",
+     "t": "15:25",
+     "room": "Sal 5",
+     "tags": [
+      "Org. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/43afa0d6-7af3-4d40-b1d3-98df0060c15a",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-04",
+   "endsSoon": "2026-11-04",
+   "genre": [
+    "Drama"
+   ],
+   "orig": "Franz",
+   "director": "Agnieszka Holland",
+   "actors": [
+    "Daniel Dongres",
+    "Peter Kurth",
+    "Idan Weiss"
+   ],
+   "lang": "DE",
+   "about": "Agnieszka Holland har skapt et hypnotisk portrett av en av 1900-tallets mest myteomspunne forfattere: Franz Kafka. Filmen følger ham fra ungdomsårene i Praha til hans død.",
+   "plot": "Regissør Agnieszka Holland er kjent for filmer som Europa Europa (1990), In Darkness (2011) og Green Border (2023). Ofte skildrer hun virkelige hendelser i Europas turbulente nyere historie med rå realisme, men i møte med Franz Kafka benytter hun et drømmende filmspråk som visker vekk skillelinjene mellom fantasi og virkelighet. Resultatet er en levende, poetisk og uforutsigbar film som hopper mellom ulike virkelighetsnivåer. Her brettes Kafkas kreative kaos ut i all sin surrealistiske blomst, med Idan Weiss i sin første store filmrolle. Han skaper et intenst portrett av den ikoniske forfatteren og fanger både det sårbare og det visjonære i Kafkas vesen. Dette er en fascinerende visuell reise inn i sinnet til en av historiens mest gåtefulle forfattere.",
+   "premiere": "23 oktober",
+   "imdb": {
+    "id": "tt17070412",
+    "rating": 6.2,
+    "votes": 2132
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/franz",
+    "critics": 74,
+    "criticsCount": 65,
+    "audience": null,
+    "audienceCount": "Fewer than 50 Ratings"
    }
   },
   {
@@ -3385,8 +2903,53 @@
    "imdb": {
     "id": "tt39443962",
     "rating": 7.1,
-    "votes": 107
+    "votes": 108
    },
+   "rt": null
+  },
+  {
+   "id": "hex-en-film-om-fenomenet-witch-club-satan",
+   "title": "HEX - En film om fenomenet Witch Club Satan",
+   "url": "https://www.nfkino.no/film/hex-en-film-om-fenomenet-witch-club-satan?city=drammen",
+   "len": 92,
+   "age": "9 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001277-1000032705.jpg?itok=YkDJe8bJ",
+   "shows": [
+    {
+     "d": "2026-11-04",
+     "t": "21:00",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tekst",
+      "Regissørbesøk"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/6f0edfc7-bfc7-49b8-bc52-269abab0171a",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-05",
+     "t": "16:00",
+     "room": "Sal 6",
+     "tags": [
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/d3cb8d8d-db73-4b10-8562-001dfe63c51e",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-05",
+   "endsSoon": "2026-11-05",
+   "genre": [
+    "Dokumentar"
+   ],
+   "orig": "HEX - En film om fenomenet Witch Club Satan",
+   "director": "Maja Holand",
+   "actors": [],
+   "lang": null,
+   "about": "Dette er kinodokumentaren om Witch Club Satan, bandet som ble et internasjonalt fenomen over natta.",
+   "plot": "I hjertet av Norges mektige black metal-scene oppstår plutselig en ny kraft. Nikoline, Victoria og Johanna inngår en treårig pakt der de skal vie hele livet til å vekke verden, hverandre og seg selv som hekser. På rekordtid går trioen fra å ikke kunne verken spille eller growle til å bli et globalt fenomen som blir booket til store internasjonale festivaler og verdensturneer. Witch Club Satan er ikke bare et feministisk black metal band som har tatt publikum med storm, det er også et prosjekt som krever mer av kvinnene enn de kunne forestilt seg. Vi følger trioen på veien mot å finne sin urkraft – gjennom opp- og nedturer i bandets tre første leveår. Det blir mørkt, rått, ærlig og blodig.",
+   "premiere": "30 oktober",
+   "imdb": null,
    "rt": null
   },
   {
@@ -3394,7 +2957,7 @@
    "title": "Rammstein - Live in Mexico City",
    "url": "https://www.nfkino.no/film/rammstein-live-mexico-city?city=drammen",
    "len": 110,
-   "age": "15 år",
+   "age": "18 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003304-1000032830.jpg?itok=tHfX6wk3",
    "shows": [
     {
@@ -3420,7 +2983,7 @@
     }
    ],
    "lastAny": "2026-11-06",
-   "endsSoon": null,
+   "endsSoon": "2026-11-06",
    "genre": [
     "Concert",
     "Musikkfilm"
@@ -3515,7 +3078,7 @@
    "imdb": {
     "id": "tt25399154",
     "rating": 7.5,
-    "votes": 3178
+    "votes": 3197
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/rose_2026",
@@ -3523,6 +3086,55 @@
     "criticsCount": 34,
     "audience": null,
     "audienceCount": "0 Verified Ratings"
+   }
+  },
+  {
+   "id": "tony",
+   "title": "Tony",
+   "url": "https://www.nfkino.no/film/tony?city=drammen",
+   "len": 106,
+   "age": "12 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002865-1000030655.jpg?itok=-bOmngs0",
+   "shows": [
+    {
+     "d": "2026-11-05",
+     "t": "18:30",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/0c2d2f2f-e74f-4eb2-b5e0-efca69a44263",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-05",
+   "endsSoon": "2026-11-05",
+   "genre": [
+    "Drama"
+   ],
+   "orig": "Tony",
+   "director": "Matt Johnson",
+   "actors": [
+    "Antonio Banderas",
+    "Emilia Jones",
+    "Dominic Sessa"
+   ],
+   "lang": "EN",
+   "about": "Bare 19 år gammel reiser Anthony Bourdain til Provincetown hvor han plutselig befinner seg i den kaotiske verdenen på et restaurantkjøkken. Det blir starten på en sommer som vil forme resten av livet hans.",
+   "plot": "Bare 19 år gammel reiser Anthony Bourdain til Provincetown hvor han plutselig befinner seg i den kaotiske verdenen på et restaurantkjøkken. Det blir starten på en sommer som vil forme resten av livet hans.",
+   "premiere": "23 oktober",
+   "imdb": {
+    "id": "tt33095251",
+    "rating": 7.3,
+    "votes": 20428
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/tony_2026",
+    "critics": 93,
+    "criticsCount": 235,
+    "audience": 92,
+    "audienceCount": "1,000+ Verified Ratings"
    }
   },
   {
@@ -3609,7 +3221,7 @@
    "imdb": {
     "id": "tt34347792",
     "rating": 6.8,
-    "votes": 348
+    "votes": 349
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/everybody_digs_bill_evans",
@@ -3875,12 +3487,13 @@
     {
      "d": "2026-11-08",
      "t": "14:00",
-     "room": "Sal 2",
+     "room": "Sal 3",
      "tags": [
       "Norsk tale",
-      "Norsk tekst"
+      "Norsk tekst",
+      "Regissørbesøk"
      ],
-     "url": "https://www.nfkino.no/screening/2605/38a82588-5e0b-4c4f-9a18-c7855a778c9d",
+     "url": "https://www.nfkino.no/screening/2605/1e1ca40f-08fc-4970-9352-83330ceb9746",
      "avail": "many"
     },
     {
@@ -4225,12 +3838,12 @@
    "imdb": {
     "id": "tt23289160",
     "rating": 7.6,
-    "votes": 234074
+    "votes": 234250
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/godzilla_minus_zero",
-    "critics": 92,
-    "criticsCount": 52,
+    "critics": 93,
+    "criticsCount": 55,
     "audience": null,
     "audienceCount": "0 Verified Ratings"
    }
@@ -4371,7 +3984,7 @@
     }
    ],
    "lastAny": "2026-11-06",
-   "endsSoon": null,
+   "endsSoon": "2026-11-06",
    "genre": [],
    "orig": "Hunger Games 1-5 maraton",
    "director": null,
@@ -4404,7 +4017,7 @@
     }
    ],
    "lastAny": "2026-11-06",
-   "endsSoon": null,
+   "endsSoon": "2026-11-06",
    "genre": [
     "Fantasy"
    ],
@@ -4455,7 +4068,7 @@
    "imdb": {
     "id": "tt29356163",
     "rating": 6.0,
-    "votes": 2961
+    "votes": 2975
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/paw_patrol_the_dino_movie",
@@ -4508,7 +4121,7 @@
    "imdb": {
     "id": "tt6718170",
     "rating": 7.0,
-    "votes": 304212
+    "votes": 304256
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/the_super_mario_galaxy_movie",
@@ -4596,7 +4209,7 @@
    "imdb": {
     "id": "tt32890033",
     "rating": 6.3,
-    "votes": 36243
+    "votes": 36422
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/minions_and_monsters",
@@ -4728,7 +4341,7 @@
    "imdb": {
     "id": "tt11378946",
     "rating": 7.3,
-    "votes": 196556
+    "votes": 196787
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/michael",
@@ -4789,13 +4402,13 @@
    "imdb": {
     "id": "tt7526136",
     "rating": 7.2,
-    "votes": 32767
+    "votes": 33099
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/heart_of_the_beast",
     "critics": 84,
     "criticsCount": 185,
-    "audience": 95,
+    "audience": 94,
     "audienceCount": "2,500+ Verified Ratings"
    }
   },
@@ -4843,7 +4456,7 @@
    "imdb": {
     "id": "tt22084616",
     "rating": 7.9,
-    "votes": 372396
+    "votes": 373725
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/spider_man_brand_new_day",
@@ -4852,6 +4465,53 @@
     "audience": 97,
     "audienceCount": "25,000+ Verified Ratings"
    }
+  },
+  {
+   "id": "drapet-pa-benjamin-hermansen",
+   "title": "Drapet på Benjamin Hermansen",
+   "url": "https://www.nfkino.no/film/drapet-pa-benjamin-hermansen?city=drammen",
+   "len": 96,
+   "age": "15 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-1035849-1000033876.jpg?itok=UlE5iGFn",
+   "shows": [
+    {
+     "d": "2026-11-07",
+     "t": "16:25",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "DSK"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/7854f3c5-89d7-40e5-8370-a1d21eabf142",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-07",
+   "endsSoon": null,
+   "genre": [
+    "Drama"
+   ],
+   "orig": "Drapet på Benjamin Hermansen",
+   "director": "Ingvild Søderlind",
+   "actors": [
+    "Morten Rudå",
+    "Laila Goody",
+    "Aida Serina Naya Welle",
+    "Frode Winther",
+    "Irjan Magnus Mustaparta",
+    "Tale Haugen Sørli"
+   ],
+   "lang": "NO",
+   "about": "En vinternatt på Holmlia mister 15 år gamle Benjamin livet – drept av 19 år gamle Joe Erling, kun fordi han er mørk i huden. Ett år senere står Benjamins mor, Marit, overfor enhver forelders verste mareritt, rettssaken mot han som drepte sønnen hennes.",
+   "plot": "Vi følger Marits kamp i retten og gjennom tilbakeblikk til livet før tragedien veves to skjebner sammen. Benjamin vokser opp omgitt av venner og en mor som tar vare på han, mens Joe Erling formes i et miljø preget av omsorgssvikt. Begge bor i områder med lav sosial status. Benjamin opplever at politiet stigmatiserer ham og Joe Erling glir inn i det nynazistiske Boot Boys-miljøet i søken etter trygghet. Filmen skildrer hvor sårbart det er når unge gutter forsøker å finne seg selv og sin tilhørighet – og hvor katastrofale konsekvensene kan bli når hatet får rom til å gro. 25 år etter drapet på Benjamin Hermansen er dette en historie vi fortsatt må fortelle – om rasisme, tap og håpet om forsoning i et samfunn som ikke må glemme.",
+   "premiere": "2 oktober",
+   "imdb": {
+    "id": "tt36726913",
+    "rating": 6.4,
+    "votes": 112
+   },
+   "rt": null
   },
   {
    "id": "talent-murder",
@@ -4896,13 +4556,13 @@
    "imdb": {
     "id": "tt14129116",
     "rating": 6.8,
-    "votes": 661
+    "votes": 684
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/a_talent_for_murder_2026",
     "critics": 78,
-    "criticsCount": 73,
-    "audience": 73,
+    "criticsCount": 74,
+    "audience": 72,
     "audienceCount": "50+ Verified Ratings"
    }
   },
@@ -4958,7 +4618,7 @@
    "imdb": {
     "id": "tt33764258",
     "rating": 8.4,
-    "votes": 540757
+    "votes": 541647
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/the_odyssey_2026",
@@ -5012,12 +4672,12 @@
    "imdb": {
     "id": "tt15799564",
     "rating": 8.1,
-    "votes": 1717
+    "votes": 1863
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/wild_horse_nine",
     "critics": 93,
-    "criticsCount": 112,
+    "criticsCount": 120,
     "audience": null,
     "audienceCount": "0 Verified Ratings"
    }
@@ -5064,7 +4724,7 @@
    "imdb": {
     "id": "tt37287335",
     "rating": 7.8,
-    "votes": 417196
+    "votes": 419564
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/obsession_2025",
@@ -5117,7 +4777,7 @@
    "imdb": {
     "id": "tt26657236",
     "rating": 6.7,
-    "votes": 241301
+    "votes": 242847
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/backrooms",
@@ -5181,7 +4841,7 @@
    "imdb": {
     "id": "tt28535715",
     "rating": 6.6,
-    "votes": 9602
+    "votes": 9820
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/whalefall",
@@ -5334,7 +4994,7 @@
    "imdb": {
     "id": "tt32429174",
     "rating": 7.1,
-    "votes": 2628
+    "votes": 2636
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/calle_malaga",
@@ -5577,8 +5237,8 @@
    "premiere": "13 november",
    "imdb": {
     "id": "tt27739255",
-    "rating": 6.7,
-    "votes": 301
+    "rating": 6.6,
+    "votes": 305
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/charlie_harper",
