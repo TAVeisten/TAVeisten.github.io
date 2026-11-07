@@ -353,13 +353,15 @@ def rt_scores(path):
         return None
     c, a = j.get("criticsScore") or {}, j.get("audienceScore") or {}
 
-    def num(v):
-        try:
-            return int(v)
-        except (TypeError, ValueError):
-            return None
-    return {"url": RT + path, "critics": num(c.get("score")), "criticsCount": c.get("reviewCount") or c.get("ratingCount"),
-            "audience": num(a.get("score")), "audienceCount": a.get("bandedRatingCount")}
+    def num(d):
+        # RT endret i nov. 2026 fra "score": 83 til "scorePercent": "83%" – godta begge
+        for v in (d.get("score"), d.get("scorePercent")):
+            m = re.search(r"\d+", str(v)) if v is not None else None
+            if m:
+                return int(m.group())
+        return None
+    return {"url": RT + path, "critics": num(c), "criticsCount": c.get("reviewCount") or c.get("ratingCount"),
+            "audience": num(a), "audienceCount": a.get("bandedRatingCount")}
 
 
 # ---------------------------------------------------------------- går snart av
