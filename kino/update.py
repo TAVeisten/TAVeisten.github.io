@@ -182,10 +182,32 @@ def film_details(f):
     f["actors"] = [a for a in re.split(r",\s*", field("actors")) if a][:6]
     f["lang"] = field("language") or None
     f["about"] = (field("short-description") or "")[:300] or None
-    body = soup.select_one(".field--name-body")
-    f["plot"] = plot_line(clean(body.get_text(" ")) if body else "", f["about"] or "")
+    # NF Kino kan legge driftsvarsler («OBS! Savner du en e-post …») i samme type felt som
+    # handlingsteksten. Hopp over slike varsler og bruk filmens egen tekst (13.11.2026).
+    body = ""
+    for el in soup.select(".field--name-body"):
+        if any(re.search(r"alert|notice|message|banner|popup|modal|toast", " ".join(a.get("class") or []), re.I)
+               for a in el.parents):
+            continue
+        parts = [clean(x.get_text(" ")) for x in el.select("p")] or [clean(el.get_text(" "))]
+        txt = " ".join(x for x in parts if x and not is_notice(x))
+        if txt:
+            body = txt
+            break
+    if f["about"] and is_notice(f["about"]):
+        f["about"] = None
+    f["plot"] = plot_line(body, f["about"] or "")
     m = re.search(r"(\d{1,2})\.?\s*(\w+)\s*(\d{4})?", field("premiere-date") or "")
     f["premiere"] = clean(field("premiere-date")) or None
+
+
+NOTICE = re.compile(r"^\s*OBS\b|teknisk(e)? avvik|driftsavvik|driftsforstyrr|"
+                    r"e-post fra oss|manglende levering av e-post", re.I)
+
+
+def is_notice(t):
+    """Driftsvarsel fra NF Kino, ikke en filmbeskrivelse."""
+    return bool(t and NOTICE.search(t[:300]))
 
 
 def plot_line(body, short, limit=1200):
@@ -464,11 +486,13 @@ def main():
             log("• (tid brukt opp – bruker forrige data)", f["title"])
             for k in ("genre", "orig", "director", "actors", "lang", "about", "plot", "premiere", "imdb", "rt"):
                 f[k] = prev.get(k)
+                if k in ("about", "plot") and is_notice(f[k]):
+                    f[k] = None
             continue
         log("•", f["title"], f"({int(time.monotonic() - START)} s)")
         film_details(f)
         for k in ("genre", "orig", "director", "actors", "lang", "about", "plot", "premiere"):
-            if not f.get(k) and prev.get(k):
+            if not f.get(k) and prev.get(k) and not (k in ("about", "plot") and is_notice(prev[k])):
                 f[k] = prev[k]
         ov = overrides.get(f["title"], {})
 
