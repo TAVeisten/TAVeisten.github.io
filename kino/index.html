@@ -61,6 +61,8 @@ select.day{padding-right:28px;background:var(--card);-webkit-appearance:menulist
 .controls .search{grid-column:1/-1}
 .ctl{width:100%;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 10px;min-width:0}
 input.ctl{-webkit-appearance:none;appearance:none}
+/* Filter som ikke står på «alle» er lyseblå, så du ser at noe fortsatt er valgt (13.11.2026) */
+.ctl.on{background:var(--chip);color:var(--chip-ink);border-color:var(--chip-line);font-weight:600}
 /* Søkefelt: tydelig ramme og forstørrelsesglass, som i Konsertkalender Norge */
 #q{border:1.5px solid var(--faint);padding-left:34px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A92A0' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E") no-repeat 11px 50%/16px}
 #q:focus{border-color:var(--chip-ink);outline:none}
@@ -86,7 +88,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
 .thead button[aria-sort="ascending"]::after{content:" ▲";font-size:.7em}
 .thead button[aria-sort="descending"]::after{content:" ▼";font-size:.7em}
 .thead .h-imdb button[aria-sort]::after,.thead .h-rt button[aria-sort]::after{display:block;line-height:1;margin-top:1px}
-.genre{color:var(--muted);font-size:.88rem;padding-top:2px;font-weight:600}
+.genre{color:var(--ink);font-size:.88rem;padding-top:2px;font-weight:600}
 /* Sjangeren det filtreres på markeres (lyseblå, ikke rød) */
 .genre mark.gsel{background:var(--chip);color:var(--chip-ink);font-weight:600;border-radius:4px;padding:0 3px}
 .sortwrap{display:flex;gap:6px;min-width:0;grid-column:span 2}
@@ -284,8 +286,8 @@ input.ctl{-webkit-appearance:none;appearance:none}
     <input class="ctl search" id="q" type="search" placeholder="Søk etter film, sjanger, regissør eller skuespiller" aria-label="Søk">
     <select class="ctl" id="genre" aria-label="Sjanger"><option value="">Alle sjangre</option></select>
     <select class="ctl" id="age" aria-label="Aldersgrense">
-      <option value="99">Alle aldersgrenser</option>
-      <option value="0">Tillatt for alle</option>
+      <option value="99">Alle filmer</option>
+      <option value="0">Bare tillatt for alle</option>
       <option value="6">Til og med 6 år</option>
       <option value="9">Til og med 9 år</option>
       <option value="12">Til og med 12 år</option>
@@ -419,6 +421,7 @@ function render(){
   const now = osloNow(), q = $("q").value.trim().toLowerCase(), genre = $("genre").value, maxAge = +$("age").value,
         when = $("when").value, sort = $("sort").value, hidePast = $("hidePast").checked, hideSpecial = $("hideSpecial").checked, scored = $("scored").checked;
   document.querySelectorAll(".day").forEach(b => b.setAttribute("aria-pressed", b.dataset.d === day));
+  [["q",""],["genre",""],["age","99"],["when",""]].forEach(([k,v]) => $(k).classList.toggle("on", $(k).value.trim() !== v));
   document.querySelectorAll(".thead button").forEach(b => { if(b.dataset.sort === sort) b.setAttribute("aria-sort", dir > 0 ? "ascending" : "descending"); else b.removeAttribute("aria-sort"); });
   $("dir").textContent = dir > 0 ? "↑" : "↓"; $("dir").title = dir > 0 ? "Stigende – trykk for synkende" : "Synkende – trykk for stigende";
   const rows = [];
