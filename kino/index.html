@@ -68,6 +68,9 @@ input.ctl{-webkit-appearance:none;appearance:none}
 #q:focus{border-color:var(--chip-ink);outline:none}
 .checks{display:flex;flex-wrap:wrap;gap:6px 16px;margin:2px 2px 12px;font-size:.88rem;color:var(--muted)}
 .checks label{display:flex;align-items:center;gap:6px;cursor:pointer}
+/* «Nullstill filtre» vises når minst ett filter er i bruk (13.11.2026) */
+.resetf{margin:-4px 2px 12px;border:1px solid var(--chip-line);background:var(--chip);color:var(--chip-ink);border-radius:999px;padding:7px 14px;font:600 .88rem var(--body);cursor:pointer}
+.resetf[hidden]{display:none}
 .count{color:var(--muted);font-size:.85rem;margin:0 2px 8px}
 
 /* Filmlisten: tabell på stor skjerm, kort på mobil */
@@ -205,7 +208,6 @@ input.ctl{-webkit-appearance:none;appearance:none}
   .row{grid-template-columns:auto minmax(0,1fr);gap:8px 0;padding:12px}
   .film,.shows,.genre{grid-column:1/-1}
   .genre{order:1;padding-top:0;margin-top:-6px;font-size:.84rem}
-  .genre.nogenre{display:none}
   .plot{grid-column:1/-1;grid-row:auto;order:1;margin:-4px 0 0;font-size:.82rem}
   .row>.film,.row>.genre,.row>.shows{grid-column:1/-1;grid-row:auto}
   .row>.s-imdb,.row>.rtbox{grid-column:auto;grid-row:auto}
@@ -287,7 +289,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
     <select class="ctl" id="genre" aria-label="Sjanger"><option value="">Alle sjangre</option></select>
     <select class="ctl" id="age" aria-label="Aldersgrense">
       <option value="99">Alle filmer</option>
-      <option value="0">Bare tillatt for alle</option>
+      <option value="0">Tillatt for alle</option>
       <option value="6">Til og med 6 år</option>
       <option value="9">Til og med 9 år</option>
       <option value="12">Til og med 12 år</option>
@@ -317,6 +319,7 @@ input.ctl{-webkit-appearance:none;appearance:none}
     <label><input type="checkbox" id="hideSpecial"> Skjul seniorkino og babykino</label>
     <label><input type="checkbox" id="scored"> Bare filmer med score</label>
   </div>
+  <button type="button" class="resetf" id="resetf" hidden>Nullstill filtre</button>
 
   <p class="count" id="count"></p>
   <div class="thead" id="thead">
@@ -416,12 +419,18 @@ function short(n){ if(n == null || n === "") return ""; let plus = "";
   const t = n >= 999500 ? (n >= 9950000 ? String(Math.round(n/1e6)) : r1(n, 1e5)) + " mill." : n >= 1000 ? (n >= 9950 ? String(Math.round(n/1000)) : r1(n, 100)) + "k" : String(n);
   return t.replace(",0 "," ").replace(",0k","k") + plus; }
 
+/* Standard for filtrene: søk tomt, alle sjangre, alle filmer, hele dagen, «Skjul visninger som har startet» på, de to andre av */
+function filtersOn(){ return $("q").value.trim() !== "" || $("genre").value !== "" || $("age").value !== "99" || $("when").value !== ""
+  || !$("hidePast").checked || $("hideSpecial").checked || $("scored").checked; }
+function resetFilters(){ $("q").value=""; $("genre").value=""; $("age").value="99"; $("when").value=""; $("hidePast").checked=true; $("hideSpecial").checked=false; $("scored").checked=false; saveCtl(); render(); }
+
 function render(){
   if(!data) return;
   const now = osloNow(), q = $("q").value.trim().toLowerCase(), genre = $("genre").value, maxAge = +$("age").value,
         when = $("when").value, sort = $("sort").value, hidePast = $("hidePast").checked, hideSpecial = $("hideSpecial").checked, scored = $("scored").checked;
   document.querySelectorAll(".day").forEach(b => b.setAttribute("aria-pressed", b.dataset.d === day));
   [["q",""],["genre",""],["age","99"],["when",""]].forEach(([k,v]) => $(k).classList.toggle("on", $(k).value.trim() !== v));
+  $("resetf").hidden = !filtersOn();
   document.querySelectorAll(".thead button").forEach(b => { if(b.dataset.sort === sort) b.setAttribute("aria-sort", dir > 0 ? "ascending" : "descending"); else b.removeAttribute("aria-sort"); });
   $("dir").textContent = dir > 0 ? "↑" : "↓"; $("dir").title = dir > 0 ? "Stigende – trykk for synkende" : "Synkende – trykk for stigende";
   const rows = [];
@@ -454,7 +463,7 @@ function render(){
   $("count").textContent = rows.length ? `${rows.length} ${rows.length===1?"film":"filmer"}` : "";
   if(!rows.length){
     $("list").innerHTML = `<div class="empty">Ingen filmer passer med søket og filtrene for denne dagen.<br><button type="button" id="reset">Nullstill søk og filtre</button></div>`;
-    $("reset").onclick = () => { $("q").value=""; $("genre").value=""; $("age").value="99"; $("when").value=""; $("hideSpecial").checked=false; $("scored").checked=false; saveCtl(); render(); };
+    $("reset").onclick = resetFilters;
     return;
   }
   const selGenre = $("genre").value;
@@ -472,7 +481,7 @@ function render(){
     const iv = f.imdb && f.imdb.rating != null ? Number(f.imdb.rating).toFixed(1).replace(".",",") : null, vt = f.imdb && f.imdb.votes != null ? f.imdb.votes : null, weak = vt != null && vt < 100 ? (vt < 10 ? "weak weak2" : "weak") : "";
     return `<div class="row">
       <div class="film"><h3 title="${esc(f.title)}" data-full="${esc(f.title)}" data-lines="2"><a class="tx" href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title)}</a>${MORE}</h3>${orig}<div class="facts">${facts}</div>${endsNote(f)}</div>
-      <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "–"}</div>
+      <div class="genre${genres(f).length ? "" : " nogenre"}">${genres(f).map(x => x === selGenre ? `<mark class="gsel">${esc(x)}</mark>` : esc(x)).join(", ") || "Sjanger ?"}</div>
       ${f.plot ? `<p class="plot" data-full="${esc(f.plot)}" data-lines="3"><span class="tx">${esc(f.plot)}</span>${MORE}</p>` : ""}
       <div class="shows">${stubs}</div>
       ${scoreCell("s-imdb","IMDb", iv, f.imdb&&f.imdb.id?`https://www.imdb.com/title/${f.imdb.id}/`:null, f.imdb&&f.imdb.votes?short(f.imdb.votes)+" stem.":"", weak, weak ? (vt < 10 ? "Under 10 stemmer, svært usikker score" : "Under 100 stemmer, usikker score") : "")}
@@ -610,6 +619,7 @@ async function refresh(){
   finally{ btn.disabled = false; scr.classList.remove("busy"); }
 }
 $("refresh").addEventListener("click", refresh);
+$("resetf").addEventListener("click", resetFilters);
 $("keySave").addEventListener("click", () => {
   const tk = $("keyIn").value.trim();
   if(!/^(github_pat_|ghp_)[A-Za-z0-9_]{20,}$/.test(tk)){ $("keyErr").textContent = "Det ser ikke ut som en GitHub-nøkkel. Den begynner med github_pat_."; return; }
