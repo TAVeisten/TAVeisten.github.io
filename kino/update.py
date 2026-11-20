@@ -183,7 +183,7 @@ def film_details(f):
     f["lang"] = field("language") or None
     f["about"] = (field("short-description") or "")[:300] or None
     # NF Kino kan legge driftsvarsler («OBS! Savner du en e-post …») i samme type felt som
-    # handlingsteksten. Hopp over slike varsler og bruk filmens egen tekst (13.11.2026).
+    # handlingsteksten. Hopp over slike varsler og bruk filmens egen tekst.
     body = ""
     for el in soup.select(".field--name-body"):
         if any(re.search(r"alert|notice|message|banner|popup|modal|toast", " ".join(a.get("class") or []), re.I)
