@@ -1,80 +1,212 @@
 {
- "updated": "2026-11-22T14:37:35+01:00",
+ "updated": "2026-11-23T17:30:24+01:00",
  "cinema": "Drammen kino",
  "source": "https://www.nfkino.no/kino/drammen-kino?city=drammen",
  "changes": {
-  "at": "2026-11-22T14:37:35+01:00",
-  "since": "2026-11-21T14:43:58+01:00",
-  "newFilms": [
-   {
-    "title": "PRZEPIS NA SWIETA",
-    "first": "2026-12-06 15:35",
-    "n": 1
-   },
-   {
-    "title": "Home Alone",
-    "first": "2026-12-06 18:00",
-    "n": 1
-   }
-  ],
+  "at": "2026-11-23T17:30:24+01:00",
+  "since": "2026-11-22T14:37:35+01:00",
+  "newFilms": [],
   "newShows": [
    {
+    "title": "Markens grøde",
+    "n": 7,
+    "days": [
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Pensjonskuppet",
+    "n": 8,
+    "days": [
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Velkommen til familien",
+    "n": 6,
+    "days": [
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Hope",
+    "n": 1,
+    "days": [
+     "2026-12-02"
+    ]
+   },
+   {
+    "title": "The Hunger Games: Sunrise on the Reaping",
+    "n": 8,
+    "days": [
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "How to Rob a Bank",
+    "n": 1,
+    "days": [
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Nightborn",
+    "n": 1,
+    "days": [
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "No Good Men",
+    "n": 1,
+    "days": [
+     "2026-12-02"
+    ]
+   },
+   {
     "title": "Julenissens verksted",
-    "n": 1,
+    "n": 5,
     "days": [
-     "2026-12-06"
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
     ]
    },
    {
-    "title": "Katten med hatten",
-    "n": 1,
+    "title": "Mysteriepakken",
+    "n": 3,
     "days": [
-     "2026-12-06"
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02"
     ]
    },
    {
-    "title": "Violent Night 2",
-    "n": 1,
+    "title": "Wildwood",
+    "n": 2,
     "days": [
-     "2026-12-06"
+     "2026-12-01",
+     "2026-12-02"
     ]
    },
    {
-    "title": "2 Aile Arasinda",
+    "title": "You Can See Everything",
+    "n": 7,
+    "days": [
+     "2026-11-29",
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Ebenezer",
+    "n": 4,
+    "days": [
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "HADOOTA",
     "n": 1,
     "days": [
-     "2026-12-06"
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Primetime",
+    "n": 1,
+    "days": [
+     "2026-12-02"
+    ]
+   },
+   {
+    "title": "Focker In-Law",
+    "n": 6,
+    "days": [
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Hexe: det magiske riket",
+    "n": 4,
+    "days": [
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Buddy",
+    "n": 1,
+    "days": [
+     "2026-12-01"
+    ]
+   },
+   {
+    "title": "Paper Tiger",
+    "n": 4,
+    "days": [
+     "2026-11-30",
+     "2026-12-01",
+     "2026-12-02",
+     "2026-12-03"
+    ]
+   },
+   {
+    "title": "Her Private Hell",
+    "n": 1,
+    "days": [
+     "2026-12-01"
+    ]
+   },
+   {
+    "title": "Reisen til Julestjernen",
+    "n": 1,
+    "days": [
+     "2026-12-01"
     ]
    }
   ],
   "scores": [
    {
-    "title": "Ebenezer",
+    "title": "The Hunger Games: Sunrise on the Reaping",
     "diffs": [
      [
-      "Publikum",
-      89,
-      90
+      "Kritikere",
+      68,
+      69
      ]
     ]
    },
    {
-    "title": "The Hunger Games: Sunrise on the Reaping",
+    "title": "How to Rob a Bank",
     "diffs": [
      [
-      "IMDb",
-      7.7,
-      7.6
-     ],
-     [
       "Kritikere",
-      67,
-      68
-     ],
-     [
-      "Publikum",
-      95,
-      94
+      38,
+      39
      ]
     ]
    },
@@ -83,28 +215,68 @@
     "diffs": [
      [
       "IMDb",
-      6.4,
-      6.3
+      6.3,
+      6.4
      ]
     ]
    },
    {
-    "title": "How to Rob a Bank",
+    "title": "No Good Men",
     "diffs": [
      [
-      "Publikum",
-      80,
-      81
+      "Kritikere",
+      60,
+      64
      ]
     ]
    },
    {
-    "title": "I Play Rocky",
+    "title": "Julenissens verksted",
     "diffs": [
      [
       "IMDb",
-      8.1,
-      8.2
+      6.9,
+      6.7
+     ]
+    ]
+   },
+   {
+    "title": "NASZA REWOLUCJA",
+    "diffs": [
+     [
+      "IMDb",
+      6.5,
+      6.6
+     ]
+    ]
+   },
+   {
+    "title": "Her Private Hell",
+    "diffs": [
+     [
+      "Publikum",
+      35,
+      34
+     ]
+    ]
+   },
+   {
+    "title": "Katten med hatten",
+    "diffs": [
+     [
+      "Kritikere",
+      47,
+      48
+     ]
+    ]
+   },
+   {
+    "title": "NAZA",
+    "diffs": [
+     [
+      "IMDb",
+      8.4,
+      8.3
      ]
     ]
    },
@@ -112,670 +284,17 @@
     "title": "Club Kid",
     "diffs": [
      [
-      "Publikum",
+      "Kritikere",
       99,
-      97
+      98
      ]
     ]
    }
   ],
-  "gone": [
-   {
-    "title": "Sauen Shaun - Gårdens fårbannelse"
-   }
-  ],
-  "ended": [
-   {
-    "title": "Godzilla Minus Zero",
-    "last": "2026-11-21"
-   }
-  ]
+  "gone": [],
+  "ended": []
  },
  "films": [
-  {
-   "id": "hadoota",
-   "title": "HADOOTA",
-   "url": "https://www.nfkino.no/film/hadoota?city=drammen",
-   "len": 120,
-   "age": "12 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/media-images/2026-11/gmnt-f15839c9c4-176680-vst-6aec8ad0ca954.jpeg?itok=il3GTyh4",
-   "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "14:45",
-     "room": "Sal 3",
-     "tags": [
-      "AR",
-      "Eng. tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/8ffd89a1-b0a2-4e16-a3c4-84c99c459a58",
-     "avail": "few"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "20:50",
-     "room": "Sal 2",
-     "tags": [
-      "AR",
-      "Eng. tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/d8619c21-921c-4580-a624-84aa34224409",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-24",
-   "endsSoon": "2026-11-24",
-   "genre": [],
-   "orig": "HADOOTA",
-   "director": "Mazen Ashraf",
-   "actors": [
-    "Rahma Ahmed Farag",
-    "Khaled El Sawy",
-    "Majed El Masry",
-    "Ahmed Helmy",
-    "Amina Khalil",
-    "Mohamed Abd El Azim"
-   ],
-   "lang": null,
-   "about": null,
-   "plot": "Hadoota (Ahmed Helmy), a 40-year-old thug, can’t remember the hiding place of a witness he kidnapped. He resorts to a hypnosis therapist (Amina Khalil) to retrieve this missing information. But, in order to restore his memory, he needs to confront old enemies, past events, and most importantly… himself.",
-   "premiere": "12 november",
-   "imdb": {
-    "id": "tt43638234",
-    "rating": 8.1,
-    "votes": 781
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/hadoota",
-    "critics": null,
-    "criticsCount": 0,
-    "audience": null,
-    "audienceCount": "Fewer than 50 Ratings"
-   }
-  },
-  {
-   "id": "julenissens-verksted",
-   "title": "Julenissens verksted",
-   "url": "https://www.nfkino.no/film/julenissens-verksted?city=drammen",
-   "len": 73,
-   "age": "Alle",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-1071483-1000036012.jpg?itok=vlAcyWmt",
-   "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "15:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/6326220b-64c4-4360-b20b-b0088d41d9cd",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "15:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Barnefilm"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/7a290bc2-1fc8-4db2-b1eb-514464a31895",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "15:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Barnefilm"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/72cd9871-2216-47b7-a75d-95bc88a9bf68",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "15:30",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Barnefilm"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/9c82f628-3de3-4874-bde5-d7aff33a82f2",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-26",
-     "t": "16:00",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Barnefilm"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/ed96bca8-fb49-4b75-943d-5f2fd864d5b3",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-27",
-     "t": "14:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a7424460-0370-43e7-89f5-cf91e9c57cd0",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-27",
-     "t": "16:35",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Barnefilm"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/1d54cd77-ec14-40f1-aff3-53c7bd007cbc",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/8143e33b-5d65-47e7-a6a6-cf64e6ff5b41",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "12:30",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/546cce91-9b12-4bb4-aa14-5bda704b4b50",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "14:00",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/44d64224-9c8c-439b-b003-4a2925545abf",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "14:30",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/bd1e6fb5-a6e1-4768-9bbd-15294363d435",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "16:30",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a303f0e2-3e0d-4a4e-ac8f-f4e77f949cce",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-29",
-     "t": "11:25",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Drammen kino 25 år"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/6e42d32e-30c3-4748-9a8f-2f19445ed0e8",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-29",
-     "t": "13:20",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Drammen kino 25 år"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a66e91e7-0dbc-4a8a-bc8f-eed800648d14",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-29",
-     "t": "16:00",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Drammen kino 25 år"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/cbf13843-fb75-4dd7-9b45-6be8d4a166be",
-     "avail": "many"
-    },
-    {
-     "d": "2026-12-04",
-     "t": "16:45",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinofest"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/10f3db01-6199-49ac-9fe3-1f9c79a6b21b",
-     "avail": "many"
-    },
-    {
-     "d": "2026-12-05",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinofest"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b3613fbb-009c-4a43-8e43-51267c3034f0",
-     "avail": "many"
-    },
-    {
-     "d": "2026-12-05",
-     "t": "13:40",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinofest"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/0788dd4d-ae15-40bc-869c-eede13d141e4",
-     "avail": "many"
-    },
-    {
-     "d": "2026-12-05",
-     "t": "15:40",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinofest"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/9e5315f9-6fbf-455f-a20c-8201cd3fb37f",
-     "avail": "many"
-    },
-    {
-     "d": "2026-12-06",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinofest"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/978820dd-27d1-46f9-a435-abc12430d0db",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-12-20",
-   "endsSoon": null,
-   "genre": [
-    "Familiefilm",
-    "Children's Movie",
-    "Animation"
-   ],
-   "orig": "Julenissens verksted",
-   "director": "Rasmus A. Sivertsen og Mette Tange",
-   "actors": [
-    "Jan Gunnar Røise",
-    "Gisken Armand",
-    "Lene Kongsvik",
-    "Victor Sotberg",
-    "Robin Hofset",
-    "Christopher Robin Omdal"
-   ],
-   "lang": "NO",
-   "about": "Bli med på en eventyrlig reise på jakt etter Julenissens verksted - en film for hele familien, fylt med humor, kjente sanger, ekte julestemning og et julebudskap som vil varme i vinterkulda.",
-   "plot": "Da ni år gamle Mari en natt våkner og oppdager en nisse på soverommet sitt, blir det starten på et juleeventyr utenom det vanlige. Med en gjenglemt nissevott som eneste spor legger hun, farmor og en meget skeptisk pappa ut på en eventyrlig ferd for å finne julenissen, mens vottens eier, nissens lille hjelper Stompen, gjør alt han kan for å stoppe dem. For Julenissens verksted kan nemlig ikke bli oppdaget, det vil være katastrofe! Ferden går gjennom skog, hei og vakre vinterlandskap. Men utfordringene er også mange - de må også forbi skogens vokter, Kjerringa med staven, og kjempe seg gjennom en fryktelig snøstorm. Reisen er ikke bare spennende - den åpner også familiens øyne for hverandre, og de innser til slutt hva julens virkelige magi er. Gjør klar for årets julefilm for hele familien, spekket med julestemning og kjente Thorbjørn Egner-sanger, som Kaptein Sorte Bill, Dyrene i Afrika og Det snør det snør – fremført av noen av landets fremste artister, deriblant Sissel Kyrkjebø.",
-   "premiere": "6 november",
-   "imdb": {
-    "id": "tt41475646",
-    "rating": 6.9,
-    "votes": 34
-   },
-   "rt": null
-  },
-  {
-   "id": "velkommen-til-familien",
-   "title": "Velkommen til familien",
-   "url": "https://www.nfkino.no/film/velkommen-til-familien?city=drammen",
-   "len": 95,
-   "age": "9 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002109-1000036116.jpg?itok=6MQaU7b_",
-   "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "15:45",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/0a3d01ad-c3cd-4b2c-afc2-bdde09e4d61f",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "11:30",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/4e233ef4-04b3-417c-a600-2efd768a258d",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "18:25",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e8ad1eff-a5e2-49b5-9327-d7559addb3f0",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "11:30",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/5ccd91d7-7833-4571-987e-050bb59dff62",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "12:00",
-     "room": "Sal 5",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Babykino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/f7d8fda1-d934-4f1f-8aa6-c11c33474d9e",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "18:15",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/0a21feed-810e-4ade-a35f-358dd54f56a2",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "11:30",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/241484b9-d658-4b1d-8ff7-0cd61fed68be",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "20:50",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/66374582-d456-4b13-ba48-2377a6be6adc",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-26",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/c382a60c-6b53-44ff-b897-1fbf43b22a73",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-26",
-     "t": "21:00",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Eventer",
-      "Regissørbesøk"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/34208092-b694-45bb-a71a-9d39442bca81",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-27",
-     "t": "20:45",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/cfaca4c8-0e2e-443b-8f61-12f50bf0447d",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "21:00",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a741e24b-4f7e-438d-ab2f-2bed8fd7b096",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-29",
-     "t": "15:15",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Drammen kino 25 år"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e0c07db0-b14b-40ec-843d-ffae26bc9ada",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-29",
-   "endsSoon": null,
-   "genre": [
-    "Drama",
-    "Komedie"
-   ],
-   "orig": "Small talk",
-   "director": "Even Hafnor",
-   "actors": [
-    "Inga Ibsdotter Lilleaas",
-    "Steffen Holta"
-   ],
-   "lang": null,
-   "about": "Oscar-nominerte Inga Ibsdotter Lilleaas inviterer til julens klammeste og morsomste familieselskap.",
-   "plot": "Oscar-nominerte Inga Ibsdotter Lilleaas inviterer til julens klammeste og morsomste familieselskap. I «Velkommen til familien» spiller hun Elisabeth, som bor med kjæresten Espen og jobber som psykolog. Denne julen skal Elisabeth endelig få møte Espens familie i hans hjemby Kristiansand. Hun har selv en litt trøblete familiebakgrunn, og håper at den potensielle svigerfamilien vil være hjertelig og nær. Men det er ikke familien Dvergsnes. Tvert imot er de utelukkende i stand til å småprate om praktiske ting, og de unngår for enhver pris alle temaer som har med følelser å gjøre. På julekvelden begynner familiens bestemor å oppføre seg rart. Og når ingen vil snakke om eller ta tak i det begynner Elisabeth å lure på hvem hun egentlig er sammen med. Filmen er regissert av Even Hafnor og er basert på hans egen Gullstol-vinnende kortfilm «Small Talk». Den har også vært spilt årlig som et teaterstykke i hans hjemby Kristiansand. Foruten Lilleaas er det kun amatørskuespillere i filmen, blant dem Hafnors egne foreldre.",
-   "premiere": "13 november",
-   "imdb": {
-    "id": "tt39383793",
-    "rating": 7.2,
-    "votes": 18
-   },
-   "rt": null
-  },
-  {
-   "id": "talent-murder",
-   "title": "A talent for murder",
-   "url": "https://www.nfkino.no/film/talent-murder?city=drammen",
-   "len": 106,
-   "age": "12 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002781-1000034233.jpg?itok=LH7fnpyp",
-   "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "16:25",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/54f9e013-2b70-43bc-b2d4-83a85661c97a",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "11:30",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/4c627db5-0582-44b5-a59e-20d856089b94",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "20:45",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/da3b1f2a-7fca-4f00-9ea4-460c69f28460",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "15:30",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/133e754f-b542-4bec-8c7e-ba98b252e1d7",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-26",
-     "t": "21:00",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/f11720a1-c29a-4fa8-8e2f-4dd071ba0562",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-27",
-     "t": "17:45",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/ba1f90cf-79ff-4b51-b734-66233e66e209",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "18:30",
-     "room": "Sal 6",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/8d54f2f7-6128-447d-ab61-9e2d19f57351",
-     "avail": "many"
-    },
-    {
-     "d": "2026-12-05",
-     "t": "16:00",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "Kinofest"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/34fd98a5-a7ec-4de7-ab9f-71bd07e2e2f0",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-12-05",
-   "endsSoon": null,
-   "genre": [
-    "Krim",
-    "Drama"
-   ],
-   "orig": "A talent for murder",
-   "director": "Anton Corbijn",
-   "actors": [
-    "Alden Ehrenreich",
-    "Helen Mirren",
-    "Juliet Stevenson",
-    "Olivia Cooke"
-   ],
-   "lang": "EN",
-   "about": "Helen Mirren spiller Patricia Highsmith i Anton Corbijns elegante drama om forfatteren bak den ikoniske Tom Ripley-serien",
-   "plot": "I Anton Corbijns nye film reiser en mystisk ung mann fra et amerikansk forlag til Sveits for å møte Patricia Highsmith, spilt av Helen Mirren. Oppdraget er å overtale den berømte krimforfatteren til å skrive en siste bok om den ikoniske antihelten Tom Ripley. Filmen er basert på teaterstykket av Joanna Murray-Smith.",
-   "premiere": "20 november",
-   "imdb": {
-    "id": "tt14129116",
-    "rating": 6.4,
-    "votes": 1926
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/a_talent_for_murder_2026",
-    "critics": 77,
-    "criticsCount": 86,
-    "audience": 73,
-    "audienceCount": "50+ Verified Ratings"
-   }
-  },
   {
    "id": "markens-grode",
    "title": "Markens grøde",
@@ -784,31 +303,6 @@
    "age": "12 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001856-1000035326.jpg?itok=rN7Z3cBi",
    "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "16:45",
-     "room": "Sal 5",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinoklubb"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/bd1d1254-ece7-47f3-bc0c-b4353ba7dba2",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "11:30",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino",
-      "Kinoklubb"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/68493a8a-f42f-4f3f-8d9a-0416baf481b3",
-     "avail": "many"
-    },
     {
      "d": "2026-11-23",
      "t": "17:50",
@@ -958,6 +452,93 @@
      "avail": "many"
     },
     {
+     "d": "2026-11-30",
+     "t": "11:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/1f2de592-c411-4583-9efc-070b8de6a8f9",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "20:00",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a5360392-8d6a-4681-97c5-a44f25973c3c",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "17:30",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/fe855643-5313-4093-b058-0b6c0a37be17",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "11:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/02bc4622-a5fd-4926-9723-512a8dff7d2b",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "16:45",
+     "room": "Sal 6",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/22becfdc-ca29-4239-8ac0-af92efa5a2d0",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "11:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/f2e7bb4d-5bd4-4c77-833e-cce9081d562d",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "17:30",
+     "room": "Sal 6",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinoklubb"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/0815f376-744c-45af-a606-68460c612af2",
+     "avail": "many"
+    },
+    {
      "d": "2026-12-05",
      "t": "14:40",
      "room": "Sal 3",
@@ -993,173 +574,610 @@
    "imdb": {
     "id": "tt5782552",
     "rating": 7.6,
-    "votes": 317
+    "votes": 326
    },
    "rt": null
   },
   {
-   "id": "ebenezer",
-   "title": "Ebenezer",
-   "url": "https://www.nfkino.no/film/ebenezer?city=drammen",
-   "len": 115,
-   "age": "12 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002085-1000034652.jpg?itok=0aJSEiwv",
+   "id": "pensjonskuppet",
+   "title": "Pensjonskuppet",
+   "url": "https://www.nfkino.no/film/pensjonskuppet?city=drammen",
+   "len": 110,
+   "age": "9 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000896-1000035783.jpg?itok=oyM19_YM",
    "shows": [
     {
-     "d": "2026-11-22",
-     "t": "17:25",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a8072727-e657-4c45-ade8-64792ecf8422",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-22",
-     "t": "20:50",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/17a9b436-7f4e-4e80-bcd2-00a039464db9",
-     "avail": "many"
-    },
-    {
      "d": "2026-11-23",
-     "t": "11:30",
-     "room": "Sal 6",
+     "t": "18:20",
+     "room": "Sal 2",
      "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/7fed6911-8bec-4b87-a444-a14592c2a1be",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "17:30",
-     "room": "Sal 4",
-     "tags": [
-      "Eng. tale",
+      "Norsk tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/e90a2fb0-9973-410c-b7f3-205e27650aaa",
+     "url": "https://www.nfkino.no/screening/2605/84033c44-6e29-46b2-ab74-3c2b8064f480",
      "avail": "many"
     },
     {
      "d": "2026-11-24",
-     "t": "17:30",
-     "room": "Sal 4",
+     "t": "11:30",
+     "room": "Sal 1",
      "tags": [
-      "Eng. tale",
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/3b60db6c-a0d6-45b8-a45c-5999d95025a9",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-24",
+     "t": "18:20",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/24bc4bf3-5c1b-454a-84ca-a63d234f2329",
+     "url": "https://www.nfkino.no/screening/2605/371cc31b-3d38-44fc-9c38-c787fb1be6c9",
      "avail": "many"
     },
     {
      "d": "2026-11-25",
-     "t": "21:00",
+     "t": "11:30",
      "room": "Sal 1",
      "tags": [
-      "Eng. tale",
-      "Norsk tekst"
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
      ],
-     "url": "https://www.nfkino.no/screening/2605/4748d669-0735-4058-96cb-dd424371c338",
+     "url": "https://www.nfkino.no/screening/2605/6a058eae-e218-49e7-8ab1-ab458fdd6104",
      "avail": "many"
     },
     {
-     "d": "2026-11-26",
-     "t": "18:20",
-     "room": "Sal 5",
+     "d": "2026-11-25",
+     "t": "18:00",
+     "room": "Sal 2",
      "tags": [
-      "Eng. tale",
+      "Norsk tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/0ce0dc64-782f-474b-b19c-97392ccca594",
+     "url": "https://www.nfkino.no/screening/2605/355e8987-0b85-46b7-a962-971abf174e72",
      "avail": "many"
     },
     {
-     "d": "2026-11-26",
-     "t": "21:00",
+     "d": "2026-11-25",
+     "t": "20:50",
      "room": "Sal 4",
      "tags": [
-      "Eng. tale",
+      "Norsk tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/444cbbe3-6163-48dd-b3b5-543252f2fc90",
+     "url": "https://www.nfkino.no/screening/2605/aa7ed27f-d6b4-4bcd-a763-36ae1ef411d1",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "11:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b1fb2492-1615-4b24-9b10-f59b66806896",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "16:00",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/cb18b160-81de-4850-8782-76518b71b73b",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "18:30",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/da290f07-f945-4e6f-88eb-10f7eb02bd97",
      "avail": "many"
     },
     {
      "d": "2026-11-27",
-     "t": "18:30",
-     "room": "Sal 6",
+     "t": "11:30",
+     "room": "Sal 1",
      "tags": [
-      "Eng. tale",
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/46d5f7ac-c834-4bdc-925a-e549e622b649",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-27",
+     "t": "16:00",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/88cbec0a-f9a0-4318-b594-4a4087015fc3",
+     "url": "https://www.nfkino.no/screening/2605/2ef885d1-4edf-4e13-8bf2-79a1e166e1b8",
      "avail": "many"
     },
     {
      "d": "2026-11-28",
-     "t": "20:45",
-     "room": "Sal 3",
+     "t": "18:30",
+     "room": "Sal 2",
      "tags": [
-      "Eng. tale",
+      "Norsk tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/93863ab5-08be-470c-98fb-a6096f10325c",
+     "url": "https://www.nfkino.no/screening/2605/645956ad-0975-49dd-8087-51f6ff2e9824",
      "avail": "many"
     },
     {
      "d": "2026-11-29",
-     "t": "17:30",
-     "room": "Sal 6",
+     "t": "18:30",
+     "room": "Sal 2",
      "tags": [
-      "Eng. tale",
+      "Norsk tale",
       "Norsk tekst",
       "Drammen kino 25 år"
      ],
-     "url": "https://www.nfkino.no/screening/2605/f5291a34-20fc-447e-8be7-162adfccf39f",
+     "url": "https://www.nfkino.no/screening/2605/a38cf9c2-33ce-4470-ac40-71d022c84798",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "11:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/818ee6e2-a0cf-434b-ac9a-a445a04ebfc3",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "17:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/eacf982e-fe0d-4117-932b-a1dc022b3f33",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "11:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/580a9f45-4bc6-483e-b87c-bf5850174a07",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "18:15",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/3cef3695-5241-41b4-854f-e3518b4ec227",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "11:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/988c33d6-9e0d-4c2b-a681-977cc92c5e37",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "18:20",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e237aa63-38d4-49ad-a4a9-6e3bcf10a816",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "11:30",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/fd99567b-d2c3-424c-b0f5-bd88bc1961be",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "18:50",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/70729d32-f708-44a7-a14c-c79f7bbe408e",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-05",
+     "t": "18:00",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinofest"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/59ba7184-2ac0-46cb-afd1-5e7f1a30b0e0",
      "avail": "many"
     }
    ],
-   "lastAny": "2026-11-29",
+   "lastAny": "2026-12-05",
+   "endsSoon": null,
+   "genre": [
+    "Action",
+    "Komedie"
+   ],
+   "orig": "Pensjonskuppet",
+   "director": "Gunnbjörg Gunnarsdottir",
+   "actors": [
+    "Per Kjerstad",
+    "Anette Hoff",
+    "Charlotte Frogner",
+    "Vivild Falck Berg",
+    "Hege Schøyen",
+    "Bente Børsum"
+   ],
+   "lang": "NO",
+   "about": "Årets villeste komedie!",
+   "plot": "Etter 40 år med støvtørking og lojalitet, får Annema (65) takken: sparken som kone. Ektemannen Arne har funnet en yngre modell og kaster henne på dør. Sammen med Nina, som er «for gammel» for arbeidslivet, og Mona, som er for blakk til å overleve, bestemmer trioen seg for å pensjonere seg fra lovlydigheten. De planlegger et umulig kupp: å rane selveste Oljefondet. En ellevill komedie om en høyst uoffisiell, men velfortjent, førtidspensjon.",
+   "premiere": "16 oktober",
+   "imdb": {
+    "id": "tt39453840",
+    "rating": 7.1,
+    "votes": 154
+   },
+   "rt": null
+  },
+  {
+   "id": "velkommen-til-familien",
+   "title": "Velkommen til familien",
+   "url": "https://www.nfkino.no/film/velkommen-til-familien?city=drammen",
+   "len": 95,
+   "age": "9 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002109-1000036116.jpg?itok=6MQaU7b_",
+   "shows": [
+    {
+     "d": "2026-11-23",
+     "t": "18:25",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e8ad1eff-a5e2-49b5-9327-d7559addb3f0",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-24",
+     "t": "11:30",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/5ccd91d7-7833-4571-987e-050bb59dff62",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-24",
+     "t": "12:00",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Babykino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/f7d8fda1-d934-4f1f-8aa6-c11c33474d9e",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-24",
+     "t": "18:15",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/0a21feed-810e-4ade-a35f-358dd54f56a2",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-25",
+     "t": "11:30",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/241484b9-d658-4b1d-8ff7-0cd61fed68be",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-25",
+     "t": "20:50",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/66374582-d456-4b13-ba48-2377a6be6adc",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "11:30",
+     "room": "Sal 6",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c382a60c-6b53-44ff-b897-1fbf43b22a73",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "21:00",
+     "room": "Sal 6",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Regissørbesøk",
+      "Eventer"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/34208092-b694-45bb-a71a-9d39442bca81",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-27",
+     "t": "20:45",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/cfaca4c8-0e2e-443b-8f61-12f50bf0447d",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "21:00",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a741e24b-4f7e-438d-ab2f-2bed8fd7b096",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-29",
+     "t": "15:15",
+     "room": "Sal 6",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Drammen kino 25 år"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e0c07db0-b14b-40ec-843d-ffae26bc9ada",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "11:30",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a93a53e3-e387-4bc1-a5a6-7ab4191f8750",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "15:50",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/3563cd73-8799-4ae6-b65f-dfa6a408c663",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "20:45",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e5c565ec-dad7-4461-bc65-10f09164b3e4",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "11:30",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/51811c4f-68b1-4e97-bf6b-8d14f79f547d",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "20:50",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/7de82381-62c0-413b-8aa3-b9624c76d431",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "18:50",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/6c588a14-6387-4e56-8018-16a02e2b7a51",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-03",
    "endsSoon": null,
    "genre": [
     "Drama",
-    "Sort komedie",
-    "Fantasy"
+    "Komedie"
    ],
-   "orig": "Ebenezer",
-   "director": "Ti West",
+   "orig": "Small talk",
+   "director": "Even Hafnor",
    "actors": [
-    "Andrea Riseborough",
-    "Johnny Depp",
-    "Daisy Ridley",
-    "Tramell Tillman",
-    "Rubert Grint",
-    "Ian McKellen"
+    "Inga Ibsdotter Lilleaas",
+    "Steffen Holta"
    ],
-   "lang": "EN",
-   "about": "En tolkning av Charles Dickens' klassiske eventyr",
-   "plot": "En spennende spøkelseshistorie basert på Charles Dickens' klassiske julefortelling om Ebenezer Scrooge. Johnny Depp gjør comeback i rollen som den sure og gniene Scrooge, hvis uskikkelige atferd blir konfrontert av tre spøkelser som representerer hans fortid, nåtid og fremtid.",
+   "lang": null,
+   "about": "Oscar-nominerte Inga Ibsdotter Lilleaas inviterer til julens klammeste og morsomste familieselskap.",
+   "plot": "Oscar-nominerte Inga Ibsdotter Lilleaas inviterer til julens klammeste og morsomste familieselskap. I «Velkommen til familien» spiller hun Elisabeth, som bor med kjæresten Espen og jobber som psykolog. Denne julen skal Elisabeth endelig få møte Espens familie i hans hjemby Kristiansand. Hun har selv en litt trøblete familiebakgrunn, og håper at den potensielle svigerfamilien vil være hjertelig og nær. Men det er ikke familien Dvergsnes. Tvert imot er de utelukkende i stand til å småprate om praktiske ting, og de unngår for enhver pris alle temaer som har med følelser å gjøre. På julekvelden begynner familiens bestemor å oppføre seg rart. Og når ingen vil snakke om eller ta tak i det begynner Elisabeth å lure på hvem hun egentlig er sammen med. Filmen er regissert av Even Hafnor og er basert på hans egen Gullstol-vinnende kortfilm «Small Talk». Den har også vært spilt årlig som et teaterstykke i hans hjemby Kristiansand. Foruten Lilleaas er det kun amatørskuespillere i filmen, blant dem Hafnors egne foreldre.",
    "premiere": "13 november",
    "imdb": {
-    "id": "tt38773219",
+    "id": "tt39383793",
     "rating": 7.2,
-    "votes": 11842
+    "votes": 18
+   },
+   "rt": null
+  },
+  {
+   "id": "hope",
+   "title": "Hope",
+   "url": "https://www.nfkino.no/film/hope?city=drammen",
+   "len": 160,
+   "age": "15 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003042-1000036511.jpg?itok=AxftJ9eJ",
+   "shows": [
+    {
+     "d": "2026-11-23",
+     "t": "20:10",
+     "room": "Sal 6",
+     "tags": [
+      "KO",
+      "Eng. tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/932bb7fd-48fa-4aa0-aef0-523c6e18ad4e",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-27",
+     "t": "20:15",
+     "room": "Sal 5",
+     "tags": [
+      "KO",
+      "Eng. tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/582e9327-b2c4-481a-83bc-dc0ca6d95af8",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "20:20",
+     "room": "Sal 5",
+     "tags": [
+      "KO",
+      "Eng. tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/2e2210d2-7e27-46de-9efb-484e5c4c36b0",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "20:00",
+     "room": "Sal 6",
+     "tags": [
+      "KO",
+      "Eng. tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c0128712-936f-45f3-afca-c2033b565fc6",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-02",
+   "endsSoon": null,
+   "genre": [
+    "Action",
+    "Sci-Fi",
+    "Thriller"
+   ],
+   "orig": "Hopeu",
+   "director": "Na Hong-jin",
+   "actors": [
+    "Michael Fassbender",
+    "Alicia Vikander",
+    "Zo In-sung",
+    "Hoyeon",
+    "Taylor Russell",
+    "Hwang jung-min"
+   ],
+   "lang": "KO",
+   "about": null,
+   "plot": "Et mystisk funn i utkanten av en avsidesliggende havneby setter innbyggerne i en desperat kamp for å overleve – mot noe de aldri før har møtt.",
+   "premiere": "20 november",
+   "imdb": {
+    "id": "tt27369017",
+    "rating": 6.5,
+    "votes": 36514
    },
    "rt": {
-    "url": "https://www.rottentomatoes.com/m/ebenezer_2026",
-    "critics": 54,
-    "criticsCount": 156,
-    "audience": 90,
+    "url": "https://www.rottentomatoes.com/m/hope_2026",
+    "critics": 80,
+    "criticsCount": 190,
+    "audience": 77,
     "audienceCount": "1,000+ Verified Ratings"
    }
   },
@@ -1171,50 +1189,6 @@
    "age": "12 år",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100001535-1000036416.jpg?itok=_YPJs-6E",
    "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "17:30",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/ba2f3cc3-8af3-4448-8b5d-d876d2dfaf77",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-22",
-     "t": "20:00",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/6a06ed9f-95d0-4908-a34d-cedbc74fe398",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "15:10",
-     "room": "Sal 3",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/729124d7-8cf3-4647-aa73-baf35fc74d01",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "17:30",
-     "room": "Sal 1",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/199f94b3-c13e-4445-aa03-d22fd01032fd",
-     "avail": "many"
-    },
     {
      "d": "2026-11-23",
      "t": "20:10",
@@ -1384,6 +1358,94 @@
      "avail": "many"
     },
     {
+     "d": "2026-11-30",
+     "t": "16:40",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/66e21059-b6c6-4f78-85c4-5eaf6dea257a",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "20:00",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/896eaca0-391b-4c3e-9cef-623e55f5b09f",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "16:40",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/9e0c6a29-59eb-4ee9-a2f2-190db28591e6",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "20:00",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/dcab384f-e9db-4aec-bd9a-30ac6505d3c6",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "16:40",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b5d9eb48-00db-4d53-8c26-22de95cc87c6",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "20:00",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/335c052d-5e20-43f1-92ae-a5ac69b1614d",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "16:40",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/f7007199-63bb-450c-bbd6-15fd3858cadc",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "20:00",
+     "room": "Sal 1",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/fd71aad4-813e-42e3-9be8-45e7a2a9da31",
+     "avail": "many"
+    },
+    {
      "d": "2026-12-04",
      "t": "17:30",
      "room": "Sal 1",
@@ -1431,15 +1493,977 @@
    "imdb": {
     "id": "tt32558705",
     "rating": 7.6,
-    "votes": 13672
+    "votes": 20361
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/the_hunger_games_sunrise_on_the_reaping",
-    "critics": 68,
-    "criticsCount": 176,
+    "critics": 69,
+    "criticsCount": 182,
     "audience": 94,
     "audienceCount": "2,500+ Verified Ratings"
    }
+  },
+  {
+   "id": "talent-murder",
+   "title": "A talent for murder",
+   "url": "https://www.nfkino.no/film/talent-murder?city=drammen",
+   "len": 106,
+   "age": "12 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002781-1000034233.jpg?itok=LH7fnpyp",
+   "shows": [
+    {
+     "d": "2026-11-23",
+     "t": "20:45",
+     "room": "Sal 3",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/da3b1f2a-7fca-4f00-9ea4-460c69f28460",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-24",
+     "t": "15:30",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/133e754f-b542-4bec-8c7e-ba98b252e1d7",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "21:00",
+     "room": "Sal 2",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/f11720a1-c29a-4fa8-8e2f-4dd071ba0562",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-27",
+     "t": "17:45",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/ba1f90cf-79ff-4b51-b734-66233e66e209",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "18:30",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/8d54f2f7-6128-447d-ab61-9e2d19f57351",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-05",
+     "t": "16:00",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Kinofest"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/34fd98a5-a7ec-4de7-ab9f-71bd07e2e2f0",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-05",
+   "endsSoon": null,
+   "genre": [
+    "Krim",
+    "Drama"
+   ],
+   "orig": "A talent for murder",
+   "director": "Anton Corbijn",
+   "actors": [
+    "Alden Ehrenreich",
+    "Helen Mirren",
+    "Juliet Stevenson",
+    "Olivia Cooke"
+   ],
+   "lang": "EN",
+   "about": "Helen Mirren spiller Patricia Highsmith i Anton Corbijns elegante drama om forfatteren bak den ikoniske Tom Ripley-serien",
+   "plot": "I Anton Corbijns nye film reiser en mystisk ung mann fra et amerikansk forlag til Sveits for å møte Patricia Highsmith, spilt av Helen Mirren. Oppdraget er å overtale den berømte krimforfatteren til å skrive en siste bok om den ikoniske antihelten Tom Ripley. Filmen er basert på teaterstykket av Joanna Murray-Smith.",
+   "premiere": "20 november",
+   "imdb": {
+    "id": "tt14129116",
+    "rating": 6.4,
+    "votes": 2163
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/a_talent_for_murder_2026",
+    "critics": 77,
+    "criticsCount": 86,
+    "audience": 73,
+    "audienceCount": "50+ Verified Ratings"
+   }
+  },
+  {
+   "id": "how-rob-bank",
+   "title": "How to Rob a Bank",
+   "url": "https://www.nfkino.no/film/how-rob-bank?city=drammen",
+   "len": 122,
+   "age": "12 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002675-1000032930.jpg?itok=8Vv9A2x7",
+   "shows": [
+    {
+     "d": "2026-11-23",
+     "t": "20:50",
+     "room": "Sal 2",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/67c936fd-72b2-4d01-8bfc-bba7dae6e246",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "20:50",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/319035f4-2f67-48e5-a4ec-457641f48ba0",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "20:50",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/05158016-ef86-4c48-ae02-63e2874aeace",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-03",
+   "endsSoon": null,
+   "genre": [
+    "Action",
+    "Krim",
+    "Thriller"
+   ],
+   "orig": "How to Rob a Bank",
+   "director": "David Leitch",
+   "actors": [
+    "Nicholas Hoult",
+    "Pete Davidson",
+    "Zoë Kravitz",
+    "Tati Gabrielle",
+    "Anna Sawai",
+    "John C. Reilly"
+   ],
+   "lang": "EN",
+   "about": null,
+   "plot": "I How to Rob a Bank publiserer en gjeng sosiale medier-kyndige bankranere sine dristige kupp på nettet, uten å innse at den voksende virale berømmelsen deres har satt dem i søkelyset til en erfaren FBI-agent og en briljant programvareingeniør. Til tross for at den usannsynlige duoen stadig kommer nærmere, fortsetter ranerne å tøye grensene og setter alt på spill for sine overbevisninger – og for sitt mest ambisiøse kupp noensinne.",
+   "premiere": "13 november",
+   "imdb": {
+    "id": "tt35866986",
+    "rating": 6.5,
+    "votes": 4835
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/how_to_rob_a_bank_2026",
+    "critics": 39,
+    "criticsCount": 122,
+    "audience": 81,
+    "audienceCount": "500+ Verified Ratings"
+   }
+  },
+  {
+   "id": "instruktorius",
+   "title": "Instruktorius",
+   "url": "https://www.nfkino.no/film/instruktorius?city=drammen",
+   "len": 90,
+   "age": "15 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003434-1000034481.png?itok=2PP7xxRd",
+   "shows": [
+    {
+     "d": "2026-11-23",
+     "t": "21:00",
+     "room": "Sal 1",
+     "tags": [
+      "LT",
+      "Eng. tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b7e1683e-66eb-41df-aff5-e85507b61f22",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-11-23",
+   "endsSoon": "2026-11-23",
+   "genre": [
+    "Komedie"
+   ],
+   "orig": "Instruktorius",
+   "director": "Robertas Kuliūnas",
+   "actors": [
+    "Gytis Pintulis",
+    "Konstantinas Kučko",
+    "Justinas Jankevičius",
+    "Dovydas Stončius",
+    "Indrė Endriukaitė",
+    "Ramūnas Rudokas"
+   ],
+   "lang": "LT",
+   "about": "Det er vanskelig å få førerkortet. Enda vanskeligere er det å beholde nervene!",
+   "plot": "«Instruktorius» er en komedie skrevet av Dominykas Klajumas og Benas Lastauskas, i Hollywood-stil og uten det typiske preget man ofte forbinder med litauisk film. Martynas (Justinas Jankevičius) er en arrogant, men godhjertet mann fra Vilnius som på grunn av dumdristighet og overmot mister førerkortet. Han tar ikke saken særlig alvorlig og klarer nok en gang å gjøre sin gravide forlovede sint. Hun forlater ham og reiser hjem til foreldrene sine. I et forsøk på å vinne henne tilbake legger Martynas ut på det som i utgangspunktet virker som en ganske ordinær reise for å få tilbake førerkortet. Underveis møter han Instruktøren (Dominykas Klajumas) – en svært spesiell kjørelærer fra en minst like spesiell kjøreskole. For Martynas blir veien tilbake til førerkortet hans største utfordring i livet, styrt av den mildt sagt sprø Instruktøren. Han får Martynas til å gråte, le og rødme av skam – men også til å innse én sannhet: Det er vanskelig å få førerkortet. Enda vanskeligere er det å beholde nervene!",
+   "premiere": "20 november",
+   "imdb": {
+    "id": "tt46619473",
+    "rating": 6.4,
+    "votes": 210
+   },
+   "rt": null
+  },
+  {
+   "id": "nightborn",
+   "title": "Nightborn",
+   "url": "https://www.nfkino.no/film/nightborn?city=drammen",
+   "len": 92,
+   "age": "15 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002904-1000031017.jpg?itok=hZN-7rkk",
+   "shows": [
+    {
+     "d": "2026-11-23",
+     "t": "21:10",
+     "room": "Sal 5",
+     "tags": [
+      "FI",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/575fe610-1128-4086-801d-659fabbc86f7",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-24",
+     "t": "21:15",
+     "room": "Sal 5",
+     "tags": [
+      "FI",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/47b13df2-468e-4d9f-ba05-0c3000e87371",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-25",
+     "t": "15:45",
+     "room": "Sal 3",
+     "tags": [
+      "FI",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b525e07d-0c64-424b-9097-733eeb41ad12",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "15:30",
+     "room": "Sal 6",
+     "tags": [
+      "FI",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a79d9444-dc57-4e07-9e0d-3b6d2c45e389",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "21:15",
+     "room": "Sal 3",
+     "tags": [
+      "FI",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a77c86be-db41-4fbc-bfd7-89893b5ed6a9",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-03",
+   "endsSoon": null,
+   "genre": [
+    "Thriller",
+    "Horror"
+   ],
+   "orig": "Yön Lapsi",
+   "director": "Hanna Bergholm",
+   "actors": [
+    "Rubert Grint",
+    "Seidi Haarla"
+   ],
+   "lang": "FI",
+   "about": null,
+   "plot": null,
+   "premiere": "20 november",
+   "imdb": {
+    "id": "tt34383465",
+    "rating": 5.6,
+    "votes": 3990
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/nightborn",
+    "critics": 72,
+    "criticsCount": 67,
+    "audience": 29,
+    "audienceCount": "50+ Ratings"
+   }
+  },
+  {
+   "id": "no-good-men",
+   "title": "No Good Men",
+   "url": "https://www.nfkino.no/film/no-good-men?city=drammen",
+   "len": 104,
+   "age": "TBC",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002248-1000036495.jpg?itok=zxmeDNxk",
+   "shows": [
+    {
+     "d": "2026-11-24",
+     "t": "11:30",
+     "room": "Sal 6",
+     "tags": [
+      "AR",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/67095250-32d1-4eee-bd57-44daf10857bf",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-25",
+     "t": "15:30",
+     "room": "Sal 2",
+     "tags": [
+      "AR",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/fc8c8ed9-bec6-424f-a6f4-9a83ae66d567",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "11:30",
+     "room": "Sal 6",
+     "tags": [
+      "AR",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/491f2f20-5115-41d0-93cd-44c61371a0c2",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-02",
+   "endsSoon": null,
+   "genre": [
+    "Komedie",
+    "Romantikk",
+    "Drama"
+   ],
+   "orig": "No Good Men",
+   "director": "Shahrbanoo Sadat",
+   "actors": [
+    "Naru Anwar Hashimi",
+    "Anita Fatima Hassani",
+    "Layla Ahmad Azizi",
+    "Qodrat Liam Hussaini",
+    "Shahrbanoo Sadat",
+    "Torkan Omari"
+   ],
+   "lang": null,
+   "about": "Åpningsfilmen på Berlinalen - en av verdens største og viktigste filmfestivaler. Norsk coproduksjon.",
+   "plot": "No Good Men er en varm, modig og tilgjengelig film om kjærlighet, mot og håp under ekstreme omstendigheter. Handlingen er lagt til Kabul i 2021, i dagene før Taliban tar makten. Vi følger Naru byens eneste kvinnelige videojournalist på en stor TV-stasjon – som kjemper for å beholde omsorgen for sin tre år gamle sønn etter å ha forlatt sin utro ektemann. Hun har mistet all tro på menn, helt til hun møter stjernereporteren Qodrat. Mens de dekker de siste dagene med frihet i byen, begynner et uventet og håpefullt forhold å vokse frem.",
+   "premiere": "20 november",
+   "imdb": {
+    "id": "tt13868840",
+    "rating": 7.4,
+    "votes": 727
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/no_good_men",
+    "critics": 64,
+    "criticsCount": 11,
+    "audience": null,
+    "audienceCount": "0 Ratings"
+   }
+  },
+  {
+   "id": "julenissens-verksted",
+   "title": "Julenissens verksted",
+   "url": "https://www.nfkino.no/film/julenissens-verksted?city=drammen",
+   "len": 73,
+   "age": "Alle",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-1071483-1000036012.jpg?itok=vlAcyWmt",
+   "shows": [
+    {
+     "d": "2026-11-24",
+     "t": "15:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Barnefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/72cd9871-2216-47b7-a75d-95bc88a9bf68",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-25",
+     "t": "15:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Barnefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/9c82f628-3de3-4874-bde5-d7aff33a82f2",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "16:00",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Barnefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/ed96bca8-fb49-4b75-943d-5f2fd864d5b3",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-27",
+     "t": "14:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a7424460-0370-43e7-89f5-cf91e9c57cd0",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-27",
+     "t": "16:35",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Barnefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/1d54cd77-ec14-40f1-aff3-53c7bd007cbc",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "11:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/8143e33b-5d65-47e7-a6a6-cf64e6ff5b41",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "12:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/546cce91-9b12-4bb4-aa14-5bda704b4b50",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "14:00",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/44d64224-9c8c-439b-b003-4a2925545abf",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "14:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/bd1e6fb5-a6e1-4768-9bbd-15294363d435",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "16:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a303f0e2-3e0d-4a4e-ac8f-f4e77f949cce",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-29",
+     "t": "11:25",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Drammen kino 25 år"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/6e42d32e-30c3-4748-9a8f-2f19445ed0e8",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-29",
+     "t": "13:20",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Drammen kino 25 år"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/a66e91e7-0dbc-4a8a-bc8f-eed800648d14",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-29",
+     "t": "16:00",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Drammen kino 25 år"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/cbf13843-fb75-4dd7-9b45-6be8d4a166be",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "16:15",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Barnefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/39c366e4-bf70-46f9-b28d-3a7c89b70735",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "11:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/d5f3b3ec-c157-4017-a9e4-a11c523b1026",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "15:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Barnefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/140f8657-d398-4d1a-9b96-ade77c6bbfaf",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "15:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Barnefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e2a26353-3fe9-40de-bb0e-f0beb29e40d8",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "15:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Barnefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/7f156331-4a53-4fb3-8c62-d71f9573fb78",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-04",
+     "t": "16:45",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinofest"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/10f3db01-6199-49ac-9fe3-1f9c79a6b21b",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-05",
+     "t": "11:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinofest"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b3613fbb-009c-4a43-8e43-51267c3034f0",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-05",
+     "t": "13:40",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinofest"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/0788dd4d-ae15-40bc-869c-eede13d141e4",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-05",
+     "t": "15:40",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinofest"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/9e5315f9-6fbf-455f-a20c-8201cd3fb37f",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-06",
+     "t": "11:30",
+     "room": "Sal 1",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinofest"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/978820dd-27d1-46f9-a435-abc12430d0db",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-20",
+   "endsSoon": null,
+   "genre": [
+    "Familiefilm",
+    "Children's Movie",
+    "Animation"
+   ],
+   "orig": "Julenissens verksted",
+   "director": "Rasmus A. Sivertsen og Mette Tange",
+   "actors": [
+    "Jan Gunnar Røise",
+    "Gisken Armand",
+    "Lene Kongsvik",
+    "Victor Sotberg",
+    "Robin Hofset",
+    "Christopher Robin Omdal"
+   ],
+   "lang": "NO",
+   "about": "Bli med på en eventyrlig reise på jakt etter Julenissens verksted - en film for hele familien, fylt med humor, kjente sanger, ekte julestemning og et julebudskap som vil varme i vinterkulda.",
+   "plot": "Da ni år gamle Mari en natt våkner og oppdager en nisse på soverommet sitt, blir det starten på et juleeventyr utenom det vanlige. Med en gjenglemt nissevott som eneste spor legger hun, farmor og en meget skeptisk pappa ut på en eventyrlig ferd for å finne julenissen, mens vottens eier, nissens lille hjelper Stompen, gjør alt han kan for å stoppe dem. For Julenissens verksted kan nemlig ikke bli oppdaget, det vil være katastrofe! Ferden går gjennom skog, hei og vakre vinterlandskap. Men utfordringene er også mange - de må også forbi skogens vokter, Kjerringa med staven, og kjempe seg gjennom en fryktelig snøstorm. Reisen er ikke bare spennende - den åpner også familiens øyne for hverandre, og de innser til slutt hva julens virkelige magi er. Gjør klar for årets julefilm for hele familien, spekket med julestemning og kjente Thorbjørn Egner-sanger, som Kaptein Sorte Bill, Dyrene i Afrika og Det snør det snør – fremført av noen av landets fremste artister, deriblant Sissel Kyrkjebø.",
+   "premiere": "6 november",
+   "imdb": {
+    "id": "tt41475646",
+    "rating": 6.7,
+    "votes": 37
+   },
+   "rt": null
+  },
+  {
+   "id": "mysteriepakken",
+   "title": "Mysteriepakken",
+   "url": "https://www.nfkino.no/film/mysteriepakken?city=drammen",
+   "len": 80,
+   "age": "TBC",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000817-1000034711.png?itok=k5Stjdrr",
+   "shows": [
+    {
+     "d": "2026-11-24",
+     "t": "15:30",
+     "room": "Sal 4",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/1805a5ec-4808-4604-a3e7-7c164f91af24",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-27",
+     "t": "14:35",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/481e255a-71d3-4ba2-a5a9-7f676ab5069c",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "15:00",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/cd9de048-b314-4d08-8a8c-c5d503c860be",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-29",
+     "t": "11:20",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Drammen kino 25 år"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/d5223a73-a1a4-4b5f-8c00-7627c0164eb3",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "15:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/d54819e4-ef51-48a8-82b8-e90d1183fe2a",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "15:30",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b05faeab-6fa7-4003-98a5-c2b95289f35d",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "16:00",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/7afed69a-4afa-42a5-9727-40fa3207a564",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-05",
+     "t": "14:05",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Kinofest"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/712ffd9c-5a19-4421-9eb3-2912e6da9049",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-05",
+   "endsSoon": null,
+   "genre": [],
+   "orig": "Mysteriepakken",
+   "director": null,
+   "actors": [],
+   "lang": null,
+   "about": null,
+   "plot": "Hvert år dukker det opp en gave hos søsknene Edle og Brage. Avsenderen er hemmelig og pakken er sendt fra Arendal. Nå vil de finne ut hvem som står bak. Jakten på avsenderen blir en varm og nysgjerrig dokumentar om familie, tradisjoner og små mysterier som binder mennesker sammen.",
+   "premiere": "16 oktober",
+   "imdb": {
+    "id": "tt38673337",
+    "rating": 8.2,
+    "votes": 31
+   },
+   "rt": null
+  },
+  {
+   "id": "wildwood",
+   "title": "Wildwood",
+   "url": "https://www.nfkino.no/film/wildwood?city=drammen",
+   "len": 130,
+   "age": "12 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002807-1000035366.jpg?itok=-4Q1BWoG",
+   "shows": [
+    {
+     "d": "2026-11-24",
+     "t": "15:30",
+     "room": "Sal 2",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/bf11ca7e-f479-4242-9324-58d664a47f50",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-25",
+     "t": "11:30",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/e44471e7-58c0-4d38-addf-b6796aeb3ca5",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "15:30",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/d084b8d5-5d78-429b-b6d6-72d35a8902fd",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-28",
+     "t": "13:10",
+     "room": "Sal 2",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b74555b0-0873-4d64-903c-38daf99451ce",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "15:45",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b67d3048-c7a2-4cda-8b13-2dff10d7c79e",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "15:40",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/88aa86b9-77f3-4ccb-9cb2-cf1039512842",
+     "avail": "many"
+    }
+   ],
+   "lastAny": "2026-12-02",
+   "endsSoon": null,
+   "genre": [
+    "Animation",
+    "Familiefilm",
+    "Fantasy"
+   ],
+   "orig": "Wildwood",
+   "director": "Travis Knight",
+   "actors": [
+    "Carey Mulligan",
+    "LeeJacob Tremblay",
+    "Peyton Elizabeth"
+   ],
+   "lang": "EN",
+   "about": null,
+   "plot": "Når lillebroren hennes blir bortført av en flokk kråker, legger tenåringen Prue McKeel ut på et desperat redningsoppdrag i en skog som skjuler seg like utenfor Portland i Oregon. Sammen med den klønete, men lojale klassekameraten Curtis Mehlberg, må Prue finne veien gjennom en verden fylt med snakkende dyr, banditter og mektige skikkelser. Når de oppdager at hele skogen er truet, må Prue finne motet hun trenger for å redde både lillebroren og Wildwood.",
+   "premiere": "30 oktober",
+   "imdb": {
+    "id": "tt2056785",
+    "rating": 8.6,
+    "votes": 33208
+   },
+   "rt": {
+    "url": "https://www.rottentomatoes.com/m/wildwood",
+    "critics": 97,
+    "criticsCount": 191,
+    "audience": 96,
+    "audienceCount": "2,500+ Verified Ratings"
+   }
+  },
+  {
+   "id": "testvisning-0",
+   "title": "Testvisning",
+   "url": "https://www.nfkino.no/film/testvisning-0?city=drammen",
+   "len": 100,
+   "age": "Alle",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/media-images/2026-07/gmnt-3027f812b8-26-vst-6a4cf469c0523.jpeg?itok=39OQkPh7",
+   "shows": [
+    {
+     "d": "2026-11-24",
+     "t": "16:00",
+     "room": "Sal 3",
+     "tags": [
+      "Eventer"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/11f446e1-3038-4261-82a9-79485b48b75c",
+     "avail": null
+    }
+   ],
+   "lastAny": "2026-11-24",
+   "endsSoon": "2026-11-24",
+   "genre": [],
+   "orig": null,
+   "director": null,
+   "actors": [],
+   "lang": null,
+   "about": null,
+   "plot": null,
+   "premiere": "4 november",
+   "imdb": null,
+   "rt": null
   },
   {
    "id": "you-can-see-everything",
@@ -1449,28 +2473,6 @@
    "age": "Alle",
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003489-1000036510.jpg?itok=TYNnM_Q0",
    "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "17:30",
-     "room": "Sal 4",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/3771d70b-fd17-4ddc-bc4c-2c5b27974389",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "16:30",
-     "room": "Sal 6",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/1c5556da-2857-4994-93c5-6234a10e1ffe",
-     "avail": "many"
-    },
     {
      "d": "2026-11-24",
      "t": "16:00",
@@ -1548,9 +2550,88 @@
      ],
      "url": "https://www.nfkino.no/screening/2605/45d76ce2-4d0f-4fba-bfb0-881095ea83cd",
      "avail": "many"
+    },
+    {
+     "d": "2026-11-29",
+     "t": "20:00",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Drammen kino 25 år"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/30ba1936-d8b5-4500-9da1-95cd6e5131c4",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "11:30",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/dc85c89e-9576-4923-afef-90ee8c3e0349",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "16:20",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/11c4103d-bff8-48f0-8d5e-28582961d534",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "19:50",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/42f6e7f5-4640-4662-8710-4678eac077ca",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "19:30",
+     "room": "Sal 4",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/f19f0c10-910c-4a9d-b319-f77e4916c359",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "19:50",
+     "room": "Sal 4",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/cb0644d6-b6f5-401c-8fb2-d758c8bc4d85",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "19:50",
+     "room": "Sal 4",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/08c49afe-98c3-4b2b-b2a6-60b0bffe553f",
+     "avail": "many"
     }
    ],
-   "lastAny": "2026-11-28",
+   "lastAny": "2026-12-03",
    "endsSoon": null,
    "genre": [
     "Biografi",
@@ -1570,481 +2651,240 @@
    "imdb": {
     "id": "tt45368240",
     "rating": 9.0,
-    "votes": 40300
+    "votes": 42246
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/you_can_see_everything",
     "critics": 97,
-    "criticsCount": 246,
+    "criticsCount": 248,
     "audience": 95,
     "audienceCount": "2,500+ Verified Ratings"
    }
   },
   {
-   "id": "pensjonskuppet",
-   "title": "Pensjonskuppet",
-   "url": "https://www.nfkino.no/film/pensjonskuppet?city=drammen",
-   "len": 110,
-   "age": "9 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000896-1000035783.jpg?itok=oyM19_YM",
+   "id": "ebenezer",
+   "title": "Ebenezer",
+   "url": "https://www.nfkino.no/film/ebenezer?city=drammen",
+   "len": 115,
+   "age": "12 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002085-1000034652.jpg?itok=0aJSEiwv",
    "shows": [
     {
-     "d": "2026-11-22",
-     "t": "18:00",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/6543b531-467c-4b2e-8987-218f6a2afda8",
-     "avail": null
-    },
-    {
-     "d": "2026-11-22",
-     "t": "20:35",
-     "room": "Sal 6",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e4487f95-a6a1-46ce-bfbf-b2b67166e3dd",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/477af592-b407-4b14-8ffa-c8c4ee7ff9a8",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "18:20",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/84033c44-6e29-46b2-ab74-3c2b8064f480",
-     "avail": "many"
-    },
-    {
      "d": "2026-11-24",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/3b60db6c-a0d6-45b8-a45c-5999d95025a9",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "18:20",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/371cc31b-3d38-44fc-9c38-c787fb1be6c9",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/6a058eae-e218-49e7-8ab1-ab458fdd6104",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "18:00",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/355e8987-0b85-46b7-a962-971abf174e72",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "20:50",
+     "t": "17:30",
      "room": "Sal 4",
      "tags": [
-      "Norsk tale",
+      "Eng. tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/aa7ed27f-d6b4-4bcd-a763-36ae1ef411d1",
+     "url": "https://www.nfkino.no/screening/2605/24bc4bf3-5c1b-454a-84ca-a63d234f2329",
      "avail": "many"
     },
     {
-     "d": "2026-11-26",
-     "t": "11:30",
+     "d": "2026-11-25",
+     "t": "21:00",
      "room": "Sal 1",
      "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b1fb2492-1615-4b24-9b10-f59b66806896",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-26",
-     "t": "16:00",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
+      "Eng. tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/cb18b160-81de-4850-8782-76518b71b73b",
+     "url": "https://www.nfkino.no/screening/2605/4748d669-0735-4058-96cb-dd424371c338",
      "avail": "many"
     },
     {
      "d": "2026-11-26",
+     "t": "18:20",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/0ce0dc64-782f-474b-b19c-97392ccca594",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-26",
+     "t": "21:00",
+     "room": "Sal 4",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/444cbbe3-6163-48dd-b3b5-543252f2fc90",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-27",
      "t": "18:30",
-     "room": "Sal 2",
+     "room": "Sal 6",
      "tags": [
-      "Norsk tale",
+      "Eng. tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/da290f07-f945-4e6f-88eb-10f7eb02bd97",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-27",
-     "t": "11:30",
-     "room": "Sal 1",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/46d5f7ac-c834-4bdc-925a-e549e622b649",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-27",
-     "t": "16:00",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/2ef885d1-4edf-4e13-8bf2-79a1e166e1b8",
+     "url": "https://www.nfkino.no/screening/2605/88cbec0a-f9a0-4318-b594-4a4087015fc3",
      "avail": "many"
     },
     {
      "d": "2026-11-28",
-     "t": "18:30",
-     "room": "Sal 2",
+     "t": "20:45",
+     "room": "Sal 3",
      "tags": [
-      "Norsk tale",
+      "Eng. tale",
       "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/645956ad-0975-49dd-8087-51f6ff2e9824",
+     "url": "https://www.nfkino.no/screening/2605/93863ab5-08be-470c-98fb-a6096f10325c",
      "avail": "many"
     },
     {
      "d": "2026-11-29",
-     "t": "18:30",
-     "room": "Sal 2",
+     "t": "17:30",
+     "room": "Sal 6",
      "tags": [
-      "Norsk tale",
+      "Eng. tale",
       "Norsk tekst",
       "Drammen kino 25 år"
      ],
-     "url": "https://www.nfkino.no/screening/2605/a38cf9c2-33ce-4470-ac40-71d022c84798",
+     "url": "https://www.nfkino.no/screening/2605/f5291a34-20fc-447e-8be7-162adfccf39f",
      "avail": "many"
     },
     {
-     "d": "2026-12-05",
-     "t": "18:00",
-     "room": "Sal 2",
+     "d": "2026-11-30",
+     "t": "18:10",
+     "room": "Sal 4",
      "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinofest"
+      "Eng. tale",
+      "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/59ba7184-2ac0-46cb-afd1-5e7f1a30b0e0",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-12-05",
-   "endsSoon": null,
-   "genre": [
-    "Action",
-    "Komedie"
-   ],
-   "orig": "Pensjonskuppet",
-   "director": "Gunnbjörg Gunnarsdottir",
-   "actors": [
-    "Per Kjerstad",
-    "Anette Hoff",
-    "Charlotte Frogner",
-    "Vivild Falck Berg",
-    "Hege Schøyen",
-    "Bente Børsum"
-   ],
-   "lang": "NO",
-   "about": "Årets villeste komedie!",
-   "plot": "Etter 40 år med støvtørking og lojalitet, får Annema (65) takken: sparken som kone. Ektemannen Arne har funnet en yngre modell og kaster henne på dør. Sammen med Nina, som er «for gammel» for arbeidslivet, og Mona, som er for blakk til å overleve, bestemmer trioen seg for å pensjonere seg fra lovlydigheten. De planlegger et umulig kupp: å rane selveste Oljefondet. En ellevill komedie om en høyst uoffisiell, men velfortjent, førtidspensjon.",
-   "premiere": "16 oktober",
-   "imdb": {
-    "id": "tt39453840",
-    "rating": 7.1,
-    "votes": 153
-   },
-   "rt": null
-  },
-  {
-   "id": "instruktorius",
-   "title": "Instruktorius",
-   "url": "https://www.nfkino.no/film/instruktorius?city=drammen",
-   "len": 90,
-   "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003434-1000034481.png?itok=2PP7xxRd",
-   "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "18:50",
-     "room": "Sal 2",
-     "tags": [
-      "LT",
-      "Eng. tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/d85a6d42-0f60-4e11-aeb1-c7dea2f1c991",
+     "url": "https://www.nfkino.no/screening/2605/bbf6f358-caf9-44a3-8dfd-dab90327d8d8",
      "avail": "many"
     },
     {
-     "d": "2026-11-23",
-     "t": "21:00",
-     "room": "Sal 1",
-     "tags": [
-      "LT",
-      "Eng. tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b7e1683e-66eb-41df-aff5-e85507b61f22",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-23",
-   "endsSoon": "2026-11-23",
-   "genre": [
-    "Komedie"
-   ],
-   "orig": "Instruktorius",
-   "director": "Robertas Kuliūnas",
-   "actors": [
-    "Gytis Pintulis",
-    "Konstantinas Kučko",
-    "Justinas Jankevičius",
-    "Dovydas Stončius",
-    "Indrė Endriukaitė",
-    "Ramūnas Rudokas"
-   ],
-   "lang": "LT",
-   "about": "Det er vanskelig å få førerkortet. Enda vanskeligere er det å beholde nervene!",
-   "plot": "«Instruktorius» er en komedie skrevet av Dominykas Klajumas og Benas Lastauskas, i Hollywood-stil og uten det typiske preget man ofte forbinder med litauisk film. Martynas (Justinas Jankevičius) er en arrogant, men godhjertet mann fra Vilnius som på grunn av dumdristighet og overmot mister førerkortet. Han tar ikke saken særlig alvorlig og klarer nok en gang å gjøre sin gravide forlovede sint. Hun forlater ham og reiser hjem til foreldrene sine. I et forsøk på å vinne henne tilbake legger Martynas ut på det som i utgangspunktet virker som en ganske ordinær reise for å få tilbake førerkortet. Underveis møter han Instruktøren (Dominykas Klajumas) – en svært spesiell kjørelærer fra en minst like spesiell kjøreskole. For Martynas blir veien tilbake til førerkortet hans største utfordring i livet, styrt av den mildt sagt sprø Instruktøren. Han får Martynas til å gråte, le og rødme av skam – men også til å innse én sannhet: Det er vanskelig å få førerkortet. Enda vanskeligere er det å beholde nervene!",
-   "premiere": "20 november",
-   "imdb": {
-    "id": "tt46619473",
-    "rating": 6.3,
-    "votes": 205
-   },
-   "rt": null
-  },
-  {
-   "id": "hope",
-   "title": "Hope",
-   "url": "https://www.nfkino.no/film/hope?city=drammen",
-   "len": 160,
-   "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003042-1000036511.jpg?itok=AxftJ9eJ",
-   "shows": [
-    {
-     "d": "2026-11-22",
-     "t": "20:00",
-     "room": "Sal 5",
-     "tags": [
-      "KO",
-      "Eng. tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/bc7894d1-fe2a-4a29-bc85-1a060fa76a90",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-23",
-     "t": "20:10",
+     "d": "2026-12-01",
+     "t": "18:30",
      "room": "Sal 6",
      "tags": [
-      "KO",
-      "Eng. tekst"
+      "Eng. tale",
+      "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/932bb7fd-48fa-4aa0-aef0-523c6e18ad4e",
+     "url": "https://www.nfkino.no/screening/2605/a52367ba-1ddc-49fd-8d88-28b1a4e31507",
      "avail": "many"
     },
     {
-     "d": "2026-11-27",
-     "t": "20:15",
+     "d": "2026-12-02",
+     "t": "18:30",
      "room": "Sal 5",
      "tags": [
-      "KO",
-      "Eng. tekst"
+      "Eng. tale",
+      "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/582e9327-b2c4-481a-83bc-dc0ca6d95af8",
+     "url": "https://www.nfkino.no/screening/2605/73c6da7b-66e7-40a7-970b-eee6cf662881",
      "avail": "many"
     },
     {
-     "d": "2026-11-28",
-     "t": "20:20",
+     "d": "2026-12-03",
+     "t": "18:15",
      "room": "Sal 5",
      "tags": [
-      "KO",
-      "Eng. tekst"
+      "Eng. tale",
+      "Norsk tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/2e2210d2-7e27-46de-9efb-484e5c4c36b0",
+     "url": "https://www.nfkino.no/screening/2605/9f2f3105-11d1-40a4-8327-cf231810f1fa",
      "avail": "many"
     }
    ],
-   "lastAny": "2026-11-28",
+   "lastAny": "2026-12-03",
    "endsSoon": null,
    "genre": [
-    "Action",
-    "Sci-Fi",
-    "Thriller"
+    "Drama",
+    "Sort komedie",
+    "Fantasy"
    ],
-   "orig": "Hopeu",
-   "director": "Na Hong-jin",
+   "orig": "Ebenezer",
+   "director": "Ti West",
    "actors": [
-    "Michael Fassbender",
-    "Alicia Vikander",
-    "Zo In-sung",
-    "Hoyeon",
-    "Taylor Russell",
-    "Hwang jung-min"
+    "Andrea Riseborough",
+    "Johnny Depp",
+    "Daisy Ridley",
+    "Tramell Tillman",
+    "Rubert Grint",
+    "Ian McKellen"
    ],
-   "lang": "KO",
-   "about": null,
-   "plot": "Et mystisk funn i utkanten av en avsidesliggende havneby setter innbyggerne i en desperat kamp for å overleve – mot noe de aldri før har møtt.",
-   "premiere": "20 november",
+   "lang": "EN",
+   "about": "En tolkning av Charles Dickens' klassiske eventyr",
+   "plot": "En spennende spøkelseshistorie basert på Charles Dickens' klassiske julefortelling om Ebenezer Scrooge. Johnny Depp gjør comeback i rollen som den sure og gniene Scrooge, hvis uskikkelige atferd blir konfrontert av tre spøkelser som representerer hans fortid, nåtid og fremtid.",
+   "premiere": "13 november",
    "imdb": {
-    "id": "tt27369017",
-    "rating": 6.5,
-    "votes": 36205
+    "id": "tt38773219",
+    "rating": 7.2,
+    "votes": 12879
    },
    "rt": {
-    "url": "https://www.rottentomatoes.com/m/hope_2026",
-    "critics": 80,
-    "criticsCount": 190,
-    "audience": 77,
+    "url": "https://www.rottentomatoes.com/m/ebenezer_2026",
+    "critics": 54,
+    "criticsCount": 156,
+    "audience": 90,
     "audienceCount": "1,000+ Verified Ratings"
    }
   },
   {
-   "id": "nightborn",
-   "title": "Nightborn",
-   "url": "https://www.nfkino.no/film/nightborn?city=drammen",
-   "len": 92,
-   "age": "15 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002904-1000031017.jpg?itok=hZN-7rkk",
+   "id": "hadoota",
+   "title": "HADOOTA",
+   "url": "https://www.nfkino.no/film/hadoota?city=drammen",
+   "len": 120,
+   "age": "12 år",
+   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/media-images/2026-11/gmnt-f15839c9c4-176680-vst-6aec8ad0ca954.jpeg?itok=il3GTyh4",
    "shows": [
     {
-     "d": "2026-11-22",
-     "t": "21:00",
+     "d": "2026-11-24",
+     "t": "20:50",
      "room": "Sal 2",
      "tags": [
-      "FI",
-      "Norsk tekst"
+      "AR",
+      "Eng. tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/680b67a3-dbd4-4022-b91c-15dd452f4770",
+     "url": "https://www.nfkino.no/screening/2605/d8619c21-921c-4580-a624-84aa34224409",
      "avail": "many"
     },
     {
-     "d": "2026-11-23",
-     "t": "21:10",
+     "d": "2026-12-03",
+     "t": "20:50",
      "room": "Sal 5",
      "tags": [
-      "FI",
-      "Norsk tekst"
+      "AR",
+      "Eng. tekst"
      ],
-     "url": "https://www.nfkino.no/screening/2605/575fe610-1128-4086-801d-659fabbc86f7",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "21:15",
-     "room": "Sal 5",
-     "tags": [
-      "FI",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/47b13df2-468e-4d9f-ba05-0c3000e87371",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "15:45",
-     "room": "Sal 3",
-     "tags": [
-      "FI",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b525e07d-0c64-424b-9097-733eeb41ad12",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-26",
-     "t": "15:30",
-     "room": "Sal 6",
-     "tags": [
-      "FI",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/a79d9444-dc57-4e07-9e0d-3b6d2c45e389",
+     "url": "https://www.nfkino.no/screening/2605/2b6341e3-4f55-479c-9fbc-112f43457d71",
      "avail": "many"
     }
    ],
-   "lastAny": "2026-11-26",
+   "lastAny": "2026-12-03",
    "endsSoon": null,
-   "genre": [
-    "Thriller",
-    "Horror"
-   ],
-   "orig": "Yön Lapsi",
-   "director": "Hanna Bergholm",
+   "genre": [],
+   "orig": "HADOOTA",
+   "director": "Mazen Ashraf",
    "actors": [
-    "Rubert Grint",
-    "Seidi Haarla"
+    "Rahma Ahmed Farag",
+    "Khaled El Sawy",
+    "Majed El Masry",
+    "Ahmed Helmy",
+    "Amina Khalil",
+    "Mohamed Abd El Azim"
    ],
-   "lang": "FI",
+   "lang": null,
    "about": null,
-   "plot": null,
-   "premiere": "20 november",
+   "plot": "Hadoota (Ahmed Helmy), a 40-year-old thug, can’t remember the hiding place of a witness he kidnapped. He resorts to a hypnosis therapist (Amina Khalil) to retrieve this missing information. But, in order to restore his memory, he needs to confront old enemies, past events, and most importantly… himself.",
+   "premiere": "12 november",
    "imdb": {
-    "id": "tt34383465",
-    "rating": 5.6,
-    "votes": 3971
+    "id": "tt43638234",
+    "rating": 8.1,
+    "votes": 864
    },
    "rt": {
-    "url": "https://www.rottentomatoes.com/m/nightborn",
-    "critics": 72,
-    "criticsCount": 67,
-    "audience": 29,
-    "audienceCount": "50+ Ratings"
+    "url": "https://www.rottentomatoes.com/m/hadoota",
+    "critics": null,
+    "criticsCount": 0,
+    "audience": null,
+    "audienceCount": "Fewer than 50 Ratings"
    }
   },
   {
@@ -2056,17 +2896,6 @@
    "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100003305-1000034515.jpg?itok=W6eZ0mC1",
    "shows": [
     {
-     "d": "2026-11-22",
-     "t": "21:10",
-     "room": "Sal 4",
-     "tags": [
-      "Eng. tale",
-      "Utekstet"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/eeab7a2b-6d82-4591-ae10-9c5edf23d661",
-     "avail": "many"
-    },
-    {
      "d": "2026-11-24",
      "t": "20:50",
      "room": "Sal 1",
@@ -2076,10 +2905,21 @@
      ],
      "url": "https://www.nfkino.no/screening/2605/7b258472-f533-4813-9576-eab166baef0b",
      "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "21:00",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Utekstet"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/68c81c45-526e-42c0-9ab5-3dce353fa232",
+     "avail": "many"
     }
    ],
-   "lastAny": "2026-11-24",
-   "endsSoon": "2026-11-24",
+   "lastAny": "2026-12-02",
+   "endsSoon": null,
    "genre": [
     "Drama"
    ],
@@ -2097,7 +2937,7 @@
    "imdb": {
     "id": "tt34206385",
     "rating": 6.8,
-    "votes": 49199
+    "votes": 50004
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/primetime",
@@ -2106,370 +2946,6 @@
     "audience": 78,
     "audienceCount": "2,500+ Verified Ratings"
    }
-  },
-  {
-   "id": "mysteriepakken",
-   "title": "Mysteriepakken",
-   "url": "https://www.nfkino.no/film/mysteriepakken?city=drammen",
-   "len": 80,
-   "age": "TBC",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100000817-1000034711.png?itok=k5Stjdrr",
-   "shows": [
-    {
-     "d": "2026-11-23",
-     "t": "15:30",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/aa7b63a7-00bb-457d-a6f0-2b9360e721b9",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "15:30",
-     "room": "Sal 4",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/1805a5ec-4808-4604-a3e7-7c164f91af24",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-27",
-     "t": "14:35",
-     "room": "Sal 2",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/481e255a-71d3-4ba2-a5a9-7f676ab5069c",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "15:00",
-     "room": "Sal 5",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/cd9de048-b314-4d08-8a8c-c5d503c860be",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-29",
-     "t": "11:20",
-     "room": "Sal 3",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Drammen kino 25 år"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/d5223a73-a1a4-4b5f-8c00-7627c0164eb3",
-     "avail": "many"
-    },
-    {
-     "d": "2026-12-05",
-     "t": "14:05",
-     "room": "Sal 5",
-     "tags": [
-      "Norsk tale",
-      "Norsk tekst",
-      "Kinofest"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/712ffd9c-5a19-4421-9eb3-2912e6da9049",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-12-05",
-   "endsSoon": null,
-   "genre": [],
-   "orig": "Mysteriepakken",
-   "director": null,
-   "actors": [],
-   "lang": null,
-   "about": null,
-   "plot": "Hvert år dukker det opp en gave hos søsknene Edle og Brage. Avsenderen er hemmelig og pakken er sendt fra Arendal. Nå vil de finne ut hvem som står bak. Jakten på avsenderen blir en varm og nysgjerrig dokumentar om familie, tradisjoner og små mysterier som binder mennesker sammen.",
-   "premiere": "16 oktober",
-   "imdb": {
-    "id": "tt38673337",
-    "rating": 8.2,
-    "votes": 31
-   },
-   "rt": null
-  },
-  {
-   "id": "no-good-men",
-   "title": "No Good Men",
-   "url": "https://www.nfkino.no/film/no-good-men?city=drammen",
-   "len": 104,
-   "age": "TBC",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002248-1000036495.jpg?itok=zxmeDNxk",
-   "shows": [
-    {
-     "d": "2026-11-23",
-     "t": "15:30",
-     "room": "Sal 5",
-     "tags": [
-      "AR",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/2aa35145-eee3-46b3-ba25-8d28eb03eb57",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "AR",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/67095250-32d1-4eee-bd57-44daf10857bf",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "15:30",
-     "room": "Sal 2",
-     "tags": [
-      "AR",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/fc8c8ed9-bec6-424f-a6f4-9a83ae66d567",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-25",
-   "endsSoon": "2026-11-25",
-   "genre": [
-    "Komedie",
-    "Romantikk",
-    "Drama"
-   ],
-   "orig": "No Good Men",
-   "director": "Shahrbanoo Sadat",
-   "actors": [
-    "Naru Anwar Hashimi",
-    "Anita Fatima Hassani",
-    "Layla Ahmad Azizi",
-    "Qodrat Liam Hussaini",
-    "Shahrbanoo Sadat",
-    "Torkan Omari"
-   ],
-   "lang": null,
-   "about": "Åpningsfilmen på Berlinalen - en av verdens største og viktigste filmfestivaler. Norsk coproduksjon.",
-   "plot": "No Good Men er en varm, modig og tilgjengelig film om kjærlighet, mot og håp under ekstreme omstendigheter. Handlingen er lagt til Kabul i 2021, i dagene før Taliban tar makten. Vi følger Naru byens eneste kvinnelige videojournalist på en stor TV-stasjon – som kjemper for å beholde omsorgen for sin tre år gamle sønn etter å ha forlatt sin utro ektemann. Hun har mistet all tro på menn, helt til hun møter stjernereporteren Qodrat. Mens de dekker de siste dagene med frihet i byen, begynner et uventet og håpefullt forhold å vokse frem.",
-   "premiere": "20 november",
-   "imdb": {
-    "id": "tt13868840",
-    "rating": 7.4,
-    "votes": 725
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/no_good_men",
-    "critics": 60,
-    "criticsCount": 10,
-    "audience": null,
-    "audienceCount": "0 Ratings"
-   }
-  },
-  {
-   "id": "wildwood",
-   "title": "Wildwood",
-   "url": "https://www.nfkino.no/film/wildwood?city=drammen",
-   "len": 130,
-   "age": "12 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002807-1000035366.jpg?itok=-4Q1BWoG",
-   "shows": [
-    {
-     "d": "2026-11-23",
-     "t": "15:30",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/72dc94e3-b49d-4c96-b763-ba2dc262d655",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-24",
-     "t": "15:30",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/bf11ca7e-f479-4242-9324-58d664a47f50",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-25",
-     "t": "11:30",
-     "room": "Sal 6",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst",
-      "Seniorkino"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/e44471e7-58c0-4d38-addf-b6796aeb3ca5",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-26",
-     "t": "15:30",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/d084b8d5-5d78-429b-b6d6-72d35a8902fd",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-28",
-     "t": "13:10",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/b74555b0-0873-4d64-903c-38daf99451ce",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-28",
-   "endsSoon": null,
-   "genre": [
-    "Animation",
-    "Familiefilm",
-    "Fantasy"
-   ],
-   "orig": "Wildwood",
-   "director": "Travis Knight",
-   "actors": [
-    "Carey Mulligan",
-    "LeeJacob Tremblay",
-    "Peyton Elizabeth"
-   ],
-   "lang": "EN",
-   "about": null,
-   "plot": "Når lillebroren hennes blir bortført av en flokk kråker, legger tenåringen Prue McKeel ut på et desperat redningsoppdrag i en skog som skjuler seg like utenfor Portland i Oregon. Sammen med den klønete, men lojale klassekameraten Curtis Mehlberg, må Prue finne veien gjennom en verden fylt med snakkende dyr, banditter og mektige skikkelser. Når de oppdager at hele skogen er truet, må Prue finne motet hun trenger for å redde både lillebroren og Wildwood.",
-   "premiere": "30 oktober",
-   "imdb": {
-    "id": "tt2056785",
-    "rating": 8.6,
-    "votes": 32669
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/wildwood",
-    "critics": 97,
-    "criticsCount": 191,
-    "audience": 96,
-    "audienceCount": "2,500+ Verified Ratings"
-   }
-  },
-  {
-   "id": "how-rob-bank",
-   "title": "How to Rob a Bank",
-   "url": "https://www.nfkino.no/film/how-rob-bank?city=drammen",
-   "len": 122,
-   "age": "12 år",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/movie-posters/poster-100002675-1000032930.jpg?itok=8Vv9A2x7",
-   "shows": [
-    {
-     "d": "2026-11-23",
-     "t": "20:50",
-     "room": "Sal 2",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/67c936fd-72b2-4d01-8bfc-bba7dae6e246",
-     "avail": "many"
-    },
-    {
-     "d": "2026-11-26",
-     "t": "20:50",
-     "room": "Sal 5",
-     "tags": [
-      "Eng. tale",
-      "Norsk tekst"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/319035f4-2f67-48e5-a4ec-457641f48ba0",
-     "avail": "many"
-    }
-   ],
-   "lastAny": "2026-11-26",
-   "endsSoon": null,
-   "genre": [
-    "Action",
-    "Krim",
-    "Thriller"
-   ],
-   "orig": "How to Rob a Bank",
-   "director": "David Leitch",
-   "actors": [
-    "Nicholas Hoult",
-    "Pete Davidson",
-    "Zoë Kravitz",
-    "Tati Gabrielle",
-    "Anna Sawai",
-    "John C. Reilly"
-   ],
-   "lang": "EN",
-   "about": null,
-   "plot": "I How to Rob a Bank publiserer en gjeng sosiale medier-kyndige bankranere sine dristige kupp på nettet, uten å innse at den voksende virale berømmelsen deres har satt dem i søkelyset til en erfaren FBI-agent og en briljant programvareingeniør. Til tross for at den usannsynlige duoen stadig kommer nærmere, fortsetter ranerne å tøye grensene og setter alt på spill for sine overbevisninger – og for sitt mest ambisiøse kupp noensinne.",
-   "premiere": "13 november",
-   "imdb": {
-    "id": "tt35866986",
-    "rating": 6.5,
-    "votes": 4567
-   },
-   "rt": {
-    "url": "https://www.rottentomatoes.com/m/how_to_rob_a_bank_2026",
-    "critics": 38,
-    "criticsCount": 120,
-    "audience": 81,
-    "audienceCount": "500+ Verified Ratings"
-   }
-  },
-  {
-   "id": "testvisning-0",
-   "title": "Testvisning",
-   "url": "https://www.nfkino.no/film/testvisning-0?city=drammen",
-   "len": 100,
-   "age": "Alle",
-   "poster": "https://www.nfkino.no/sites/nfkino.no/files/styles/movie_poster_teaser/public/media-images/2026-07/gmnt-3027f812b8-26-vst-6a4cf469c0523.jpeg?itok=39OQkPh7",
-   "shows": [
-    {
-     "d": "2026-11-24",
-     "t": "16:00",
-     "room": "Sal 3",
-     "tags": [
-      "Eventer"
-     ],
-     "url": "https://www.nfkino.no/screening/2605/11f446e1-3038-4261-82a9-79485b48b75c",
-     "avail": null
-    }
-   ],
-   "lastAny": "2026-11-24",
-   "endsSoon": "2026-11-24",
-   "genre": [],
-   "orig": null,
-   "director": null,
-   "actors": [],
-   "lang": null,
-   "about": null,
-   "plot": null,
-   "premiere": "4 november",
-   "imdb": null,
-   "rt": null
   },
   {
    "id": "cinema-paradiso-0",
@@ -2539,7 +3015,7 @@
    "imdb": {
     "id": "tt0095765",
     "rating": 8.5,
-    "votes": 323173
+    "votes": 323203
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/cinema_paradiso",
@@ -2591,7 +3067,7 @@
    "imdb": {
     "id": "tt32429174",
     "rating": 7.1,
-    "votes": 2710
+    "votes": 2716
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/calle_malaga",
@@ -2639,8 +3115,8 @@
    "premiere": "20 november",
    "imdb": {
     "id": "tt35571123",
-    "rating": 6.5,
-    "votes": 57
+    "rating": 6.6,
+    "votes": 63
    },
    "rt": null
   },
@@ -2725,6 +3201,80 @@
      "avail": "many"
     },
     {
+     "d": "2026-11-30",
+     "t": "20:45",
+     "room": "Sal 4",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/ae7188bc-451f-4029-a27c-b9fd8a869336",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "11:30",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Seniorkino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/40ae88a0-ca8f-4a80-ae9c-cec2de0e2705",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "20:25",
+     "room": "Sal 3",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/d5f8de26-6f5f-491e-b9fd-7c96f3677598",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "17:25",
+     "room": "Sal 4",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Ladies Night",
+      "18år",
+      "BAR åpen"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/3b99c97e-129d-46b7-af7c-90474336d3d5",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "12:00",
+     "room": "Sal 5",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Babykino"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/13349f18-ea5a-41bd-afa7-cd579856a17d",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "17:25",
+     "room": "Sal 4",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst",
+      "Ladies Night",
+      "18år",
+      "BAR åpen"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/8928fd68-8f52-451e-8a7e-c0a87092bff5",
+     "avail": "many"
+    },
+    {
      "d": "2026-12-05",
      "t": "18:00",
      "room": "Sal 3",
@@ -2764,7 +3314,7 @@
    "rt": {
     "url": "https://www.rottentomatoes.com/m/focker_in_law",
     "critics": null,
-    "criticsCount": 0,
+    "criticsCount": 1,
     "audience": null,
     "audienceCount": "0 Verified Ratings"
    }
@@ -2831,6 +3381,54 @@
       "Drammen kino 25 år"
      ],
      "url": "https://www.nfkino.no/screening/2605/382e0e99-7b6c-493f-83d2-e9e47045f3a7",
+     "avail": "many"
+    },
+    {
+     "d": "2026-11-30",
+     "t": "16:30",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Familiefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/28caa23e-5c33-4784-91f1-cbf57856e332",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "15:30",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Familiefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/ee3ca013-25fa-4afe-ae8f-898e4b6ed393",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "15:50",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Familiefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/4856aa5c-cd93-4684-9728-415be51b9599",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "15:45",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tale",
+      "Norsk tekst",
+      "Familiefilm"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/559df155-f9ff-4cde-a525-b30a14083d09",
      "avail": "many"
     },
     {
@@ -2931,9 +3529,20 @@
      ],
      "url": "https://www.nfkino.no/screening/2605/ad073cc8-b28c-4187-b47e-c6115545f8e9",
      "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "16:00",
+     "room": "Sal 2",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/9e4927e5-5e50-47ed-aa49-7d844ea73e22",
+     "avail": "many"
     }
    ],
-   "lastAny": "2026-11-29",
+   "lastAny": "2026-12-01",
    "endsSoon": null,
    "genre": [
     "Horror",
@@ -2956,7 +3565,7 @@
    "imdb": {
     "id": "tt37281055",
     "rating": 6.6,
-    "votes": 26370
+    "votes": 26556
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/buddy_2026",
@@ -3006,6 +3615,46 @@
      "avail": "many"
     },
     {
+     "d": "2026-11-30",
+     "t": "20:25",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c52654c1-4b37-4f24-a52d-f972467e59ae",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-01",
+     "t": "20:45",
+     "room": "Sal 5",
+     "tags": [
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/c0602625-3a3c-4c38-befd-4a69835ee575",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-02",
+     "t": "20:35",
+     "room": "Sal 3",
+     "tags": [
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/9316d2dd-47f7-4eba-a3b1-1db99d19e826",
+     "avail": "many"
+    },
+    {
+     "d": "2026-12-03",
+     "t": "21:00",
+     "room": "Sal 2",
+     "tags": [
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/b89b325a-1ea0-4f48-8c7b-291d02ba23c9",
+     "avail": "many"
+    },
+    {
      "d": "2026-12-05",
      "t": "15:25",
      "room": "Sal 6",
@@ -3034,12 +3683,12 @@
    "imdb": {
     "id": "tt34385689",
     "rating": 6.9,
-    "votes": 1807
+    "votes": 1896
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/paper_tiger",
     "critics": 87,
-    "criticsCount": 138,
+    "criticsCount": 140,
     "audience": null,
     "audienceCount": "Fewer than 50 Verified Ratings"
    }
@@ -3087,6 +3736,17 @@
      "avail": "many"
     },
     {
+     "d": "2026-12-01",
+     "t": "21:00",
+     "room": "Sal 6",
+     "tags": [
+      "Eng. tale",
+      "Norsk tekst"
+     ],
+     "url": "https://www.nfkino.no/screening/2605/2abcee34-1858-4ed4-8557-0f4cb4822c0e",
+     "avail": "many"
+    },
+    {
      "d": "2026-12-05",
      "t": "21:00",
      "room": "Sal 5",
@@ -3123,13 +3783,13 @@
    "imdb": {
     "id": "tt36629665",
     "rating": 4.5,
-    "votes": 5225
+    "votes": 5242
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/her_private_hell",
     "critics": 40,
     "criticsCount": 132,
-    "audience": 35,
+    "audience": 34,
     "audienceCount": "100+ Verified Ratings"
    }
   },
@@ -3182,7 +3842,7 @@
    "imdb": {
     "id": "tt43714599",
     "rating": 6.6,
-    "votes": 24
+    "votes": 25
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/laban-the-little-ghost-spooky-time",
@@ -3282,12 +3942,12 @@
    "imdb": {
     "id": "tt2321555",
     "rating": 6.5,
-    "votes": 2026
+    "votes": 2109
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/the_cat_in_the_hat",
-    "critics": 47,
-    "criticsCount": 70,
+    "critics": 48,
+    "criticsCount": 71,
     "audience": 87,
     "audienceCount": "500+ Verified Ratings"
    }
@@ -3307,8 +3967,8 @@
      "tags": [
       "Norsk tale",
       "Norsk tekst",
-      "Drammen kino 25 år",
-      "Kinostalgi"
+      "Kinostalgi",
+      "Drammen kino 25 år"
      ],
      "url": "https://www.nfkino.no/screening/2605/a23e6811-c6b2-4448-8420-d6f2fb64d8f8",
      "avail": "many"
@@ -3316,13 +3976,13 @@
     {
      "d": "2026-12-01",
      "t": "11:30",
-     "room": "Sal 4",
+     "room": "Sal 2",
      "tags": [
       "Norsk tale",
       "Norsk tekst",
       "Seniorkino"
      ],
-     "url": "https://www.nfkino.no/screening/2605/1278917a-26ac-4b9b-89f8-8d2023960de0",
+     "url": "https://www.nfkino.no/screening/2605/3712f81d-d687-440e-b563-d0c19b338c1e",
      "avail": "many"
     },
     {
@@ -3400,8 +4060,8 @@
    "premiere": "23 oktober",
    "imdb": {
     "id": "tt44766123",
-    "rating": 8.4,
-    "votes": 7851
+    "rating": 8.3,
+    "votes": 7904
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/naza",
@@ -3512,8 +4172,8 @@
      "room": "Sal 3",
      "tags": [
       "Eng. tale",
-      "Drammen kino 25 år",
-      "Kinostalgi"
+      "Kinostalgi",
+      "Drammen kino 25 år"
      ],
      "url": "https://www.nfkino.no/screening/2605/9011b96f-878d-4170-89b9-2e190daafe33",
      "avail": "many"
@@ -3542,7 +4202,7 @@
    "imdb": {
     "id": "tt0095016",
     "rating": 8.2,
-    "votes": 1045485
+    "votes": 1045577
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/die_hard",
@@ -3567,8 +4227,8 @@
      "tags": [
       "Eng. tale",
       "Norsk tekst",
-      "Drammen kino 25 år",
-      "Førpremiere"
+      "Førpremiere",
+      "Drammen kino 25 år"
      ],
      "url": "https://www.nfkino.no/screening/2605/9b9a76d3-79e1-4c9a-969d-bd72e51059a2",
      "avail": "many"
@@ -3610,14 +4270,14 @@
    "imdb": {
     "id": "tt11995650",
     "rating": 8.2,
-    "votes": 7547
+    "votes": 8795
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/i_play_rocky",
     "critics": 89,
-    "criticsCount": 187,
+    "criticsCount": 190,
     "audience": 98,
-    "audienceCount": "500+ Verified Ratings"
+    "audienceCount": "1,000+ Verified Ratings"
    }
   },
   {
@@ -3661,12 +4321,12 @@
    "imdb": {
     "id": "tt38058097",
     "rating": 8.1,
-    "votes": 2883
+    "votes": 3094
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/club_kid",
-    "critics": 99,
-    "criticsCount": 142,
+    "critics": 98,
+    "criticsCount": 145,
     "audience": 97,
     "audienceCount": "100+ Verified Ratings"
    }
@@ -3685,8 +4345,8 @@
      "room": "Sal 4",
      "tags": [
       "Norsk tekst",
-      "Drammen kino 25 år",
-      "Førpremiere"
+      "Førpremiere",
+      "Drammen kino 25 år"
      ],
      "url": "https://www.nfkino.no/screening/2605/6f68360c-5f11-4bb4-b315-2388e3ded5e1",
      "avail": "many"
@@ -3727,7 +4387,7 @@
    "imdb": {
     "id": "tt15799564",
     "rating": 8.1,
-    "votes": 24486
+    "votes": 25684
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/wild_horse_nine",
@@ -3780,7 +4440,7 @@
    "imdb": {
     "id": "tt27988879",
     "rating": 8.2,
-    "votes": 43222
+    "votes": 43846
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/ramayana_rise_of_a_legend",
@@ -3834,7 +4494,7 @@
    "imdb": {
     "id": "tt32261958",
     "rating": 6.0,
-    "votes": 40140
+    "votes": 40589
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/verity",
@@ -3887,7 +4547,7 @@
    "imdb": {
     "id": "tt35485652",
     "rating": 6.4,
-    "votes": 484
+    "votes": 486
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/solomamma",
@@ -3941,7 +4601,7 @@
    "imdb": {
     "id": "tt35410859",
     "rating": 7.6,
-    "votes": 7889
+    "votes": 8059
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/fjord",
@@ -4070,7 +4730,7 @@
    "imdb": {
     "id": "tt0170016",
     "rating": 6.4,
-    "votes": 338241
+    "votes": 338313
    },
    "rt": {
     "url": "https://www.rottentomatoes.com/m/how_the_grinch_stole_christmas",
@@ -4179,7 +4839,11 @@
    "about": "Julen nærmer seg, og med den kommer kaker, småkaker og alle slags søte fristelser – noe Ida (Zofia Jastrzębska) virkelig brenner for. Den unge kvinnen elsker å bake og drømmer om å åpne sitt eget konditori. Når hun møter Piotr (Piotr Stramowski), en kjekk banksjef, aner hun ikke at dette møtet komme",
    "plot": "Julen nærmer seg, og med den kommer kaker, småkaker og alle slags søte fristelser – noe Ida (Zofia Jastrzębska) virkelig brenner for. Den unge kvinnen elsker å bake og drømmer om å åpne sitt eget konditori. Når hun møter Piotr (Piotr Stramowski), en kjekk banksjef, aner hun ikke at dette møtet komme",
    "premiere": "4 desember",
-   "imdb": null,
+   "imdb": {
+    "id": "tt52076144",
+    "rating": null,
+    "votes": null
+   },
    "rt": null
   },
   {
